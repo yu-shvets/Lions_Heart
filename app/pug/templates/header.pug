@@ -1,0 +1,24 @@
+// HEADER
+header.header
+  .container
+    .row
+      .col-md-3
+        // LOGO
+        a(href="#").header__logo
+          img(src="../../img/logo.jpg" alt='logo')
+          img(src="../../img/header-line.png").header__line
+      .col-md-9
+        // NAVIGATION
+        nav.nav
+          ul.nav__list.nav__list_header.align-right
+            li.nav__item.nav__item_inline.nav__item_has-child
+              span.nav__link.nav__link_dark.nav__link_uppercase.header__link коллекции
+              // DROP-DOWN
+              p.nav__arrow &#x25BC;
+              ul.nav__list.nav__list-child.align-center 
+                each child in ['лето','весна']
+                  li.nav__item
+                    a(href="#").nav__link.nav__link_uppercase.nav__link_light.header__link.header__link_child= child
+            each text in [ 'о нас', 'блог', 'контакты', 'уникальные подарки', 'корзина']
+              li.nav__item.nav__item_inline
+                a(href="#").nav__link.nav__link_uppercase.nav__link_dark.header__link= text

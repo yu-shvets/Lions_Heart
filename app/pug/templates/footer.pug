@@ -1,0 +1,22 @@
+footer.footer
+  .container
+    .row
+      .col-md-2
+        // FIRST MENU
+        nav.nav.nav_footer
+          ul.nav__list
+            each item in ['браслеты', 'кольца', 'подвески', 'пряжки', 'цепи']
+              li.nav__item.footer__item
+                a(href="#").nav__link.nav__link_light.nav__link_uppercase.footer__link= item
+      .col-md-2
+        // SECOND MENU
+        nav.nav.nav_footer
+          ul.nav__list
+            each item in ['о нас', 'блог', 'контакты']
+              li.nav__item.footer__item
+                a(href="#").nav__link.nav__link_light.nav__link_capitalize.footer__link= item
+      .col-md-3.col-md-offset-5.align-right
+        //TELL
+        p.footer__subtitle.mt-20 Звоните
+        a(href='tel:+380662223344').footer__tel +38 (066) 222 33 44
+

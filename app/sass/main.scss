@@ -1,0 +1,135 @@
+@import "variables-functions-and-mixins";
+
+::selection { background: rgba($green-color, .5); }
+* { font-family: $Futura-font, Serif; }
+// .container-fluid {max-width: 1920px;}
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+
+@import 'media';
+@import "fonts";
+
+// NAVIGATION STYLE
+.nav {
+  &_footer {
+    padding-top:45px;
+    padding-bottom:50px;
+  }
+  &__list {
+    padding-left:0px;
+    list-style-type:none;
+    &-child {
+      display:none;
+      position:absolute;
+      background-color: rgba($black-color, .6);
+      left:0;
+      top:52px;
+      z-index: 1;
+      padding-top:20px;
+      padding-bottom:20px;
+      right:0;
+      line-height:1.5;
+    }
+  }
+  &__item {
+    &_inline {
+      display:inline-block;
+    }
+    &_has-child {
+      position:relative;
+      cursor:pointer;
+      &:hover > .nav__list-child {
+        display:block;
+      }
+    }
+  }
+  &__arrow {
+    position:absolute;
+    right:0px;
+    top:2px;
+    color:$black-color;
+    font-size:9px;
+  }
+  
+  &__link {
+    position:relative;
+    font-weight:400;
+    &_dark {
+      color: $black-color;
+    }
+    &_light {
+      color: $white-color;
+    }
+    &_uppercase {
+      text-transform: uppercase;
+    }
+    &_capitalize {
+      text-transform: capitalize;
+    }
+  }
+}
+
+// HEADER STYLE
+.header {
+  line-height: 85px;
+  border-bottom:4px solid #cdcdcd;
+  &__logo {
+    position:relative;
+  }
+  &__line {
+    top: 45px;
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: white;
+  }
+  &__link {
+    font-size:20px;
+    padding-left:10px;
+    display:block;
+    padding-right:10px;
+    &_child {
+      padding:0;
+    }
+    .nav__item:first-child &__link {
+      padding-left:0;
+    }
+    .nav__item:last-child &__link{
+      padding-right:0;
+    }
+    &:hover, &:focus, &:link {
+      color: $black-color;
+    }
+  }
+}
+
+// FOOTER STYLE
+.footer {
+  background: linear-gradient(to bottom, #2d2d2d, #0d0d0d);
+  &__link {
+    display:block;
+    font-size:18px;
+    &:hover, &:focus, &:link {
+      color: $white-color;
+    }
+  }
+  &__item {
+    margin-top:20px;
+    &:first-child {
+      margin-top:0;
+    }
+  }
+  &__subtitle {
+    font-size:18px;
+    color:$white-color;
+  }
+  &__tel {
+    font-size:24px;
+    color:$white-color;
+    &:hover, &:link, &:focus {
+      color:$white-color;
+    }
+  }
+}

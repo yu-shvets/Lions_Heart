@@ -1,0 +1,19 @@
+.home {
+  padding-top:30px;
+  padding-bottom:25px;
+  &__box {
+    position:relative;
+    display:block;
+  }
+ 
+  &__title {
+    margin:0;
+    text-align: center;
+    position:absolute;
+    left:0;
+    right:0;
+    top:68px;
+    color:$white-color;
+    text-transform: uppercase;
+  }
+}
