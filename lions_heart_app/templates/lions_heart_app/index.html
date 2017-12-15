@@ -1,0 +1,57 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lion's heart -{% block meta_title %}{% endblock meta_title %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href={% static "main.css" %}>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <h4 class="navbar-text"><a href="{% url 'home' %}">Lion's heart</a></h4>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'catalogue' %}">Коллекции</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="{% url 'blog' %}">Блог</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Уникальные подарки</a></li>
+                <li><a href="{% url 'cart' %}">Корзина</a></li>
+            </ul>
+        </nav>
+
+        {% block content %}
+
+            <p>Collections:</p>
+    {% for collection in collections %}
+
+        <h4><a href="{% url 'catalogue_collection' collection.pk  %}">{{ collection.title }}</a></h4>
+
+    {% endfor %}
+
+
+        <p>Categories:</p>
+    {% for category in categories %}
+
+        <h4><a href="{% url 'catalogue_category' category.pk  %}">{{ category.title }}</a></h4>
+
+    {% endfor %}
+
+        {% endblock content %}
+
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+

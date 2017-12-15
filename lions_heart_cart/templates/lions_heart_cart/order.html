@@ -1,0 +1,23 @@
+{% extends 'lions_heart_app/index.html' %}
+
+{% block content %}
+
+    {% for item in cart %}
+
+            <p>{{ item.item.title }}</p>
+            <p>Цена: {{ item.price }}</p>
+            <p>Количество: {{ item.quantity }}</p>
+
+    {% endfor %}
+
+    <h4>Итого к оплате: {{ cart.get_total_price }}</h4>
+
+    <hr>
+
+    <form method="post" action="{% url 'new_order' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn"/>
+        </form>
+
+{% endblock content %}

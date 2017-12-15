@@ -1,0 +1,24 @@
+{% extends 'lions_heart_app/index.html' %}
+
+{% block content %}
+
+
+
+       <p>{{ item.title }}</p>
+
+    {% for image in item.image_set.all %}
+        <p><img src={{ image.image.url }} /></p>
+    {% endfor %}
+
+        <p>Цена: {{ item.price }}</p>
+       <p>Коллекция: {{ item.collection }}</p>
+       <p>Категория: {{ item.category }}</p>
+       <p>Рекомендованные: {% for product in item.recommended_items.all %}
+                            {{ product.title }}
+                            {% endfor %}
+       </p>
+
+    <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">Add to cart</a></p>
+
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'lions_heart_app/index.html' %}
+
+{% block content %}
+
+<p>{{ post.title }}</p>
+        <p>{{ post.bodytext }}</p>
+
+        Comments:
+
+        {% for comment in post.comment_set.all %}
+
+        <p>
+
+        Author: {{ comment.author }}<br>
+        {{ comment.comment }}
+
+        </p>
+
+        {% endfor %}
+
+        <p>Please, leave your comment:</p>
+      <form method="post" action="{% url 'new_comment' post.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+      <input type="submit" value="Submit" class="btn"/>
+      </form>
+
+{% endblock content %}
+

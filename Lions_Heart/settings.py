@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lions_heart_app',
+    'lions_heart_blog',
+    'lions_heart_cart',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,9 @@ ROOT_URLCONF = 'Lions_Heart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates']
+        'DIRS': (('lion_heart_app', 'templates'),
+                 ('lion_heart_blog', 'templates'),
+                 ('lion_heart_cart', 'templates'))
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,7 +82,7 @@ WSGI_APPLICATION = 'Lions_Heart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lions_heart',
+        'NAME': 'lions_heart_test',
         'USER': 'lions_heart_user',
         'PASSWORD': '******',
         'HOST': 'localhost',
@@ -124,3 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
+
+CART_SESSION_ID = 'cart'
