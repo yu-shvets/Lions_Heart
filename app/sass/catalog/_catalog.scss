@@ -1,0 +1,43 @@
+.catalog {
+  &__header {
+    border-bottom:1px solid #bababa;
+    margin-bottom:23px;
+  }
+  &__category {
+    color:$black-color;
+    font-size:24px;
+    text-transform: uppercase;
+    display:inline-block;
+    margin-right:68px;
+    &:hover {
+      color:$black-color;
+    }
+    &:last-child {
+      margin-right:0px;
+    }
+  }
+  &__button {
+    padding-top:20px;
+    padding-bottom:20px;
+    width:100%; 
+    background-color:$black-color;
+  }
+  &__menu{
+    color:$unactive-color;
+    transition:all .4s;
+    padding-right:40px;
+    font-size:24px;
+    &:hover,&:link,&:focus {
+      text-decoration: none;
+      color:$black-color;
+    }
+    &_active {
+      color:$black-color;
+    }
+  }
+  &__main {
+    overflow:hidden;
+    padding: 0 21px;
+    @include center(381px);
+  }
+}
