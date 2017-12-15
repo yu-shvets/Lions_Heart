@@ -123,6 +123,64 @@
   text-transform: uppercase;
 }
 
+.blog__img {
+  background-size: cover;
+  background-position: center center;
+  width: 260px;
+  height: 250px;
+  position: relative;
+}
+
+.blog__date {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  background-color: #fff;
+  padding: 8px 11px;
+  font-size: 14px;
+  color: #000;
+}
+
+.blog__box {
+  display: block;
+}
+
+.blog__box:hover, .blog__box:focus, .blog__box:link {
+  text-decoration: none;
+  color: #9d9d9d;
+}
+
+.blog__text {
+  color: #9d9d9d;
+  font-size: 18px;
+  height: 80px;
+  overflow: hidden;
+  margin-bottom: 45px;
+}
+
+.blog__number {
+  font-size: 18px;
+  color: #9d9d9d;
+}
+
+.blog__link {
+  padding-right: 15px;
+  color: #9d9d9d;
+}
+
+.blog__link_active {
+  color: #000;
+}
+
+.blog__link:last-child {
+  padding-left: 0;
+}
+
+.blog__link:hover, .blog__link:link, .blog__link:focus {
+  text-decoration: none;
+  color: #000;
+}
+
 @font-face {
   font-family: 'FuturaDemic';
   src: url(../fonts/FuturaDemiC.ttf);
@@ -269,6 +327,11 @@
 
 .footer__tel:hover, .footer__tel:link, .footer__tel:focus {
   color: #fff;
+}
+
+.section__title {
+  font-size: 48px;
+  color: #000;
 }
 
 /*# sourceMappingURL=../css/main.css.map */
