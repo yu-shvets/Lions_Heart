@@ -133,3 +133,11 @@
     }
   }
 }
+
+//GLOBAL SECTION STYLE
+.section {
+  &__title {
+    font-size:48px;
+    color:$black-color;
+  }
+}

@@ -1,0 +1,50 @@
+.blog {
+  &__img {
+    background-size:cover;
+    background-position: center center;
+    width:260px;
+    height:250px;
+    position:relative;
+  }
+  &__date {
+    position:absolute;
+    top:15px;
+    left:0;
+    background-color:$white-color;
+    padding: 8px 11px;
+    font-size:14px;
+    color:$black-color;
+  }
+  &__box  {
+    display:block;
+    &:hover, &:focus, &:link {
+      text-decoration: none;
+      color:#9d9d9d;
+    }
+  }
+  &__text {
+    color:#9d9d9d;
+    font-size:18px;
+    height:80px;
+    overflow:hidden;
+    margin-bottom:45px;
+  }
+  &__number {
+    font-size:18px;
+    color:#9d9d9d;
+  }
+  &__link {
+    padding-right:15px;
+    color:#9d9d9d;
+    &_active {
+      color:$black-color;
+    }
+    &:last-child{
+      padding-left:0;
+    }
+    &:hover, &:link, &:focus {
+      text-decoration: none;
+      color: $black-color;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+extends ../default.pug
+block pageContent
+  include ../templates/header.pug
+  // MAIN CONTENT
+  main.main
+    section.section.blog
+      .container
+        .row
+          .col-md-12
+            h2.section__title.align-center Блог
+        .row
+          - var count=0;
+              while count < 8
+                .col-md-3
+                  // SINGLE BLOG
+                  a(href='#').blog__box
+                    div(style='background-image:url(img/blog-bg.jpg)').blog__img
+                      .blog__date 11.12.17
+                    p.blog__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.
+                    - count++
+        .row
+          .col-md-12
+            p.blog__number.align-center
+              //IF PAGE IS ACTIVE SET BLOG__LINK_ACTIVE
+              each number, index in ['1', '2', '3', '4', '5']
+                if index==0
+                  a(href='#').blog__link.blog__link_active= number
+                else
+                  a(href='#').blog__link= number
+  include ../templates/footer.pug
