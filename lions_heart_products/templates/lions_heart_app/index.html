@@ -1,0 +1,96 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lion's Heart</title>
+  <link href="{% static "lions_heart_app/css/libs.min.css" %}" rel="stylesheet">
+  <link href="{% static "lions_heart_app/css/main.css" %}" rel="stylesheet">
+  <body>
+    <!-- HEADER-->
+    <header class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <!-- LOGO--><a class="header__logo" href="#"><img src="{% static "lions_heart_app/img/logo.jpg" %}" alt="logo"><img class="header__line" src="{% static "lions_heart_app/img/header-line.png" %}"></a>
+          </div>
+          <div class="col-md-9">
+            <!-- NAVIGATION-->
+            <nav class="nav">
+              <ul class="nav__list nav__list_header align-right">
+                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">коллекции</span>
+                  <!-- DROP-DOWN-->
+                  <p class="nav__arrow">&#x25BC;</p>
+                  <ul class="nav__list nav__list-child align-center">
+                      {% for collection in collections %}
+                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="{% url 'catalogue_collection' collection.pk  %}">{{ collection.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">блог</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">корзина</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% block content %}
+    <!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="home">
+        <div class="container">
+          <div class="row">
+            <!--BIG CENTER BANNER-->
+            <div class="col-md-12"><a class="home__box" href="#"><img class="home__img" src="{% static "lions_heart_app/img/bg-1.jpg" %}">
+                <h2 class="home__title">заголовок</h2></a></div>
+            <!--SMALL LEFT BANNER-->
+            <div class="col-md-6"><a class="home__box mt-20" href="#"><img class="home__img" src="{% static "lions_heart_app/img/bg-2.jpg" %}"></a></div>
+            <!--SMALL RIGHT BANNER-->
+            <div class="col-md-6"><a class="home__box mt-20" href="#"><img class="home__img" src="{% static "lions_heart_app/img/bg-3.jpg" %}"></a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    {% endblock content %}
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+
+            <!-- FIRST MENU-->
+            <nav class="nav nav_footer">
+              <ul class="nav__list">
+                  {% for category in categories %}
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'catalogue_category' category.pk  %}">{{ category.title }}</a></li>
+                  {% endfor %}
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-2">
+            <!-- SECOND MENU-->
+            <nav class="nav nav_footer">
+              <ul class="nav__list">
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">о нас</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">блог</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-3 col-md-offset-5 align-right">
+            <!--TELL-->
+            <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static "lions_heart_app/js/libs.min.js" %}"></script>
+    <script src="{% static "lions_heart_app/js/main.js" %}"></script>
+  </body>
+</html>

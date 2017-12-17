@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from .models import Post, Comment
-from django.forms import ModelForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse
+from .forms import CommentForm
 
 
 class PostListView(ListView):
@@ -19,13 +19,6 @@ class PostDetailView(DetailView):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['form'] = CommentForm()
         return context
-
-
-class CommentForm(ModelForm):
-
-    class Meta:
-        model = Comment
-        fields = ['author', 'comment']
 
 
 class CommentCreate(CreateView):

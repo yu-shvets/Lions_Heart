@@ -2,9 +2,8 @@
 
 {% block content %}
 
-
-
        <p>{{ item.title }}</p>
+       <p><img src={{ item.title_image.url }} /></p>
 
     {% for image in item.image_set.all %}
         <p><img src={{ image.image.url }} /></p>
@@ -13,8 +12,8 @@
         <p>Цена: {{ item.price }}</p>
        <p>Коллекция: {{ item.collection }}</p>
        <p>Категория: {{ item.category }}</p>
-       <p>Рекомендованные: {% for product in item.recommended_items.all %}
-                            {{ product.title }}
+       <p>Рекомендованные: {% for item in item.recommended_items.all %}
+                            {{ item.title }}
                             {% endfor %}
        </p>
 

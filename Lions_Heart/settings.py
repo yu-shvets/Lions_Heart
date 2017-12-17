@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lions_heart_app',
+    'lions_heart_products',
     'lions_heart_blog',
     'lions_heart_cart',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,9 +59,7 @@ ROOT_URLCONF = 'Lions_Heart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': (('lion_heart_app', 'templates'),
-                 ('lion_heart_blog', 'templates'),
-                 ('lion_heart_cart', 'templates'))
+        'DIRS': ['templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Lions_Heart.context_processors.project_variables',
             ],
         },
     },
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'Lions_Heart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lions_heart_test',
+        'NAME': 'lions_heart_shop',
         'USER': 'lions_heart_user',
         'PASSWORD': '******',
         'HOST': 'localhost',
@@ -128,8 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CART_SESSION_ID = 'cart'
+
+INTERNAL_IPS = '127.0.0.1'

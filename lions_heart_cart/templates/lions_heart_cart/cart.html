@@ -14,7 +14,15 @@
 
             <p>{{ item.item.title }}</p>
             <p>Цена: {{ item.price }}</p>
-            <p>Количество: {{ item.quantity }}</p>
+
+         <form method="post" action="{% url 'cart_update' item.item.pk %}">
+            {% csrf_token %}
+
+             <label for="quantity">Количество</label><input type="number" name=quantity
+                                                            id="quantity" value="{{ item.quantity }}">
+             <input type="submit" value="Update" class="btn"/>
+         </form>
+
             <p>Сумма: {{ item.total_price }}</p>
 
          <a class="btn btn-primary" href="{% url 'cart_remove' item.item.pk %}" role="button">Delete</a>
@@ -24,9 +32,10 @@
             Cart is empty.
         {% endfor %}
         <hr>
-        <h4>Итого к оплате: {{ total_price }}</h4>
 
         {% if cart.get_total_price %}
+
+        <h4>Итого к оплате: {{ total_price }}</h4>
 
         <a class="btn btn-primary" href="{% url 'order' %}" role="button">Checkout</a>
 

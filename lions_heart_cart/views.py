@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
+from django.shortcuts import render, reverse, HttpResponseRedirect
 from .cart import Cart
-from lions_heart_app.models import Item
+from lions_heart_products.models import Item
 from django.shortcuts import get_object_or_404
 from .models import Order, OrderItem
-from django.forms import ModelForm
+from .forms import OrderForm
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
+from django.core.exceptions import ValidationError
 
 
 def cart_view(request):
@@ -28,6 +29,18 @@ def cart_remove(request, item_id):
     return HttpResponseRedirect(reverse('cart'))
 
 
+def update_quantity(request, item_id):
+    cart = Cart(request)
+    item = get_object_or_404(Item, id=item_id)
+    if request.method == 'POST':
+        quantity = request.POST['quantity']
+        if quantity.isnumeric():
+            cart.update(item, int(quantity))
+        else:
+            raise ValidationError('Incorrect input')
+    return HttpResponseRedirect(reverse('cart'))
+
+
 class OrderView(TemplateView):
     template_name = 'lions_heart_cart/order.html'
 
@@ -38,13 +51,6 @@ class OrderView(TemplateView):
         return context
 
 
-class OrderForm(ModelForm):
-
-    class Meta:
-        model = Order
-        fields = ('customer_name', 'customer_email', 'phone', 'payment_type', 'comment')
-
-
 class OrderCreate(CreateView):
     model = Order
     form_class = OrderForm
@@ -52,11 +58,9 @@ class OrderCreate(CreateView):
 
     def form_valid(self, form):
         cart = Cart(self.request)
-
         self.obj = form.save(commit=False)
         self.obj.total_cost = cart.get_total_price()
         self.obj.save()
-
         for element in cart:
             order_item = OrderItem(item=element['item'], quantity=element['quantity'],
                                    price=float(element['price']), order=self.obj)
