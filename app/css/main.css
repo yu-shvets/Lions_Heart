@@ -221,6 +221,83 @@
   height: 381px;
 }
 
+.sp__wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 475px;
+}
+
+.sp__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.sp__carousel {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 110px;
+}
+
+.sp__button {
+  margin-top: 45px;
+}
+
+.sp__list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sp__list_padding {
+  padding-top: 44px;
+}
+
+.sp__list-title {
+  padding-top: 54px;
+}
+
+.sp__item {
+  padding-top: 20px;
+}
+
+.sp__item:first-child {
+  padding-top: 0;
+}
+
+.sp__text {
+  padding-top: 90px;
+}
+
+.sp__recomendation {
+  padding-top: 60px;
+  padding-bottom: 18px;
+  font-size: 36px;
+  color: #000;
+  margin: 0;
+}
+
 @font-face {
   font-family: 'FuturaDemic';
   src: url(../fonts/FuturaDemiC.ttf);
@@ -395,6 +472,10 @@
   color: #000;
 }
 
+.section__text_dark:hover, .section__text_dark:focus, .section__text_dark:link {
+  color: #000;
+}
+
 .section__text_neutral {
   color: #9d9d9d;
 }
@@ -434,6 +515,7 @@
 
 .breadcumbs__link {
   padding-right: 17px;
+  text-transform: capitalize;
 }
 
 .breadcumbs__link:hover, .breadcumbs__link:link, .breadcumbs__link:focus {
@@ -488,6 +570,8 @@
 .product__button {
   padding-top: 20px;
   padding-bottom: 20px;
+  max-width: 251px;
+  font-size: 18px;
   width: 100%;
   background-color: #000;
 }
@@ -495,6 +579,8 @@
 .button {
   border: none;
   outline: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .button_light {
@@ -503,6 +589,30 @@
 
 .button_uppercase {
   text-transform: uppercase;
+}
+
+.button_bg-dark {
+  background-color: #000;
+}
+
+.owl-dot {
+  background: none repeat scroll 0 0 #869791;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+  display: inline-block;
+  height: 12px;
+  margin: 5px 7px;
+  opacity: 0.5;
+  width: 12px;
+}
+
+.owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owl-dots .active {
+  background: none repeat scroll 0 0 #000;
 }
 
 /*# sourceMappingURL=../css/main.css.map */

@@ -1,0 +1,72 @@
+extends ../default.pug
+block pageContent
+  include ../templates/header.pug
+  
+  //BREADCUMBS
+  .breadcumbs
+    .container
+      .row
+        .col-md-12
+          nav.nav
+            ul.nav__list
+              each item in ['Главная', 'Коллекции','кольца','отважный']
+                li.nav__item.nav__item_inline
+                  a(href='#').breadcumbs__link.nav__link.nav__link_dark= item
+
+  // MAIN CONTENT
+  main.main
+    section.section.sp
+      .container
+        .row
+          //PRODUCTS IMAGES
+          .col-md-4.col-md-offset-1
+            #gallery1.gallery
+              .sp__wrap
+                a(href='img/sp-img.jpg')
+                  img(src='img/sp-img.jpg').sp__img
+              //small images
+              .owl-carousel
+                -var c=0;
+                while c<5
+                  div.item.sp__carousel
+                    a(href='img/sp-img.jpg')
+                      img(src='img/sp-img.jpg').sp__img
+                  -c++;
+          //PRODUCT DESCRIPTION
+          .col-md-6.col-md-offset-1
+            h2.section__title Отважный / Brave
+            p.section__title 1.800 грн
+            button.button.button_light.button_uppercase.button_bg-dark.product__button.sp__button в корзину
+            ul.sp__list.sp__list_padding
+              each item in ['вес,грамм: 9,14','Размер изделия','Диаметр, мм: 3','Длина, см: 17,5']
+                li.section__text.section__text_dark.sp__item= item
+            h3.section__text.section__text_dark.sp__list-title Дейтсвут скидки:
+            ul.sp__list
+              each item in ['-10% при покупке одного изделия;','-15% при покупке двух изделий;','-20% при покупке пяти изделий;','-30% при индивидуальном заказе']
+                li.section__text.section__text_dark.sp__item= item
+        .row
+          .col-md-10.col-md-offset-1
+            //PRODUCT MAIN TEXT
+            p.section__text.section__text_neutral.sp__text.align-center
+              | Отвага- это добродетель, которая выше жизни. Это смелость, смешанная с полным бесстрашием, предприимчивостью, уверенностью в удачу, отсутствием уныния, робости и мыслей о поражении. Это стремительное наступление на штыки своих страхов без малейшего содрогания.
+              br
+              br
+              | «…праведник смел, как лев.»
+              br
+              | (Притчи 28:1)
+        .row
+          .col-md-12
+            h2.sp__recomendation.align-center Рекомендуем к выбранным вами товарам
+            -var count = 0;
+            while count<4
+              .col-md-3.align-center
+                .product
+                  span
+                    a.product__link
+                      img(src='img/item.jpg').produxct__img
+                    div.product__wrap
+                      a(href="#").section__text.section__text_dark Навсегда / Forever new
+                      p.section__text.section__text_dark 1.800 <span>грн</span>
+                      button.button.button_light.button_uppercase.button_bg-dark.product__button в корзину
+                    -count++
+  include ../templates/footer.pug

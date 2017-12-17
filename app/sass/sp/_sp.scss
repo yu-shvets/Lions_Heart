@@ -1,0 +1,45 @@
+// SINGLE PRODUCT STYLES
+.sp {
+  &__wrap {
+    @include center(475px);
+  }
+  &__img {
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    display:block;
+  }
+  &__carousel {
+    @include center(110px);
+  }
+  &__button {
+    margin-top:45px;
+  }
+  &__list {
+    list-style-type:none;
+    padding-left:0;
+    &_padding {
+      padding-top:44px;
+    }
+  }
+  &__list-title {
+    padding-top:54px;
+  }
+  &__item {
+    padding-top:20px;
+    &:first-child {
+      padding-top:0;
+    }
+  }
+  &__text {
+    padding-top:90px;
+  }
+  &__recomendation {
+    padding-top:60px;
+    padding-bottom:18px;
+    font-size:36px;
+    color:$black-color;
+    margin:0;
+  }
+}
