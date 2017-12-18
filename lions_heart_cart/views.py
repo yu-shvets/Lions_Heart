@@ -3,23 +3,25 @@ from .cart import Cart
 from lions_heart_products.models import Item
 from django.shortcuts import get_object_or_404
 from .models import Order, OrderItem
-from .forms import OrderForm
+from .forms import CartAddProductForm, OrderForm
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 from django.core.exceptions import ValidationError
+from django.http import JsonResponse
 
 
 def cart_view(request):
     cart = Cart(request)
     total_price = cart.get_total_price()
-    return render(request, 'lions_heart_cart/cart.html', {'cart': cart, 'total_price': total_price})
+    form = CartAddProductForm()
+    return render(request, 'lions_heart_cart/cart.html', {'cart': cart, 'total_price': total_price, 'form': form})
 
 
 def add_to_cart(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
     cart.add(item=item)
-    return HttpResponseRedirect(reverse('catalogue'))
+    return HttpResponseRedirect(reverse('cart'))
 
 
 def cart_remove(request, item_id):
@@ -32,13 +34,16 @@ def cart_remove(request, item_id):
 def update_quantity(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
-    if request.method == 'POST':
-        quantity = request.POST['quantity']
-        if quantity.isnumeric():
-            cart.update(item, int(quantity))
-        else:
-            raise ValidationError('Incorrect input')
-    return HttpResponseRedirect(reverse('cart'))
+    form = CartAddProductForm(data=request.POST)
+    response_data = {}
+    if form.is_valid():
+        data = form.cleaned_data
+        new_quantity = data['quantity']
+        cart.update(item, new_quantity)
+        response_data['quantity'] = new_quantity
+        response_data['sum'] = new_quantity * item.price
+        response_data['total_price'] = cart.get_total_price()
+    return JsonResponse(response_data)
 
 
 class OrderView(TemplateView):
@@ -66,10 +71,8 @@ class OrderCreate(CreateView):
                                    price=float(element['price']), order=self.obj)
             order_item.save()
         cart.clear()
-        return HttpResponseRedirect(reverse('catalogue'))
+        return HttpResponseRedirect(reverse('home'))
 
-    def get_success_url(self):
-            return reverse('home')
 
 
 

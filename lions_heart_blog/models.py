@@ -35,13 +35,44 @@ class Image(models.Model):
 
     class Meta(object):
         verbose_name = "Изображение"
-        verbose_name_plural = "изображения"
+        verbose_name_plural = "Изображения"
 
     image = models.ImageField(upload_to='blog/pictures', verbose_name='изображение')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='пост')
 
     def __str__(self):
         return "{}-{}".format(self.image, self.post)
+
+
+class CompanyInformation(models.Model):
+
+    class Meta(object):
+        verbose_name = "Компания"
+        verbose_name_plural = "Компания"
+
+    about = models.TextField(verbose_name='информация о компании')
+    phone = models.CharField(max_length=256, verbose_name='телефон')
+    mail = models.EmailField()
+    address = models.CharField(max_length=256, verbose_name='адрес')
+
+
+class CompanyImage(models.Model):
+
+    class Meta(object):
+        verbose_name = "Изображение"
+        verbose_name_plural = "Изображения"
+
+    image = models.ImageField(upload_to='company/pictures', verbose_name='изображение')
+    company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{}".format(self.image)
+
+
+
+
+
+
 
 
 

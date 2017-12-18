@@ -1,8 +1,11 @@
-{% extends 'lions_heart_app/index.html' %}
+{% extends 'lions_heart_products/index.html' %}
 
 {% block content %}
 
     {% for item in products %}
+
+       <p><a href="{% url 'women' item.collection.pk  %}">Женская</a>
+        <a href="{% url 'men' item.collection.pk  %}">Мужская</a></p>
 
        <p><a href="{% url 'item' item.pk  %}">{{ item.title }}</a></p>
          <p><img src={{ item.title_image.url }} /></p>

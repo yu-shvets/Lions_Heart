@@ -1,29 +1,23 @@
-{% extends 'lions_heart_app/index.html' %}
+{% extends 'lions_heart_products/index.html' %}
 
 {% block content %}
 
      {% for item in cart %}
 
-         {% for image in item.item.image_set.all %}
-
-             {% if image.main_image %}
-            <p><img src={{ image.image.url }} /></p>
-             {% endif %}
-
-         {% endfor %}
+            <p><img src={{ item.item.title_image.url }} /></p>
 
             <p>{{ item.item.title }}</p>
             <p>Цена: {{ item.price }}</p>
+{#            <p>Количество: <span id="quantity-{{ item.item.id }}">{{ item.quantity }}</span></p>#}
 
-         <form method="post" action="{% url 'cart_update' item.item.pk %}">
+         <form method="post" action="{% url 'cart_update'  item.item.pk %}" class="update" id="form-{{ item.item.id }}">
             {% csrf_token %}
 
-             <label for="quantity">Количество</label><input type="number" name=quantity
-                                                            id="quantity" value="{{ item.quantity }}">
-             <input type="submit" value="Update" class="btn"/>
+             {{form}}
+
          </form>
 
-            <p>Сумма: {{ item.total_price }}</p>
+            <p>Сумма: <span id="sum-{{ item.item.id }}">{{ item.total_price }}</span></p>
 
          <a class="btn btn-primary" href="{% url 'cart_remove' item.item.pk %}" role="button">Delete</a>
 
@@ -35,7 +29,7 @@
 
         {% if cart.get_total_price %}
 
-        <h4>Итого к оплате: {{ total_price }}</h4>
+        <h4>Итого к оплате: <span id="total_price">{{ total_price }}</span></h4>
 
         <a class="btn btn-primary" href="{% url 'order' %}" role="button">Checkout</a>
 
