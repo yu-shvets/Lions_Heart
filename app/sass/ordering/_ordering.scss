@@ -1,0 +1,144 @@
+//ORDERING PAGE STYLE
+.ordering {
+  padding-top:25px;
+  &__main {
+    padding-left:40px;
+    padding-right:30px;
+  }
+  &__title {
+    font-size: 36px;
+    color:$black-color;
+    margin-bottom:0;
+    margin-top:0;
+    &_main {
+      padding-top:35px;
+    }
+  }
+  &__subtitle {
+    margin-bottom:0;
+    padding-top:25px;
+    font-size:14px;
+    text-transform:uppercase;
+    color:$black-color;
+    &_p0 {
+      padding:0;
+      margin-top:0;
+    }
+  }
+  &__position {
+    display:flex;
+    justify-content: space-between;
+
+    margin-top:29px;
+    &_center {
+      align-items:center;
+    }
+  }
+  &__button {
+    @extend .product__button;
+    margin-top:45px;
+    margin-bottom:30px;
+  }
+  &__good {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    padding-top:25px;
+    padding-bottom:38px;
+    margin-top:35px;
+    &-header {
+      border-bottom:1px solid $white-color;
+      padding-bottom:22px;
+      padding-left:13px;
+      padding-right:13px;
+    }
+    &-body {
+      padding-top: 22px;
+
+    }
+  }
+}
+
+//FORM STYLE
+.form {
+  &__name {
+    font-size:14px;
+    color:$black-color;
+    margin:0;
+    &_textarea {
+      margin-top:14px;
+    }
+  }
+  &__field {
+    border:1px solid #e8e8e8;
+    text-indent: 15px;  
+    height:42px;
+    color:$black-color;
+    text-transform: capitalize;
+    &_main {
+      max-width:459px;
+      width:100%;
+    }
+    &_textarea {
+      min-height:110px;
+      max-width:459px;
+      width:100%;
+      padding-top:10px;
+      padding-left:10px;
+      padding-bottom:10px;
+      resize:vertical;
+    }
+    &::placeholder {
+      color:$black-color;
+    }
+  }
+  &_black {
+    color:black;
+  }
+
+  &__radio {
+    display:flex;
+    align-items:center;
+    position:relative;
+    margin-top:18px;
+    &-inner {
+      position:absolute;
+      visibility:hidden;
+    }
+    &-btn {
+      position:absolute;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      border:1px solid $black-color;
+      top:-1px;
+      &::before {
+        position:absolute;
+        content:'';
+        display:block;
+        border-radius:50%;
+        width:12px;
+        height:12px;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        transition:all .3s;
+      }
+      
+    }
+    &-text {
+      @extend .form__name;
+      z-index: 9;
+      position:relative;
+      cursor:pointer;
+      padding-left:35px;
+    }
+  }
+}
+
+.form__radio-inner:checked ~ div.form__radio-btn:before {
+  background:$black-color;
+ } 

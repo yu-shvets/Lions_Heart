@@ -1,0 +1,62 @@
+//CART STYLES
+.cart {
+  &__pay {
+    padding-bottom:40px;
+    padding-top:33px;
+  }
+  &__item {
+    padding-top:35px;
+    padding-bottom:20px;
+    padding-left:15px;
+    padding-right:15px;
+  }
+  &__table {
+    width:100%;
+    &-row {
+      border-bottom:1px solid #f6f6f6;
+    }
+    &-title {
+      color:#1e1e1e;
+      padding-bottom:15px;
+    }
+    &-data {
+      padding: 30px 0;
+    }
+    &-thumbnail {
+      @include center(42px);
+      width:42px;
+      margin-right:18px;
+    }
+    &-img {
+      max-width:100%;
+      max-height:100%;
+      height:auto;
+      width:auto;
+    }
+    &-main {
+      display:flex;
+      &:hover, &:link, &:focus {
+        text-decoration: none;
+      }
+    }
+    &-result {
+      height:40px;
+      border:1px solid #e8e8e8;
+      max-width:59px;
+      text-align:center;
+      color: #1e1e1e;
+      margin:0 12px;
+    }
+    &-plus,&-minus {
+      cursor: pointer;
+    }
+    &-plus {
+      transform: rotate(180deg);
+    }
+    &-close {
+      color: #ededed;
+      font-size:35px;
+      cursor:pointer;
+    }
+  }
+}

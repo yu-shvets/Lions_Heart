@@ -58,6 +58,8 @@
   &__link {
     position:relative;
     font-weight:400;
+    transition:all .5s;
+
     &_dark {
       color: $black-color;
     }
@@ -93,8 +95,32 @@
     padding-left:10px;
     display:block;
     padding-right:10px;
+    transition: all .3s;
     &_child {
       padding:0;
+    }
+    &:hover:before, &:hover:after {
+      width:50%;
+    }
+    &:before {
+      position:absolute;
+      content:'';
+      width:0;
+      height:2px;
+      bottom:28px;
+      transition:all .3s;
+      left:0;
+      background-color:$black-color;
+    }
+    &:after {
+      position:absolute;
+      content:'';
+      width:0;
+      bottom:28px;
+      height:2px;
+      right:0;
+      transition:all .5s;
+      background-color:$black-color;
     }
     .nav__item:first-child &__link {
       padding-left:0;
@@ -104,6 +130,7 @@
     }
     &:hover, &:focus, &:link {
       color: $black-color;
+      text-decoration: none;
     }
   }
 }
@@ -149,6 +176,9 @@
   }
   &__text {
     font-size:18px;
+    &_mb-0 {
+      margin-bottom:0;
+    }
     &_light {
       color:$white-color;
     }
@@ -166,6 +196,10 @@
     font-size:24px;
     color:$black-color;
     text-transform: uppercase;
+  }
+  &__item {
+    background-color:#f3f3f3;
+
   }
 }
 
@@ -250,6 +284,9 @@
   outline:none;
   padding-top:20px;
   padding-bottom:20px;
+  &_transparent {
+    background-color:transparent;
+  }
   &_light {
     color:$white-color;
   }

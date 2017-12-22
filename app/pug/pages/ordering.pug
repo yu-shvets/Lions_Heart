@@ -1,0 +1,49 @@
+extends ../default.pug
+block pageContent
+  include ../templates/header.pug
+  // MAIN CONTENT
+  main.main
+    section.section.ordering
+      .container
+        .row
+          .col-md-offset-1.col-md-7
+            div.ordering__main
+              h2.ordering__title.ordering__title_main Оформление заказа
+              p.ordering__subtitle ЛИЧНЫЕ ДАННЫЕ
+              form.form
+                .ordering__position.ordering__position_center
+                  p.form__name Имя
+                  input(type='text' name='name' placeholder='Ваше имя').form__field.form__field_main.form__field_black
+                .ordering__position.ordering__position_center
+                  p.form__name E-mail
+                  input(type='email' name='email' placeholder='Ваш e-mail').form__field.form__field_main.form__field_black
+                .ordering__position.ordering__position_center
+                  p.form__name Телефон
+                  input(type='number' name='tel' placeholder='Ваш телефон').form__field.form__field_main.form__field_black
+                p.ordering__subtitle ВЫБОР СПОСОБА ОПЛАТЫ
+                .form__radio  
+                  input(type="radio" name='pay' class="form__radio-inner" id='card' value='Карта')
+                  .form__radio-btn
+                  label(for='card' class="form__radio-text") Карта
+                .form__radio
+                  input(type="radio" name='pay' class="form__radio-inner" id='cash' value='Наличные')
+                  .form__radio-btn
+                  label(for='cash' class='form__radio-text') Наличные
+                .ordering__position
+                  p.form__name.form__name_textarea Комментарий
+                  textarea.form__field.form__field_black.form__field_textarea
+                .align-center
+                  button.button.button_light.button_uppercase.button_bg-dark.ordering__button оформить заказ
+          .col-md-3
+            //ORDER INFO
+            .section__item.ordering__item
+              div.ordering__item-header
+                h3.ordering__subtitle.ordering__subtitle_p0 Вы заказали
+                div.ordering__good
+                  a(href='#').section__text.section__text_neutral Храбрый
+                  span.section__text.section__text-dark 1.800 грн
+              .ordering__item-body.align-center
+                p.section__text.section__text_dark.section__text_mb-0 Итого к оплате
+                p.ordering__title 1.800 грн
+
+  include ../templates/footer.pug

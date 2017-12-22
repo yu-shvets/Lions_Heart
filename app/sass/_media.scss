@@ -2,6 +2,8 @@
 @import "blog/blog";
 @import "catalog/catalog";
 @import "sp/sp";
+@import "ordering/ordering";
+@import "cart/cart";
 
 @media (max-width: 1200px) {
     @import "index/index-max-1200";
