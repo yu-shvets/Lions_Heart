@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lion's Heart</title>
+  <link href="css/libs.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <body>
+    <!-- HEADER-->
+    <header class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <!-- LOGO--><a class="header__logo" href="#"><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.png"></a>
+          </div>
+          <div class="col-md-9">
+            <!-- NAVIGATION-->
+            <nav class="nav">
+              <ul class="nav__list nav__list_header align-right">
+                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">коллекции</span>
+                  <!-- DROP-DOWN-->
+                  <p class="nav__arrow">&#x25BC;</p>
+                  <ul class="nav__list nav__list-child align-center"> 
+                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="#">лето</a></li>
+                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="#">весна</a></li>
+                  </ul>
+                </li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="section ordering">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-offset-1 col-md-7">
+              <div class="ordering__main">
+                <h2 class="ordering__title ordering__title_main">Оформление заказа</h2>
+                <p class="ordering__subtitle">ЛИЧНЫЕ ДАННЫЕ</p>
+                <form class="form">
+                  <div class="ordering__position ordering__position_center">
+                    <p class="form__name">Имя</p>
+                    <input class="form__field form__field_main form__field_black" type="text" name="name" placeholder="Ваше имя">
+                  </div>
+                  <div class="ordering__position ordering__position_center">
+                    <p class="form__name">E-mail</p>
+                    <input class="form__field form__field_main form__field_black" type="email" name="email" placeholder="Ваш e-mail">
+                  </div>
+                  <div class="ordering__position ordering__position_center">
+                    <p class="form__name">Телефон</p>
+                    <input class="form__field form__field_main form__field_black" type="number" name="tel" placeholder="Ваш телефон">
+                  </div>
+                  <p class="ordering__subtitle">ВЫБОР СПОСОБА ОПЛАТЫ</p>
+                  <div class="form__radio"> 
+                    <input class="form__radio-inner" type="radio" name="pay" id="card" value="Карта">
+                    <div class="form__radio-btn"></div>
+                    <label class="form__radio-text" for="card">Карта</label>
+                  </div>
+                  <div class="form__radio">
+                    <input class="form__radio-inner" type="radio" name="pay" id="cash" value="Наличные">
+                    <div class="form__radio-btn"></div>
+                    <label class="form__radio-text" for="cash">Наличные</label>
+                  </div>
+                  <div class="ordering__position">
+                    <p class="form__name form__name_textarea">Комментарий</p>
+                    <textarea class="form__field form__field_black form__field_textarea"></textarea>
+                  </div>
+                  <div class="align-center">
+                    <button class="button button_light button_uppercase button_bg-dark ordering__button">оформить заказ</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <!--ORDER INFO-->
+              <div class="section__item ordering__item">
+                <div class="ordering__item-header">
+                  <h3 class="ordering__subtitle ordering__subtitle_p0">Вы заказали</h3>
+                  <div class="ordering__good"><a class="section__text section__text_neutral" href="#">Храбрый</a><span class="section__text section__text-dark">1.800 грн</span></div>
+                </div>
+                <div class="ordering__item-body align-center">
+                  <p class="section__text section__text_dark section__text_mb-0">Итого к оплате</p>
+                  <p class="ordering__title">1.800 грн</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <!-- FIRST MENU-->
+            <nav class="nav nav_footer">
+              <ul class="nav__list">
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">браслеты</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">кольца</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">подвески</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">пряжки</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">цепи</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-2">
+            <!-- SECOND MENU-->
+            <nav class="nav nav_footer">
+              <ul class="nav__list">
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">о нас</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">блог</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-3 col-md-offset-5 align-right">
+            <!--TELL-->
+            <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../js/libs.min.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
