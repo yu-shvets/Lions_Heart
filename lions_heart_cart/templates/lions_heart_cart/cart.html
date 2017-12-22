@@ -1,43 +1,100 @@
 {% extends 'lions_heart_products/index.html' %}
+{% load i18n %}
 
 {% block content %}
 
-     {% for item in cart %}
+    <!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="section cart">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="section__title section__title_catalog">Корзина</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <table class="cart__table">
+                <thead>
+                  <tr class="cart__table-row">
+                    <th class="cart__table-title"></th>
+                    <th class="cart__table-title">Колличество</th>
+                    <th class="cart__table-title">Цена</th>
+                    <th class="cart__table-title">Сумма</th>
+                    <th class="cart__table-title"></th>
+                  </tr>
+                </thead>
+                <tbody>
 
-            <p><img src={{ item.item.title_image.url }} /></p>
+                {% for item in cart %}
 
-            <p>{{ item.item.title }}</p>
-            <p>Цена: {{ item.price }}</p>
-{#            <p>Количество: <span id="quantity-{{ item.item.id }}">{{ item.quantity }}</span></p>#}
+                  <tr class="cart__table-row">
+                    <td class="cart__table-data"><a class="cart__table-main" href="#">
+                        <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="{{ item.item.title_image.url }}"></div>
+                        <h4 class="section__text section__text_dark">{{ item.item.title }}</h4></a></td>
+                    <td class="cart__table-data cart__table-quantity">
+                      <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
+                      <input class="cart__table-result" type="number">
+                      <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
+                    </td>
+                    <td class="cart__table-data">
+                      <p class="section__text section__text_dark">{{ item.price }}</p>
+                    </td>
+                    <td class="cart__table-data">
+                      <p class="section__text section__text_dark">{{ item.price }}</p>
+                    </td>
+                    <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
+                  </tr>
 
-         <form method="post" action="{% url 'cart_update'  item.item.pk %}" class="update" id="form-{{ item.item.id }}">
-            {% csrf_token %}
+                {% endfor %}
 
-             {{form}}
-
-         </form>
-
-            <p>Сумма: <span id="sum-{{ item.item.id }}">{{ item.total_price }}</span></p>
-
-         <a class="btn btn-primary" href="{% url 'cart_remove' item.item.pk %}" role="button">Delete</a>
-
-         <br>
-        {% empty %}
-            Cart is empty.
-        {% endfor %}
-        <hr>
-
-        {% if cart.get_total_price %}
-
-        <h4>Итого к оплате: <span id="total_price">{{ total_price }}</span></h4>
-
-        <a class="btn btn-primary" href="{% url 'order' %}" role="button">Checkout</a>
-
-        {% endif %}
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-3">
+              <div class="section__item align-center cart__item">
+                <p class="section__text section__text_dark section__text_mb-0">Итого к оплате</p>
+                <p class="section__title section__title_dark cart__pay">1.800 грн</p>
+                <button class="button button_light button_uppercase button_bg-dark product__button">оформить заказ</button>
+              </div>
+            </div>
+          </div>
+          <!--RECOMENDATION GOODS-->
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="sp__recomendation align-center">Рекомендуем к выбранным вами товарам</h2>
+              <div class="col-md-3 align-center">
+                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                    </div></span></div>
+              </div>
+              <div class="col-md-3 align-center">
+                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                    </div></span></div>
+              </div>
+              <div class="col-md-3 align-center">
+                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                    </div></span></div>
+              </div>
+              <div class="col-md-3 align-center">
+                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                    </div></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
 {% endblock content %}
-
-
-
-
-

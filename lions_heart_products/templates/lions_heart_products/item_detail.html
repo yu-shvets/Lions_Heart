@@ -1,23 +1,96 @@
 {% extends 'lions_heart_products/index.html' %}
+{% load i18n %}
 
-{% block content %}
-
-       <p>{{ item.title }}</p>
-       <p><img src={{ item.title_image.url }} /></p>
-
-    {% for image in item.image_set.all %}
-        <p><img src={{ image.image.url }} /></p>
-    {% endfor %}
-
-        <p>Цена: {{ item.price }}</p>
-       <p>Коллекция: {{ item.collection }}</p>
-       <p>Категория: {{ item.category }}</p>
-       <p>Рекомендованные: {% for item in item.recommended_items.all %}
-                            {{ item.title }}
-                            {% endfor %}
-       </p>
-
-    <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">Add to cart</a></p>
+    {% block content %}
 
 
-{% endblock content %}
+    <!--BREADCUMBS-->
+    <div class="breadcumbs">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{% trans 'Collections' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{{ item.category.title }}</a></li>
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{{ item.title }}</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="section sp">
+        <div class="container">
+          <div class="row">
+            <!--PRODUCTS IMAGES-->
+            <div class="col-md-4 col-md-offset-1">
+              <div class="gallery" id="gallery1">
+                <div class="sp__wrap"><img class="sp__img" src={{ item.title_image.url }}></div>
+                <!--small images-->
+                <div class="owl-carousel">
+
+                     {% for image in item.image_set.all %}
+
+                  <div class="item sp__carousel"><a href="#"><img class="sp__img" src="{{ image.image.url }}"></a></div>
+
+                     {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            <!--PRODUCT DESCRIPTION-->
+            <div class="col-md-6 col-md-offset-1">
+              <h2 class="section__title">{{ item.title }}</h2>
+              <p class="section__title">{{ item.price }} {% trans 'UAH' %}</p>
+{#              <button class="button button_light button_uppercase button_bg-dark product__button sp__button">в корзину</button>#}
+                 <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">{% trans 'Add to cart' %}</a></p>
+              <ul class="sp__list sp__list_padding">
+                <li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>
+                <li class="section__text section__text_dark sp__item">{% trans 'Dimensions' %}</li>
+                <li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %}{{ item.specs.diameter }}</li>
+                {% if item.specs.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %}{{ item.specs.length }}</li>{% endif %}
+              </ul>
+              <h3 class="section__text section__text_dark sp__list-title">{% trans 'Sales:' %}</h3>
+              <ul class="sp__list">
+                <li class="section__text section__text_dark sp__item">{% trans '-10% for 1 item;' %}</li>
+                <li class="section__text section__text_dark sp__item">{% trans '-15% for 2 items;' %}</li>
+                <li class="section__text section__text_dark sp__item">{% trans '-20% for 5 items;' %}</li>
+                <li class="section__text section__text_dark sp__item">{% trans '-30% for custom order;' %}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <!--PRODUCT MAIN TEXT-->
+              <p class="section__text section__text_neutral sp__text align-center">{{ item.description|safe }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="sp__recomendation align-center">{% trans 'Recommended items' %}</h2>
+
+                {% for item in item.recommended_items.all %}
+
+                <div class="col-md-3 align-center">
+                <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="produxct__img" src="{{ item.title_image.url }}"></a>
+                    <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
+                      <p class="section__text section__text_dark">{{ item.price }}<span> {% trans 'UAH' %}</span></p>
+                      <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">{% trans 'Add to cart' %}</a></p>
+                    </div></span>
+                </div>
+              </div>
+
+                {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    {% endblock content %}

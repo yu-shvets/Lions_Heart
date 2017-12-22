@@ -13,7 +13,6 @@ class ImageInline(admin.TabularInline):
 
 class SpecsInline(admin.TabularInline):
     model = Specs
-    extra = 0
 
 
 @admin.register(Item)

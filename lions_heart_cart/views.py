@@ -6,7 +6,6 @@ from .models import Order, OrderItem
 from .forms import CartAddProductForm, OrderForm
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
-from django.core.exceptions import ValidationError
 from django.http import JsonResponse
 
 
@@ -68,7 +67,7 @@ class OrderCreate(CreateView):
         self.obj.save()
         for element in cart:
             order_item = OrderItem(item=element['item'], quantity=element['quantity'],
-                                   price=float(element['price']), order=self.obj)
+                                   price=element['price'], order=self.obj)
             order_item.save()
         cart.clear()
         return HttpResponseRedirect(reverse('home'))

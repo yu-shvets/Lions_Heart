@@ -15,17 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+
     url(r'^', include('lions_heart_products.urls')),
     url(r'^blog', include('lions_heart_blog.urls')),
     url(r'^', include('lions_heart_cart.urls')),
 
-    path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(url(r'^', include('lions_heart_products.urls')))
 
 if settings.DEBUG:
         import debug_toolbar

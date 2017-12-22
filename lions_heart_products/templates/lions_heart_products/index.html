@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +16,31 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <!-- LOGO--><a class="header__logo" href="#"><img src="{% static "lions_heart_products/img/logo.jpg" %}" alt="logo"><img class="header__line" src="{% static "lions_heart_products/img/header-line.png" %}"></a>
+            <!-- LOGO--><a class="header__logo" href="{% url 'home' %}"><img src="{% static "lions_heart_products/img/logo.jpg" %}" alt="logo"><img class="header__line" src="{% static "lions_heart_products/img/header-line.png" %}"></a>
           </div>
           <div class="col-md-9">
+
+          {% load i18n %}
+
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Go" />
+            </form>
+
             <!-- NAVIGATION-->
             <nav class="nav">
               <ul class="nav__list nav__list_header align-right">
-                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">коллекции</span>
+                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">{% trans 'Collections' %}</span>
                   <!-- DROP-DOWN-->
                   <p class="nav__arrow">&#x25BC;</p>
                   <ul class="nav__list nav__list-child align-center">
@@ -30,11 +49,11 @@
                     {% endfor %}
                   </ul>
                 </li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">блог</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">корзина</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'About' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Contacts' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Unique gifts' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}</a></li>
               </ul>
             </nav>
           </div>
@@ -49,7 +68,7 @@
           <div class="row">
             <!--BIG CENTER BANNER-->
             <div class="col-md-12"><a class="home__box" href="#"><img class="home__img" src="{% static "lions_heart_products/img/bg-1.jpg" %}">
-                <h2 class="home__title">заголовок</h2></a></div>
+                <h2 class="home__title">{% trans 'Title' %}</h2></a></div>
             <!--SMALL LEFT BANNER-->
             <div class="col-md-6"><a class="home__box mt-20" href="#"><img class="home__img" src="{% static "lions_heart_products/img/bg-2.jpg" %}"></a></div>
             <!--SMALL RIGHT BANNER-->
@@ -77,15 +96,15 @@
             <!-- SECOND MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">о нас</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">блог</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">контакты</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">{% trans 'About' %}</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">{% trans 'Blog' %}</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">{% trans 'Contacts' %}</a></li>
               </ul>
             </nav>
           </div>
           <div class="col-md-3 col-md-offset-5 align-right">
             <!--TELL-->
-            <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
+            <p class="footer__subtitle mt-20">{% trans 'Call' %}</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
           </div>
         </div>
       </div>

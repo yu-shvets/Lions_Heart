@@ -1,5 +1,7 @@
+from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import Item
+from .models import Item, Collection
+import django_filters
 
 
 class HomeView(TemplateView):
@@ -15,23 +17,35 @@ class CatalogueListView(ListView):
                     'collection',
             ).prefetch_related('image_set')
 
+
+class CollectionListView(CatalogueListView):
     def get_queryset(self):
-        if self.kwargs.get('category_id'):
-            return self.queryset.filter(category=self.kwargs['category_id']).order_by('category')
-        elif self.kwargs.get('collection_id'):
-            return self.queryset.filter(collection=self.kwargs['collection_id'])
-        else:
-            return Item.objects.all()
+        return self.queryset.filter(collection=self.kwargs['collection_id'])
 
 
-class WomenLisView(CatalogueListView):
+class CategoryListView(CatalogueListView):
     def get_queryset(self):
-        return self.queryset.filter(collection=self.kwargs['collection_id'], type='Женская')
+        return self.queryset.filter(category=self.kwargs['category_id'])
 
 
-class MenListView(CatalogueListView):
-    def get_queryset(self):
-        return self.queryset.filter(collection=self.kwargs['collection_id'], type='Мужская')
+class CollectionDetailView(DetailView):
+    model = Collection
+    template_name = 'lions_heart_products/collection_detail.html'
+
+
+def collection_category(request, collection_id, category_id):
+    items = Item.objects.filter(collection=collection_id, category=category_id )
+    return render(request, 'lions_heart_products/catalogue.html', {'products': items})
+
+
+def women_collection(request, collection_id):
+    items = Item.objects.filter(collection=collection_id, type='Женская')
+    return render(request, 'lions_heart_products/catalogue.html', {'products': items})
+
+
+def men_collection(request, collection_id):
+    items = Item.objects.filter(collection=collection_id, type='Мужская')
+    return render(request, 'lions_heart_products/catalogue.html', {'products': items})
 
 
 class ItemDetailView(DetailView):
@@ -39,4 +53,12 @@ class ItemDetailView(DetailView):
     template_name = 'lions_heart_products/item_detail.html'
 
 
+class ItemFilter(django_filters.FilterSet):
+    class Meta:
+        model = Item
+        fields = ['type', 'collection', 'category']
 
+
+def product_list(request):
+    filter = ItemFilter(request.GET, queryset=Item.objects.all())
+    return render(request, 'lions_heart_products/catalogue.html', {'filter': filter})

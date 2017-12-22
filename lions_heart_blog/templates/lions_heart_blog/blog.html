@@ -1,12 +1,43 @@
 {% extends 'lions_heart_products/index.html' %}
+{% load i18n %}
 
 {% block content %}
 
-{% for post in object_list %}
+<!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="section blog">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="section__title align-center">{% trans 'Blog' %}</h2>
+            </div>
+          </div>
 
-    <p><a href="{% url 'blog_detail' post.pk  %}">{{ post.title }}</a></p>
+            {% for post in object_list %}
 
-    {% endfor %}
+          <div class="row">
+            <div class="col-md-3">
+              <!-- SINGLE BLOG--><a class="blog__box" href="{% url 'blog_detail' post.pk  %}">
+                {% if post.main_image %}
+                <div class="blog__img" style="background-image:url({{ MEDIA_URL }}{{ post.main_image.url }});">
+                 {% endif %}
+                  <div class="blog__date">{{ post.created|date:'Y-m-d'}}</div>
+                </div>
+                <p class="blog__text">{{ post.title }}</p></a>
+            </div>
+
+             {% endfor %}
+
+          <div class="row">
+            <div class="col-md-12">
+              <p class="blog__number align-center">
+                <!--IF PAGE IS ACTIVE SET BLOG__LINK_ACTIVE--><a class="blog__link blog__link_active" href="#">1</a><a class="blog__link" href="#">2</a><a class="blog__link" href="#">3</a><a class="blog__link" href="#">4</a><a class="blog__link" href="#">5</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
 {% endblock content %}
 

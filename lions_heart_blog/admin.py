@@ -21,7 +21,7 @@ class CompanyImageInline(admin.TabularInline):
 
 
 @admin.register(CompanyInformation)
-class OrderAdmin(admin.ModelAdmin):
+class CompanyAdmin(admin.ModelAdmin):
     inlines = (CompanyImageInline,)
 
     def has_add_permission(self, request):
@@ -30,6 +30,3 @@ class OrderAdmin(admin.ModelAdmin):
             return False
         else:
             return True
-
-
-
