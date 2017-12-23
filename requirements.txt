@@ -1,0 +1,12 @@
+Django==1.11.8
+django-cart==1.0.4
+django-debug-toolbar==1.9.1
+django-filter==1.1.0
+django-js-asset==0.1.1
+django-modeltranslation==0.12.1
+django-mptt==0.9.0
+olefile==0.44
+Pillow==4.3.0
+psycopg2==2.7.3.2
+pytz==2017.3
+sqlparse==0.2.4
