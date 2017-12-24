@@ -13,9 +13,8 @@ import os, sys
 from django.core.wsgi import get_wsgi_application
 
 
-sys.path.append('~/lions_heart/lions_heart_env/Lions_Heart')
-
-sys.path.append('~/lions_heart/lions_heart_env/lib/site-packages')
+sys.path.append('/lions_heart/lions_heart_env/Lions_Heart')
+sys.path.append('/lions_heart/lions_heart_env/lib/site-packages')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Lions_Heart.settings")
 
