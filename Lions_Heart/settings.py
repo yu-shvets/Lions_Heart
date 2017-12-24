@@ -26,7 +26,7 @@ SECRET_KEY = 'ojlvngg!t@f0=7*z=yp6bq9)%h@tbi-tzzfxzaib!8gug+&wb6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['95.85.36.67']
+ALLOWED_HOSTS = ['95.85.53.130']
 
 
 # Application definition
@@ -88,7 +88,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'lions_heart_test',
-        'USER': 'lions_heart_user',
+        'USER': 'django',
         'PASSWORD': '********',
         'HOST': 'localhost',
         'PORT': '',
