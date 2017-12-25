@@ -1,0 +1,11 @@
+.blog {
+  .section__title {
+    margin-top:25px;
+  }
+  &__img {
+    margin:0 auto;
+  }
+  &__text {
+    text-align: center;
+  }
+}

@@ -137,6 +137,19 @@
       padding-left:35px;
     }
   }
+  &__select {
+    height:30px;
+    width:100%;
+    max-width:100px;
+    text-indent: 3px;
+    margin-left:10px;
+    margin-right:10px;
+    text-align:center;
+    color:$black-color;
+    & option {
+      color: $black-color;
+    }
+  }
 }
 
 .form__radio-inner:checked ~ div.form__radio-btn:before {

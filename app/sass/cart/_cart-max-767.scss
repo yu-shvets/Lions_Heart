@@ -1,0 +1,42 @@
+.cart {
+  &__table {
+    & thead {
+      display:none;
+    }
+    &-data {
+      display:block;
+      text-align:right;
+      padding:10px 0;
+    }
+    &-main {
+      flex-direction: row-reverse;
+    }
+    &-quantity {
+      position: relative;
+      &:before {
+        content:attr(data-quant);
+        position:absolute;
+        left:0;
+        top:29px;
+      }      
+    }
+    &-price {
+      position: relative;
+      &:before {
+        content:attr(data-price);
+        position:absolute;
+        left:0;
+        top:12px;
+      }
+    }
+    &-sum {
+      position:relative;
+      &:before {
+        content:attr(data-sum);
+        position:absolute;
+        left:0;
+        top:12px;        
+      }
+    }
+  }
+}

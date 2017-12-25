@@ -1,24 +1,34 @@
 // HEADER
 header.header
+
   .container
     .row
-      .col-md-3
+      .col-md-3.col-xs-12.col-sm-3
         // LOGO
         a(href="#").header__logo
           img(src="../../img/logo.jpg" alt='logo')
           img(src="../../img/header-line.png").header__line
-      .col-md-9
+      .col-md-9.col-xs-12.col-sm-12
+        a(href='#').header__mobile
+          span.header__hamburger
+          span.header__hamburger
+          span.header__hamburger
         // NAVIGATION
-        nav.nav
-          ul.nav__list.nav__list_header.align-right
-            li.nav__item.nav__item_inline.nav__item_has-child
-              span.nav__link.nav__link_dark.nav__link_uppercase.header__link коллекции
-              // DROP-DOWN
-              p.nav__arrow &#x25BC;
-              ul.nav__list.nav__list-child.align-center 
-                each child in ['лето','весна']
-                  li.nav__item
-                    a(href="#").nav__link.nav__link_uppercase.nav__link_light.header__link.header__link_child= child
-            each text in [ 'о нас', 'блог', 'контакты', 'уникальные подарки', 'корзина']
-              li.nav__item.nav__item_inline
-                a(href="#").nav__link.nav__link_uppercase.nav__link_dark.header__link= text
+        nav.nav.header__nav
+          span
+            span
+              select.header__select
+                option RU
+                option EN
+            ul.nav__list.nav__list_header
+              //- li.nav__item.nav__item_inline.nav__item_has-child.header__item
+              //-   span.nav__link.nav__link_dark.nav__link_uppercase.header__link коллекции
+              //-   // DROP-DOWN
+              //-   p.nav__arrow &#x25BC;
+              //-   ul.nav__list.nav__list-child.align-center 
+              //-     each child in ['лето','весна']
+              //-       li.nav__item.header__item
+              //-         a(href="#").nav__link.nav__link_uppercase.nav__link_light.header__link.header__link_child= child
+              each text in [ 'Коллекции', 'о нас', 'блог', 'контакты', 'уникальные подарки', 'корзина']
+                li.nav__item.nav__item_inline.header__item
+                  a(href="#").nav__link.nav__link_uppercase.nav__link_dark.header__link= text

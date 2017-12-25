@@ -7,9 +7,6 @@
 .align-left { text-align: left; }
 .align-center { text-align: center; }
 
-@import 'media';
-@import "fonts";
-
 // NAVIGATION STYLE
 .nav {
   &_footer {
@@ -19,6 +16,9 @@
   &__list {
     padding-left:0px;
     list-style-type:none;
+    &_header {
+      float:right;
+    }
     &-child {
       display:none;
       position:absolute;
@@ -81,9 +81,12 @@
   border-bottom:4px solid #cdcdcd;
   &__logo {
     position:relative;
+    img:first-child {
+      width:100%;
+    }
   }
   &__line {
-    top: 45px;
+    top: 48px;
     position:absolute;
     left: 0;
     right: 0;
@@ -91,7 +94,7 @@
     background: white;
   }
   &__link {
-    font-size:20px;
+    font-size:15px;
     padding-left:10px;
     display:block;
     padding-right:10px;
@@ -122,6 +125,10 @@
       transition:all .5s;
       background-color:$black-color;
     }
+    &__nav {
+      transition: all .5s;
+
+    }
     .nav__item:first-child &__link {
       padding-left:0;
     }
@@ -132,6 +139,49 @@
       color: $black-color;
       text-decoration: none;
     }
+  }
+  &__select {
+    height: 30px;
+    width: 100%;
+    max-width: 50px;
+    text-indent: 3px;
+    text-align: center;
+    color: #000;
+  }
+  &__mobile {
+    position:fixed;
+    right:5px;
+    display:none;
+    padding:10px;
+    top:17px;
+    transition:all .5s;
+    z-index: 5;
+    &_active {
+      .header__hamburger {
+        background:$white-color;
+        &:first-child,&:nth-child(2),&:nth-child(3) {
+          border-top:3.5px solid $white-color;
+          margin:0;
+        }
+        &:first-child {
+          transform:rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform:rotate(-45deg);
+        }
+        &:nth-child(3) {
+          opacity:0;
+        }
+      }
+    }
+  }
+  &__hamburger {
+    display:block;
+    width: 35px;
+    transition: all .5s;
+    border-top:3.5px solid $black-color;
+    background-color:$black-color;
+    margin-top:5px;
   }
 }
 
@@ -172,6 +222,7 @@
     color:$black-color;
     &_catalog {
       padding-bottom:25px;
+      padding-top:20px;
     }
   }
   &__text {
@@ -317,3 +368,7 @@
     background: none repeat scroll 0 0 $black-color;
   }
 }
+
+@import 'media';
+@import "fonts";
+

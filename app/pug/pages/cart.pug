@@ -36,15 +36,15 @@ block pageContent
                         div(href='#').cart__table-thumbnail
                           img(src='img/sp-img.jpg').cart__table-img
                         h4.section__text.section__text_dark Отважный / Brave
-                    td.cart__table-data.cart__table-quantity
+                    td(data-quant='Колличество').cart__table-data.cart__table-quantity
                       button(data-step='1').button.button_transparent.cart__table-btn
                         img(src='img/triangle.jpg' alt='plus').cart__table-plus
                       input(type='number').cart__table-result
                       button(data-step='-1').button.button_transparent.cart__table-btn
                         img(src='img/triangle.jpg' alt='minus').cart__table-minus
-                    td.cart__table-data
+                    td(data-price='Цена').cart__table-data.cart__table-price
                       p.section__text.section__text_dark 1.800 грн
-                    td.cart__table-data
+                    td(data-sum='Сума').cart__table-data.cart__table-sum
                       p.section__text.section__text_dark 1.800 грн
                     td.cart__table-data
                       span.cart__table-close &times;
@@ -60,7 +60,7 @@ block pageContent
             h2.sp__recomendation.align-center Рекомендуем к выбранным вами товарам
             -var count = 0;
             while count<4
-              .col-md-3.align-center
+              .col-md-3.col-sm-6.align-center
                 .product
                   span
                     a.product__link

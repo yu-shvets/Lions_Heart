@@ -1,0 +1,9 @@
+.ordering {
+  &__main {
+    text-align: center;
+  }
+  &__position {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

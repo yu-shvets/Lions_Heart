@@ -7,11 +7,19 @@ block pageContent
     .container
       .row
         .col-md-12
-          nav.nav
-            ul.nav__list
-              each item in ['Главная', 'Коллекции']
-                li.nav__item.nav__item_inline
-                  a(href='#').breadcumbs__link.nav__link.nav__link_dark= item
+          form.form.form_breadcumbs(action="" method='').mt-20
+            span.form__name Тип коллекции
+            select.form__select
+              option collect
+              option collect
+            span.form__name Коллекция
+            select.form__select
+              option collect
+              option collect
+            span.form__name Категория
+            select.form__select
+              option collect
+              option collect
 
   // MAIN CONTENT
   main.main
@@ -20,24 +28,24 @@ block pageContent
         .row
           .col-md-12
             h2.section__title.section__title_catalog Коллекции
-        .row
-          .col-md-12
-            .catalog__header
-              .row
-                .col-md-4
-                    //SEX FILTERS
-                    a(href='#').catalog__category Мужская
-                    a(href='#').catalog__category Женская
-                .col-md-8
-                  nav.nav.align-right
-                    ul.nav__list
-                      each item,index in ['Браслеты', 'Кольца','Подвески','Пряжки','Цепи']
-                        li.nav__item.nav__item_inline
-                          //IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE
-                          if index==0
-                            a(href='#').nav__link.catalog__menu.catalog__menu_active.nav__link_capitalize= item
-                          else 
-                            a(href='#').nav__link.catalog__menu.nav__link_capitalize= item
+        //- .row
+        //-   .col-md-12
+        //-     .catalog__header
+        //-       .row
+        //-         .col-md-4
+        //-             //SEX FILTERS
+        //-             a(href='#').catalog__category Мужская
+        //-             a(href='#').catalog__category Женская
+        //-         .col-md-8
+        //-           nav.nav.align-right
+        //-             ul.nav__list.catalog__list
+        //-               each item,index in ['Браслеты', 'Кольца','Подвески','Пряжки','Цепи']
+        //-                 li.nav__item.nav__item_inline
+        //-                   //IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE
+        //-                   if index==0
+        //-                     a(href='#').nav__link.catalog__menu.catalog__menu_active.nav__link_capitalize= item
+        //-                   else 
+        //-                     a(href='#').nav__link.catalog__menu.nav__link_capitalize= item
         .row
           .col-md-3.align-center
             .catalog__main

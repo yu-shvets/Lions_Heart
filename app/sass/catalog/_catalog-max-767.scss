@@ -1,0 +1,17 @@
+.catalog {
+  &__category {
+    display:block;
+    text-align: center;
+    margin:0;
+  }
+  &__list {
+    text-align: center;
+    padding-top:20px;
+    .nav__item {
+      display:block;
+    }
+  }
+  &__menu {
+    padding-right:0;
+  }
+}

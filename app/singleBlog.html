@@ -12,28 +12,24 @@
     <header class="header">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 col-xs-12 col-sm-3">
             <!-- LOGO--><a class="header__logo" href="#"><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.png"></a>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
-            <nav class="nav">
-              <ul class="nav__list nav__list_header align-right">
-                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">коллекции</span>
-                  <!-- DROP-DOWN-->
-                  <p class="nav__arrow">&#x25BC;</p>
-                  <ul class="nav__list nav__list-child align-center"> 
-                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="#">лето</a></li>
-                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="#">весна</a></li>
-                  </ul>
-                </li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
-              </ul>
-            </nav>
+            <nav class="nav header__nav"><span><span>
+                  <select class="header__select">
+                    <option>RU</option>
+                    <option>EN</option>
+                  </select></span>
+                <ul class="nav__list nav__list_header">
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+                </ul></span></nav>
           </div>
         </div>
       </div>
@@ -64,7 +60,7 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-3">
             <!-- FIRST MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
@@ -76,7 +72,7 @@
               </ul>
             </nav>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-3">
             <!-- SECOND MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
@@ -86,7 +82,7 @@
               </ul>
             </nav>
           </div>
-          <div class="col-md-3 col-md-offset-5 align-right">
+          <div class="col-md-3 col-md-offset-5 align-right col-sm-6">
             <!--TELL-->
             <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
           </div>
