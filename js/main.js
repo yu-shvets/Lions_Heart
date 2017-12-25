@@ -3,18 +3,24 @@ $('document').ready(function(){
     loop:false,
     margin:10,
     dots: true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:3
-        }
-    }
+    // responsive:{
+    //     0:{
+    //         items:1
+    //     },
+    //     768:{
+    //         items:3
+    //     },
+    //     1000:{
+    //         items:3
+    //     }
+    // }
   })
+
+  //mobile menu
+  $('.header__mobile').click(function(){
+    $('.header__nav').toggleClass('header__nav_active');
+    $('.header__mobile').toggleClass('header__mobile_active');
+  });
   //gallery 
   var galeries = $("div[id^='gallery']");
   $.each(galeries, function(){

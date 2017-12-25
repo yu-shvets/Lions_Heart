@@ -12,28 +12,24 @@
     <header class="header">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 col-xs-12 col-sm-3">
             <!-- LOGO--><a class="header__logo" href="#"><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.png"></a>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
-            <nav class="nav">
-              <ul class="nav__list nav__list_header align-right">
-                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">коллекции</span>
-                  <!-- DROP-DOWN-->
-                  <p class="nav__arrow">&#x25BC;</p>
-                  <ul class="nav__list nav__list-child align-center"> 
-                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="#">лето</a></li>
-                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="#">весна</a></li>
-                  </ul>
-                </li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
-              </ul>
-            </nav>
+            <nav class="nav header__nav"><span><span>
+                  <select class="header__select">
+                    <option>RU</option>
+                    <option>EN</option>
+                  </select></span>
+                <ul class="nav__list nav__list_header">
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+                </ul></span></nav>
           </div>
         </div>
       </div>
@@ -43,12 +39,20 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <nav class="nav">
-              <ul class="nav__list">
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Главная</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Коллекции</a></li>
-              </ul>
-            </nav>
+            <form class="form form_breadcumbs mt-20" action="" method=""><span class="form__name">Тип коллекции</span>
+              <select class="form__select">
+                <option>collect</option>
+                <option>collect</option>
+              </select><span class="form__name">Коллекция</span>
+              <select class="form__select">
+                <option>collect</option>
+                <option>collect</option>
+              </select><span class="form__name">Категория</span>
+              <select class="form__select">
+                <option>collect</option>
+                <option>collect</option>
+              </select>
+            </form>
           </div>
         </div>
       </div>
@@ -60,38 +64,6 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="section__title section__title_catalog">Коллекции</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="catalog__header">
-                <div class="row">
-                  <div class="col-md-4">
-                    <!--SEX FILTERS--><a class="catalog__category" href="#">Мужская</a><a class="catalog__category" href="#">Женская</a>
-                  </div>
-                  <div class="col-md-8">
-                    <nav class="nav align-right">
-                      <ul class="nav__list">
-                        <li class="nav__item nav__item_inline">
-                          <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu catalog__menu_active nav__link_capitalize" href="#">Браслеты</a>
-                        </li>
-                        <li class="nav__item nav__item_inline">
-                          <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu nav__link_capitalize" href="#">Кольца</a>
-                        </li>
-                        <li class="nav__item nav__item_inline">
-                          <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu nav__link_capitalize" href="#">Подвески</a>
-                        </li>
-                        <li class="nav__item nav__item_inline">
-                          <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu nav__link_capitalize" href="#">Пряжки</a>
-                        </li>
-                        <li class="nav__item nav__item_inline">
-                          <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu nav__link_capitalize" href="#">Цепи</a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div class="row">
@@ -163,7 +135,7 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-3">
             <!-- FIRST MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
@@ -175,7 +147,7 @@
               </ul>
             </nav>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-3">
             <!-- SECOND MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
@@ -185,7 +157,7 @@
               </ul>
             </nav>
           </div>
-          <div class="col-md-3 col-md-offset-5 align-right">
+          <div class="col-md-3 col-md-offset-5 align-right col-sm-6">
             <!--TELL-->
             <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
           </div>
