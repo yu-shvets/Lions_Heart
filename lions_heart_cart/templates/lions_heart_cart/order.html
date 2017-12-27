@@ -3,22 +3,49 @@
 
 {% block content %}
 
-    {% for item in cart %}
-
-            <p>{{ item.item.title }}</p>
-            <p>{% trans 'Price:' %} {{ item.price }}</p>
-            <p>{% trans 'Quantity:' %} {{ item.quantity }}</p>
-
-    {% endfor %}
-
-    <h4>{% trans 'Total cost:' %} {{ cart.get_total_price }}</h4>
-
-    <hr>
-
-    <form method="post" action="{% url 'new_order' %}">
+    <main class="main">
+      <section class="section ordering">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-offset-1 col-md-7">
+              <div class="ordering__main">
+                <h2 class="ordering__title ordering__title_main">Оформление заказа</h2>
+                <p class="ordering__subtitle">ЛИЧНЫЕ ДАННЫЕ</p>
+                <form method="post" action="{% url 'new_order' %}">
             {% csrf_token %}
             {{ form.as_p }}
-        <input type="submit" value={% trans "Confirm" %} class="btn"/>
-        </form>
+                    <input type="submit" value={% trans "Confirm" %} class="button button_light button_uppercase button_bg-dark ordering__button" >
+                  <div class="align-center">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <!--ORDER INFO-->
+              <div class="section__item ordering__item">
+                <div class="ordering__item-header">
+                  <h3 class="ordering__subtitle ordering__subtitle_p0">Вы заказали</h3>
+
+                  {% for item in cart %}
+
+                  <div class="ordering__good"><a class="section__text section__text_neutral" href="#">{{ item.item.title }}</a><span class="section__text section__text-dark">{{ item.price }} грн</span></div>
+
+
+                   {% endfor %}
+                </div>
+                <div class="ordering__item-body align-center">
+                  <p class="section__text section__text_dark section__text_mb-0">Итого к оплате</p>
+                  <p class="ordering__title">{{ cart.get_total_price }} грн</p>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
 {% endblock content %}
+

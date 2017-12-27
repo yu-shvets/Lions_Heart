@@ -26,7 +26,7 @@ SECRET_KEY = 'ojlvngg!t@f0=7*z=yp6bq9)%h@tbi-tzzfxzaib!8gug+&wb6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['95.85.53.130']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'lions_heart_cart',
     'debug_toolbar',
     'django_filters',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -87,9 +88,9 @@ WSGI_APPLICATION = 'Lions_Heart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lions_heart_test',
-        'USER': 'django',
-        'PASSWORD': '********',
+        'NAME': 'lions_heart_shop',
+        'USER': 'lions_heart_user',
+        'PASSWORD': '******',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -142,8 +143,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/django/Lions_Heart/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CART_SESSION_ID = 'cart'
 
 INTERNAL_IPS = '127.0.0.1'
+
+LOCALE_PATHS = (
+    BASE_DIR + '/lions_heart_cart/locale', )

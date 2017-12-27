@@ -46,8 +46,7 @@
             <div class="col-md-6 col-md-offset-1">
               <h2 class="section__title">{{ item.title }}</h2>
               <p class="section__title">{{ item.price }} {% trans 'UAH' %}</p>
-{#              <button class="button button_light button_uppercase button_bg-dark product__button sp__button">в корзину</button>#}
-                 <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">{% trans 'Add to cart' %}</a></p>
+                 <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button>
               <ul class="sp__list sp__list_padding">
                 <li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>
                 <li class="section__text section__text_dark sp__item">{% trans 'Dimensions' %}</li>
@@ -79,7 +78,7 @@
                 <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="produxct__img" src="{{ item.title_image.url }}"></a>
                     <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
                       <p class="section__text section__text_dark">{{ item.price }}<span> {% trans 'UAH' %}</span></p>
-                      <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">{% trans 'Add to cart' %}</a></p>
+                      <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button></a>
                     </div></span>
                 </div>
               </div>

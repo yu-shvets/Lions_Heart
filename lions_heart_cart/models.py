@@ -15,7 +15,7 @@ class Order(CommonInfo):
     customer_name = models.CharField(max_length=256, verbose_name=_("имя покупателя"))
     customer_email = models.EmailField(verbose_name="email")
     phone = models.CharField(max_length=13, verbose_name=_('телефон'))
-    payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=8,
+    payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=11,
                                     default='Карта', verbose_name=_('способ платежа'))
     comment = models.TextField(verbose_name=_('комментарий'), blank=True, null=True)
     total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('общая_стоимость'))

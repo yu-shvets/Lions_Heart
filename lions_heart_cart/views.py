@@ -20,7 +20,7 @@ def add_to_cart(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
     cart.add(item=item)
-    return HttpResponseRedirect(reverse('cart'))
+    return HttpResponseRedirect(reverse('catalogue'))
 
 
 def cart_remove(request, item_id):
@@ -33,16 +33,32 @@ def cart_remove(request, item_id):
 def update_quantity(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
-    form = CartAddProductForm(data=request.POST)
     response_data = {}
-    if form.is_valid():
-        data = form.cleaned_data
-        new_quantity = data['quantity']
-        cart.update(item, new_quantity)
-        response_data['quantity'] = new_quantity
-        response_data['sum'] = new_quantity * item.price
-        response_data['total_price'] = cart.get_total_price()
+    if request.method == 'POST':
+        new_quantity = (request.POST['new_quantity'])
+        if new_quantity.isnumeric():
+            new_quantity = int(new_quantity)
+            if new_quantity > 0:
+                cart.update(item, new_quantity)
+                response_data['quantity'] = new_quantity
+                response_data['sum'] = new_quantity * item.price
+                response_data['total_price'] = cart.get_total_price()
     return JsonResponse(response_data)
+
+
+# def update_quantity(request, item_id):
+#     cart = Cart(request)
+#     item = get_object_or_404(Item, id=item_id)
+#     form = CartAddProductForm(data=request.POST)
+#     response_data = {}
+#     if form.is_valid():
+#         data = form.cleaned_data
+#         new_quantity = data['quantity']
+#         cart.update(item, new_quantity)
+#         response_data['quantity'] = new_quantity
+#         response_data['sum'] = new_quantity * item.price
+#         response_data['total_price'] = cart.get_total_price()
+#     return JsonResponse(response_data)
 
 
 class OrderView(TemplateView):
@@ -70,8 +86,8 @@ class OrderCreate(CreateView):
                                    price=element['price'], order=self.obj)
             order_item.save()
         cart.clear()
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('success'))
 
 
-
-
+class SuccessView(TemplateView):
+    template_name = 'lions_heart_cart/order_success.html'

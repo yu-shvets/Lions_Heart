@@ -3,79 +3,37 @@
 
 {% block content %}
 
+    <!-- MAIN CONTENT-->
+    <main class="main">
 
-    <!--BREADCUMBS-->
-    <div class="breadcumbs">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <nav class="nav">
-              <ul class="nav__list">
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{% trans 'Collections' %}</a></li>
-              </ul>
-            </nav>
+      <section class="section catalog">
+        <div class="container">
 
-    <form action="" method="get">
+        <form action="" method="get">
         {{ filter.form }}
         <input type="submit" />
     </form>
 
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- MAIN CONTENT-->
-    <main class="main">
-      <section class="section catalog">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section__title section__title_catalog">{% trans 'Collections' %}</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="catalog__header">
-                <div class="row">
-                  <div class="col-md-4">
-                    <!--SEX FILTERS--><a class="catalog__category" href="#">{% trans 'Men' %}</a><a class="catalog__category" href="#">{% trans 'Women' %}</a>
-                  </div>
-                  <div class="col-md-8">
-                    <nav class="nav align-right">
-                      <ul class="nav__list">
+        {% if filter.form.collection.value %}
 
-                           {% for category in categories %}
-
-                        <li class="nav__item nav__item_inline">
-                          <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu catalog__menu_active nav__link_capitalize" href="{% url 'catalogue_category' category.pk  %}">{{ category.title }}</a>
-                        </li>
-
-                            {% endfor %}
-
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="row">
             <div class="col-md-3 align-center">
               <div class="catalog__main"><span>
-                  <div class="section__subtitle">{% trans 'Women' %}<br>{% trans 'Collection' %}</div><img src="img/catalog-main.png">
-                  <p class="section__text section__text_neutral mt-30">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, ab.</p></span></div>
+                  <div class="section__subtitle">{{ object_list.first.collection.title }}<br></div><img src="{{ object_list.first.collection.logo_image.url }}">
+                  <p class="section__text section__text_neutral mt-30">{{ object_list.first.collection.description }}</p></span></div>
             </div>
 
-              {% for item in filter.qs %}
+           {% endif %}
+              {% for item in object_list %}
 
             <div class="col-md-3 align-center">
               <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
-                    <p class="section__text section__text_dark">{{ item.price }}<span>грн</span></p>
-{#                    <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>#}
-                      <p><a class="btn btn-primary" href="{% url 'add_to_cart' item.pk %}" role="button">{% trans 'Add to cart' %}</a></p>
-                  </div></span></div>
+                    <p class="section__text section__text_dark">{{ item.price }}<span> {% trans 'UAH' %}</span></p>
+                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button></a>
+                  </div>
+              </span>
+              </div>
             </div>
 
               {% endfor %}
@@ -83,12 +41,35 @@
           <div class="row">
             <div class="col-md-12">
               <p class="number align-center">
-                <!--IF PAGE IS ACTIVE SET NUMBER__LINK_ACTIVE--><a class="number__link number__link_active" href="#">1</a><a class="number__link" href="#">2</a><a class="number__link" href="#">3</a><a class="number__link" href="#">4</a><a class="number__link" href="#">5</a>
+
+                  {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
               </p>
             </div>
           </div>
         </div>
       </section>
     </main>
+
 
     {% endblock content %}
