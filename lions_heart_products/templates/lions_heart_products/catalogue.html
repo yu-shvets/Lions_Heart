@@ -1,4 +1,5 @@
 {% extends 'lions_heart_products/index.html' %}
+{% load widget_tweaks %}
 {% load i18n %}
 
 {% block content %}
@@ -9,9 +10,12 @@
       <section class="section catalog">
         <div class="container">
 
-        <form action="" method="get">
-        {{ filter.form }}
-        <input type="submit" />
+        <form action="" method="get" class="form form_breadcumbs mt-20">
+
+            {% trans 'Collection' %}{{ filter.form.collection|add_class:'form__select' }}
+            {% trans 'Category' %}{{ filter.form.category|add_class:'form__select' }}
+
+        <input type="submit" value={% trans "Select" %} class="btn btn-primary btn-sm"/>
     </form>
 
         {% if filter.form.collection.value %}

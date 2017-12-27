@@ -16,13 +16,13 @@ class CommonInfo(models.Model):
 class Category(MPTTModel):
 
     class Meta(object):
-        verbose_name = _("Категория")
-        verbose_name_plural = _("Категории")
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
     slug = models.SlugField(blank=True, null=True)
-    title = models.CharField(max_length=256, verbose_name=_('наименование'))
+    title = models.CharField(max_length=256, verbose_name=_('title'))
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children',
-                            db_index=True, on_delete=models.CASCADE, verbose_name=_('родительская категория'))
+                            db_index=True, on_delete=models.CASCADE, verbose_name=_('parent сategory'))
 
     class MPTTMeta:
         order_insertion_by = ['title']
@@ -34,14 +34,14 @@ class Category(MPTTModel):
 class Collection(models.Model):
 
     class Meta(object):
-        verbose_name = _("Коллекция")
-        verbose_name_plural = _("Коллекции")
+        verbose_name = _("Сollection")
+        verbose_name_plural = _("Сollections")
 
     slug = models.SlugField(blank=True, null=True)
-    title = models.CharField(max_length=256, verbose_name=_('наименование'))
-    logo_image = models.ImageField(upload_to='collection/logos', verbose_name=_('логотип коллекции'),
+    title = models.CharField(max_length=256, verbose_name=_('name'))
+    logo_image = models.ImageField(upload_to='collection/logos', verbose_name=_('logo'),
                                    blank=True, null=True)
-    description = models.TextField(verbose_name=_('описание коллекции'), blank=True, null=True)
+    description = models.TextField(verbose_name=_('description'), blank=True, null=True)
 
     def __str__(self):
         return "{}".format(self.title)
@@ -50,21 +50,21 @@ class Collection(models.Model):
 class Item(CommonInfo):
 
     class Meta(CommonInfo.Meta):
-        verbose_name = _("Товар")
-        verbose_name_plural = _("Товары")
+        verbose_name = _("Item")
+        verbose_name_plural = _("Items")
 
-    TYPE_CHOICES = ((_('Мужская'), _('Мужская')),
-                    (_('Женская'), _('Женская')))
+    TYPE_CHOICES = ((_('Men'), _('Men')),
+                    (_('Women'), _('Women')))
 
-    title = models.CharField(max_length=256, verbose_name=_('наименование'))
-    title_image = models.ImageField(upload_to='catalog/products', verbose_name=_('титульное изображение'))
-    description = models.TextField(blank=True, null=True, verbose_name=_('описание'))
-    price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('цена'))
+    title = models.CharField(max_length=256, verbose_name=_('name'))
+    title_image = models.ImageField(upload_to='catalog/products', verbose_name=_('title image'))
+    description = models.TextField(blank=True, null=True, verbose_name=_('description'))
+    price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('price'))
     slug = models.SlugField(blank=True, null=True)
-    type = models.CharField(choices=TYPE_CHOICES, max_length=7, default=_('Женская'), verbose_name=_('тип коллекции'))
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('категория'))
-    collection = models.ForeignKey(Collection, null=True, on_delete=models.CASCADE, verbose_name=_('коллекция'))
-    recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('рекомендованные товары'))
+    type = models.CharField(choices=TYPE_CHOICES, max_length=7, default=_('Women'), verbose_name=_('type'))
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('сategory'))
+    collection = models.ForeignKey(Collection, null=True, on_delete=models.CASCADE, verbose_name=_('сollection'))
+    recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
 
     def __str__(self):
         return "{}-{}".format(self.category, self.title)
@@ -73,11 +73,11 @@ class Item(CommonInfo):
 class Image(models.Model):
 
     class Meta(object):
-        verbose_name = _("Изображение")
-        verbose_name_plural = _("Изображения")
+        verbose_name = _("Image")
+        verbose_name_plural = _("Images")
 
-    image = models.ImageField(upload_to='catalog/products', verbose_name=_('изображение'))
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name=_('товар'))
+    image = models.ImageField(upload_to='catalog/products', verbose_name=_('image'))
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name=_('item'))
 
     def __str__(self):
         return "{}-{}".format(self.item, self.image)
@@ -86,11 +86,11 @@ class Image(models.Model):
 class Specs(models.Model):
 
     class Meta(object):
-        verbose_name = _("Характекристика изделия")
-        verbose_name_plural = _("Характекристики изделия")
+        verbose_name = _("Specs")
+        verbose_name_plural = _("Specs")
 
-    weight = models.FloatField(blank=True, null=True, verbose_name=_('вес, гр'))
-    diameter = models.FloatField(blank=True, null=True, verbose_name=_('диаметр, мм'))
-    length = models.FloatField(blank=True, null=True, verbose_name=_('длина, мм'))
-    specs = models.TextField(blank=True, null=True, verbose_name=_('прочие характекристики'))
+    weight = models.FloatField(blank=True, null=True, verbose_name=_('weight, gr'))
+    diameter = models.FloatField(blank=True, null=True, verbose_name=_('diameter, mm'))
+    length = models.FloatField(blank=True, null=True, verbose_name=_('length, mm'))
+    specs = models.TextField(blank=True, null=True, verbose_name=_('other specs'))
     item = models.OneToOneField(Item, on_delete=models.CASCADE)

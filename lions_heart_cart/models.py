@@ -6,19 +6,19 @@ from django.utils.translation import ugettext_lazy as _
 class Order(CommonInfo):
 
     class Meta(CommonInfo.Meta):
-        verbose_name = _("Заказ")
-        verbose_name_plural = _("Заказы")
+        verbose_name = _("Order")
+        verbose_name_plural = _("Orders")
 
-    PAYMENT_CHOICES = ((_('Карта'), _('Карта')),
-                       (_('Наличные'), _('Наличные')))
+    PAYMENT_CHOICES = ((_('Credit card'), _('Credit card')),
+                       (_('Cash'), _('Cash')))
 
-    customer_name = models.CharField(max_length=256, verbose_name=_("имя покупателя"))
+    customer_name = models.CharField(max_length=256, verbose_name=_("name"))
     customer_email = models.EmailField(verbose_name="email")
-    phone = models.CharField(max_length=13, verbose_name=_('телефон'))
+    phone = models.CharField(max_length=13, verbose_name=_('phone'))
     payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=11,
-                                    default='Карта', verbose_name=_('способ платежа'))
-    comment = models.TextField(verbose_name=_('комментарий'), blank=True, null=True)
-    total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('общая_стоимость'))
+                                    default='Карта', verbose_name=_('payment type'))
+    comment = models.TextField(verbose_name=_('comment'), blank=True, null=True)
+    total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('total cost'))
 
     def __str__(self):
         return '{}-{}'.format(self.customer_name, self.created)
@@ -27,13 +27,13 @@ class Order(CommonInfo):
 class OrderItem(models.Model):
 
     class Meta(object):
-        verbose_name = _("Товар в заказе")
-        verbose_name_plural = _("Товары в заказе")
+        verbose_name = _("Item in order")
+        verbose_name_plural = _("Items in orders")
 
-    item = models.ForeignKey(Item, verbose_name=_('товар'), on_delete=models.CASCADE)
-    quantity = models.IntegerField(verbose_name=_('количество'))
-    price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('цена'))
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name=_('заказ'))
+    item = models.ForeignKey(Item, verbose_name=_('Item'), on_delete=models.CASCADE)
+    quantity = models.IntegerField(verbose_name=_('quantity'))
+    price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('price'))
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name=_('order'))
 
     def __str__(self):
         return '{}-{}'.format(self.item, self.order)

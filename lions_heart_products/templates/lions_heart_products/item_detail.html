@@ -12,9 +12,8 @@
             <nav class="nav">
               <ul class="nav__list">
                 <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{% trans 'Collections' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{{ item.category.title }}</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">{{ item.title }}</a></li>
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'catalogue' %}">{% trans 'Catalogue' %}</a></li>
+                <li class="nav__item nav__item_inline">{{ item.title }}</li>
               </ul>
             </nav>
           </div>
@@ -58,14 +57,16 @@
                 <li class="section__text section__text_dark sp__item">{% trans '-10% for 1 item;' %}</li>
                 <li class="section__text section__text_dark sp__item">{% trans '-15% for 2 items;' %}</li>
                 <li class="section__text section__text_dark sp__item">{% trans '-20% for 5 items;' %}</li>
-                <li class="section__text section__text_dark sp__item">{% trans '-30% for custom order;' %}</li>
+                <li class="section__text section__text_dark sp__item">{% trans '-30% for custom order.' %}</li>
               </ul>
             </div>
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <!--PRODUCT MAIN TEXT-->
-              <p class="section__text section__text_neutral sp__text align-center">{{ item.description|safe }}</p>
+                {% if item.description %}
+              <p class="section__text section__text_neutral sp__text align-center">{{ item.description }}</p>
+                {% endif %}
             </div>
           </div>
           <div class="row">

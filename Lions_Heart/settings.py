@@ -150,4 +150,7 @@ CART_SESSION_ID = 'cart'
 INTERNAL_IPS = '127.0.0.1'
 
 LOCALE_PATHS = (
-    BASE_DIR + '/lions_heart_cart/locale', )
+    BASE_DIR + '/lions_heart_products/locale',
+    BASE_DIR + '/lions_heart_blog/locale',
+    BASE_DIR + '/lions_heart_cart/locale',
+)

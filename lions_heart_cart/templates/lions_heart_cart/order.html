@@ -1,4 +1,5 @@
 {% extends 'lions_heart_products/index.html' %}
+{% load widget_tweaks %}
 {% load i18n %}
 
 {% block content %}
@@ -9,13 +10,16 @@
           <div class="row">
             <div class="col-md-offset-1 col-md-7">
               <div class="ordering__main">
-                <h2 class="ordering__title ordering__title_main">Оформление заказа</h2>
-                <p class="ordering__subtitle">ЛИЧНЫЕ ДАННЫЕ</p>
+                <h2 class="ordering__title ordering__title_main">{% trans 'Checkout' %}</h2>
+                <p class="ordering__subtitle">{% trans 'PERSONAL INFORMATION' %}</p>
                 <form method="post" action="{% url 'new_order' %}">
             {% csrf_token %}
+
             {{ form.as_p }}
-                    <input type="submit" value={% trans "Confirm" %} class="button button_light button_uppercase button_bg-dark ordering__button" >
-                  <div class="align-center">
+                    <input type="submit" value={% trans "Checkout" %} class="button button_light button_uppercase button_bg-dark ordering__button" >
+
+
+                        <div class="align-center">
                   </div>
                 </form>
               </div>
@@ -24,18 +28,18 @@
               <!--ORDER INFO-->
               <div class="section__item ordering__item">
                 <div class="ordering__item-header">
-                  <h3 class="ordering__subtitle ordering__subtitle_p0">Вы заказали</h3>
+                  <h3 class="ordering__subtitle ordering__subtitle_p0">{% trans 'Your order' %}</h3>
 
                   {% for item in cart %}
 
-                  <div class="ordering__good"><a class="section__text section__text_neutral" href="#">{{ item.item.title }}</a><span class="section__text section__text-dark">{{ item.price }} грн</span></div>
+                  <div class="ordering__good"><a class="section__text section__text_neutral" href="#">{{ item.item.title }}</a><span class="section__text section__text-dark">{{ item.total_price }} {% trans 'UAH' %}</span></div>
 
 
                    {% endfor %}
                 </div>
                 <div class="ordering__item-body align-center">
-                  <p class="section__text section__text_dark section__text_mb-0">Итого к оплате</p>
-                  <p class="ordering__title">{{ cart.get_total_price }} грн</p>
+                  <p class="section__text section__text_dark section__text_mb-0">{% trans 'Total cost' %}</p>
+                  <p class="ordering__title">{{ cart.get_total_price }} {% trans 'UAH' %}</p>
                 </div>
 
 

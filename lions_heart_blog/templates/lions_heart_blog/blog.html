@@ -30,9 +30,29 @@
 
           <div class="row">
             <div class="col-md-12">
-              <p class="blog__number align-center">
-                <!--IF PAGE IS ACTIVE SET BLOG__LINK_ACTIVE--><a class="blog__link blog__link_active" href="#">1</a><a class="blog__link" href="#">2</a><a class="blog__link" href="#">3</a><a class="blog__link" href="#">4</a><a class="blog__link" href="#">5</a>
-              </p>
+
+                {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
             </div>
           </div>
         </div>

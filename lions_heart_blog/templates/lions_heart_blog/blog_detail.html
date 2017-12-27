@@ -3,7 +3,18 @@
 
 {% block content %}
 
-<p>{{ post.title }}</p>
+    <main class="main">
+      <section class="section blog">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="section__title align-center">{{ post.title }}</h2>
+            </div>
+          </div>
+
+        {% if post.main_image %}
+               <img src={{ post.main_image.url }}>
+                 {% endif %}
         <p>{{ post.body_text }}</p>
 
         {% trans 'Comments' %}:
@@ -25,6 +36,12 @@
         {{ form.as_p }}
       <input type="submit" value={% trans "Submit" %} class="btn"/>
       </form>
+
+    </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
 {% endblock content %}
 

@@ -19,6 +19,7 @@ class OrderForm(ModelForm):
             'customer_email': forms.EmailInput(attrs={'class': 'form__field form__field_main form__field_black'}),
             'phone': forms.TextInput(attrs={'class': 'form__field form__field_main form__field_black'}),
             'comment': forms.TextInput(attrs={'class': 'form__field form__field_main form__field_black'}),
+            'payment_type': forms.RadioSelect()
         }
 
 

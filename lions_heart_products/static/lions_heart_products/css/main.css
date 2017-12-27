@@ -313,6 +313,10 @@
   margin-top: 5px;
 }
 
+.form_breadcumbs {
+  padding-bottom: 20px;
+}
+
 .footer {
   background: -webkit-gradient(linear, left top, left bottom, from(#2d2d2d), to(#0d0d0d));
   background: -webkit-linear-gradient(top, #2d2d2d, #0d0d0d);
@@ -841,7 +845,6 @@
   text-indent: 15px;
   height: 42px;
   color: #000;
-  text-transform: capitalize;
 }
 
 .form__field_main {
@@ -934,7 +937,7 @@
 .form__select {
   height: 30px;
   width: 100%;
-  max-width: 100px;
+  max-width: 200px;
   text-indent: 3px;
   margin-left: 10px;
   margin-right: 10px;
@@ -1193,6 +1196,7 @@
     text-align: center;
     margin: 0 auto;
     display: table;
+    padding-bottom: 25px;
   }
   .form__select {
     display: block;
@@ -1297,3 +1301,5 @@
 }
 
 /*# sourceMappingURL=../css/main.css.map */
+
+
