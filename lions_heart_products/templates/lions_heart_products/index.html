@@ -34,21 +34,14 @@
                         </option>
                     {% endfor %}
                 </select>
-                <input type="submit" value="Go" />
+                <input type="submit" value="Go" class="btn btn-primary btn-sm" />
             </form>
 
             <!-- NAVIGATION-->
             <nav class="nav">
               <ul class="nav__list nav__list_header align-right">
-                <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">{% trans 'Collections' %}</span>
-                  <!-- DROP-DOWN-->
-                  <p class="nav__arrow">&#x25BC;</p>
-                  <ul class="nav__list nav__list-child align-center">
-                      {% for collection in collections %}
-                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="{% url 'catalogue_collection' collection.pk  %}">{{ collection.title }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </li>
+
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'catalogue' %}">{% trans 'Catalogue' %}</a></li>
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'About' %}</a></li>
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Contacts' %}</a></li>
@@ -81,17 +74,7 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-2">
 
-            <!-- FIRST MENU-->
-            <nav class="nav nav_footer">
-              <ul class="nav__list">
-                  {% for category in categories %}
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'catalogue_category' category.pk  %}">{{ category.title }}</a></li>
-                  {% endfor %}
-              </ul>
-            </nav>
-          </div>
           <div class="col-md-2">
             <!-- SECOND MENU-->
             <nav class="nav nav_footer">
