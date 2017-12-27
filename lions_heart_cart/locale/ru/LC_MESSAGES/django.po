@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-27 13:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: lions_heart_cart/models.py:9
+msgid "Order"
+msgstr "Заказ"
+
+#: lions_heart_cart/models.py:10
+msgid "Orders"
+msgstr "Заказы"
+
+#: lions_heart_cart/models.py:12
+msgid "Credit card"
+msgstr "Карта"
+
+#: lions_heart_cart/models.py:13
+msgid "Cash"
+msgstr "Наличные"
+
+#: lions_heart_cart/models.py:15
+msgid "name"
+msgstr "имя"
+
+#: lions_heart_cart/models.py:17
+msgid "phone"
+msgstr "телефон"
+
+#: lions_heart_cart/models.py:19
+msgid "payment type"
+msgstr "способ платежа"
+
+#: lions_heart_cart/models.py:20
+msgid "comment"
+msgstr "комментарий"
+
+#: lions_heart_cart/models.py:21
+#, fuzzy
+#| msgid "Total cost"
+msgid "total cost"
+msgstr "Итого к оплате:"
+
+#: lions_heart_cart/models.py:30
+msgid "Item in order"
+msgstr "Товар в заказе"
+
+#: lions_heart_cart/models.py:31
+msgid "Items in orders"
+msgstr "Товары в заказе"
+
+#: lions_heart_cart/models.py:33
+msgid "Item"
+msgstr "Товар"
+
+#: lions_heart_cart/models.py:34
+#, fuzzy
+#| msgid "Quantity"
+msgid "quantity"
+msgstr "Количество:"
+
+#: lions_heart_cart/models.py:35
+#, fuzzy
+#| msgid "Price"
+msgid "price"
+msgstr "Цена:"
+
+#: lions_heart_cart/models.py:36
+#, fuzzy
+#| msgid "Your order"
+msgid "order"
+msgstr "Вы заказали"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:14
+msgid "Cart"
+msgstr ""
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:23
+msgid "Quantity"
+msgstr "Количество:"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:24
+msgid "Price"
+msgstr "Цена:"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:25
+msgid "Cost"
+msgstr "Сумма"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:68
+#: lions_heart_cart/templates/lions_heart_cart/order.html:41
+msgid "Total cost"
+msgstr "Итого к оплате:"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:69
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:85
+#: lions_heart_cart/templates/lions_heart_cart/order.html:35
+#: lions_heart_cart/templates/lions_heart_cart/order.html:42
+msgid "UAH"
+msgstr ""
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:70
+#: lions_heart_cart/templates/lions_heart_cart/order.html:13
+#: lions_heart_cart/templates/lions_heart_cart/order.html:19
+msgid "Checkout"
+msgstr "Оформить заказ"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:77
+msgid "Recommended items"
+msgstr "Рекомендуем к выбранным вами товарам"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:86
+msgid "Add to cart"
+msgstr ""
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:14
+msgid "PERSONAL INFORMATION"
+msgstr "ЛИЧНЫЕ ДАННЫЕ"
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:31
+msgid "Your order"
+msgstr "Вы заказали"
+
+#: lions_heart_cart/templates/lions_heart_cart/order_success.html:9
+msgid "Your order is successfully submitted. We'll contact You soon."
+msgstr "Ваш заказ успешно принят. Мы свяжемся с Вами в ближайшее время."

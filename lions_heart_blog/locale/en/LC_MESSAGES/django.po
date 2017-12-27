@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-27 13:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lions_heart_blog/models.py:9
+msgid "Пост"
+msgstr "Post"
+
+#: lions_heart_blog/models.py:10
+msgid "Посты"
+msgstr "Posts"
+
+#: lions_heart_blog/models.py:12
+msgid "наименование"
+msgstr "name"
+
+#: lions_heart_blog/models.py:13
+msgid "содержание"
+msgstr "body_text"
+
+#: lions_heart_blog/models.py:15
+msgid "титульное изображение"
+msgstr "main_image"
+
+#: lions_heart_blog/models.py:24
+msgid "Комментарий"
+msgstr "Comment"
+
+#: lions_heart_blog/models.py:25
+msgid "Комментарии"
+msgstr "Comments"
+
+#: lions_heart_blog/models.py:27
+msgid "автор"
+msgstr "author"
+
+#: lions_heart_blog/models.py:28
+msgid "комментарий"
+msgstr "comment"
+
+#: lions_heart_blog/models.py:29 lions_heart_blog/models.py:42
+msgid "пост"
+msgstr "post"
+
+#: lions_heart_blog/models.py:38 lions_heart_blog/models.py:63
+msgid "Изображение"
+msgstr "Image"
+
+#: lions_heart_blog/models.py:39 lions_heart_blog/models.py:64
+msgid "Изображения"
+msgstr "Images"
+
+#: lions_heart_blog/models.py:41 lions_heart_blog/models.py:66
+msgid "изображение"
+msgstr "image"
+
+#: lions_heart_blog/models.py:51 lions_heart_blog/models.py:52
+msgid "Компания"
+msgstr "Company"
+
+#: lions_heart_blog/models.py:54
+msgid "информация о компании"
+msgstr "about"
+
+#: lions_heart_blog/models.py:55
+msgid "телефон"
+msgstr "phone"
+
+#: lions_heart_blog/models.py:57
+msgid "адрес"
+msgstr "address"
+
+#: lions_heart_blog/templates/lions_heart_blog/blog.html:12
+msgid "Blog"
+msgstr "Blog"
+
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:9
+msgid "Comments"
+msgstr ""
+
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:22
+msgid "Please, leave your comment:"
+msgstr ""
+
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:26
+msgid "Submit"
+msgstr ""

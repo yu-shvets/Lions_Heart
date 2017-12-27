@@ -1,0 +1,254 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-27 13:36+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: Lions_Heart/settings.py:133 Lions_Heart/settings_dev.py:132
+#: Lions_Heart/settings_prod.py:132 Temp/settings.py:132
+msgid "Russian"
+msgstr ""
+
+#: Lions_Heart/settings.py:134 Lions_Heart/settings_dev.py:133
+#: Lions_Heart/settings_prod.py:133 Temp/settings.py:133
+msgid "English"
+msgstr ""
+
+#: Temp/collection_detail.html:14
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:14
+msgid "Main"
+msgstr ""
+
+#: Temp/collection_detail.html:15 Temp/collection_detail.html:28
+msgid "Collections"
+msgstr ""
+
+#: Temp/collection_detail.html:36 lions_heart_products/models.py:56
+msgid "Men"
+msgstr ""
+
+#: Temp/collection_detail.html:36 Temp/collection_detail.html:60
+#: lions_heart_products/models.py:57 lions_heart_products/models.py:64
+msgid "Women"
+msgstr ""
+
+#: Temp/collection_detail.html:69
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:36
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:47
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:81
+msgid "UAH"
+msgstr ""
+
+#: Temp/collection_detail.html:70
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:37
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:48
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:82
+msgid "Add to cart"
+msgstr ""
+
+#: lions_heart_products/models.py:19
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:16
+msgid "Category"
+msgstr ""
+
+#: lions_heart_products/models.py:20
+msgid "Categories"
+msgstr ""
+
+#: lions_heart_products/models.py:23
+msgid "title"
+msgstr ""
+
+#: lions_heart_products/models.py:25
+msgid "parent сategory"
+msgstr ""
+
+#: lions_heart_products/models.py:37
+msgid "Сollection"
+msgstr ""
+
+#: lions_heart_products/models.py:38
+msgid "Сollections"
+msgstr ""
+
+#: lions_heart_products/models.py:41 lions_heart_products/models.py:59
+msgid "name"
+msgstr ""
+
+#: lions_heart_products/models.py:42
+msgid "logo"
+msgstr ""
+
+#: lions_heart_products/models.py:44 lions_heart_products/models.py:61
+msgid "description"
+msgstr ""
+
+#: lions_heart_products/models.py:53
+msgid "Item"
+msgstr ""
+
+#: lions_heart_products/models.py:54
+msgid "Items"
+msgstr ""
+
+#: lions_heart_products/models.py:60
+msgid "title image"
+msgstr ""
+
+#: lions_heart_products/models.py:62
+msgid "price"
+msgstr ""
+
+#: lions_heart_products/models.py:64
+msgid "type"
+msgstr ""
+
+#: lions_heart_products/models.py:65
+msgid "сategory"
+msgstr ""
+
+#: lions_heart_products/models.py:66
+msgid "сollection"
+msgstr ""
+
+#: lions_heart_products/models.py:67
+msgid "recommended"
+msgstr ""
+
+#: lions_heart_products/models.py:76
+msgid "Image"
+msgstr ""
+
+#: lions_heart_products/models.py:77
+msgid "Images"
+msgstr ""
+
+#: lions_heart_products/models.py:79
+msgid "image"
+msgstr ""
+
+#: lions_heart_products/models.py:80
+msgid "item"
+msgstr ""
+
+#: lions_heart_products/models.py:89 lions_heart_products/models.py:90
+msgid "Specs"
+msgstr ""
+
+#: lions_heart_products/models.py:92
+msgid "weight, gr"
+msgstr ""
+
+#: lions_heart_products/models.py:93
+msgid "diameter, mm"
+msgstr ""
+
+#: lions_heart_products/models.py:94
+msgid "length, mm"
+msgstr ""
+
+#: lions_heart_products/models.py:95
+msgid "other specs"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:15
+msgid "Collection"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:18
+msgid "Select"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:44
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:15
+msgid "Catalogue"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:45
+#: lions_heart_products/templates/lions_heart_products/index.html:82
+msgid "About"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:46
+#: lions_heart_products/templates/lions_heart_products/index.html:83
+msgid "Blog"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:47
+#: lions_heart_products/templates/lions_heart_products/index.html:84
+msgid "Contacts"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:48
+msgid "Unique gifts"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:49
+msgid "Cart"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:64
+msgid "Title"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/index.html:90
+msgid "Call"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:50
+msgid "Weight, gr:"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:51
+msgid "Dimensions"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:52
+msgid "Diameter, mm:"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:53
+msgid "Length, mm:"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:55
+msgid "Sales:"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:57
+#, python-format
+msgid "-10%% for 1 item;"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:58
+#, python-format
+msgid "-15%% for 2 items;"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:59
+#, python-format
+msgid "-20%% for 5 items;"
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:60
+#, python-format
+msgid "-30%% for custom order."
+msgstr ""
+
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:74
+msgid "Recommended items"
+msgstr ""
