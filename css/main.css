@@ -313,10 +313,6 @@
   margin-top: 5px;
 }
 
-.form_breadcumbs {
-  padding-bottom: 20px;
-}
-
 .footer {
   background: -webkit-gradient(linear, left top, left bottom, from(#2d2d2d), to(#0d0d0d));
   background: -webkit-linear-gradient(top, #2d2d2d, #0d0d0d);
@@ -555,6 +551,19 @@
   top: 68px;
   color: #fff;
   text-transform: uppercase;
+}
+
+.about__img {
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  min-height: 358px;
+}
+
+.about__title {
+  padding-top: 25px;
+  padding-bottom: 45px;
+  text-align: center;
 }
 
 .blog__img {
@@ -830,6 +839,10 @@
   padding-top: 22px;
 }
 
+.form_breadcumbs {
+  padding-bottom: 20px;
+}
+
 .form__name, .form__radio-text {
   font-size: 14px;
   color: #000;
@@ -1043,6 +1056,64 @@
   cursor: pointer;
 }
 
+.contacts__title {
+  padding-top: 25px;
+  padding-bottom: 45px;
+  text-align: center;
+}
+
+.contacts__wrap {
+  margin: 0 auto;
+  display: table;
+}
+
+.contacts__text {
+  font-size: 24px;
+  color: #000;
+  padding-left: 66px;
+  margin-bottom: 49px;
+  position: relative;
+}
+
+.contacts__text:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 5px;
+  width: 24px;
+  height: 34px;
+  background-image: url("../../img/contacts.png");
+}
+
+.contacts__text:last-child {
+  margin-bottom: 0px;
+}
+
+.contacts__text_link {
+  display: block;
+}
+
+.contacts__text_link:hover, .contacts__text_link:link, .contacts__text_link:focus {
+  color: #000;
+}
+
+.contacts__text:nth-child(1):before {
+  background-position-y: 0;
+}
+
+.contacts__text:nth-child(2):before {
+  background-position-y: 35px;
+}
+
+.contacts__text:nth-child(3):before {
+  background-position-y: 103px;
+}
+
+#map {
+  width: 100%;
+  height: 350px;
+}
+
 @media (max-width: 991px) {
   .header {
     line-height: 2;
@@ -1196,7 +1267,6 @@
     text-align: center;
     margin: 0 auto;
     display: table;
-    padding-bottom: 25px;
   }
   .form__select {
     display: block;
@@ -1205,6 +1275,14 @@
   }
   .section__title_catalog {
     text-align: center;
+  }
+  .about__title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .about .section__text {
+    font-size: 14px;
+    padding-top: 15px;
   }
   .blog .section__title {
     margin-top: 25px;
@@ -1301,5 +1379,3 @@
 }
 
 /*# sourceMappingURL=../css/main.css.map */
-
-
