@@ -2,17 +2,40 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Item
 from django_filters.views import FilterView
+import django_filters
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class HomeView(TemplateView):
     template_name = 'lions_heart_products/index.html'
 
 
-class ItemFilterView(FilterView):
-    model = Item
-    filter_fields = ['collection', 'category']
-    template_name = 'lions_heart_products/catalogue.html'
-    paginate_by = 7
+class ItemFilter(django_filters.FilterSet):
+    class Meta:
+        model = Item
+        fields = ['collection', 'category']
+
+
+def itemlistview(request):
+    filtered = ItemFilter(
+                      request.GET,
+                      queryset=Item.objects.all()
+                  )
+    paginator = Paginator(filtered.qs, 7)
+
+    page = request.GET.get('page')
+    try:
+        response = paginator.page(page)
+    except PageNotAnInteger:
+        response = paginator.page(1)
+    except EmptyPage:
+        response = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'lions_heart_products/catalogue.html',
+        {'response': response, 'filter': filtered}
+    )
 
 
 class ItemDetailView(DetailView):
@@ -20,6 +43,13 @@ class ItemDetailView(DetailView):
     template_name = 'lions_heart_products/item_detail.html'
 
 
+
+
+# class ItemFilterView(FilterView):
+#     model = Item
+#     filter_fields = ['collection', 'category']
+#     template_name = 'lions_heart_products/catalogue.html'
+#     paginate_by = 1
 
 
 # class CatalogueListView(ListView):

@@ -1,6 +1,7 @@
 {% extends 'lions_heart_products/index.html' %}
 {% load widget_tweaks %}
 {% load i18n %}
+{% load mytemplatetags %}
 
 {% block content %}
 
@@ -23,12 +24,12 @@
           <div class="row">
             <div class="col-md-3 align-center">
               <div class="catalog__main"><span>
-                  <div class="section__subtitle">{{ object_list.first.collection.title }}<br></div><img src="{{ object_list.first.collection.logo_image.url }}">
-                  <p class="section__text section__text_neutral mt-30">{{ object_list.first.collection.description }}</p></span></div>
+                  <div class="section__subtitle">{{ response.object_list.first.collection.title }}<br></div><img src="{{ response.object_list.first.collection.logo_image.url }}">
+                  <p class="section__text section__text_neutral mt-30">{{ response.object_list.first.collection.description }}</p></span></div>
             </div>
 
            {% endif %}
-              {% for item in object_list %}
+              {% for item in response.object_list %}
 
             <div class="col-md-3 align-center">
               <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
@@ -46,22 +47,22 @@
             <div class="col-md-12">
               <p class="number align-center">
 
-                  {% if is_paginated %}
+                  {% if response.has_other_pages %}
   <ul class="pagination">
-    {% if page_obj.has_previous %}
-      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% if response.has_previous %}
+      <li><a href="?{% url_replace request 'page' response.previous_page_number %}">&laquo;</a></li>
     {% else %}
       <li class="disabled"><span>&laquo;</span></li>
     {% endif %}
-    {% for i in paginator.page_range %}
-      {% if page_obj.number == i %}
+    {% for i in response.paginator.page_range %}
+      {% if response.number == i %}
         <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
       {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
+        <li><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
       {% endif %}
     {% endfor %}
-    {% if page_obj.has_next %}
-      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% if response.has_next %}
+      <li><a href="?{% url_replace request 'page' response.next_page_number %}">&raquo;</a></li>
     {% else %}
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}

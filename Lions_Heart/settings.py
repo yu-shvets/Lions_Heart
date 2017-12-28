@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lions_heart_products',
+    'lions_heart_products.templatetags',
     'lions_heart_blog',
     'lions_heart_cart',
     'debug_toolbar',

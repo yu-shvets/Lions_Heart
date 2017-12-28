@@ -28,13 +28,13 @@
             <!--PRODUCTS IMAGES-->
             <div class="col-md-4 col-md-offset-1">
               <div class="gallery" id="gallery1">
-                <div class="sp__wrap"><img class="sp__img" src={{ item.title_image.url }}></div>
+                <div class="sp__wrap"><a href="#"><img class="sp__img" src={{ item.title_image.url }}></a></div>
                 <!--small images-->
                 <div class="owl-carousel">
 
                      {% for image in item.image_set.all %}
 
-                  <div class="item sp__carousel"><a href="#"><img class="sp__img" src="{{ image.image.url }}"></a></div>
+                  <div class="item sp__carousel"><a href="{{ image.image.url }}"><img class="sp__img" src="{{ image.image.url }}"></a></div>
 
                      {% endfor %}
 
