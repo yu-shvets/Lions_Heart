@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
-from django.views.generic import ListView, DetailView
-from .models import Post, Comment
+from django.views.generic import ListView, DetailView, TemplateView
+from .models import Post, Comment, CompanyInformation
 from django.views.generic.edit import CreateView
 from django.urls import reverse
 from .forms import CommentForm
@@ -36,3 +36,14 @@ class CommentCreate(CreateView):
 
     def get_success_url(self):
             return reverse('blog_detail', args=(self.kwargs['post_id']))
+
+
+class AboutView(ListView):
+    template_name = 'lions_heart_blog/about.html'
+    model = CompanyInformation
+
+
+class ContactView(ListView):
+    template_name = 'lions_heart_blog/contacts.html'
+    model = CompanyInformation
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-27 13:36+0000\n"
+"POT-Creation-Date: 2017-12-28 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Lions_Heart/settings.py:133 Lions_Heart/settings_dev.py:132
-#: Lions_Heart/settings_prod.py:132 Temp/settings.py:132
+#: Lions_Heart/settings.py:134 Lions_Heart/settings_dev.py:133
+#: Lions_Heart/settings_prod.py:136 Temp/settings.py:132
 msgid "Russian"
 msgstr ""
 
-#: Lions_Heart/settings.py:134 Lions_Heart/settings_dev.py:133
-#: Lions_Heart/settings_prod.py:133 Temp/settings.py:133
+#: Lions_Heart/settings.py:135 Lions_Heart/settings_dev.py:134
+#: Lions_Heart/settings_prod.py:137 Temp/settings.py:133
 msgid "English"
 msgstr ""
 
@@ -47,21 +47,21 @@ msgid "Women"
 msgstr ""
 
 #: Temp/collection_detail.html:69
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:36
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:37
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:47
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:81
 msgid "UAH"
 msgstr ""
 
 #: Temp/collection_detail.html:70
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:37
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:38
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:48
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:82
 msgid "Add to cart"
 msgstr ""
 
 #: lions_heart_products/models.py:19
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:16
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:17
 msgid "Category"
 msgstr ""
 
@@ -165,11 +165,11 @@ msgstr ""
 msgid "other specs"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:15
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:16
 msgid "Collection"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:18
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:19
 msgid "Select"
 msgstr ""
 

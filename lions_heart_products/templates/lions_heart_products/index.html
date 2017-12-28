@@ -22,9 +22,9 @@
 
           {% load i18n %}
 
-            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <form action="{% url 'set_language' %}" id="myForm" method="post">{% csrf_token %}
                 <input name="next" type="hidden" value="{{ redirect_to }}" />
-                <select name="language">
+                <select name="language" class="form__select" onchange="this.form.submit();">
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
                     {% get_language_info_list for LANGUAGES as languages %}
@@ -34,7 +34,6 @@
                         </option>
                     {% endfor %}
                 </select>
-                <input type="submit" value="&#10003" class="btn btn-primary btn-sm" />
             </form>
 
             <!-- NAVIGATION-->
@@ -42,9 +41,9 @@
               <ul class="nav__list nav__list_header align-right">
 
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'catalogue' %}">{% trans 'Catalogue' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'About' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Contacts' %}</a></li>
+                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Unique gifts' %}</a></li>
                 <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}</a></li>
               </ul>

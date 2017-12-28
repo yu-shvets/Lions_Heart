@@ -16,6 +16,10 @@ $('document').ready(function(){
     // }
   })
 
+//  $(function() {
+//  $("#myForm").submit(); // using ID
+//});
+
   //mobile menu
   $('.header__mobile').click(function(){
     $('.header__nav').toggleClass('header__nav_active');

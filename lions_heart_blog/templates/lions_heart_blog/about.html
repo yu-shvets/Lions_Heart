@@ -1,0 +1,31 @@
+{% extends 'lions_heart_products/index.html' %}
+{% load i18n %}
+
+{% block content %}
+
+    <!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="section about">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="section__title section__title_dark about__title">{% trans 'About' %}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                {% for image in object_list.first.companyimage_set.all %}
+              <div class="about__img" style="background-image:url({{ MEDIA_URL }}{{ image.image.url }});"></div>
+                    <img src="{{ image.image.url }}">
+                {% endfor %}
+            </div>
+            <div class="col-md-6">
+              <p class="section__text section__text_neutral section__text_mb-0">
+                  {{ object_list.first.about }}
+              </p>
+
+          </div>
+      </section>
+    </main>
+
+{% endblock content %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-27 13:36+0000\n"
+"POT-Creation-Date: 2017-12-28 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,18 +86,26 @@ msgstr "phone"
 msgid "адрес"
 msgstr "address"
 
+#: lions_heart_blog/templates/lions_heart_blog/about.html:12
+msgid "About"
+msgstr ""
+
 #: lions_heart_blog/templates/lions_heart_blog/blog.html:12
 msgid "Blog"
 msgstr "Blog"
 
-#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:9
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:20
 msgid "Comments"
 msgstr ""
 
-#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:22
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:33
 msgid "Please, leave your comment:"
 msgstr ""
 
-#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:26
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:37
 msgid "Submit"
+msgstr ""
+
+#: lions_heart_blog/templates/lions_heart_blog/contacts.html:12
+msgid "Contacts"
 msgstr ""

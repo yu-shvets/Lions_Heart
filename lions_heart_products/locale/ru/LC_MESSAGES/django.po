@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-27 13:36+0000\n"
+"POT-Creation-Date: 2017-12-28 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,13 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: Lions_Heart/settings.py:133 Lions_Heart/settings_dev.py:132
-#: Lions_Heart/settings_prod.py:132 Temp/settings.py:132
+#: Lions_Heart/settings.py:134 Lions_Heart/settings_dev.py:133
+#: Lions_Heart/settings_prod.py:136 Temp/settings.py:132
 msgid "Russian"
 msgstr ""
 
-#: Lions_Heart/settings.py:134 Lions_Heart/settings_dev.py:133
-#: Lions_Heart/settings_prod.py:133 Temp/settings.py:133
+#: Lions_Heart/settings.py:135 Lions_Heart/settings_dev.py:134
+#: Lions_Heart/settings_prod.py:137 Temp/settings.py:133
 msgid "English"
 msgstr ""
 
@@ -49,21 +49,21 @@ msgid "Women"
 msgstr "Женская"
 
 #: Temp/collection_detail.html:69
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:36
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:37
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:47
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:81
 msgid "UAH"
 msgstr "грн"
 
 #: Temp/collection_detail.html:70
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:37
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:38
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:48
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:82
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
 #: lions_heart_products/models.py:19
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:16
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:17
 msgid "Category"
 msgstr "Категория"
 
@@ -183,11 +183,11 @@ msgstr "Длина, мм:"
 msgid "other specs"
 msgstr "прочие характеристики"
 
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:15
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:16
 msgid "Collection"
 msgstr "Коллекция"
 
-#: lions_heart_products/templates/lions_heart_products/catalogue.html:18
+#: lions_heart_products/templates/lions_heart_products/catalogue.html:19
 msgid "Select"
 msgstr "Выбрать"
 
