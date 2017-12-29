@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.shortcuts import render, reverse, HttpResponseRedirect, redirect
 from .cart import Cart
 from lions_heart_products.models import Item
 from django.shortcuts import get_object_or_404
@@ -7,7 +7,10 @@ from .forms import CartAddProductForm, OrderForm
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 from django.http import JsonResponse
-
+from django.contrib import messages
+from django.utils.translation import ugettext as _
+from django.core.mail import send_mail
+from django.conf import settings
 
 def cart_view(request):
     cart = Cart(request)
@@ -20,7 +23,8 @@ def add_to_cart(request, item_id):
     cart = Cart(request)
     item = get_object_or_404(Item, id=item_id)
     cart.add(item=item)
-    return HttpResponseRedirect(reverse('catalogue'))
+    messages.success(request, _('The item was successfully added to cart'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def cart_remove(request, item_id):
@@ -86,6 +90,7 @@ class OrderCreate(CreateView):
                                    price=element['price'], order=self.obj)
             order_item.save()
         cart.clear()
+        send_mail('Lions Heart order', 'New order! ', settings.EMAIL_HOST_USER, ['yukhimov12345@gmail.com'])
         return HttpResponseRedirect(reverse('success'))
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-28 14:18+0000\n"
+"POT-Creation-Date: 2017-12-29 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,4 +130,8 @@ msgstr ""
 
 #: lions_heart_cart/templates/lions_heart_cart/order_success.html:9
 msgid "Your order is successfully submitted. We'll contact You soon."
+msgstr ""
+
+#: lions_heart_cart/views.py:25
+msgid "The item was successfully added to cart."
 msgstr ""

@@ -13,7 +13,7 @@
 
         <form action="" method="get" class="form form_breadcumbs mt-20">
 
-            {% trans 'Collection' %}{% render_field filter.form.collection onchange="this.form.submit();" class="form__select" %}
+
             {% trans 'Category' %}{% render_field filter.form.category onchange="this.form.submit();" class="form__select" %}
 
     </form>
@@ -28,17 +28,14 @@
 {% endif %}
 
 
-            {% if filter.form.collection.value %}
-
           <div class="row">
             <div class="col-md-3 align-center">
               <div class="catalog__main"><span>
-                  <div class="section__subtitle">{{ response.object_list.first.collection.title }}<br></div><img src="{{ response.object_list.first.collection.logo_image.url }}">
-                  <p class="section__text section__text_neutral mt-30">{{ response.object_list.first.collection.description }}</p></span></div>
+                  <div class="section__subtitle">{{ object_list.first.collection.title }}<br></div><img src="{{ object_list.first.collection.logo_image.url }}">
+                  <p class="section__text section__text_neutral mt-30">{{ object_list.first.collection.description }}</p></span></div>
             </div>
 
-           {% endif %}
-              {% for item in response.object_list %}
+              {% for item in object_list %}
 
             <div class="col-md-3 align-center">
               <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
@@ -72,6 +69,29 @@
     {% endfor %}
     {% if response.has_next %}
       <li><a href="?{% url_replace request 'page' response.next_page_number %}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
+    {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">&raquo;</a></li>
     {% else %}
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}

@@ -4,6 +4,7 @@ from .models import Item
 from django_filters.views import FilterView
 import django_filters
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django_filters.views import FilterView
 
 
 class HomeView(TemplateView):
@@ -36,6 +37,17 @@ def itemlistview(request):
         'lions_heart_products/catalogue.html',
         {'response': response, 'filter': filtered}
     )
+
+
+class CollectionListView(FilterView):
+    model = Item
+    template_name = 'lions_heart_products/collection.html'
+    filter_fields = ['category']
+    paginate_by = 7
+
+    def get_queryset(self):
+        queryset = super(CollectionListView, self).get_queryset()
+        return queryset.filter(collection=self.kwargs['collection_id'])
 
 
 class ItemDetailView(DetailView):

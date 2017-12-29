@@ -10,6 +10,16 @@
   <title>Lion's Heart</title>
   <link href="{% static "lions_heart_products/css/libs.min.css" %}" rel="stylesheet">
   <link href="{% static "lions_heart_products/css/main.css" %}" rel="stylesheet">
+  <style>
+    #myForm {
+      display:inline;
+    }
+    @media (max-width: 768px) {
+      #myForm {
+        text-align: center;
+      }
+    }
+  </style>
   <body>
     <!-- HEADER-->
     <header class="header">
@@ -18,35 +28,49 @@
           <div class="col-md-3">
             <!-- LOGO--><a class="header__logo" href="{% url 'home' %}"><img src="{% static "lions_heart_products/img/logo.jpg" %}" alt="logo"><img class="header__line" src="{% static "lions_heart_products/img/header-line.png" %}"></a>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 col-xs-12 col-sm-12">
 
           {% load i18n %}
 
+
+            <a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
+            <!-- NAVIGATION-->
+            <nav class="nav header__nav">
+            <span class="nav__wrapper">
             <form action="{% url 'set_language' %}" id="myForm" method="post">{% csrf_token %}
                 <input name="next" type="hidden" value="{{ redirect_to }}" />
-                <select name="language" class="form__select" onchange="this.form.submit();">
+                <select name="language" class="form__select form__select_header" onchange="this.form.submit();">
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
                     {% get_language_info_list for LANGUAGES as languages %}
                     {% for language in languages %}
                         <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                            {{ language.name_local }} ({{ language.code }})
+                             {{ language.code }}
                         </option>
                     {% endfor %}
                 </select>
             </form>
 
-            <!-- NAVIGATION-->
-            <nav class="nav">
-              <ul class="nav__list nav__list_header align-right">
+              <ul class="nav__list nav__list_header">
+              <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">{% trans 'Collections' %}</span>
+                  <!-- DROP-DOWN-->
+                  <p class="nav__arrow">&#x25BC;</p>
+                  <ul class="nav__list nav__list-child align-center">
 
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'catalogue' %}">{% trans 'Catalogue' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Unique gifts' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}</a></li>
+                      {% for collection in collections %}
+                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="{% url 'collection' collection.pk %}">{{ collection }}</a></li>
+                      {%  endfor %}
+                  </ul>
+                </li>
+
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'catalogue' %}">{% trans 'Catalogue' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Unique gifts' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}</a></li>
               </ul>
+            </span>
             </nav>
           </div>
         </div>

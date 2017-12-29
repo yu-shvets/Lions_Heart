@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-28 14:18+0000\n"
+"POT-Creation-Date: 2017-12-29 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,72 +19,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: lions_heart_blog/models.py:9
-msgid "Пост"
-msgstr "Post"
+msgid "Post"
+msgstr ""
 
 #: lions_heart_blog/models.py:10
-msgid "Посты"
-msgstr "Posts"
+msgid "Posts"
+msgstr ""
 
 #: lions_heart_blog/models.py:12
-msgid "наименование"
-msgstr "name"
+msgid "name"
+msgstr ""
 
 #: lions_heart_blog/models.py:13
-msgid "содержание"
-msgstr "body_text"
+msgid "text"
+msgstr ""
 
 #: lions_heart_blog/models.py:15
-msgid "титульное изображение"
-msgstr "main_image"
+msgid "main image"
+msgstr ""
 
 #: lions_heart_blog/models.py:24
-msgid "Комментарий"
-msgstr "Comment"
+msgid "Comment"
+msgstr ""
 
 #: lions_heart_blog/models.py:25
-msgid "Комментарии"
-msgstr "Comments"
+#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:20
+msgid "Comments"
+msgstr ""
 
 #: lions_heart_blog/models.py:27
-msgid "автор"
-msgstr "author"
+msgid "author"
+msgstr ""
 
 #: lions_heart_blog/models.py:28
-msgid "комментарий"
-msgstr "comment"
+msgid "comment"
+msgstr ""
 
 #: lions_heart_blog/models.py:29 lions_heart_blog/models.py:42
-msgid "пост"
-msgstr "post"
+msgid "post"
+msgstr ""
 
 #: lions_heart_blog/models.py:38 lions_heart_blog/models.py:63
-msgid "Изображение"
-msgstr "Image"
+msgid "Image"
+msgstr ""
 
 #: lions_heart_blog/models.py:39 lions_heart_blog/models.py:64
-msgid "Изображения"
-msgstr "Images"
+msgid "Images"
+msgstr ""
 
 #: lions_heart_blog/models.py:41 lions_heart_blog/models.py:66
-msgid "изображение"
-msgstr "image"
+msgid "image"
+msgstr ""
 
 #: lions_heart_blog/models.py:51 lions_heart_blog/models.py:52
-msgid "Компания"
-msgstr "Company"
+msgid "Company"
+msgstr ""
 
 #: lions_heart_blog/models.py:54
-msgid "информация о компании"
-msgstr "about"
+msgid "about"
+msgstr ""
 
 #: lions_heart_blog/models.py:55
-msgid "телефон"
-msgstr "phone"
+msgid "phone"
+msgstr ""
 
 #: lions_heart_blog/models.py:57
-msgid "адрес"
-msgstr "address"
+msgid "address"
+msgstr ""
 
 #: lions_heart_blog/templates/lions_heart_blog/about.html:12
 msgid "About"
@@ -93,10 +94,6 @@ msgstr ""
 #: lions_heart_blog/templates/lions_heart_blog/blog.html:12
 msgid "Blog"
 msgstr "Blog"
-
-#: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:20
-msgid "Comments"
-msgstr ""
 
 #: lions_heart_blog/templates/lions_heart_blog/blog_detail.html:33
 msgid "Please, leave your comment:"
