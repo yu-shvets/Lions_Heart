@@ -56,11 +56,10 @@
             <div class="col-md-6 col-md-offset-1">
               <h2 class="section__title">{{ item.title }}</h2>
               <p class="section__title">{{ item.price }} {% trans 'UAH' %}</p>
-                 <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button>
+                 <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button></a>
               <ul class="sp__list sp__list_padding">
                 <li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>
-                <li class="section__text section__text_dark sp__item">{% trans 'Dimensions' %}</li>
-                <li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %}{{ item.specs.diameter }}</li>
+                {% if item.specs.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %}{{ item.specs.diameter }}</li>{% endif %}
                 {% if item.specs.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %}{{ item.specs.length }}</li>{% endif %}
               </ul>
               <h3 class="section__text section__text_dark sp__list-title">{% trans 'Sales:' %}</h3>

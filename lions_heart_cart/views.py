@@ -90,7 +90,7 @@ class OrderCreate(CreateView):
                                    price=element['price'], order=self.obj)
             order_item.save()
         cart.clear()
-        send_mail('Lions Heart order', 'New order! ', settings.EMAIL_HOST_USER, ['yukhimov12345@gmail.com'])
+        # send_mail('Lions Heart order', 'New order! ', settings.EMAIL_HOST_USER, ['yukhimov12345@gmail.com'])
         return HttpResponseRedirect(reverse('success'))
 
 

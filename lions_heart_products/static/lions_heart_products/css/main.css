@@ -240,6 +240,14 @@
   background-color: #000;
 }
 
+.header__link_child::before, .header__link_child::after {
+  display:none;
+}
+
+.nav__item_has-child > .header__link::after, .nav__item_has-child > .header__link::before {
+  display:none;
+}
+
 .header__link__nav {
   -webkit-transition: all .5s;
   transition: all .5s;
@@ -1120,19 +1128,19 @@
 }
 
 @media (max-width: 991px) {
-  .header {
+ .header {
     line-height: 2;
     padding-bottom: 13px;
   }
   .header__mobile {
     display: block;
   }
-  .header__logo img:first-child {
-    width: auto;
-  }
   .header__item {
     display: block;
     text-align: center;
+  }
+  .header__logo img:first-child {
+    width: auto;
   }
   .header__line {
     top: 33px;
@@ -1181,15 +1189,75 @@
   .header__nav_active .nav__list-child {
     position: relative;
   }
-  .blog .section__title {
-    margin-top: 25px;
+
+  .nav__item_has-child:hover {
+  height:100px;
+}
+
+  .nav__item_has-child {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+  .nav__list-child {
+    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    z-index: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    right: 0;
+    line-height: 1.5;
+}
+
+  .nav__wrapper {
+    overflow:auto;
+    height:100vh;
   }
-  .blog__img {
-    margin: 0 auto;
-  }
-  .blog__text {
+
+  .footer__subtitle {
     text-align: center;
   }
+  .footer__tel {
+    display: block;
+    text-align: center;
+  }
+  .nav_footer {
+    text-align: center;
+    padding-top: 30px;
+  }
+  .section__title {
+    font-size: 25px;
+  }
+  .form_breadcumbs {
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+    padding-top: 40px;
+  }
+
+  .form__select {
+    display: block;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+
+  .form_breadcumbs .form__select {
+     border: 1px solid grey;
+   }
+
+  .form__select_header {
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  #myForm {
+  float: none;
+}
+
 }
 
 @media (max-width: 767px) {
