@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'lions_heart_products.templatetags',
     'lions_heart_blog',
     'lions_heart_cart',
-    'lions_heart_billing',
     'debug_toolbar',
     'django_filters',
     'widget_tweaks',
@@ -158,6 +157,3 @@ LOCALE_PATHS = (
     BASE_DIR + '/lions_heart_blog/locale',
     BASE_DIR + '/lions_heart_cart/locale',
 )
-
-LIQPAY_PUBLIC_KEY = 'i3311632064'
-LIQPAY_PRIVATE_KEY = 'MBgT1W38YcELUF0z2GNnw9sXOPuz759OUAVwS8b4'
