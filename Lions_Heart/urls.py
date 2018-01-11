@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^', include('lions_heart_products.urls')),
     url(r'^blog', include('lions_heart_blog.urls')),
     url(r'^', include('lions_heart_cart.urls')),
+    url(r'^', include('lions_heart_billing.urls')),
 
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

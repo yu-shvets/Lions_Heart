@@ -12,7 +12,8 @@
             <nav class="nav">
               <ul class="nav__list">
                 <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'catalogue' %}">{% trans 'Catalogue' %}</a></li>
+                  <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'collection' item.collection.pk %}">{{ item.collection.title }}</a></li>
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'collection_category' item.collection.pk item.category.pk %}">{{ item.category.title }}</a></li>
                 <li class="nav__item nav__item_inline">{{ item.title }}</li>
               </ul>
             </nav>

@@ -55,6 +55,12 @@ class CompanyInformation(models.Model):
     phone = models.CharField(max_length=256, verbose_name=_('phone'))
     mail = models.EmailField()
     address = models.CharField(max_length=256, verbose_name=_('address'))
+    title_image_1 = models.ImageField(upload_to='company/pictures', verbose_name=_('title_image_1'),
+                                      blank=True, null=True)
+    title_image_2 = models.ImageField(upload_to='company/pictures', verbose_name=_('title_image_2'),
+                                      blank=True, null=True)
+    title_image_3 = models.ImageField(upload_to='company/pictures', verbose_name=_('title_image_3'),
+                                      blank=True, null=True)
 
 
 class CompanyImage(models.Model):

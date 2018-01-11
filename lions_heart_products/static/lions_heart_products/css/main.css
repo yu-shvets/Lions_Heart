@@ -493,6 +493,20 @@
   background-color: #000;
 }
 
+product__button {
+  background-color: transparent;
+  border:1px solid transparent;
+  transition: all .4s;
+  font-size: 16px;
+  max-width: 195px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+product__button:hover {
+  border:1px solid #000;
+}
+
 .button {
   border: none;
   outline: none;

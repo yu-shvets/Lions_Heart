@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-29 09:33+0000\n"
+"POT-Creation-Date: 2018-01-10 08:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,6 @@ msgid "Main"
 msgstr ""
 
 #: Temp/collection_detail.html:15 Temp/collection_detail.html:28
-#: lions_heart_products/templates/lions_heart_products/index.html:44
 msgid "Collections"
 msgstr ""
 
@@ -49,14 +48,18 @@ msgstr ""
 
 #: Temp/collection_detail.html:69
 #: lions_heart_products/templates/lions_heart_products/catalogue.html:46
-#: lions_heart_products/templates/lions_heart_products/item_detail.html:58
+#: lions_heart_products/templates/lions_heart_products/category.html:56
+#: lions_heart_products/templates/lions_heart_products/collection.html:50
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:59
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:92
 msgid "UAH"
 msgstr ""
 
 #: Temp/collection_detail.html:70
 #: lions_heart_products/templates/lions_heart_products/catalogue.html:47
-#: lions_heart_products/templates/lions_heart_products/item_detail.html:59
+#: lions_heart_products/templates/lions_heart_products/category.html:57
+#: lions_heart_products/templates/lions_heart_products/collection.html:51
+#: lions_heart_products/templates/lions_heart_products/item_detail.html:60
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:93
 msgid "Add to cart"
 msgstr ""
@@ -167,51 +170,47 @@ msgid "other specs"
 msgstr ""
 
 #: lions_heart_products/templates/lions_heart_products/catalogue.html:16
+#: lions_heart_products/templates/lions_heart_products/collection.html:41
 msgid "Collection"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:55
-#: lions_heart_products/templates/lions_heart_products/item_detail.html:15
-msgid "Catalogue"
+#: lions_heart_products/templates/lions_heart_products/collection.html:23
+msgid "Sales"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:56
-#: lions_heart_products/templates/lions_heart_products/index.html:93
+#: lions_heart_products/templates/lions_heart_products/index.html:88
+#: lions_heart_products/templates/lions_heart_products/index.html:138
 msgid "About"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:57
-#: lions_heart_products/templates/lions_heart_products/index.html:94
+#: lions_heart_products/templates/lions_heart_products/index.html:89
+#: lions_heart_products/templates/lions_heart_products/index.html:139
 msgid "Blog"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:58
-#: lions_heart_products/templates/lions_heart_products/index.html:95
+#: lions_heart_products/templates/lions_heart_products/index.html:90
+#: lions_heart_products/templates/lions_heart_products/index.html:140
 msgid "Contacts"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:59
+#: lions_heart_products/templates/lions_heart_products/index.html:91
 msgid "Unique gifts"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:60
+#: lions_heart_products/templates/lions_heart_products/index.html:92
 msgid "Cart"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:75
+#: lions_heart_products/templates/lions_heart_products/index.html:108
 msgid "Title"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/index.html:101
+#: lions_heart_products/templates/lions_heart_products/index.html:147
 msgid "Call"
 msgstr ""
 
-#: lions_heart_products/templates/lions_heart_products/item_detail.html:61
-msgid "Weight, gr:"
-msgstr ""
-
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:62
-msgid "Dimensions"
+msgid "Weight, gr:"
 msgstr ""
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:63
