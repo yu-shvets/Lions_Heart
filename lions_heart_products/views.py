@@ -64,6 +64,8 @@ class CategoryCollectionListView(CollectionListView):
         return queryset.filter(collection=self.kwargs['collection_id'], category=self.kwargs['category_id'])
 
 
+
+
 class SalesCollectionListView(CollectionListView):
 
     def get_queryset(self):
@@ -89,6 +91,30 @@ class CollectionSalesListView(SalesListView):
 
     def get_context_data(self, **kwargs):
         context = super(CollectionSalesListView, self).get_context_data(**kwargs)
+        context['selected'] = get_object_or_404(Collection, id=self.kwargs['collection_id'])
+        return context
+
+
+
+
+class UniqueGiftsListView(ListView):
+    model = Item
+    template_name = 'lions_heart_products/gifts.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        queryset = super(UniqueGiftsListView, self).get_queryset()
+        return queryset.filter(unique_gift=True)
+
+
+class CollectionUniqueGiftsListView(UniqueGiftsListView):
+
+    def get_queryset(self):
+        queryset = super(CollectionUniqueGiftsListView, self).get_queryset()
+        return queryset.filter(unique_gift=True, collection=self.kwargs['collection_id'])
+
+    def get_context_data(self, **kwargs):
+        context = super(CollectionUniqueGiftsListView, self).get_context_data(**kwargs)
         context['selected'] = get_object_or_404(Collection, id=self.kwargs['collection_id'])
         return context
 

@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="section__title section__title_dark contacts__title">{% trans 'Contacts' %}</h2>
-              <div class="contacts__wrap"><a class="contacts__text contacts__text_link" href="tel:+380662223344">{{ companyinformation_list.first.phone }}</a><a class="contacts__text contacts__text_link" href="mailto:lionsheart@gmail.com">{{ companyinformation_list.first.mail }}</a>
+              <div class="contacts__wrap"><a class="contacts__text contacts__text_link" href="tel:+380662223344">{{ companyinformation_list.first.phone|linebreaks }}</a><a class="contacts__text contacts__text_link" href="mailto:lionsheart@gmail.com">{{ companyinformation_list.first.mail }}</a>
                 <p class="contacts__text">{{ companyinformation_list.first.address }}</p>
               </div>
             </div>

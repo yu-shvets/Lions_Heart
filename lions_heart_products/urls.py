@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import HomeView, ItemDetailView, CollectionListView, CategoryCollectionListView, \
-    CategoryListView, CollectionCategoryListView, SalesCollectionListView, SalesListView, CollectionSalesListView
+    CategoryListView, CollectionCategoryListView, SalesCollectionListView, SalesListView, \
+    CollectionSalesListView, UniqueGiftsListView, CollectionUniqueGiftsListView
 
 
 urlpatterns = [
@@ -19,6 +20,10 @@ urlpatterns = [
         CategoryCollectionListView.as_view(), name='collection_category'),
     url(r'^catalogue/collections/(?P<collection_id>\d+)/sales/$',
         SalesCollectionListView.as_view(), name='collection_sales'),
+
+    url(r'^unique_gifts/$', UniqueGiftsListView.as_view(), name='gifts'),
+    url(r'^unique_gifts/collection/(?P<collection_id>\d+)/$',
+        CollectionUniqueGiftsListView.as_view(), name='gifts_collection'),
 
     url(r'^catalogue/items/(?P<pk>\d+)/$', ItemDetailView.as_view(), name='item'),
                 ]

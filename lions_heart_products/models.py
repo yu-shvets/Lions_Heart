@@ -66,6 +66,7 @@ class Item(CommonInfo):
     collection = models.ForeignKey(Collection, null=True, on_delete=models.CASCADE, verbose_name=_('сollection'))
     recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
     sales = models.PositiveIntegerField(verbose_name=_('sales'), blank=True, null=True)
+    unique_gift = models.BooleanField(default=False, verbose_name=_('unique gift'))
 
     def __str__(self):
         return "{}-{}".format(self.category, self.title)

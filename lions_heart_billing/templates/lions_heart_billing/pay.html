@@ -7,27 +7,9 @@
 
 
 
-<script>
-    window.LiqPayCheckoutCallback = function() {
-        LiqPayCheckout.init({
-            data: "eyJjdXJyZW5jeSI6ICJVU0QiLCAib3JkZXJfaWQiOiAib3JkZXJfaWRfMSIsICJhbW91bnQiOiAiMTAwIiwgInZlcnNpb24iOiAiMyIsICJsYW5ndWFnZSI6ICJydSIsICJwdWJsaWNfa2V5IjogImkzMzExNjMyMDY0IiwgImFjdGlvbiI6ICJwYXkiLCAiZGVzY3JpcHRpb24iOiAiUGF5bWVudCBmb3IgY2xvdGhlcyIsICJzYW5kYm94IjogMCwgInNlcnZlcl91cmwiOiAiaHR0cHM6Ly90ZXN0LmNvbS9iaWxsaW5nL3BheS1jYWxsYmFjay8ifQ==",
-            signature: "{{ signature }}",
-            embedTo: "#liqpay_checkout",
-            mode: "embed" // embed || popup,
-        }).on("liqpay.callback", function(data){
-            console.log(data.status);
-            console.log(data);
-        }).on("liqpay.ready", function(data){
-            // ready
-        }).on("liqpay.close", function(data){
-            // close
-        });
-    };
-
-</script>
+    {{ data | safe }}
 
 
-<script src="{% static "lions_heart_products/js/checkout.js" %}"></script>
 
 
 {% endblock content %}

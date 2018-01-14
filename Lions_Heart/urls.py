@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
     url(r'^', include('lions_heart_products.urls')),
-    url(r'^blog', include('lions_heart_blog.urls')),
+    url(r'^', include('lions_heart_blog.urls')),
     url(r'^', include('lions_heart_cart.urls')),
     url(r'^', include('lions_heart_billing.urls')),
 
@@ -32,6 +32,8 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(url(r'^', include('lions_heart_products.urls')))
+urlpatterns += i18n_patterns(url(r'^', include('lions_heart_blog.urls')))
+urlpatterns += i18n_patterns(url(r'^', include('lions_heart_cart.urls')))
 
 if settings.DEBUG:
         import debug_toolbar

@@ -20,13 +20,15 @@ class PayView(TemplateView):
             'order_id': 'order_id_1',
             'version': '3',
             'sandbox': 0,  # sandbox mode, set to 1 to enable it
-            'server_url': 'https://test.com/lions_heart_billing/pay-callback/', # url to callback view
+            'server_url': '', # url to callback view
         }
         signature = liqpay.cnb_signature(params)
         data = liqpay.cnb_form(params)
 
         print(data)
         return render(request, self.template_name, {'signature': signature, 'data': data})
+
+
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -48,9 +50,8 @@ def liqpay(request):
     html = liqpay.cnb_form({
     'action': 'pay',
     'amount': '1',
-    'currency': 'USD',
-    'description': 'description text',
+    'currency': 'UAH',
+    'description': 'Payment for jewelry',
     'order_id': 'order_id_1',
-    'version': '3'
     })
-    return render(request, 'lions_heart_billing/pay.html', {'form': html})
+    return render(request, 'lions_heart_billing/pay.html', {'data': html})

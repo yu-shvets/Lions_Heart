@@ -11,6 +11,7 @@ from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django.core.mail import send_mail
 from django.conf import settings
+from libs.liqpay import LiqPay
 
 def cart_view(request):
     cart = Cart(request)
@@ -75,6 +76,18 @@ class OrderView(TemplateView):
         return context
 
 
+def liqpay(amount):
+    liqpay = LiqPay(settings.LIQPAY_PUBLIC_KEY, settings.LIQPAY_PRIVATE_KEY)
+    html = liqpay.cnb_form({
+    'action': 'pay',
+    'amount': str(amount),
+    'currency': 'UAH',
+    'description': 'Payment for jewelry',
+    'order_id': 'order_id_1',
+    })
+    return html
+
+
 class OrderCreate(CreateView):
     model = Order
     form_class = OrderForm
@@ -91,8 +104,13 @@ class OrderCreate(CreateView):
             order_item.save()
         cart.clear()
         # send_mail('Lions Heart order', 'New order! ', settings.EMAIL_HOST_USER, ['yukhimov12345@gmail.com'])
-        return HttpResponseRedirect(reverse('success'))
+        if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные':
+            return HttpResponseRedirect(reverse('success'))
+        else:
+            data = liqpay(amount=self.obj.total_cost)
+            return render(self.request, 'lions_heart_billing/pay.html', {'data': data})
 
 
 class SuccessView(TemplateView):
     template_name = 'lions_heart_cart/order_success.html'
+

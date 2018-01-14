@@ -52,7 +52,7 @@ class CompanyInformation(models.Model):
         verbose_name_plural = _("Company")
 
     about = models.TextField(verbose_name=_('about'))
-    phone = models.CharField(max_length=256, verbose_name=_('phone'))
+    phone = models.TextField()
     mail = models.EmailField()
     address = models.CharField(max_length=256, verbose_name=_('address'))
 

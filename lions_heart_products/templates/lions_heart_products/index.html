@@ -37,21 +37,6 @@
             <!-- NAVIGATION-->
             <nav class="nav header__nav">
             <span class="nav__wrapper">
-{#            <form action="{% url 'set_language' %}" id="myForm" method="post">{% csrf_token %}#}
-{#                <input name="next" type="hidden" value="{{ redirect_to }}" />#}
-{#                <select name="language" class="form__select form__select_header" onchange="this.form.submit();">#}
-{#                    {% get_current_language as LANGUAGE_CODE %}#}
-{#                    {% get_available_languages as LANGUAGES %}#}
-{#                    {% get_language_info_list for LANGUAGES as languages %}#}
-{#                    {% for language in languages %}#}
-{#                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>#}
-{#                             {{ language.code }}#}
-{#                        </option>#}
-{#                    {% endfor %}#}
-{#                </select>#}
-{#            </form>#}
-
-
 
          <ul class="nav navbar-nav navbar-left language menu">
     {% get_current_language as LANGUAGE_CODE %}
@@ -70,17 +55,6 @@
 
 
               <ul class="nav__list nav__list_header">
-{#              <li class="nav__item nav__item_inline nav__item_has-child"><span class="nav__link nav__link_dark nav__link_uppercase header__link">{% trans 'Collections' %}</span>#}
-{#                  <!-- DROP-DOWN-->#}
-{#                  <p class="nav__arrow">&#x25BC;</p>#}
-{#                  <ul class="nav__list nav__list-child align-center">#}
-{##}
-{#                      {% for collection in collections %}#}
-{#                    <li class="nav__item"><a class="nav__link nav__link_uppercase nav__link_light header__link header__link_child" href="{% url 'collection' collection.pk %}">{{ collection }}</a></li>#}
-{#                      {%  endfor %}#}
-{#                  </ul>#}
-{#                </li>#}
-
 
                 {% for collection in collections %}
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collection.pk %}">{{ collection }}</a></li>
@@ -88,8 +62,9 @@
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">{% trans 'Unique gifts' %}</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'gifts' %}">{% trans 'Unique gifts' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}
+                    {% if items %}<span class="cart_length" >{{ items }}</span>{% endif %}</a></li>
               </ul>
             </span>
             </nav>
@@ -124,13 +99,26 @@
             <!-- FIRST MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
-                   {% for category in categories %}
+                   {% for category in categories_first %}
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'category' category.pk  %}">{{ category.title }}</a></li>
+                   {% endfor %}
+              </ul>
+            </nav>
+          </div>
+
+
+         <div class="col-md-2 col-sm-3">
+            <!-- FIRST MENU-->
+            <nav class="nav nav_footer">
+              <ul class="nav__list">
+                   {% for category in categories_second %}
                 <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'category' category.pk  %}">{{ category.title }}</a></li>
                    {% endfor %}
               <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'sales' %}">{% trans 'Sales' %}</a></li>
               </ul>
             </nav>
           </div>
+
 
             <div class="col-md-2">
             <!-- SECOND MENU-->
@@ -143,7 +131,7 @@
             </nav>
           </div>
 
-          <div class="col-md-3 col-md-offset-5 align-right">
+          <div class="col-md-3 col-md-offset-3 align-right">
             <!--TELL-->
             <p class="footer__subtitle mt-20">{% trans 'Call' %}</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
           </div>

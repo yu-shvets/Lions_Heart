@@ -11,17 +11,24 @@
       <section class="section catalog">
         <div class="container">
 
+        <div class="row">
+            <div class="col-md-12">
+               <h2 class="section__title section__title_catalog">Коллекции</h2>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-md-12">
+               <div class="catalog__header">
+                 <div class="row">
+                   <div class="col-md-4">
+                     <!--SEX FILTERS-->
+                       {% for collection in collections %}
+                      <a class="catalog__category" href="{% url 'gifts_collection' collection.pk %}">{{ collection.title }}</a>
+                       {% endfor %}
+                   </div>
 
       <nav class="nav align-right">
                        <ul class="nav__list">
-                        {% for category in categories %}
-                         <li class="nav__item nav__item_inline">
-                           <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu catalog__menu_active nav__link_capitalize" href="{% url 'collection_category' collects.pk category.pk %}">{{ category.title }}</a>
-                         </li>
-                        {% endfor %}
-                       <li class="nav__item nav__item_inline">
-                         <a class="nav__link catalog__menu catalog__menu_active nav__link_capitalize" href="{% url 'collection_sales' collects.pk %}">{% trans 'Sales' %}</a>
-                         </li>
                        </ul>
                   </nav>
 
@@ -33,14 +40,14 @@
     {% endfor %}
 </ul>
 {% endif %}
-
-
-          <div class="row">
+                  {% if selected %}
+                 <div class="row">
             <div class="col-md-3 align-center">
               <div class="catalog__main"><span>
-                  <div class="section__subtitle">{% trans 'Collection' %}<br></div><img src="{{ collects.logo_image.url }}">
-                  <p class="section__text section__text_neutral mt-30">{{ collects.description }}</p></span></div>
+                  <div class="section__subtitle"></div><img src="{{ selected.logo_image.url }}">
+                  <p class="section__text section__text_neutral mt-30">{{ selected.description }}</p></span></div>
             </div>
+                 {% endif %}
 
               {% for item in object_list %}
 
@@ -48,7 +55,7 @@
               <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
                     <p class="section__text section__text_dark">{{ item.price }}<span> {% trans 'UAH' %}</span></p>
-                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
+                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button></a>
                   </div>
               </span>
               </div>
@@ -58,8 +65,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <p class="number align-center"></p>
-
+              <p class="number align-center">
 
     {% if is_paginated %}
   <ul class="pagination">
@@ -87,7 +93,9 @@
             </div>
           </div>
         </div>
+               </div>
       </section>
+
     </main>
 
 
