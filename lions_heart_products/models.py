@@ -67,6 +67,7 @@ class Item(CommonInfo):
     recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
     sales = models.PositiveIntegerField(verbose_name=_('sales'), blank=True, null=True)
     unique_gift = models.BooleanField(default=False, verbose_name=_('unique gift'))
+    test = models.CharField(max_length=256, blank=True, null=True)
 
     def __str__(self):
         return "{}-{}".format(self.category, self.title)
