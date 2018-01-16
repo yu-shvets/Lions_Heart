@@ -482,8 +482,13 @@
   max-height: 100%;
   width: auto;
   height: auto;
+  opacity: 1;
+  transition: 0.3s;
 }
-
+.product__img:hover{
+  opacity: 0.6;
+  transition: 0.3s;
+}
 .product__button, .ordering__button {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -511,11 +516,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: transparent;
-  border:1px solid transparent;
+  /*border:1px solid transparent;*/
+  border:1px solid #000000;
 }
 
 .product__button:hover {
-  border:1px solid #000;
+ background-color: #000;
+  color: #ffffff;
 }
 
 .button {

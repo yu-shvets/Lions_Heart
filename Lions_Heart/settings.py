@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'lions_heart_products.templatetags',
     'lions_heart_blog',
     'lions_heart_cart',
-    'lions_heart_billing',
     'debug_toolbar',
     'django_filters',
     'widget_tweaks',

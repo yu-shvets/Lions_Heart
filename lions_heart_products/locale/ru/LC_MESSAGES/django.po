@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-10 08:54+0000\n"
+"POT-Creation-Date: 2018-01-15 10:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,19 +50,23 @@ msgstr "Женская"
 
 #: Temp/collection_detail.html:69
 #: lions_heart_products/templates/lions_heart_products/catalogue.html:46
-#: lions_heart_products/templates/lions_heart_products/category.html:56
+#: lions_heart_products/templates/lions_heart_products/category.html:58
 #: lions_heart_products/templates/lions_heart_products/collection.html:50
+#: lions_heart_products/templates/lions_heart_products/gifts.html:57
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:59
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:92
+#: lions_heart_products/templates/lions_heart_products/sales.html:57
 msgid "UAH"
 msgstr "грн"
 
 #: Temp/collection_detail.html:70
 #: lions_heart_products/templates/lions_heart_products/catalogue.html:47
-#: lions_heart_products/templates/lions_heart_products/category.html:57
+#: lions_heart_products/templates/lions_heart_products/category.html:59
 #: lions_heart_products/templates/lions_heart_products/collection.html:51
+#: lions_heart_products/templates/lions_heart_products/gifts.html:58
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:60
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:93
+#: lions_heart_products/templates/lions_heart_products/sales.html:58
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
@@ -145,45 +149,57 @@ msgstr "Коллекция"
 msgid "recommended"
 msgstr "Рекомендуем к выбранным вами товарам"
 
-#: lions_heart_products/models.py:76
+#: lions_heart_products/models.py:68
+#, fuzzy
+#| msgid "Sales"
+msgid "sales"
+msgstr "Cкидки"
+
+#: lions_heart_products/models.py:69
+#, fuzzy
+#| msgid "Unique gifts"
+msgid "unique gift"
+msgstr "Уникальные подарки"
+
+#: lions_heart_products/models.py:78
 msgid "Image"
 msgstr "Изображение"
 
-#: lions_heart_products/models.py:77
+#: lions_heart_products/models.py:79
 msgid "Images"
 msgstr "Изображения"
 
-#: lions_heart_products/models.py:79
+#: lions_heart_products/models.py:81
 msgid "image"
 msgstr "изображение"
 
-#: lions_heart_products/models.py:80
+#: lions_heart_products/models.py:82
 msgid "item"
 msgstr "товар"
 
-#: lions_heart_products/models.py:89 lions_heart_products/models.py:90
+#: lions_heart_products/models.py:91 lions_heart_products/models.py:92
 msgid "Specs"
 msgstr "Характеристики товара"
 
-#: lions_heart_products/models.py:92
+#: lions_heart_products/models.py:94
 #, fuzzy
 #| msgid "Weight, gr:"
 msgid "weight, gr"
 msgstr "Вес, гр:"
 
-#: lions_heart_products/models.py:93
+#: lions_heart_products/models.py:95
 #, fuzzy
 #| msgid "Diameter, mm:"
 msgid "diameter, mm"
 msgstr "Диаметр, мм:"
 
-#: lions_heart_products/models.py:94
+#: lions_heart_products/models.py:96
 #, fuzzy
 #| msgid "Length, mm:"
 msgid "length, mm"
 msgstr "Длина, мм:"
 
-#: lions_heart_products/models.py:95
+#: lions_heart_products/models.py:97
 msgid "other specs"
 msgstr "прочие характеристики"
 
@@ -193,37 +209,38 @@ msgid "Collection"
 msgstr "Коллекция"
 
 #: lions_heart_products/templates/lions_heart_products/collection.html:23
+#: lions_heart_products/templates/lions_heart_products/index.html:117
 msgid "Sales"
 msgstr "Cкидки"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:88
-#: lions_heart_products/templates/lions_heart_products/index.html:138
+#: lions_heart_products/templates/lions_heart_products/index.html:62
+#: lions_heart_products/templates/lions_heart_products/index.html:127
 msgid "About"
 msgstr "О нас"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:89
-#: lions_heart_products/templates/lions_heart_products/index.html:139
+#: lions_heart_products/templates/lions_heart_products/index.html:63
+#: lions_heart_products/templates/lions_heart_products/index.html:128
 msgid "Blog"
 msgstr "Блог"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:90
-#: lions_heart_products/templates/lions_heart_products/index.html:140
+#: lions_heart_products/templates/lions_heart_products/index.html:64
+#: lions_heart_products/templates/lions_heart_products/index.html:129
 msgid "Contacts"
 msgstr "Контакты"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:91
+#: lions_heart_products/templates/lions_heart_products/index.html:65
 msgid "Unique gifts"
 msgstr "Уникальные подарки"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:92
+#: lions_heart_products/templates/lions_heart_products/index.html:66
 msgid "Cart"
 msgstr "Корзина"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:108
+#: lions_heart_products/templates/lions_heart_products/index.html:83
 msgid "Title"
 msgstr "Заголовок"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:147
+#: lions_heart_products/templates/lions_heart_products/index.html:136
 msgid "Call"
 msgstr "Звоните"
 

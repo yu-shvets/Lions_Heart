@@ -19,4 +19,5 @@ class SpecsInline(admin.TabularInline):
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     inlines = (ImageInline, SpecsInline)
+    ordering = ['category', 'title']
 

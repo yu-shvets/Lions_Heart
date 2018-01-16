@@ -1,15 +1,15 @@
 {% extends 'lions_heart_products/index.html' %}
 {% load static from staticfiles %}
+{% load i18n %}
 
 {% block content %}
 
+
 <div id="liqpay_checkout"></div>
 
-
+    <h4>{% trans 'LiqPay payment' %}</h4>
 
     {{ data | safe }}
-
-
 
 
 {% endblock content %}

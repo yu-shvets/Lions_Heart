@@ -76,14 +76,14 @@ class OrderView(TemplateView):
         return context
 
 
-def liqpay(amount):
+def liqpay(amount, order_id):
     liqpay = LiqPay(settings.LIQPAY_PUBLIC_KEY, settings.LIQPAY_PRIVATE_KEY)
     html = liqpay.cnb_form({
     'action': 'pay',
     'amount': str(amount),
     'currency': 'UAH',
     'description': 'Payment for jewelry',
-    'order_id': 'order_id_1',
+    'order_id': str(order_id),
     })
     return html
 
@@ -98,17 +98,27 @@ class OrderCreate(CreateView):
         self.obj = form.save(commit=False)
         self.obj.total_cost = cart.get_total_price()
         self.obj.save()
+        message = 'New order #{}\n\n'.format(self.obj.id)
         for element in cart:
             order_item = OrderItem(item=element['item'], quantity=element['quantity'],
                                    price=element['price'], order=self.obj)
             order_item.save()
+            message += str(element['item']) + ' ' + '-' + ' ' + str(element['quantity'])+ 'pcs' + ' ' + '-' + ' ' + str(element['price']) + 'UAH' + '\n\n'
         cart.clear()
-        # send_mail('Lions Heart order', 'New order! ', settings.EMAIL_HOST_USER, ['yukhimov12345@gmail.com'])
+        message += 'Total cost - {}'.format(self.obj.total_cost)
+        # send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
         if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные':
             return HttpResponseRedirect(reverse('success'))
         else:
-            data = liqpay(amount=self.obj.total_cost)
-            return render(self.request, 'lions_heart_billing/pay.html', {'data': data})
+            if self.obj.total_cost:
+                data = liqpay(amount=self.obj.total_cost, order_id=self.obj.id)
+                return render(self.request, 'lions_heart_cart/pay.html', {'data': data})
+            else:
+                return HttpResponseRedirect(reverse('cart'))
+
+
+class PayView(TemplateView):
+    template_name = 'lions_heart_cart/pay.html'
 
 
 class SuccessView(TemplateView):

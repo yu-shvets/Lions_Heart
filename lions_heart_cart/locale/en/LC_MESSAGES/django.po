@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-10 08:54+0000\n"
+"POT-Creation-Date: 2018-01-15 10:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,41 +82,45 @@ msgstr ""
 msgid "Cart"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:23
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:26
 msgid "Quantity"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:24
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:27
 msgid "Price"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:25
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:28
 msgid "Cost"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:68
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:67
+msgid "Cart is empty"
+msgstr ""
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:78
 #: lions_heart_cart/templates/lions_heart_cart/order.html:41
 msgid "Total cost"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:69
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:85
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:79
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:97
 #: lions_heart_cart/templates/lions_heart_cart/order.html:35
 #: lions_heart_cart/templates/lions_heart_cart/order.html:42
 msgid "UAH"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:70
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:80
 #: lions_heart_cart/templates/lions_heart_cart/order.html:13
 #: lions_heart_cart/templates/lions_heart_cart/order.html:19
 msgid "Checkout"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:77
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:88
 msgid "Recommended items"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:86
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:98
 msgid "Add to cart"
 msgstr ""
 
@@ -132,6 +136,10 @@ msgstr ""
 msgid "Your order is successfully submitted. We'll contact You soon."
 msgstr ""
 
-#: lions_heart_cart/views.py:26
+#: lions_heart_cart/templates/lions_heart_cart/pay.html:10
+msgid "LiqPay payment"
+msgstr ""
+
+#: lions_heart_cart/views.py:27
 msgid "The item was successfully added to cart"
 msgstr ""

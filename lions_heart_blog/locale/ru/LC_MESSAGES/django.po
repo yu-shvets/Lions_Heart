@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-10 08:54+0000\n"
+"POT-Creation-Date: 2018-01-15 10:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,10 +85,6 @@ msgstr "Компания"
 msgid "about"
 msgstr "о компании"
 
-#: lions_heart_blog/models.py:55
-msgid "phone"
-msgstr "телефон"
-
 #: lions_heart_blog/models.py:57
 msgid "address"
 msgstr "адрес"
@@ -112,3 +108,6 @@ msgstr "Опубликовать"
 #: lions_heart_blog/templates/lions_heart_blog/contacts.html:12
 msgid "Contacts"
 msgstr "Контакты"
+
+#~ msgid "phone"
+#~ msgstr "телефон"
