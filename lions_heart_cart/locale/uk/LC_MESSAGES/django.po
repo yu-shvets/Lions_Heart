@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-18 13:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: lions_heart_cart/models.py:9
+msgid "Order"
+msgstr ""
+
+#: lions_heart_cart/models.py:10
+msgid "Orders"
+msgstr ""
+
+#: lions_heart_cart/models.py:12
+msgid "Credit card"
+msgstr "Кредитна картка"
+
+#: lions_heart_cart/models.py:13
+msgid "Cash"
+msgstr "Готівка"
+
+#: lions_heart_cart/models.py:15
+msgid "name"
+msgstr ""
+
+#: lions_heart_cart/models.py:17
+msgid "phone"
+msgstr "телефон"
+
+#: lions_heart_cart/models.py:19
+msgid "payment type"
+msgstr "Спосіб оплати"
+
+#: lions_heart_cart/models.py:20
+msgid "comment"
+msgstr "Коментар"
+
+#: lions_heart_cart/models.py:21
+msgid "total cost"
+msgstr ""
+
+#: lions_heart_cart/models.py:30
+msgid "Item in order"
+msgstr ""
+
+#: lions_heart_cart/models.py:31
+msgid "Items in orders"
+msgstr ""
+
+#: lions_heart_cart/models.py:33
+msgid "Item"
+msgstr ""
+
+#: lions_heart_cart/models.py:34
+msgid "quantity"
+msgstr ""
+
+#: lions_heart_cart/models.py:35
+msgid "price"
+msgstr ""
+
+#: lions_heart_cart/models.py:36
+msgid "order"
+msgstr ""
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:14
+msgid "Cart"
+msgstr "Кошик"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:26
+msgid "Quantity"
+msgstr "Кількість"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:27
+msgid "Price"
+msgstr "Ціна"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:28
+msgid "Cost"
+msgstr "Вартість"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:63
+msgid "Cart is empty"
+msgstr "Кошик порожній"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:74
+#: lions_heart_cart/templates/lions_heart_cart/order.html:42
+msgid "Total cost"
+msgstr "Загальна вартість"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:75
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:96
+#: lions_heart_cart/templates/lions_heart_cart/order.html:36
+#: lions_heart_cart/templates/lions_heart_cart/order.html:43
+msgid "UAH"
+msgstr "грн"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:76
+#: lions_heart_cart/templates/lions_heart_cart/order.html:13
+#: lions_heart_cart/templates/lions_heart_cart/order.html:19
+msgid "Checkout"
+msgstr "Оформити замовлення"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:88
+msgid "Recommended items"
+msgstr "Рекомендовані товари"
+
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:97
+msgid "Add to cart"
+msgstr "Додати у кошик"
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:14
+msgid "PERSONAL INFORMATION"
+msgstr "Особиста інформація"
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:21
+msgid "We make delivery in Kiev"
+msgstr "Здійснюємо доставку у Києві"
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:32
+msgid "Your order"
+msgstr "Ваше замовлення"
+
+#: lions_heart_cart/templates/lions_heart_cart/order_success.html:10
+msgid "Your order is successfully submitted. We'll contact You soon."
+msgstr "Ваше замовлення успішно прийняте. Ми зв'яжемося з Вами найближчим часом."
+
+#: lions_heart_cart/templates/lions_heart_cart/pay.html:10
+msgid "LiqPay payment"
+msgstr "Оплата через LiqPay"
+
+#: lions_heart_cart/views.py:39
+msgid "The item was successfully added to cart"
+msgstr "Товар успішно додано у кошик"
