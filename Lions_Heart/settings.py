@@ -133,6 +133,7 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
+  ('uk', _('Ukrainian')),
   ('ru', _('Russian')),
   ('en', _('English')),
 )

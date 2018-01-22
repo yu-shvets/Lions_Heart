@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Item, Category, Collection
 import django_filters
@@ -15,7 +15,8 @@ class HomeView(TemplateView):
 class CategoryListView(ListView):
     model = Item
     template_name = 'lions_heart_products/category.html'
-    paginate_by = 7
+    paginate_by = 5
+    ordering = ['price']
 
     def get_queryset(self):
         queryset = super(CategoryListView, self).get_queryset()
@@ -46,6 +47,7 @@ class CollectionListView(ListView):
     model = Item
     template_name = 'lions_heart_products/collection.html'
     paginate_by = 7
+    ordering = ['price']
 
     def get_queryset(self):
         queryset = super(CollectionListView, self).get_queryset()
@@ -77,6 +79,7 @@ class SalesListView(ListView):
     model = Item
     template_name = 'lions_heart_products/sales.html'
     paginate_by = 7
+    ordering = ['price']
 
     def get_queryset(self):
         queryset = super(SalesListView, self).get_queryset()
@@ -101,6 +104,7 @@ class UniqueGiftsListView(ListView):
     model = Item
     template_name = 'lions_heart_products/gifts.html'
     paginate_by = 8
+    ordering = ['price']
 
     def get_queryset(self):
         queryset = super(UniqueGiftsListView, self).get_queryset()
@@ -122,6 +126,23 @@ class CollectionUniqueGiftsListView(UniqueGiftsListView):
 class ItemDetailView(DetailView):
     model = Item
     template_name = 'lions_heart_products/item_detail.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(ItemDetailView, self).get_context_data(**kwargs)
+    #     context['form'] = SizesForm(pk=self.kwargs.get('pk'))
+    #     return context
+
+
+# def choose_size(request, item_id):
+#     item = get_object_or_404(Item, id=item_id)
+#     form = SizesForm(pk=item_id)
+#     if request.method == 'POST':
+#         chosen_size = request.POST['size']
+#         size = Sizes.objects.get(size=chosen_size, item=item)
+#         print(size.price)
+#         return render(request, 'lions_heart_products/item_detail_size.html', {'item': item, 'size': size, 'form': form})
+#     else:
+#         return HttpResponseRedirect('home')
 
 
 

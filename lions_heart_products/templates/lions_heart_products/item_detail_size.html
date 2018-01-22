@@ -58,40 +58,39 @@
             <!--PRODUCT DESCRIPTION-->
             <div class="col-md-6 col-md-offset-1">
               <h2 class="section__title">{{ item.title }}</h2>
-              <p class="section__title">{{ item.price|convert }} {% trans 'UAH' %}</p>
-                 <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
+              <p class="section__title">{{ size.price|convert }} {% trans 'UAH' %}</p>
+                 <a href="{% url 'add_cart_size' size.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
               <ul class="sp__list sp__list_padding">
                 <li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>
 
 
-                {% if item.specs.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} {{ item.specs.diameter }}</li>{% endif %}
+                <li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} {{ size.size }}</li>
 
-{#                {% if item.sizes_set.all %}#}
-{#                     <form method="post" action="{% url 'item_size' item.pk %}">#}
-{#              {% csrf_token %}#}
-{#                      <p>Choose size: {% render_field form.size %}#}
-{#                      <input type="submit"></p>#}
-{#              </form>#}
-{#                {% endif %}#}
 
-                {% if item.specs.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %}{{ item.specs.length }}</li>{% endif %}
+                     <form method="post" action="{% url 'item_size' item.pk %}">
+              {% csrf_token %}
+                      <p>Choose size: {% render_field form.size %}
+                      <input type="submit"></p>
+              </form>
+
+
+
               </ul>
-             {% if item.description %}
-              <p class="section__text section__text_neutral sp__text align-center">{{ item.description }}</p>
-                {% endif %}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-
-            <h3 class="section__text section__text_dark sp__list-title">{% trans 'Sales:' %}</h3>
+              <h3 class="section__text section__text_dark sp__list-title">{% trans 'Sales:' %}</h3>
               <ul class="sp__list">
                 <li class="section__text section__text_dark sp__item">{% trans '-10% for 1 item;' %}</li>
                 <li class="section__text section__text_dark sp__item">{% trans '-15% for 2 items;' %}</li>
                 <li class="section__text section__text_dark sp__item">{% trans '-20% for 5 items;' %}</li>
                 <li class="section__text section__text_dark sp__item">{% trans '-30% for custom order.' %}</li>
               </ul>
-
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <!--PRODUCT MAIN TEXT-->
+                {% if item.description %}
+              <p class="section__text section__text_neutral sp__text align-center">{{ item.description }}</p>
+                {% endif %}
             </div>
           </div>
           <div class="row">

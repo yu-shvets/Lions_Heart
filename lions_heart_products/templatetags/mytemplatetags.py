@@ -1,4 +1,6 @@
 from django import template
+from decimal import *
+
 register = template.Library()
 
 
@@ -15,3 +17,8 @@ def url_delete(request, field):
     del d[field]
     return d.urlencode()
 
+
+@register.filter
+def convert(value):
+    from lions_heart_products.currency_rates import rate
+    return Decimal(float(value) * rate).quantize(Decimal('.00'))

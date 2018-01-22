@@ -72,6 +72,19 @@ class Item(CommonInfo):
         return "{}-{}".format(self.category, self.title)
 
 
+# class Sizes(models.Model):
+#
+#     class Meta(object):
+#         verbose_name = _("Size")
+#         verbose_name_plural = _("Sizes")
+#
+#     size = models.IntegerField(verbose_name=_('size'))
+#     price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('price'))
+#     item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name=_('item'))
+#
+#     def __str__(self):
+#         return "{}-{}".format(self.item, self.size)
+
 class Image(models.Model):
 
     class Meta(object):

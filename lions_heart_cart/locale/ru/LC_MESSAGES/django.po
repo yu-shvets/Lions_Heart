@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 10:25+0000\n"
+"POT-Creation-Date: 2018-01-18 13:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,23 +104,23 @@ msgstr "Цена:"
 msgid "Cost"
 msgstr "Сумма"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:67
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:63
 msgid "Cart is empty"
 msgstr "Корзина пуста"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:78
-#: lions_heart_cart/templates/lions_heart_cart/order.html:41
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:74
+#: lions_heart_cart/templates/lions_heart_cart/order.html:42
 msgid "Total cost"
 msgstr "Итого к оплате:"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:79
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:97
-#: lions_heart_cart/templates/lions_heart_cart/order.html:35
-#: lions_heart_cart/templates/lions_heart_cart/order.html:42
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:75
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:96
+#: lions_heart_cart/templates/lions_heart_cart/order.html:36
+#: lions_heart_cart/templates/lions_heart_cart/order.html:43
 msgid "UAH"
 msgstr ""
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:80
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:76
 #: lions_heart_cart/templates/lions_heart_cart/order.html:13
 #: lions_heart_cart/templates/lions_heart_cart/order.html:19
 msgid "Checkout"
@@ -130,7 +130,7 @@ msgstr "Оформить заказ"
 msgid "Recommended items"
 msgstr "Рекомендуем к выбранным вами товарам"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:98
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:97
 msgid "Add to cart"
 msgstr ""
 
@@ -138,11 +138,15 @@ msgstr ""
 msgid "PERSONAL INFORMATION"
 msgstr "ЛИЧНЫЕ ДАННЫЕ"
 
-#: lions_heart_cart/templates/lions_heart_cart/order.html:31
+#: lions_heart_cart/templates/lions_heart_cart/order.html:21
+msgid "We make delivery in Kiev"
+msgstr "Осуществляем доставку в Киеве"
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:32
 msgid "Your order"
 msgstr "Вы заказали"
 
-#: lions_heart_cart/templates/lions_heart_cart/order_success.html:9
+#: lions_heart_cart/templates/lions_heart_cart/order_success.html:10
 msgid "Your order is successfully submitted. We'll contact You soon."
 msgstr "Ваш заказ успешно принят. Мы свяжемся с Вами в ближайшее время."
 
@@ -150,6 +154,6 @@ msgstr "Ваш заказ успешно принят. Мы свяжемся с 
 msgid "LiqPay payment"
 msgstr "Оплата через LiqPay"
 
-#: lions_heart_cart/views.py:27
+#: lions_heart_cart/views.py:39
 msgid "The item was successfully added to cart"
 msgstr "Товар успешно добавлен в корзину"

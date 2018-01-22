@@ -3,7 +3,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
+  <head>
+
+<script src="{% static 'lions_heart_products/js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'lions_heart_products/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'lions_heart_products/js/infinite.min.js' %}"></script>
+
+      <script type="text/javascript">
+
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="number"))  {return false;}
+}
+
+document.onkeypress = stopRKey;
+
+</script>
+  </head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -52,22 +69,27 @@
             </a>
         </li>
     {% endfor %}
-</ul>
 
+
+</ul>
 
               <ul class="nav__list nav__list_header">
 
-                {% for collection in collections %}
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collection.pk %}">{{ collection }}</a></li>
-                {%  endfor %}
+
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.0.pk %}">{{ collections.0 }}</a></li>
+
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
+
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.1.pk %}">{{ collections.1 }}</a></li>
+
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'gifts' %}">{% trans 'Unique gifts' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}
                     {% if items %}<span class="cart_length" >{{ items }}</span>{% endif %}</a></li>
               </ul>
             </span>
+            <span class="rate">USD: {{ rate }}</span>
             </nav>
           </div>
         </div>
@@ -80,10 +102,10 @@
         <div class="container">
           <div class="row">
             <!--BIG CENTER BANNER-->
-            <div class="col-md-12"><a class="home__box" href="#"><img class="home__img" src="{% static "lions_heart_products/img/49.jpg" %}">
-                <h2 class="home__title">{% trans 'Title' %}</h2></a></div>
+            <div class="col-md-12"><img class="home__img" src="{% static "lions_heart_products/img/49.jpg" %}">
+                <h2 class="home__title">{% trans 'Title' %}</h2></div>
             <!--SMALL LEFT BANNER-->
-            <div class="col-md-6"><a class="home__box mt-20" href="#"><img class="home__img" src="{% static "lions_heart_products/img/bg-2.jpg" %}"></a></div>
+            <div class="col-md-6"><a class="home__box mt-20" href="#"><img class="home__img" src="{% static "lions_heart_products/img/left_banner.jpg" %}"></a></div>
             <!--SMALL RIGHT BANNER-->
             <div class="col-md-6"><a class="home__box mt-20" href="{% url 'sales' %}"><img class="home__img" src="{% static "lions_heart_products/img/bg-3.jpg" %}"></a></div>
           </div>
@@ -125,9 +147,9 @@
             <!-- SECOND MENU-->
             <nav class="nav nav_footer">
               <ul class="nav__list">
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">{% trans 'About' %}</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">{% trans 'Blog' %}</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">{% trans 'Contacts' %}</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
+                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
               </ul>
             </nav>
           </div>
@@ -143,3 +165,4 @@
     <script src="{% static "lions_heart_products/js/main.js" %}"></script>
   </body>
 </html>
+

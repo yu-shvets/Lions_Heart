@@ -16,6 +16,11 @@ class SpecsInline(admin.TabularInline):
     extra = 0
 
 
+# class SizesInline(admin.TabularInline):
+#     model = Sizes
+#     extra = 0
+
+
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     inlines = (ImageInline, SpecsInline)

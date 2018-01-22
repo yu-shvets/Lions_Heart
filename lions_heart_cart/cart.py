@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from lions_heart_products.models import Item
+from lions_heart_products.currency_rates import rate
 
 
 class Cart(object):
@@ -15,7 +16,15 @@ class Cart(object):
     def add(self, item):
         item_id = str(item.id)
         if item_id not in self.cart:
-            self.cart[item_id] = {'quantity': 1, 'price': str(item.price)}
+            self.cart[item_id] = {'quantity': 1, 'price': str(float(item.price) * rate)}
+        else:
+            self.cart[item_id]['quantity'] += 1
+        self.save()
+
+    def add_size(self, item, price):
+        item_id = str(item.id)
+        if item_id not in self.cart:
+            self.cart[item_id] = {'quantity': 1, 'price': str(float(price) * rate)}
         else:
             self.cart[item_id]['quantity'] += 1
         self.save()
@@ -42,7 +51,7 @@ class Cart(object):
             self.cart[str(item.id)]['item'] = item
 
         for item in self.cart.values():
-            item['price'] = Decimal(item['price'])
+            item['price'] = Decimal(item['price']).quantize(Decimal('.00'))
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
@@ -50,8 +59,12 @@ class Cart(object):
     def cart_len(self):
         return sum(item['quantity'] for item in self.cart.values())
 
+    def sum_item(self, item, quantity):
+        item_id = str(item.id)
+        return Decimal(self.cart[item_id]['price']).quantize(Decimal('.00')) * quantity
+
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+        return sum(Decimal(item['price']).quantize(Decimal('.00')) * item['quantity'] for item in self.cart.values())
 
     def clear(self):
         del self.session[settings.CART_SESSION_ID]

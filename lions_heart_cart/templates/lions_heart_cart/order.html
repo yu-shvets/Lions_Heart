@@ -16,9 +16,9 @@
             {% csrf_token %}
 
             {{ form.as_p }}
-                    <input type="submit" value={% trans "Checkout" %} class="button button_light button_uppercase button_bg-dark ordering__button" >
+                    <input type="submit" value={% trans "Checkout" %} class="button button_uppercase product__button" >
 
-                    <h4>Осуществляем доставку по Киеву</h4>
+                    <h4>{% trans 'We make delivery in Kiev' %}</h4>
 
                         <div class="align-center">
                   </div>

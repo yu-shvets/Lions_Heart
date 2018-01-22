@@ -26,4 +26,5 @@ urlpatterns = [
         CollectionUniqueGiftsListView.as_view(), name='gifts_collection'),
 
     url(r'^catalogue/items/(?P<pk>\d+)/$', ItemDetailView.as_view(), name='item'),
+    # url(r'^catalogue/items/(?P<item_id>\d+)/size/$', choose_size, name='item_size'),
                 ]

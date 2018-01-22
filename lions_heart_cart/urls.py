@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import add_to_cart, cart_view, cart_remove, update_quantity, OrderView, OrderCreate, SuccessView, PayView
 
+
 urlpatterns = [
     url(r'^add/(?P<item_id>\d+)/$', add_to_cart, name='add_to_cart'),
     url(r'^cart/$', cart_view, name='cart'),
@@ -13,4 +14,6 @@ urlpatterns = [
     url(r'^pay/$', PayView.as_view(), name='pay'),
 
     url(r'^order_success/$', SuccessView.as_view(), name='success'),
+
+    # url(r'^add_size/(?P<sizes_id>\d+)/$', add_cart_size, name='add_cart_size'),
                 ]

@@ -10,8 +10,11 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="section__title section__title_dark contacts__title">{% trans 'Contacts' %}</h2>
-              <div class="contacts__wrap"><a class="contacts__text contacts__text_link" href="tel:+380662223344">{{ companyinformation_list.first.phone|linebreaks }}</a><a class="contacts__text contacts__text_link" href="mailto:lionsheart@gmail.com">{{ companyinformation_list.first.mail }}</a>
-                <p class="contacts__text">{{ companyinformation_list.first.address }}</p>
+              <div class="contacts__wrap"><span class="contacts__text contacts__text_link" href="tel:+380662223344">{{ companyinformation_list.first.phone|linebreaks }}</span>
+                  <a class="contacts__text__first contacts__text_link" href="mailto: {{ companyinformation_list.first.mail }}">{{ companyinformation_list.first.mail }}</a>
+                  <a class="contacts__text contacts__text_link" href="mailto:{{ companyinformation_list.first.mail_1 }}">{{ companyinformation_list.first.mail_1 }}</a>
+                <p class="contacts__text__first">{{ companyinformation_list.first.address }}</p>
+                  <p class="contacts__text">{{ companyinformation_list.first.address_1 }}</p>
               </div>
             </div>
           </div>
@@ -22,11 +25,11 @@
         var map;
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 49.170403, lng: 23.545251},
-            zoom: 8
+            center: {lat: 50.472856, lng: 30.513623},
+            zoom: 12
           });
           var marker = new google.maps.Marker({
-            position: {lat: 49.170403, lng: 23.545251},
+            position: {lat: 50.472856, lng: 30.513623},
             map: map
           });
         }

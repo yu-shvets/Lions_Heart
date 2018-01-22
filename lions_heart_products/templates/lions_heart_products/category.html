@@ -2,6 +2,7 @@
 {% load widget_tweaks %}
 {% load i18n %}
 {% load mytemplatetags %}
+{% load static from staticfiles %}
 
 {% block content %}
 
@@ -13,12 +14,11 @@
 
         <div class="row">
             <div class="col-md-12">
-               <h2 class="section__title section__title_catalog">Коллекции</h2>
+               <h2 class="section__title section__title_catalog">{% trans 'Collection' %}</h2>
              </div>
            </div>
            <div class="row">
              <div class="col-md-12">
-               <div class="catalog__header">
                  <div class="row">
                    <div class="col-md-4">
                      <!--SEX FILTERS-->
@@ -55,8 +55,8 @@
             <div class="col-md-3 align-center">
               <div class="product"><span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
-                    <p class="section__text section__text_dark">{{ item.price }}<span> {% trans 'UAH' %}</span></p>
-                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_light button_uppercase button_bg-dark product__button">{% trans 'Add to cart' %}</button></a>
+                    <p class="section__text section__text_dark">{{ item.price|convert }}<span> {% trans 'UAH' %}</span></p>
+                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
                   </div>
               </span>
               </div>
@@ -68,29 +68,50 @@
             <div class="col-md-12">
               <p class="number align-center">
 
-    {% if is_paginated %}
-  <ul class="pagination">
-    {% if page_obj.has_previous %}
-      <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">&laquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-    {% for i in paginator.page_range %}
-      {% if page_obj.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-      <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">&raquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
-    {% endif %}
-  </ul>
-{% endif %}
+{#    {% if is_paginated %}#}
+{#  <ul class="pagination">#}
+{#    {% if page_obj.has_previous %}#}
+{#      <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">&laquo;</a></li>#}
+{#    {% else %}#}
+{#      <li class="disabled"><span>&laquo;</span></li>#}
+{#    {% endif %}#}
+{#    {% for i in paginator.page_range %}#}
+{#      {% if page_obj.number == i %}#}
+{#        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>#}
+{#      {% else %}#}
+{#        <li><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>#}
+{#      {% endif %}#}
+{#    {% endfor %}#}
+{#    {% if page_obj.has_next %}#}
+{#      <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">&raquo;</a></li>#}
+{#    {% else %}#}
+{#      <li class="disabled"><span>&raquo;</span></li>#}
+{#    {% endif %}#}
+{#       </ul>#}
+{#{% endif %}#}
 
-              </p>
+                  <div class="loading" style="display: none;">
+    Loading...
+  </div>
+
+  {% if page_obj.has_next %}
+    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
+  {% endif %}
+
+  <script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('.loading').hide();
+      }
+    });
+  </script>
+
+
+
             </div>
           </div>
         </div>
@@ -98,6 +119,8 @@
       </section>
 
     </main>
+
+
 
 
     {% endblock content %}

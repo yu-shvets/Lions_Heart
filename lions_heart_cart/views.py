@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, HttpResponseRedirect, redirect
+from django.shortcuts import render, reverse, HttpResponseRedirect, redirect, get_object_or_404
 from .cart import Cart
 from lions_heart_products.models import Item
 from django.shortcuts import get_object_or_404
@@ -12,12 +12,24 @@ from django.utils.translation import ugettext as _
 from django.core.mail import send_mail
 from django.conf import settings
 from libs.liqpay import LiqPay
+from lions_heart_products.models import Item
+
+
+def check_recommended(cart):
+    for i in cart:
+        item = get_object_or_404(Item, id=i['item'].id)
+        if item.recommended_items.all():
+            return True
+    return False
+
 
 def cart_view(request):
     cart = Cart(request)
+    recommended = check_recommended(cart)
     total_price = cart.get_total_price()
     form = CartAddProductForm()
-    return render(request, 'lions_heart_cart/cart.html', {'cart': cart, 'total_price': total_price, 'form': form})
+    return render(request, 'lions_heart_cart/cart.html', {'cart': cart, 'total_price': total_price,
+                                                          'form': form, 'recommended': recommended})
 
 
 def add_to_cart(request, item_id):
@@ -43,27 +55,12 @@ def update_quantity(request, item_id):
         new_quantity = (request.POST['new_quantity'])
         if new_quantity.isnumeric():
             new_quantity = int(new_quantity)
-            if new_quantity > 0:
+            if 0 < new_quantity <= 100:
                 cart.update(item, new_quantity)
                 response_data['quantity'] = new_quantity
-                response_data['sum'] = new_quantity * item.price
+                response_data['sum'] = cart.sum_item(item, new_quantity)
                 response_data['total_price'] = cart.get_total_price()
     return JsonResponse(response_data)
-
-
-# def update_quantity(request, item_id):
-#     cart = Cart(request)
-#     item = get_object_or_404(Item, id=item_id)
-#     form = CartAddProductForm(data=request.POST)
-#     response_data = {}
-#     if form.is_valid():
-#         data = form.cleaned_data
-#         new_quantity = data['quantity']
-#         cart.update(item, new_quantity)
-#         response_data['quantity'] = new_quantity
-#         response_data['sum'] = new_quantity * item.price
-#         response_data['total_price'] = cart.get_total_price()
-#     return JsonResponse(response_data)
 
 
 class OrderView(TemplateView):
@@ -124,3 +121,25 @@ class PayView(TemplateView):
 class SuccessView(TemplateView):
     template_name = 'lions_heart_cart/order_success.html'
 
+
+# def add_cart_size(request, sizes_id):
+#     cart = Cart(request)
+#     size = get_object_or_404(Sizes, id=sizes_id)
+#     cart.add_size(item=size.item, price=size.price)
+#     messages.success(request, _('The item was successfully added to cart'))
+#     return HttpResponseRedirect(reverse('home'))
+
+
+# def update_quantity(request, item_id):
+#     cart = Cart(request)
+#     item = get_object_or_404(Item, id=item_id)
+#     form = CartAddProductForm(data=request.POST)
+#     response_data = {}
+#     if form.is_valid():
+#         data = form.cleaned_data
+#         new_quantity = data['quantity']
+#         cart.update(item, new_quantity)
+#         response_data['quantity'] = new_quantity
+#         response_data['sum'] = new_quantity * item.price
+#         response_data['total_price'] = cart.get_total_price()
+#     return JsonResponse(response_data)

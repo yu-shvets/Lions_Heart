@@ -9,5 +9,5 @@ class PostTranslationOptions(TranslationOptions):
 
 @register(CompanyInformation)
 class CompanyInformationTranslationOptions(TranslationOptions):
-    fields = ('about', 'address',)
+    fields = ('about', 'address', 'address_1')
 

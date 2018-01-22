@@ -1117,9 +1117,17 @@
 
 .contacts__text {
   font-size: 24px;
+  text-align: center;
+  color: #000;
+  /*padding-left: 66px;*/
+  margin-bottom: 49px;
+  position: relative;
+}
+
+.contacts__text__first {
+  font-size: 24px;
   color: #000;
   padding-left: 66px;
-  margin-bottom: 49px;
   position: relative;
 }
 
@@ -1548,5 +1556,10 @@
     vertical-align: top;
 }
 
+
+.rate {
+  font-size: 14px;
+  color: #337ab7;
+}
 
 /*# sourceMappingURL=../css/main.css.map */

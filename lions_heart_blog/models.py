@@ -54,7 +54,9 @@ class CompanyInformation(models.Model):
     about = models.TextField(verbose_name=_('about'))
     phone = models.TextField()
     mail = models.EmailField()
-    address = models.CharField(max_length=256, verbose_name=_('address'))
+    mail_1 = models.EmailField(blank=True, null=True)
+    address = models.CharField(max_length=256)
+    address_1 = models.CharField(max_length=256, blank=True, null=True)
 
 
 class CompanyImage(models.Model):
