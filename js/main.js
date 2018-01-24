@@ -34,4 +34,17 @@ $('document').ready(function(){
       return +value + (1 * +$button.data('step'));
     });
   });
+  $('#cart__summ').on('keydown keyup', function(e){
+    if ($(this).val() > 100 
+        && e.keyCode != 46 // delete
+        && e.keyCode != 8 // backspace
+       ) {
+       e.preventDefault();
+       $(this).val(100);
+    }
+});
+});
+
+document.getElementById('cart__summ').addEventListener('keyup',function(e){
+    if (e.which == 13) this.blur();
 });
