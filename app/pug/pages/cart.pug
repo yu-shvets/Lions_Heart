@@ -25,7 +25,7 @@ block pageContent
             table.cart__table
               thead
                 tr.cart__table-row
-                  each title in ['', 'Колличество', 'Цена', 'Сумма','']
+                  each title in ['', 'Колличество:', 'Цена:', 'Сумма:','']
                     th.cart__table-title= title
               tbody
                 -count=0;
@@ -36,15 +36,15 @@ block pageContent
                         div(href='#').cart__table-thumbnail
                           img(src='img/sp-img.jpg').cart__table-img
                         h4.section__text.section__text_dark Отважный / Brave
-                    td(data-quant='Колличество').cart__table-data.cart__table-quantity
+                    td(data-quant='Колличество:').cart__table-data.cart__table-quantity
                       button(data-step='1').button.button_transparent.cart__table-btn
                         img(src='img/triangle.jpg' alt='plus').cart__table-plus
-                      input(type='number').cart__table-result
+                      input(type='number' maxlength="2" min='1' max='10').cart__table-result#cart__summ
                       button(data-step='-1').button.button_transparent.cart__table-btn
                         img(src='img/triangle.jpg' alt='minus').cart__table-minus
-                    td(data-price='Цена').cart__table-data.cart__table-price
+                    td(data-price='Цена:').cart__table-data.cart__table-price
                       p.section__text.section__text_dark 1.800 грн
-                    td(data-sum='Сума').cart__table-data.cart__table-sum
+                    td(data-sum='Сума:').cart__table-data.cart__table-sum
                       p.section__text.section__text_dark 1.800 грн
                     td.cart__table-data
                       span.cart__table-close &times;

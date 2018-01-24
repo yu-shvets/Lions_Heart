@@ -17,11 +17,13 @@
           </div>
           <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
-            <nav class="nav header__nav"><span><span>
+            <nav class="nav header__nav"><span>
+                <form>
                   <select class="header__select">
                     <option>RU</option>
                     <option>EN</option>
-                  </select></span>
+                  </select>
+                </form>
                 <ul class="nav__list nav__list_header">
                   <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
                   <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
@@ -65,9 +67,9 @@
                 <thead>
                   <tr class="cart__table-row">
                     <th class="cart__table-title"></th>
-                    <th class="cart__table-title">Колличество</th>
-                    <th class="cart__table-title">Цена</th>
-                    <th class="cart__table-title">Сумма</th>
+                    <th class="cart__table-title">Колличество:</th>
+                    <th class="cart__table-title">Цена:</th>
+                    <th class="cart__table-title">Сумма:</th>
                     <th class="cart__table-title"></th>
                   </tr>
                 </thead>
@@ -76,15 +78,15 @@
                     <td class="cart__table-data"><a class="cart__table-main" href="#">
                         <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
                         <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество">
+                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
                       <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number">
+                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="10" id="cart__summ">
                       <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
                     </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена">
+                    <td class="cart__table-data cart__table-price" data-price="Цена:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума">
+                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
                     <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
@@ -93,15 +95,15 @@
                     <td class="cart__table-data"><a class="cart__table-main" href="#">
                         <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
                         <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество">
+                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
                       <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number">
+                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="10" id="cart__summ">
                       <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
                     </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена">
+                    <td class="cart__table-data cart__table-price" data-price="Цена:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума">
+                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
                     <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
@@ -110,15 +112,15 @@
                     <td class="cart__table-data"><a class="cart__table-main" href="#">
                         <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
                         <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество">
+                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
                       <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number">
+                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="10" id="cart__summ">
                       <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
                     </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена">
+                    <td class="cart__table-data cart__table-price" data-price="Цена:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума">
+                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
                     <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
@@ -127,15 +129,15 @@
                     <td class="cart__table-data"><a class="cart__table-main" href="#">
                         <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
                         <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество">
+                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
                       <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number">
+                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="10" id="cart__summ">
                       <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
                     </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена">
+                    <td class="cart__table-data cart__table-price" data-price="Цена:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума">
+                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
                       <p class="section__text section__text_dark">1.800 грн</p>
                     </td>
                     <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
@@ -220,7 +222,7 @@
         </div>
       </div>
     </footer>
-    <script src="../js/libs.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/libs.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

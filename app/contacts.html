@@ -38,80 +38,34 @@
     </header>
     <!-- MAIN CONTENT-->
     <main class="main">
-      <section class="section blog mt-10">
+      <section class="section contacts">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="section__title align-center">Блог</h2>
-            </div>
-          </div>
-          <div class="row mt-10">
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <!-- SINGLE BLOG--><a class="blog__box" href="#">
-                <div class="blog__img" style="background-image:url(img/blog-bg.jpg);">
-                  <div class="blog__date">11.12.17</div>
-                </div>
-                <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.</p></a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <p class="number align-center">
-                <!--IF PAGE IS ACTIVE SET NUMBER__LINK_ACTIVE--><a class="number__link number__link_active" href="#">1</a><a class="number__link" href="#">2</a><a class="number__link" href="#">3</a><a class="number__link" href="#">4</a><a class="number__link" href="#">5</a>
-              </p>
+              <h2 class="section__title section__title_dark contacts__title">Контакты</h2>
+              <div class="contacts__wrap"><a class="contacts__text contacts__text_link contacts__tel" href="tel:+380662223344">+38 (066) 222 33 44</a><a class="contacts__text contacts__text_link contacts__mail" href="mailto:lionsheart@gmail.com">lionsheart@gmail.com</a>
+                <p class="contacts__text contacts__place">г. Киев, ул. Киевская 43</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <div id="map"></div>
+      <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 49.170403, lng: 23.545251},
+            zoom: 8
+          });
+          var marker = new google.maps.Marker({
+            position: {lat: 49.170403, lng: 23.545251},
+            map: map
+          });
+        }
+        
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1q759LlOAGNKLwmPhz4ktyEo-MWe5Z6U&amp;callback=initMap"></script>
     </main>
     <footer class="footer">
       <div class="container">

@@ -1,0 +1,22 @@
+.about {
+  &__img {
+    width:100%;
+    background-size:cover;
+    background-position:center center; 
+    min-height:358px;
+  }
+  &__title {
+    padding-top:25px;
+    padding-bottom:45px;
+    text-align: center;
+  }
+}
+
+.single-about {
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+  &__img {
+    width: 100%;
+    height: 359px;
+  }
+}

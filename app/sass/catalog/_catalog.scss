@@ -41,3 +41,14 @@
     @include center(381px);
   }
 }
+
+//merge 
+.catalog .nav__list {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.catalog .nav__link {
+  color: #313131 !important;
+}
+//end merge

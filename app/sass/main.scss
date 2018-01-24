@@ -86,7 +86,7 @@
     }
   }
   &__line {
-    top: 48px;
+    top: 45px;
     position:absolute;
     left: 0;
     right: 0;
@@ -184,6 +184,19 @@
     margin-top:5px;
   }
 }
+
+//merge
+
+.header__link_child::before, .header__link_child::after {
+  display:none;
+}
+
+.nav__item_has-child > .header__link::after, .nav__item_has-child > .header__link::before {
+  display:none;
+}
+
+
+//end merge
 
 // FOOTER STYLE
 .footer {
@@ -303,9 +316,64 @@
 
 //PRODUCTS 
 .product {
-  border:1px solid #e8e8e8;
-  padding:15px 0;
-  margin-bottom:27px;
+  border: 1px solid #e8e8e8;
+  padding: 15px 0;
+  margin-bottom: 27px;
+  position: relative;
+
+  &:after, &:before, &__animation:after, &__animation:before {
+    position: absolute;
+    content: '';
+    transition: all .5s;
+    width: 1px;
+    height: 1px;    
+  }
+  &:after {
+    left: 0;
+    bottom: 0;
+  }
+  &:before {
+    right: 0;
+    top: 0;
+  }
+  &__animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    &:after {
+      top: 0;
+      left: 0;
+    }
+    &:before {
+      right: 0;
+      bottom: 0;
+    }
+  }
+  &:hover {
+    &:after { 
+      right: 0;
+      width: 100%;
+      background: $black-color;
+    }
+    &:before {
+      left: 0;
+      width: 100%;
+      background: $black-color;
+    }
+  }
+  &:hover > &__animation:after {
+    bottom: 0;
+    height: 100%;
+    background: $black-color;
+  }
+  &:hover > &__animation:before {
+    top: 0;
+    height: 100%;
+    background: $black-color;
+  }
   &__link {
     @include center(230px);
     width:100%;
@@ -320,18 +388,29 @@
     height:auto;
   }
   &__button {
-    padding-top:20px;
-    padding-bottom:20px;
-    max-width:251px;
-    font-size:18px;
-    width:100%; 
-    background-color:$black-color;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+    color: #000;
+    transition: all .4s;
+    font-size: 14px;
+    max-width: 195px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    /*border:1px solid transparent;*/
+    border:1px solid #000000;
+    &:hover {
+      background-color: #000;
+      color: #ffffff;
+    }
   }
 }
 
 //BUTTON
 .button {
-  border:none;
   outline:none;
   padding-top:20px;
   padding-bottom:20px;

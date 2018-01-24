@@ -1,9 +1,11 @@
 @import "index/index";
+@import "about/about";
 @import "blog/blog";
 @import "catalog/catalog";
 @import "sp/sp";
 @import "ordering/ordering";
 @import "cart/cart";
+@import "contacts/contacts";
 
 @media (max-width: 1200px) {
     @import "index/index-max-1200";
@@ -59,6 +61,69 @@
             }
         }
     }
+    // merge
+    .nav__item_has-child:hover {
+        height:100px;
+      }
+      
+        .nav__item_has-child {
+          position: relative;
+          cursor: pointer;
+          text-align: center;
+      }
+      
+        .nav__list-child {
+          background-color: rgba(0, 0, 0, 0.6);
+          left: 0;
+          top: 0;
+          z-index: 1;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          right: 0;
+          line-height: 1.5;
+      }
+      
+        .nav__wrapper {
+          overflow:auto;
+          height:100vh;
+        }
+        .footer__subtitle {
+            text-align: center;
+          }
+          .footer__tel {
+            display: block;
+            text-align: center;
+          }
+          .nav_footer {
+            text-align: center;
+            padding-top: 30px;
+          }
+          .section__title {
+            font-size: 25px;
+          }
+          .form_breadcumbs {
+            text-align: center;
+            margin: 0 auto;
+            display: table;
+            padding-top: 40px;
+          }
+        
+          .form__select {
+            display: block;
+            max-width: 300px;
+            margin-bottom: 10px;
+          }
+        
+          .form_breadcumbs .form__select {
+             border: 1px solid grey;
+           }
+        
+          .form__select_header {
+            color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+          }
+    //end merge
     @import "index/index-max-992";
     @import "blog/blog-max-992";
 }
@@ -127,6 +192,28 @@
             text-align:center;
             padding-top:30px;
         }
+        &__item_has-child {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            &:hover {
+                height: 100px;
+            }
+          }
+        &__list-child {
+            background-color: rgba(0, 0, 0, 0.6);
+            left: 0;
+            top: 0;
+            z-index: 1;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            right: 0;
+            line-height: 1.5;        
+        }
+        &__wrapper {
+            overflow:auto;
+             height:100vh;
+        }
     }
     .section {
         &__title {
@@ -138,13 +225,22 @@
             text-align:center;
             margin: 0 auto;
             display:table;
+            padding-top: 40px;
         }
         &__select {
             display:block;
             max-width:300px;
             margin-bottom:10px;
+            &_header {
+                color: #fff;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     }
+    .form_breadcumbs .form__select {
+        border: 1px solid grey;
+      }
     .section {
         &__title {
             &_catalog {
@@ -152,7 +248,25 @@
             }
         }
     }
+    .header .form__select {
+        width:50px;
+      }
+      
+      .cart_length {
+          font-size: 12px;
+          background: #337ab7;
+          color: white;
+          padding: 0 5px;
+          vertical-align: top;
+      }
+      
+      
+      .rate {
+        font-size: 14px;
+        color: #337ab7;
+      }
     @import "index/index-max-767";
+    @import "about/about-max-767";
     @import "blog/blog-max-767";
     @import "catalog/catalog-max-767";
     @import "sp/sp-max-767";

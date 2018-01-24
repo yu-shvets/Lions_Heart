@@ -1,0 +1,32 @@
+extends ../default.pug
+block pageContent
+  include ../templates/header.pug
+  // MAIN CONTENT
+  main.main
+    section.section.contacts
+      .container
+        .row
+          .col-md-12
+            h2.section__title.section__title_dark.contacts__title Контакты
+            div.contacts__wrap
+              a(href='tel:+380662223344').contacts__text.contacts__text_link.contacts__tel +38 (066) 222 33 44
+              a(href='mailto:lionsheart@gmail.com').contacts__text.contacts__text_link.contacts__mail lionsheart@gmail.com
+              p.contacts__text.contacts__place г. Киев, ул. Киевская 43
+    #map
+            
+    script.
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 49.170403, lng: 23.545251},
+          zoom: 8
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: 49.170403, lng: 23.545251},
+          map: map
+        });
+      }
+
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC1q759LlOAGNKLwmPhz4ktyEo-MWe5Z6U&callback=initMap')
+
+  include ../templates/footer.pug
