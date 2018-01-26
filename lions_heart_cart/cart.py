@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from lions_heart_products.models import Item
-from lions_heart_products.currency_rates import rate
+from lions_heart_products.templatetags.mytemplatetags import get_rate
 
 
 class Cart(object):
@@ -16,7 +16,7 @@ class Cart(object):
     def add(self, item):
         item_id = str(item.id)
         if item_id not in self.cart:
-            self.cart[item_id] = {'quantity': 1, 'price': str(float(item.price) * rate)}
+            self.cart[item_id] = {'quantity': 1, 'price': str(float(item.price) * get_rate())}
         else:
             self.cart[item_id]['quantity'] += 1
         self.save()
@@ -24,7 +24,7 @@ class Cart(object):
     def add_size(self, item, price):
         item_id = str(item.id)
         if item_id not in self.cart:
-            self.cart[item_id] = {'quantity': 1, 'price': str(float(price) * rate)}
+            self.cart[item_id] = {'quantity': 1, 'price': str(float(price) * get_rate())}
         else:
             self.cart[item_id]['quantity'] += 1
         self.save()

@@ -16,7 +16,7 @@
             {% csrf_token %}
 
             {{ form.as_p }}
-                    <input type="submit" value={% trans "Checkout" %} class="button button_uppercase product__button" >
+                    <input type="submit" value='{% trans "Checkout" %}' class="button button_uppercase product__button" >
 
                     <h4>{% trans 'We make delivery in Kiev' %}</h4>
 
@@ -33,7 +33,7 @@
 
                   {% for item in cart %}
 
-                  <div class="ordering__good"><a class="section__text section__text_neutral" href="#">{{ item.item.title }}</a><span class="section__text section__text-dark">{{ item.total_price }} {% trans 'UAH' %}</span></div>
+                  <div class="ordering__good"><a class="section__text section__text_neutral" href="{% url 'item' item.item.pk %}">{{ item.item.title }}</a><span class="section__text section__text-dark">{{ item.total_price }} {% trans 'UAH' %}</span></div>
 
 
                    {% endfor %}

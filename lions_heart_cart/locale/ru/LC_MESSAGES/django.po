@@ -94,11 +94,11 @@ msgstr ""
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:26
 msgid "Quantity"
-msgstr "Количество:"
+msgstr "Количество"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:27
 msgid "Price"
-msgstr "Цена:"
+msgstr "Цена"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:28
 msgid "Cost"
@@ -111,7 +111,7 @@ msgstr "Корзина пуста"
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:74
 #: lions_heart_cart/templates/lions_heart_cart/order.html:42
 msgid "Total cost"
-msgstr "Итого к оплате:"
+msgstr "Итого к оплате"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:75
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:96

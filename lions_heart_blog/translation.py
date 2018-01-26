@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from lions_heart_blog.models import Post, CompanyInformation
+from lions_heart_blog.models import Post, CompanyInformation, Address
 
 
 @register(Post)
@@ -9,5 +9,9 @@ class PostTranslationOptions(TranslationOptions):
 
 @register(CompanyInformation)
 class CompanyInformationTranslationOptions(TranslationOptions):
-    fields = ('about', 'address', 'address_1')
+    fields = ('about',)
+
+@register(Address)
+class AddressTranslationOptions(TranslationOptions):
+    fields = ('address',)
 

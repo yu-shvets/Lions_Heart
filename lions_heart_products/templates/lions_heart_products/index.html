@@ -20,6 +20,7 @@ function stopRKey(evt) {
 document.onkeypress = stopRKey;
 
 </script>
+
   </head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,27 +55,43 @@ document.onkeypress = stopRKey;
             <a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
             <nav class="nav header__nav">
-            <span class="nav__wrapper">
+                <span class="nav__wrapper">
 
-         <ul class="nav navbar-nav navbar-left language menu">
-    {% get_current_language as LANGUAGE_CODE %}
-    {% get_available_languages as LANGUAGES %}
-    {% get_language_info_list for LANGUAGES as languages %}
-    {% for language in languages %}
-        <li>
-            <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:' }}"
-               class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"
-               lang="{{ language.code }}">
-                {{ language.code }}
-            </a>
-        </li>
-    {% endfor %}
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language" onchange="this.form.submit()">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                 {{ language.code }}
+            </option>
+        {% endfor %}
+    </select>
 
+</form>
 
-</ul>
+        <span class="rate">USD: {{ rate }}</span>
+
+{#         <ul class="nav navbar-nav navbar-left language menu">#}
+{#    {% get_current_language as LANGUAGE_CODE %}#}
+{#    {% get_available_languages as LANGUAGES %}#}
+{#    {% get_language_info_list for LANGUAGES as languages %}#}
+{#    {% for language in languages %}#}
+{#        <li>#}
+{#            <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:' }}"#}
+{#               class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"#}
+{#               lang="{{ language.code }}">#}
+{#                {{ language.code }}#}
+{#            </a>#}
+{#        </li>#}
+{#    {% endfor %}#}
+{##}
+{##}
+{#</ul>#}
 
               <ul class="nav__list nav__list_header">
-
 
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.0.pk %}">{{ collections.0 }}</a></li>
 
@@ -86,10 +103,9 @@ document.onkeypress = stopRKey;
 
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'gifts' %}">{% trans 'Unique gifts' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}
-                    {% if items %}<span class="cart_length" >{{ items }}</span>{% endif %}</a></li>
+                    {% if items %}<span class="cart__length" >{{ items }}</span>{% endif %}</a></li>
               </ul>
             </span>
-            <span class="rate">USD: {{ rate }}</span>
             </nav>
           </div>
         </div>
@@ -102,10 +118,10 @@ document.onkeypress = stopRKey;
         <div class="container">
           <div class="row">
             <!--BIG CENTER BANNER-->
-            <div class="col-md-12"><img class="home__img" src="{% static "lions_heart_products/img/49.jpg" %}">
+            <div class="col-md-12"><img class="home__img" src="{{ company_info.center_banner.url }}">
                 <h2 class="home__title">{% trans 'Title' %}</h2></div>
             <!--SMALL LEFT BANNER-->
-            <div class="col-md-6"><a class="home__box mt-20" href="#"><img class="home__img" src="{% static "lions_heart_products/img/left_banner.jpg" %}"></a></div>
+            <div class="col-md-6"><img class="home__img" src="{% static "lions_heart_products/img/left_banner.jpg" %}"></div>
             <!--SMALL RIGHT BANNER-->
             <div class="col-md-6"><a class="home__box mt-20" href="{% url 'sales' %}"><img class="home__img" src="{% static "lions_heart_products/img/bg-3.jpg" %}"></a></div>
           </div>

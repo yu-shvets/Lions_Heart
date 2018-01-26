@@ -15,7 +15,7 @@ class HomeView(TemplateView):
 class CategoryListView(ListView):
     model = Item
     template_name = 'lions_heart_products/category.html'
-    paginate_by = 5
+    paginate_by = 7
     ordering = ['price']
 
     def get_queryset(self):

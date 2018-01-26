@@ -3,41 +3,25 @@
 
 {% block content %}
 
+    <!-- MAIN CONTENT-->
     <main class="main">
       <section class="section blog">
         <div class="container">
           <div class="row">
-            <div class="col-md-12">
-              <h2 class="section__title align-center">{{ post.title }}</h2>
+            <div class="col-md-12 align-center">
+              <h2 class="section__title section__title_dark">{{ post.title }}</h2>
+              <p class="blog__single-date">{{ post.created|date:'d-m-Y' }}</p>
             </div>
           </div>
-
-        {% if post.main_image %}
-               <img src={{ post.main_image.url }}>
-                 {% endif %}
-        <p>{{ post.body_text }}</p>
-
-        {% trans 'Comments' %}:
-
-        {% for comment in post.comment_set.all %}
-
-        <p>
-
-        Author: {{ comment.author }}<br>
-        {{ comment.comment }}
-
-        </p>
-
-        {% endfor %}
-
-        <p>{% trans 'Please, leave your comment:' %}</p>
-      <form method="post" action="{% url 'new_comment' post.id %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-      <input type="submit" value={% trans "Submit" %} class="btn"/>
-      </form>
-
-    </div>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div class="blog__single-img" style="background-image:url({{ MEDIA_URL }}{{ post.main_image.url }});"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <p class="section__text section__text_neutral">{{ post.body_text }}</p>
+            </div>
           </div>
         </div>
       </section>

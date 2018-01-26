@@ -17,7 +17,7 @@ class Order(CommonInfo):
     phone = models.CharField(max_length=13, verbose_name=_('phone'))
     payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=11,
                                     default='Credit Card', verbose_name=_('payment type'))
-    comment = models.TextField(verbose_name=_('comment'), blank=True, null=True)
+    comment = models.TextField(verbose_name=_('comment'), blank=True, null=True, max_length=1000)
     total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('total cost'))
 
     def __str__(self):

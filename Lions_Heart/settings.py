@@ -159,5 +159,13 @@ LOCALE_PATHS = (
     BASE_DIR + '/lions_heart_cart/locale',
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = '*lionsheart'
+EMAIL_HOST_USER = 'lionsheartshop@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 LIQPAY_PUBLIC_KEY = 'i3311632064'
 LIQPAY_PRIVATE_KEY = 'MBgT1W38YcELUF0z2GNnw9sXOPuz759OUAVwS8b4'

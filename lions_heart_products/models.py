@@ -68,6 +68,12 @@ class Item(CommonInfo):
     sales = models.IntegerField(verbose_name=_('sales'), blank=True, null=True)
     unique_gift = models.BooleanField(default=False, verbose_name=_('unique gift'))
 
+    def save(self, *args, **kwargs):
+        if self.sales:
+            self.price = self.price - self.price * self.sales / 100
+        super().save(*args, **kwargs)
+
+
     def __str__(self):
         return "{}-{}".format(self.category, self.title)
 
@@ -78,12 +84,13 @@ class Item(CommonInfo):
 #         verbose_name = _("Size")
 #         verbose_name_plural = _("Sizes")
 #
-#     size = models.IntegerField(verbose_name=_('size'))
+#     size = models.FloatField(verbose_name=_('size'))
 #     price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('price'))
 #     item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name=_('item'))
 #
 #     def __str__(self):
 #         return "{}-{}".format(self.item, self.size)
+
 
 class Image(models.Model):
 
@@ -109,3 +116,15 @@ class Specs(models.Model):
     length = models.FloatField(blank=True, null=True, verbose_name=_('length, mm'))
     specs = models.TextField(blank=True, null=True, verbose_name=_('other specs'))
     item = models.OneToOneField(Item, on_delete=models.CASCADE)
+
+
+class CurrencyRate(CommonInfo):
+
+    class Meta(CommonInfo.Meta):
+        verbose_name = "Rate"
+        verbose_name_plural = "Rates"
+
+    rate = models.FloatField()
+
+    def __str__(self):
+        return "{}-{}".format(self.created, self.rate)

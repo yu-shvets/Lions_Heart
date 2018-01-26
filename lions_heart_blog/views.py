@@ -9,7 +9,7 @@ from .forms import CommentForm
 class PostListView(ListView):
     model = Post
     template_name = 'lions_heart_blog/blog.html'
-    paginate_by = 4
+    paginate_by = 8
 
 
 class PostDetailView(DetailView):

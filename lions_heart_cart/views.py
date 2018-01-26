@@ -103,7 +103,7 @@ class OrderCreate(CreateView):
             message += str(element['item']) + ' ' + '-' + ' ' + str(element['quantity'])+ 'pcs' + ' ' + '-' + ' ' + str(element['price']) + 'UAH' + '\n\n'
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
-        # send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
+        send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
         if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные':
             return HttpResponseRedirect(reverse('success'))
         else:

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from lions_heart_products.models import Category, Item, Image, Collection, Specs
+from lions_heart_products.models import Category, Item, Image, Collection, Specs, CurrencyRate
 
 admin.site.register(Category)
 admin.site.register(Image)
@@ -26,3 +26,7 @@ class ItemAdmin(admin.ModelAdmin):
     inlines = (ImageInline, SpecsInline)
     ordering = ['category', 'title']
 
+
+@admin.register(CurrencyRate)
+class CurrencyRateAdmin(admin.ModelAdmin):
+    pass

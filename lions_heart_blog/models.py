@@ -52,18 +52,44 @@ class CompanyInformation(models.Model):
         verbose_name_plural = _("Company")
 
     about = models.TextField(verbose_name=_('about'))
-    phone = models.TextField()
+    about_title_image = models.ImageField(blank=True,
+                                          null=True,
+                                          upload_to='company/pictures',
+                                          verbose_name=_('about_image'))
+    center_banner = models.ImageField(blank=True,
+                                      null=True,
+                                      upload_to='company/pictures',
+                                      verbose_name=_('center_banner'))
+    left_banner = models.ImageField(blank=True,
+                                    null=True,
+                                    upload_to='company/pictures',
+                                    verbose_name=_('left_banner'))
+    right_banner = models.ImageField(blank=True,
+                                     null=True,
+                                     upload_to='company/pictures',
+                                     verbose_name=_('right_banner'))
+
+
+class Phone(models.Model):
+    phone = models.CharField(max_length=256)
+    company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
+
+
+class Email(models.Model):
     mail = models.EmailField()
-    mail_1 = models.EmailField(blank=True, null=True)
+    company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
+
+
+class Address(models.Model):
     address = models.CharField(max_length=256)
-    address_1 = models.CharField(max_length=256, blank=True, null=True)
+    company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
 
 
 class CompanyImage(models.Model):
 
     class Meta(object):
-        verbose_name = _("Image")
-        verbose_name_plural = _("Images")
+        verbose_name = _("Diploma")
+        verbose_name_plural = _("Diplomas")
 
     image = models.ImageField(upload_to='company/pictures', verbose_name=_('image'))
     company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)

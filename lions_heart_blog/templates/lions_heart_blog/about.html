@@ -14,10 +14,9 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-                {% for image in object_list.first.companyimage_set.all %}
-              <div class="about__img" style="background-image:url({{ MEDIA_URL }}{{ image.image.url }});"></div>
-                    <img src="{{ image.image.url }}">
-                {% endfor %}
+              <div class="about__img" style="background-image:url({{ MEDIA_URL }}{{ object_list.first.about_title_image.url }});"></div>
+{#                    <img src="{{ object_list.first.about_title_image.url }}">#}
+
             </div>
             <div class="col-md-6">
               <p class="section__text section__text_neutral section__text_mb-0">
@@ -25,6 +24,23 @@
               </p>
 
           </div>
+          </div>
+
+          <!-- Diploma-->
+           <div class="row mt-20 mb-20">
+
+            {% for image in object_list.first.companyimage_set.all %}
+
+             <div class="col-md-3">
+               <div class="about__single single-about"> <img class="single-about__img" src="{{ image.image.url }}"></div>
+             </div>
+
+            {% endfor %}
+
+           </div>
+
+
+
       </section>
     </main>
 

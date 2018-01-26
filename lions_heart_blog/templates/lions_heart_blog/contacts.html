@@ -10,11 +10,26 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="section__title section__title_dark contacts__title">{% trans 'Contacts' %}</h2>
-              <div class="contacts__wrap"><span class="contacts__text contacts__text_link" href="tel:+380662223344">{{ companyinformation_list.first.phone|linebreaks }}</span>
-                  <a class="contacts__text__first contacts__text_link" href="mailto: {{ companyinformation_list.first.mail }}">{{ companyinformation_list.first.mail }}</a>
-                  <a class="contacts__text contacts__text_link" href="mailto:{{ companyinformation_list.first.mail_1 }}">{{ companyinformation_list.first.mail_1 }}</a>
-                <p class="contacts__text__first">{{ companyinformation_list.first.address }}</p>
-                  <p class="contacts__text">{{ companyinformation_list.first.address_1 }}</p>
+              <div class="contacts__wrap">
+
+                {% for phone in companyinformation_list.first.phone_set.all %}
+
+              <a class="contacts__text contacts__text_link contacts__tel" href="{{ phone.phone }}">{{ phone.phone }}</a>
+
+                  {% endfor %}
+
+                  {% for mail in companyinformation_list.first.email_set.all %}
+
+                  <a class="contacts__text contacts__text_link" href="mailto: {{ mail.mail }}">{{ mail.mail }}</a>
+
+                  {% endfor %}
+
+                  {% for address in companyinformation_list.first.address_set.all %}
+
+                <p class="contacts__text">{{ address.address }}</p>
+
+                  {% endfor %}
+
               </div>
             </div>
           </div>
