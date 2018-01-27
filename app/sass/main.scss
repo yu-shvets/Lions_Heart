@@ -140,10 +140,21 @@
       text-decoration: none;
     }
   }
+  &__additional {
+    float:left;
+    position: relative;
+  }
+  &__rate {
+    position: absolute;
+    top: 25px;
+    z-index: -1;
+    color: #0b7f58;
+  }
   &__select {
     height: 30px;
     width: 100%;
-    max-width: 50px;
+    min-width: 44px;
+    font-size: 12px;
     text-indent: 3px;
     text-align: center;
     color: #000;
@@ -186,6 +197,7 @@
 }
 
 //merge
+
 
 .header__link_child::before, .header__link_child::after {
   display:none;
@@ -264,6 +276,9 @@
   &__item {
     background-color:#f3f3f3;
 
+  }
+  &__price {
+    white-space: nowrap;
   }
 }
 

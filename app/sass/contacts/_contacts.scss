@@ -12,40 +12,23 @@
   }
   &__text {
     font-size: 24px;
-    padding-left: 30px;
     color: #000;
-    /*padding-left: 66px;*/
-    margin-bottom: 49px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
     position: relative;
-    &:before {
-      position:absolute;
-      content: '';
-      left:0;
-      top:5px;
-      width:24px;
-      height:34px;
-      background-repeat: no-repeat;
-    }
-    &:last-child {
-      margin-bottom:0px;
+    &_space {
+      margin-bottom: 30px;
     }
     &_link {
-      display:block;
+      display:flex;
       &:hover, &:link, &:focus {
         color:$black-color;
       }
     }
   }
-  &__tel:before {
-    background-image: url('../img/tel.png');
-  }
-  &__mail:before {
-    background-image: url('../img/mail.png');
-    top: 8px;
-  }
-  &__place:before {
-    background-image: url('../img/place.png');
-    top: 2px;
+  &__img {
+    padding-right: 10px;
   }
 }
 

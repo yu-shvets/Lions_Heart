@@ -30,6 +30,13 @@
         &__line {
             top:33px;
         }
+        &__additional {
+            float: none;
+            text-align: center;
+        }
+        &__rate {
+            position: inherit;
+        }
         &__nav {
             background:$black-color;
             position:fixed;
@@ -138,6 +145,14 @@
         &__item {
             display:block;
             text-align: center;
+        }
+        &__additional {
+            float: none;
+            text-align: center;
+        }
+        &__rate {
+            position: inherit;
+            color: #0b7f58;
         }
         &__logo {
             img:first-child {
