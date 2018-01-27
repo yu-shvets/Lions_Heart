@@ -258,10 +258,23 @@
   text-decoration: none;
 }
 
+.header__additional {
+  float: left;
+  position: relative;
+}
+
+.header__rate {
+  position: absolute;
+  top: 25px;
+  z-index: -1;
+  color: #0b7f58;
+}
+
 .header__select {
   height: 30px;
   width: 100%;
-  max-width: 50px;
+  min-width: 44px;
+  font-size: 12px;
   text-indent: 3px;
   text-align: center;
   color: #000;
@@ -401,6 +414,10 @@
 
 .section__item {
   background-color: #f3f3f3;
+}
+
+.section__price {
+  white-space: nowrap;
 }
 
 .number__number {
@@ -869,6 +886,7 @@
   font-size: 36px;
   color: #000;
   margin-bottom: 0;
+  word-break: break-word;
   margin-top: 0;
 }
 
@@ -1174,47 +1192,36 @@
 
 .contacts__text {
   font-size: 24px;
-  padding-left: 30px;
   color: #000;
-  /*padding-left: 66px;*/
-  margin-bottom: 49px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
   position: relative;
 }
 
-.contacts__text:before {
-  position: absolute;
-  content: '';
-  left: 0;
-  top: 5px;
-  width: 24px;
-  height: 34px;
-  background-repeat: no-repeat;
-}
-
-.contacts__text:last-child {
-  margin-bottom: 0px;
+.contacts__text_space {
+  margin-bottom: 30px;
 }
 
 .contacts__text_link {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .contacts__text_link:hover, .contacts__text_link:link, .contacts__text_link:focus {
   color: #000;
 }
 
-.contacts__tel:before {
-  background-image: url("../img/tel.png");
-}
-
-.contacts__mail:before {
-  background-image: url("../img/mail.png");
-  top: 8px;
-}
-
-.contacts__place:before {
-  background-image: url("../img/place.png");
-  top: 2px;
+.contacts__img {
+  padding-right: 10px;
 }
 
 #map {
@@ -1246,6 +1253,13 @@
   }
   .header__line {
     top: 33px;
+  }
+  .header__additional {
+    float: none;
+    text-align: center;
+  }
+  .header__rate {
+    position: inherit;
   }
   .header__nav {
     background: #000;
@@ -1365,6 +1379,14 @@
   .header__item {
     display: block;
     text-align: center;
+  }
+  .header__additional {
+    float: none;
+    text-align: center;
+  }
+  .header__rate {
+    position: inherit;
+    color: #0b7f58;
   }
   .header__logo img:first-child {
     width: auto;
