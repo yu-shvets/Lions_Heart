@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'Lions_Heart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lions_heart_test',
+        'NAME': 'db_lions',
         'USER': 'django',
         'PASSWORD': '********',
         'HOST': 'localhost',

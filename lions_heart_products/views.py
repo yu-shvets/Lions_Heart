@@ -15,7 +15,7 @@ class HomeView(TemplateView):
 class CategoryListView(ListView):
     model = Item
     template_name = 'lions_heart_products/category.html'
-    paginate_by = 7
+    paginate_by = 8
     ordering = ['price']
 
     def get_queryset(self):
@@ -29,6 +29,7 @@ class CategoryListView(ListView):
 
 
 class CollectionCategoryListView(CategoryListView):
+    paginate_by = 7
 
     def get_queryset(self):
         queryset = super(CollectionCategoryListView, self).get_queryset()
@@ -78,7 +79,7 @@ class SalesCollectionListView(CollectionListView):
 class SalesListView(ListView):
     model = Item
     template_name = 'lions_heart_products/sales.html'
-    paginate_by = 7
+    paginate_by = 8
     ordering = ['price']
 
     def get_queryset(self):
@@ -87,6 +88,7 @@ class SalesListView(ListView):
 
 
 class CollectionSalesListView(SalesListView):
+    paginate_by = 7
 
     def get_queryset(self):
         queryset = super(CollectionSalesListView, self).get_queryset()
@@ -112,6 +114,7 @@ class UniqueGiftsListView(ListView):
 
 
 class CollectionUniqueGiftsListView(UniqueGiftsListView):
+    paginate_by = 7
 
     def get_queryset(self):
         queryset = super(CollectionUniqueGiftsListView, self).get_queryset()

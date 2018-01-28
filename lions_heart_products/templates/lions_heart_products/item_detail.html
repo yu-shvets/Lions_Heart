@@ -61,10 +61,13 @@
               <p class="section__title">{{ item.price|convert }} {% trans 'UAH' %}</p>
                  <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
               <ul class="sp__list sp__list_padding">
-                <li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>
-
-
+                {% if item.specs.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>{% endif %}
+                {% if item.specs.size %}<li class="section__text section__text_dark sp__item">{% trans 'Size:' %} {{ item.specs.size }}</li>{% endif %}
                 {% if item.specs.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} {{ item.specs.diameter }}</li>{% endif %}
+                {% if item.specs.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %} {{ item.specs.length }}</li>{% endif %}
+                {% if item.specs.width %}<li class="section__text section__text_dark sp__item">{% trans 'Width, mm:' %} {{ item.specs.width }}</li>{% endif %}
+                {% if item.specs.height %}<li class="section__text section__text_dark sp__item">{% trans 'Height, mm:' %} {{ item.specs.height }}</li>{% endif %}
+                {% if item.specs.specs %}<li class="section__text section__text_dark sp__item">{{ item.specs.specs }}</li>{% endif %}
 
 {#                {% if item.sizes_set.all %}#}
 {#                     <form method="post" action="{% url 'item_size' item.pk %}">#}
@@ -74,7 +77,7 @@
 {#              </form>#}
 {#                {% endif %}#}
 
-                {% if item.specs.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %}{{ item.specs.length }}</li>{% endif %}
+
               </ul>
              {% if item.description %}
               <p class="section__text section__text_neutral sp__text align-center">{{ item.description }}</p>

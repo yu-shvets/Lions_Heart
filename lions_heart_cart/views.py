@@ -17,8 +17,7 @@ from lions_heart_products.models import Item
 
 def check_recommended(cart):
     for i in cart:
-        item = get_object_or_404(Item, id=i['item'].id)
-        if item.recommended_items.all():
+        if i['item'].recommended_items.all():
             return True
     return False
 
