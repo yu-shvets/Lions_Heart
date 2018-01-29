@@ -55,7 +55,7 @@ document.onkeypress = stopRKey;
             <a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
             <nav class="nav header__nav">
-                <span class="nav__wrapper">
+                <div class="header__additional">
 
             <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -69,10 +69,10 @@ document.onkeypress = stopRKey;
             </option>
         {% endfor %}
     </select>
-
+    <div class="header__rate">$ {{ rate }}</div>
 </form>
+        </div>
 
-        <span class="rate">USD: {{ rate }}</span>
 
 {#         <ul class="nav navbar-nav navbar-left language menu">#}
 {#    {% get_current_language as LANGUAGE_CODE %}#}
@@ -105,7 +105,8 @@ document.onkeypress = stopRKey;
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}
                     {% if items %}<span class="cart__length" >{{ items }}</span>{% endif %}</a></li>
               </ul>
-            </span>
+
+
             </nav>
           </div>
         </div>

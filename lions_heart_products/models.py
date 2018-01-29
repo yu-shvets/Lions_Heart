@@ -75,7 +75,7 @@ class Item(CommonInfo):
 
 
     def __str__(self):
-        return "{}-{}".format(self.category, self.title)
+        return "{}-{}-{}".format(self.collection, self.category, self.title)
 
 
 # class Sizes(models.Model):
