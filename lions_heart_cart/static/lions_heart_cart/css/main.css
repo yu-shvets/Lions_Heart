@@ -334,4 +334,12 @@
   color: #000;
 }
 
+.cart__length {
+    font-size: 12px;
+    background: #337ab7;
+    color: white;
+    padding: 0 5px;
+    vertical-align: top;
+}
+
 /*# sourceMappingURL=../css/main.css.map */

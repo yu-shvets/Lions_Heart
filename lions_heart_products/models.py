@@ -73,7 +73,6 @@ class Item(CommonInfo):
             self.price = self.price - self.price * self.sales / 100
         super().save(*args, **kwargs)
 
-
     def __str__(self):
         return "{}-{}-{}".format(self.collection, self.category, self.title)
 
@@ -131,3 +130,4 @@ class CurrencyRate(CommonInfo):
 
     def __str__(self):
         return "{}-{}".format(self.created, self.rate)
+

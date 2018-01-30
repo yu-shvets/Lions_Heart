@@ -4,6 +4,7 @@ from .models import Item, Category, Collection
 import django_filters
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django_filters.views import FilterView
+# from .forms import SizesForm
 
 
 class HomeView(TemplateView):
@@ -24,7 +25,7 @@ class CategoryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)
-        context['categs'] = Category(id=self.kwargs['category_id'])
+        context['categs'] = get_object_or_404(Category, id=self.kwargs['category_id'])
         return context
 
 
@@ -66,7 +67,10 @@ class CategoryCollectionListView(CollectionListView):
         queryset = super(CategoryCollectionListView, self).get_queryset()
         return queryset.filter(collection=self.kwargs['collection_id'], category=self.kwargs['category_id'])
 
-
+    def get_context_data(self, **kwargs):
+        context = super(CategoryCollectionListView, self).get_context_data(**kwargs)
+        context['categs'] = get_object_or_404(Category, id=self.kwargs['category_id'])
+        return context
 
 
 class SalesCollectionListView(CollectionListView):
@@ -74,6 +78,11 @@ class SalesCollectionListView(CollectionListView):
     def get_queryset(self):
         queryset = super(SalesCollectionListView, self).get_queryset()
         return queryset.filter(collection=self.kwargs['collection_id'], sales__isnull=False)
+
+    def get_context_data(self, **kwargs):
+        context = super(SalesCollectionListView, self).get_context_data(**kwargs)
+        context['sales'] = True
+        return context
 
 
 class SalesListView(ListView):

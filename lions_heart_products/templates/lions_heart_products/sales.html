@@ -5,6 +5,25 @@
 
 {% block content %}
 
+
+    <!--BREADCUMBS-->
+    <div class="breadcumbs">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
+                  <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'sales' %}">{% trans 'Sales' %}</a></li>
+                  {% if selected %}<li class="nav__item nav__item_inline">{{ selected.title }}</li>{% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!-- MAIN CONTENT-->
     <main class="main">
 
@@ -62,35 +81,8 @@
 
               {% endfor %}
 
-          <div class="row">
-            <div class="col-md-12">
-              <p class="number align-center">
+            {% include 'lions_heart_products/pagination.html' %}
 
-    {% if is_paginated %}
-  <ul class="pagination">
-    {% if page_obj.has_previous %}
-      <li><a href="?{% url_replace request 'page' page_obj.previous_page_number %}">&laquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-    {% for i in paginator.page_range %}
-      {% if page_obj.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if page_obj.has_next %}
-      <li><a href="?{% url_replace request 'page' page_obj.next_page_number %}">&raquo;</a></li>
-    {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
-    {% endif %}
-  </ul>
-{% endif %}
-
-              </p>
-            </div>
-          </div>
         </div>
                </div>
       </section>

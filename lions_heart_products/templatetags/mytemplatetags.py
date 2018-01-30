@@ -40,5 +40,5 @@ def get_rate():
 @register.filter
 def convert(value):
     rate = get_rate()
-    return Decimal(float(value) * rate).quantize(Decimal('.00'))
+    return Decimal(round(float(value) * rate)).quantize(Decimal('.00'))
 

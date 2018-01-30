@@ -106,11 +106,8 @@ class OrderCreate(CreateView):
         if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные':
             return HttpResponseRedirect(reverse('success'))
         else:
-            if self.obj.total_cost:
-                data = liqpay(amount=self.obj.total_cost, order_id=self.obj.id)
-                return render(self.request, 'lions_heart_cart/pay.html', {'data': data})
-            else:
-                return HttpResponseRedirect(reverse('cart'))
+            data = liqpay(amount=self.obj.total_cost, order_id=self.obj.id)
+            return render(self.request, 'lions_heart_cart/pay.html', {'data': data})
 
 
 class PayView(TemplateView):

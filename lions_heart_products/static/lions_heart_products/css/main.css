@@ -422,7 +422,12 @@
 
 .number__number {
   font-size: 18px;
+  list-style-type: none;
   color: #9d9d9d;
+}
+
+.number__item {
+  display: inline;
 }
 
 .number__link {
@@ -549,9 +554,9 @@
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0 1px;
   height: 230px;
   width: 100%;
+  padding: 0 1px;
 }
 
 .product__wrap {
@@ -1087,14 +1092,6 @@
   background: #000;
 }
 
-.cart__length {
-    font-size: 12px;
-    background: #337ab7;
-    color: white;
-    padding: 0 5px;
-    vertical-align: top;
-}
-
 .cart__pay {
   padding-bottom: 40px;
   padding-top: 33px;
@@ -1106,6 +1103,14 @@
   padding-bottom: 20px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.cart__length {
+  font-size: 12px;
+  background: #337ab7;
+  color: white;
+  padding: 0 5px;
+  vertical-align: top;
 }
 
 .cart__table {
@@ -1620,7 +1625,5 @@
   font-family: 'FuturaDemic';
   src: url(../fonts/FuturaDemiC.ttf);
 }
-
-
 
 /*# sourceMappingURL=../css/main.css.map */
