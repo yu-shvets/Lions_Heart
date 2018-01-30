@@ -286,7 +286,11 @@
 .number {
   &__number {
     font-size:18px;
+    list-style-type: none;
     color:#9d9d9d;
+  }
+  &__item {
+    display: inline;
   }
   &__link {
     padding-right:15px;
@@ -392,6 +396,7 @@
   &__link {
     @include center(230px);
     width:100%;
+    padding: 0 1px;
   }
   &__wrap {
     padding: 0 20px;

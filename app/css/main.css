@@ -422,7 +422,12 @@
 
 .number__number {
   font-size: 18px;
+  list-style-type: none;
   color: #9d9d9d;
+}
+
+.number__item {
+  display: inline;
 }
 
 .number__link {
@@ -551,6 +556,7 @@
           justify-content: center;
   height: 230px;
   width: 100%;
+  padding: 0 1px;
 }
 
 .product__wrap {

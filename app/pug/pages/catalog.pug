@@ -71,11 +71,13 @@ block pageContent
                     -count++
         .row
           .col-md-12
-            p.number.align-center
+            ul.number.align-center
               //IF PAGE IS ACTIVE SET NUMBER__LINK_ACTIVE
               each number, index in ['1', '2', '3', '4', '5']
                 if index==0
-                  a(href='#').number__link.number__link_active= number
+                  li.number__item
+                    a(href='#').number__link.number__link_active= number
                 else
-                  a(href='#').number__link= number
+                  li.number__item
+                    a(href='#').number__link= number
   include ../templates/footer.pug
