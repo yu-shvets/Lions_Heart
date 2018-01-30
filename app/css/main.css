@@ -1105,6 +1105,14 @@
   padding-right: 15px;
 }
 
+.cart__length {
+    font-size: 12px;
+    background: #337ab7;
+    color: white;
+    padding: 0 5px;
+    vertical-align: top;
+}
+
 .cart__table {
   width: 100%;
 }
