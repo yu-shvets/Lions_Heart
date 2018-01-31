@@ -71,6 +71,13 @@ class OrderView(TemplateView):
         context['form'] = OrderForm()
         return context
 
+    def dispatch(self, request, *args, **kwargs):
+        cart = Cart(self.request)
+        if not cart.get_total_price():
+            return redirect('home')
+
+        return super(OrderView, self).dispatch(request, *args, **kwargs)
+
 
 def liqpay(amount, order_id):
     liqpay = LiqPay(settings.LIQPAY_PUBLIC_KEY, settings.LIQPAY_PRIVATE_KEY)

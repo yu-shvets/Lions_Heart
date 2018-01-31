@@ -58,7 +58,7 @@
                     <td class="cart__table-data">
                       <p class="section__text section__text_dark" id="sum-{{ item.item.id }}">{{ item.total_price }}</p>
                     </td>
-                    <td class="cart__table-data"><a class="btn btn-primary" href="{% url 'cart_remove' item.item.pk %}" role="button">&times;</a></td>
+                    <td class="cart__table-data"><a class="cart__table-close" href="{% url 'cart_remove' item.item.pk %}">&times;</a></td>
                   </tr>
 
                 {% empty %} <h4>{% trans 'Cart is empty' %}</h4>
@@ -96,7 +96,7 @@
                     <div class="product__wrap"><a class="section__text section__text_dark" href="#">{{ item.title }}</a>
                       <p class="section__text section__text_dark">{{ item.price|convert }}<span>{% trans 'UAH' %}</span></p>
                       <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
-                    </div></span></div>
+                    </div></div>
                 </div>
                   {% endfor %}
               {% endfor %}

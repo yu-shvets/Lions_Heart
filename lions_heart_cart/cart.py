@@ -16,7 +16,7 @@ class Cart(object):
     def add(self, item):
         item_id = str(item.id)
         if item_id not in self.cart:
-            self.cart[item_id] = {'quantity': 1, 'price': str(float(item.price) * get_rate())}
+            self.cart[item_id] = {'quantity': 1, 'price': str(round(float(item.price) * get_rate()))}
         else:
             self.cart[item_id]['quantity'] += 1
         self.save()
@@ -24,7 +24,7 @@ class Cart(object):
     def add_size(self, item, price):
         item_id = str(item.id)
         if item_id not in self.cart:
-            self.cart[item_id] = {'quantity': 1, 'price': str(float(price) * get_rate())}
+            self.cart[item_id] = {'quantity': 1, 'price': str(round(float(price) * get_rate()))}
         else:
             self.cart[item_id]['quantity'] += 1
         self.save()

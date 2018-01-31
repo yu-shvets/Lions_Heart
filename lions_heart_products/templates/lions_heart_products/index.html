@@ -122,7 +122,7 @@ document.onkeypress = stopRKey;
             <div class="col-md-12"><img class="home__img" src="{{ company_info.center_banner.url }}">
                 <h2 class="home__title">{% trans 'Title' %}</h2></div>
             <!--SMALL LEFT BANNER-->
-            <div class="col-md-6"><img class="home__img" src="{{ company_info.left_banner.url }}"></div>
+            <div class="col-md-6"><img src="{{ company_info.left_banner.url }}"></div>
             <!--SMALL RIGHT BANNER-->
             <div class="col-md-6"><a class="home__box mt-20" href="{% url 'sales' %}"><img class="home__img" src="{{ company_info.right_banner.url }}"></a></div>
           </div>
