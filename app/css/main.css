@@ -335,6 +335,7 @@
 }
 
 .footer {
+  margin-top: auto;
   background: -webkit-gradient(linear, left top, left bottom, from(#2d2d2d), to(#0d0d0d));
   background: -webkit-linear-gradient(top, #2d2d2d, #0d0d0d);
   background: linear-gradient(to bottom, #2d2d2d, #0d0d0d);
@@ -443,9 +444,13 @@
   padding-left: 0;
 }
 
-.number__link:hover, .number__link:link, .number__link:focus {
+.number__link:hover {
   text-decoration: none;
   color: #000;
+}
+
+.number__link:link, .number__link:focus {
+  color: #9d9d9d;
 }
 
 .breadcumbs {
@@ -614,6 +619,37 @@
   background-color: #000;
 }
 
+.wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.form-space {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
 .owl-dot {
   background: none repeat scroll 0 0 #869791;
   -webkit-border-radius: 20px;
@@ -646,6 +682,8 @@
 
 .home__img {
   width: 100%;
+  max-height: 386px;
+  height: auto;
 }
 
 .home__title {
@@ -1485,6 +1523,12 @@
     margin: 0 auto;
     display: table;
     padding-top: 40px;
+  }
+  .form-space {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .form__select {
     display: block;

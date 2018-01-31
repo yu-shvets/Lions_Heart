@@ -212,6 +212,7 @@
 
 // FOOTER STYLE
 .footer {
+  margin-top: auto;
   background: linear-gradient(to bottom, #2d2d2d, #0d0d0d);
   &__link {
     display:block;
@@ -301,9 +302,12 @@
     &:last-child{
       padding-left:0;
     }
-    &:hover, &:link, &:focus {
+    &:hover {
       text-decoration: none;
       color: $black-color;
+    }
+    &:link, &:focus {
+      color: #9d9d9d;
     }
   }
 }
@@ -446,6 +450,20 @@
   &_bg-dark {
     background-color:$black-color;
   }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+//form on server
+.form-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 //OWL-CAROUSEL 

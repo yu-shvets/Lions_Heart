@@ -242,6 +242,9 @@
             display:table;
             padding-top: 40px;
         }
+        &-space {
+            justify-content: center;
+        }
         &__select {
             display:block;
             max-width:300px;
