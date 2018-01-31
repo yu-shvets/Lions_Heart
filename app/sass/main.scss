@@ -466,6 +466,15 @@
   flex-wrap: wrap;
 }
 
+ 
+.cart__length {
+ font-size: 12px;
+background: #337ab7;
+ color: white;
+ padding: 0 5px;
+ vertical-align: top;
+}
+
 //OWL-CAROUSEL 
 .owl {
   &-dot {

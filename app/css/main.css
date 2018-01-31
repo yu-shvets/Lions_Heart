@@ -650,6 +650,14 @@
           flex-wrap: wrap;
 }
 
+.cart__length {
+  font-size: 12px;
+  background: #337ab7;
+  color: white;
+  padding: 0 5px;
+  vertical-align: top;
+}
+
 .owl-dot {
   background: none repeat scroll 0 0 #869791;
   -webkit-border-radius: 20px;
