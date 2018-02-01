@@ -14,23 +14,29 @@
               <h2 class="section__title section__title_dark contacts__title">{% trans 'Contacts' %}</h2>
               <div class="contacts__wrap">
 
+                <div class="contacts__box">
                 {% for phone in companyinformation_list.first.phone_set.all %}
 
               <a class="contacts__text contacts__text_link contacts__tel" href="{{ phone.phone }}"><img class="contacts__img" src={% static "lions_heart_products/img/tel.png" %} alt="telephone">{{ phone.phone }}</a>
 
                   {% endfor %}
+                  </div>
 
+                  <div class="contacts__box">
                   {% for mail in companyinformation_list.first.email_set.all %}
 
                   <a class="contacts__text contacts__text_link" href="mailto: {{ mail.mail }}"><img class="contacts__img" src={% static "lions_heart_products/img/mail.png" %} alt="telephone">{{ mail.mail }}</a>
 
                   {% endfor %}
+                  </div>
 
+                  <div class="contacts__box">
                   {% for address in companyinformation_list.first.address_set.all %}
 
                 <p class="contacts__text"><img class="contacts__img" src={% static "lions_heart_products/img/place.png" %} alt="telephone">{{ address.address }}</p>
 
                   {% endfor %}
+                  </div>
 
               </div>
             </div>

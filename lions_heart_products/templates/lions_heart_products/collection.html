@@ -35,9 +35,12 @@
       <nav class="nav align-right">
                        <ul class="nav__list">
                         {% for category in categories %}
+                            {% if collects.pk == 1 and category.pk == 3 %}
+                             {% else %}
                          <li class="nav__item nav__item_inline">
                            <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE--><a class="nav__link catalog__menu catalog__menu_active nav__link_capitalize" href="{% url 'collection_category' collects.pk category.pk %}">{{ category.title }}</a>
                          </li>
+                            {% endif %}
                         {% endfor %}
 {#                       <li class="nav__item nav__item_inline">#}
 {#                         <a class="nav__link catalog__menu catalog__menu_active nav__link_capitalize" href="{% url 'collection_sales' collects.pk %}">{% trans 'Sales' %}</a>#}

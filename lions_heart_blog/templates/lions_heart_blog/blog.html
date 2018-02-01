@@ -21,7 +21,7 @@
                 {% if post.main_image %}
                 <div class="blog__img" style="background-image:url({{ MEDIA_URL }}{{ post.main_image.url }});">
                  {% endif %}
-                  <div class="blog__date">{{ post.created|date:'Y-m-d'}}</div>
+{#                  <div class="blog__date">{{ post.created|date:'Y-m-d'}}</div>#}
                 </div>
                 <p class="blog__text">{{ post.title }}</p></a>
             </div>
