@@ -9,17 +9,20 @@ block pageContent
           .col-md-12
             h2.section__title.section__title_dark.contacts__title Контакты
             div.contacts__wrap
-              //IF TEL,MAILS OR PLACE MORE THAN 1, ADD TO FIRST ELEMENT CONTACT__TEXT_SPACE
-              a(href='tel:+380662223344').contacts__text.contacts__text_link
-                img(src="img/tel.png", alt="telephone").contacts__img
-                | +38 (066) 222 33 44
-              a(href='mailto:lionsheart@gmail.com').contacts__text.contacts__text_link 
-                img(src="img/mail.png", alt="telephone").contacts__img
-                | lionsheart@gmail.com
-              p.contacts__text
-                img(src="img/place.png", alt="telephone").contacts__img
-                | г. Киев, ул. Киевская 43
-                //- center: {lat: 50.4726645, lng: 30.5136053},
+              //IF TEL,MAILS OR PLACE MORE THAN 1, REMOVE IMG TAG
+              .contacts__box
+                a(href='tel:+380662223344').contacts__text.contacts__text_link.CONTACT__TEXT_SPACE
+                  img(src="img/tel.png", alt="telephone").contacts__img
+                  | +38 (066) 222 33 44
+              .contacts__box
+                a(href='mailto:lionsheart@gmail.com').contacts__text.contacts__text_link 
+                  img(src="img/mail.png", alt="telephone").contacts__img
+                  | lionsheart@gmail.com
+              .contacts__box
+                p.contacts__text
+                  img(src="img/place.png", alt="telephone").contacts__img
+                  | г. Киев, ул. Киевская 43
+                  //- center: {lat: 50.4726645, lng: 30.5136053},
     #map
             
     

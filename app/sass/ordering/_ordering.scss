@@ -37,22 +37,40 @@
   }
   &__button {
     @extend .product__button;
-    margin-top:45px;
-    margin-bottom:30px;
+    margin-top: 45px;
+    margin-bottom: 30px;
   }
   &__good {
     display: flex;
+    
     justify-content: space-between;
+    &:nth-child(n+3) {
+      margin-top: 10px;
+    }
+  }
+  &__sp {
+    word-break: break-all;
+    width: 51%;
+    &:hover {
+      color: $main-color;
+    }
+    &:focus {
+      color:$main-color;
+    }
+    &:link {
+      @extend .section__text_neutral;
+    }
   }
   &__item {
-    padding-top:25px;
-    padding-bottom:38px;
-    margin-top:35px;
+    padding-top: 25px;
+    padding-bottom: 38px;
+    margin-top: 35px;
     &-header {
-      border-bottom:1px solid $white-color;
-      padding-bottom:22px;
-      padding-left:13px;
-      padding-right:13px;
+      border-bottom: 1px solid $white-color;
+      padding-bottom: 22px;
+      padding-left: 13px;
+      margin-top: 10px;
+      padding-right: 13px;
     }
     &-body {
       padding-top: 22px;
