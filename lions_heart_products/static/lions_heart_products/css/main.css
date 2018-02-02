@@ -811,7 +811,7 @@
   font-size: 24px;
 }
 
-.catalog__menu:hover, .catalog__menu:link, .catalog__menu:focus {
+.catalog__menu:hover, .catalog__menu:focus {
   text-decoration: none;
   color: #000;
 }

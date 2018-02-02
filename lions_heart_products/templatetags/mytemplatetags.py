@@ -3,6 +3,7 @@ from decimal import *
 from lions_heart_products.models import CurrencyRate
 import datetime
 from django.core.exceptions import ObjectDoesNotExist
+from django.urls import reverse
 
 register = template.Library()
 
@@ -41,4 +42,16 @@ def get_rate():
 def convert(value):
     rate = get_rate()
     return Decimal(round(float(value) * rate)).quantize(Decimal('.00'))
+
+
+@register.simple_tag
+def get_category(route_name, request, first_id=None, second_id=None):
+    route = reverse(route_name, kwargs={'collection_id': first_id, 'category_id': second_id})
+    if second_id and request.path == route:
+        return "<a class='catalog__menu catalog__menu_active nav__link_capitalize' href=//{}{}>".format(request.get_host(), route)
+    return "<a class='catalog__menu nav__link_capitalize' href=//{}{}>".format(request.get_host(), route)
+
+
+
+
 
