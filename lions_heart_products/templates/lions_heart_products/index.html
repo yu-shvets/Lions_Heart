@@ -175,7 +175,7 @@ document.onkeypress = stopRKey;
 
           <div class="col-md-3 col-md-offset-3 align-right">
             <!--TELL-->
-            <p class="footer__subtitle mt-20">{% trans 'Call' %}</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
+            <p class="footer__subtitle mt-20">{% trans 'Call' %}</p><a class="footer__tel" href="tel:{{ company_info.phone_set.all.0.phone }}">{{ company_info.phone_set.all.0.phone }}</a>
           </div>
         </div>
       </div>
