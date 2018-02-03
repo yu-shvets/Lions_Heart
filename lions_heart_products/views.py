@@ -1,16 +1,10 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.views.generic import TemplateView, ListView, DetailView
 from .models import Item, Category, Collection
-import django_filters
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django_filters.views import FilterView
-# from .forms import SizesForm
 
 
 class HomeView(TemplateView):
     template_name = 'lions_heart_products/index.html'
-
-
 
 
 class CategoryListView(ListView):
@@ -42,18 +36,18 @@ class CollectionCategoryListView(CategoryListView):
         return context
 
 
-
-
 class CollectionListView(ListView):
 
     model = Item
     template_name = 'lions_heart_products/collection.html'
     paginate_by = 7
-    ordering = ['price']
 
     def get_queryset(self):
         queryset = super(CollectionListView, self).get_queryset()
-        return queryset.filter(collection=self.kwargs['collection_id'])
+        collection_id = self.kwargs['collection_id']
+        if collection_id == '2':
+            return queryset.filter(collection=self.kwargs['collection_id']).order_by('-created')
+        return queryset.filter(collection=self.kwargs['collection_id']).order_by('price')
 
     def get_context_data(self, **kwargs):
         context = super(CollectionListView, self).get_context_data(**kwargs)
@@ -109,8 +103,6 @@ class CollectionSalesListView(SalesListView):
         return context
 
 
-
-
 class UniqueGiftsListView(ListView):
     model = Item
     template_name = 'lions_heart_products/gifts.html'
@@ -139,89 +131,3 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = 'lions_heart_products/item_detail.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(ItemDetailView, self).get_context_data(**kwargs)
-    #     context['form'] = SizesForm(pk=self.kwargs.get('pk'))
-    #     return context
-
-
-# def choose_size(request, item_id):
-#     item = get_object_or_404(Item, id=item_id)
-#     form = SizesForm(pk=item_id)
-#     if request.method == 'POST':
-#         chosen_size = request.POST['size']
-#         size = Sizes.objects.get(size=chosen_size, item=item)
-#         print(size.price)
-#         return render(request, 'lions_heart_products/item_detail_size.html', {'item': item, 'size': size, 'form': form})
-#     else:
-#         return HttpResponseRedirect('home')
-
-
-
-
-# class ItemFilterView(FilterView):
-#     model = Item
-#     filter_fields = ['collection', 'category']
-#     template_name = 'lions_heart_products/catalogue.html'
-#     paginate_by = 1
-
-
-# class CatalogueListView(ListView):
-#     model = Item
-#     template_name = 'lions_heart_products/catalogue.html'
-#     context_object_name = 'products'
-#     queryset = Item.objects.select_related(
-#                     'category',
-#                     'collection',
-#             ).prefetch_related('image_set')
-#
-#
-# class CollectionListView(CatalogueListView):
-#     def get_queryset(self):
-#         return self.queryset.filter(collection=self.kwargs['collection_id'])
-#
-#
-# class CategoryListView(CatalogueListView):
-#     def get_queryset(self):
-#         return self.queryset.filter(category=self.kwargs['category_id'])
-
-
-# class ItemFilter(django_filters.FilterSet):
-#
-#     class Meta:
-#         model = Item
-#         fields = ['collection', 'category']
-#
-#
-# def itemlistview(request):
-#     filtered = ItemFilter(
-#                       request.GET,
-#                       queryset=Item.objects.all()
-#                   )
-#     paginator = Paginator(filtered.qs, 7)
-#
-#     page = request.GET.get('page')
-#     try:
-#         response = paginator.page(page)
-#     except PageNotAnInteger:
-#         response = paginator.page(1)
-#     except EmptyPage:
-#         response = paginator.page(paginator.num_pages)
-#
-#     return render(
-#         request,
-#         'lions_heart_products/catalogue.html',
-#         {'response': response, 'filter': filtered}
-#     )
-
-
-# class CollectionListView(FilterView):
-#
-#     model = Item
-#     template_name = 'lions_heart_products/collection.html'
-#     filter_fields = ['category']
-#     paginate_by = 7
-#
-#     def get_queryset(self):
-#         queryset = super(CollectionListView, self).get_queryset()
-#         return queryset.filter(collection=self.kwargs['collection_id'])

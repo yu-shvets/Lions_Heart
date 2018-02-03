@@ -9,7 +9,7 @@ def project_variables(request):
     categories_first = categories[:4]
     categories_second = categories[4:]
     cart = Cart(request)
-    items = len([i for i in cart])
+    items = cart.cart_len()
     rate = get_rate()
     company_info = CompanyInformation.objects.first()
     return {'collections': collections, 'categories': categories, 'categories_first': categories_first,
