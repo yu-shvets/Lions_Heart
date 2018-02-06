@@ -227,7 +227,7 @@
     }
   }
   &__item {
-    margin-top:20px;
+    margin-top:10px;
     &:first-child {
       margin-top:0;
     }
@@ -409,6 +409,9 @@
   }
   &__wrap {
     padding: 0 20px;
+  }
+  &__price {
+    font-size: 14px;
   }
   &__img {
     max-width:100%;

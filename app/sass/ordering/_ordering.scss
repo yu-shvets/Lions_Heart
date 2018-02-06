@@ -15,6 +15,10 @@
       padding-top:35px;
     }
   }
+  &__price {
+    display: flex;
+    align-items: flex-end;
+  }
   &__subtitle {
     margin-bottom:0;
     padding-top:25px;

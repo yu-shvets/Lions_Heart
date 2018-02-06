@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <title>Lion's Heart</title>
   <link href="css/libs.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
@@ -17,25 +18,24 @@
           </div>
           <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
-            <nav class="nav header__nav">
-              <ul class="nav__list nav__list_header">
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
-              </ul>
-              <div class="header__additional">
-                <form>
-                  <select class="header__select">
-                    <option style="background-image: url(&quot;../../img/united-kingdom.png&quot;);"></option>
-                    <option><img class="header__select-lang" src="../../img/united-kingdom.png" alt="great britain"></option>
-                  </select>
-                  <div class="header__rate">$28.4</div>
-                </form>
-              </div>
-            </nav>
+            <nav class="nav header__nav"><span>
+                <div class="header__additional">
+                  <form>
+                    <select class="header__select">
+                      <option>RU</option>
+                      <option>EN</option>
+                    </select>
+                    <div class="header__rate">$28.4</div>
+                  </form>
+                </div>
+                <ul class="nav__list nav__list_header">
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+                </ul></span></nav>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
         
             // Let's also add a marker while we're at it
             var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(50.4726645,30.5136053),
+                position: new google.maps.LatLng(50.5076032,30.4966548,17),
                 map: map,
                 title: 'Snazzy!'
             });
@@ -128,12 +128,8 @@
           </div>
           <div class="col-md-3 col-md-offset-5 align-right col-sm-6">
             <!--TELL-->
-            <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p class="section__text section__text_neutral align-center">All right reserver &copy; Lions Heath's</p>
+            <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44 </a>
+            <div class="footer__social social-footer"><a class="social-footer__inner" href="#" target="_blank"><img src="../../img/facebook.png" alt="facebook"></a></div>
           </div>
         </div>
       </div>
