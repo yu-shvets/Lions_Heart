@@ -42,7 +42,8 @@ gulp.task('scripts', function() {
     return gulp.src([
         'app/libs/jquery/dist/jquery.min.js',
         'app/libs/bootstrap/dist/js/bootstrap.js',
-        'app/libs/photobox/photobox/jquery.photobox.js',        
+        'app/libs/photobox/photobox/jquery.photobox.js',  
+        'app/libs/swiper/dist/js/swiper.min.js',
         'app/libs/owl.carousel/dist/owl.carousel.min.js'
         ])
         .pipe(concat('libs.min.js'))

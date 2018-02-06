@@ -16,13 +16,7 @@ header.header
           
         // NAVIGATION
         nav.nav.header__nav
-          span
-            .header__additional
-              form
-                select.header__select
-                  option RU
-                  option EN
-                .header__rate $28.4
+
             ul.nav__list.nav__list_header
               //- li.nav__item.nav__item_inline.nav__item_has-child.header__item
               //-   span.nav__link.nav__link_dark.nav__link_uppercase.header__link коллекции
@@ -35,3 +29,10 @@ header.header
               each text in [ 'Коллекции', 'о нас', 'блог', 'контакты', 'уникальные подарки', 'корзина']
                 li.nav__item.nav__item_inline.header__item
                   a(href="#").nav__link.nav__link_uppercase.nav__link_dark.header__link= text
+            .header__additional
+              form
+                select.header__select
+                  option(style='background-image: url("../../img/united-kingdom.png")')
+                  option
+                    img.header__select-lang(src="../../img/united-kingdom.png", alt="great britain")
+                .header__rate $28.4

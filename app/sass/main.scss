@@ -17,7 +17,7 @@
     padding-left:0px;
     list-style-type:none;
     &_header {
-      float:right;
+      float:left;
     }
     &-child {
       display:none;
@@ -141,7 +141,7 @@
     }
   }
   &__additional {
-    float:left;
+    float:right;
     position: relative;
   }
   &__rate {
@@ -158,6 +158,11 @@
     text-indent: 3px;
     text-align: center;
     color: #000;
+    & option {
+      background-size: cover;
+      width: 26px;
+      height: 26px;
+    }
   }
   &__mobile {
     position:fixed;
@@ -492,6 +497,38 @@ background: #337ab7;
   }
   &-dots .active {
     background: none repeat scroll 0 0 $black-color;
+  }
+}
+
+//swiper 
+.swiper-container {
+  width: 100%;
+  height: calc(100vh - 150px);
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100%;
+}
+
+.swiper-pagination-bullets {
+  bottom: 20px;
+}
+
+.swiper-pagintation {
+  z-index: 999;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(255,255,255, .6); 
+  width: 10px;
+  height: 10px;
+  position: relative;
+  opacity: 1;
+ 
+  &-active {
+    background: #fff;
   }
 }
 

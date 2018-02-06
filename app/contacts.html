@@ -17,24 +17,25 @@
           </div>
           <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
-            <nav class="nav header__nav"><span>
-                <div class="header__additional">
-                  <form>
-                    <select class="header__select">
-                      <option>RU</option>
-                      <option>EN</option>
-                    </select>
-                    <div class="header__rate">$28.4</div>
-                  </form>
-                </div>
-                <ul class="nav__list nav__list_header">
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
-                </ul></span></nav>
+            <nav class="nav header__nav">
+              <ul class="nav__list nav__list_header">
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+              </ul>
+              <div class="header__additional">
+                <form>
+                  <select class="header__select">
+                    <option style="background-image: url(&quot;../../img/united-kingdom.png&quot;);"></option>
+                    <option><img class="header__select-lang" src="../../img/united-kingdom.png" alt="great britain"></option>
+                  </select>
+                  <div class="header__rate">$28.4</div>
+                </form>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
@@ -91,6 +92,11 @@
                 position: new google.maps.LatLng(50.4726645,30.5136053),
                 map: map,
                 title: 'Snazzy!'
+            });
+            var markers = new google.maps.Marker({
+                position: new google.maps.LatLng(49.4726645,30.5136053),
+                map: map,
+                title: 'hello!'
             });
         }
       </script>

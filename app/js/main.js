@@ -42,9 +42,29 @@ $('document').ready(function(){
        e.preventDefault();
        $(this).val(100);
     }
-});
+  });
 });
 
-document.getElementById('cart__summ').addEventListener('keyup',function(e){
-    if (e.which == 13) this.blur();
-});
+(function (){
+  var swiper = new Swiper('.swiper-container', {
+    effect: 'flip',
+    slidesPerView:'auto',
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    pagination: {
+      el: '.swiper-pagination',
+     
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  }); 
+})();
+
+
+// document.getElementById('cart__summ').addEventListener('keyup',function(e){
+//     if (e.which == 13) this.blur();
+// });

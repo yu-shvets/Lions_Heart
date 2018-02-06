@@ -7,17 +7,24 @@ block pageContent
       section.home
         .container
           .row
-            //BIG CENTER BANNER
-            .col-md-12.col-sm-12
-              a(href='#').home__box
-                img(src="img/bg-1.jpg").home__img.img-responsive
-                h2.home__title заголовок
-            //SMALL LEFT BANNER
-            .col-md-6.col-xs-12.col-sm-6
-              a(href='#').home__box.mt-20
-                img(src="img/bg-2.jpg").home__img
-            //SMALL RIGHT BANNER
-            .col-md-6.col-xs-12.col-sm-6
-              a(href='#').home__box.mt-20
-                img(src="img/bg-3.jpg").home__img
+            .col-md-12
+                .home__slider
+                  .swiper-container
+                    .swiper-wrapper
+                      .swiper-slide(style="background-image:url(../../img/banner1.jpg)")
+                        .home__dark
+                          .home__title будь тверд и мужествен
+                          a(href='#').home__button start shopping
+                            span.home__button-inner
+                      .swiper-slide(style="background-image:url(../../img/banner2.jpg)")
+                        .home__dark
+                          .home__title будь тверд и мужествен
+                          a(href='#').home__button start shopping
+                            span.home__button-inner
+                      .swiper-slide(style="background-image:url(../../img/banner3.jpg)")
+                          .home__dark
+                            .home__title будь тверд и мужествен
+                            a(href='#').home__button start shopping
+                              span.home__button-inner
+                    .swiper-pagination
     include ../templates/footer.pug

@@ -27,7 +27,7 @@
     transition:all .4s;
     padding-right:40px;
     font-size:24px;
-    &:hover,&:link,&:focus {
+    &:hover {
       text-decoration: none;
       color:$black-color;
     }
