@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-
+    
 
     <!-- MAIN CONTENT-->
     <main class="main">
@@ -35,7 +35,8 @@
       <nav class="nav align-right">
                        <ul class="nav__list">
                         {% for category in categories %}
-                            {% if collects.pk == 1 and category.pk == 3 %}
+                            {% if collects.pk == 1 and category.lions_heart_present == False %}
+                                {% elif collects.pk == 2 and category.revived_present == False %}
                              {% else %}
                          <li class="nav__item nav__item_inline">
                            <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE-->{% autoescape off %}{% get_category 'collection_category' request collects.pk category.pk %}{% endautoescape %}{{ category.title }}</a>

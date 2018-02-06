@@ -98,7 +98,17 @@ class CompanyImage(models.Model):
         return "{}".format(self.image)
 
 
+class Banners(models.Model):
 
+    class Meta(object):
+        verbose_name = "Banner"
+        verbose_name_plural = "Banners"
+
+    image = models.ImageField(upload_to='company/pictures', verbose_name='banner')
+    company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{}".format(self.image)
 
 
 

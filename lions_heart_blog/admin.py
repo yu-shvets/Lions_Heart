@@ -1,5 +1,6 @@
 from django.contrib import admin
-from lions_heart_blog.models import Post, Comment, Image, CompanyInformation, CompanyImage, Phone, Address, Email
+from lions_heart_blog.models import Post, Comment, Image, CompanyInformation, \
+    CompanyImage, Phone, Address, Email, Banners
 
 
 class ImageInline(admin.TabularInline):
@@ -35,9 +36,14 @@ class EmailInline(admin.TabularInline):
     extra = 0
 
 
+class BannerInline(admin.TabularInline):
+    model = Banners
+    extra = 0
+
+
 @admin.register(CompanyInformation)
 class CompanyAdmin(admin.ModelAdmin):
-    inlines = (PhoneInline, AddressInline, EmailInline, CompanyImageInline)
+    inlines = (PhoneInline, AddressInline, EmailInline, CompanyImageInline, BannerInline)
 
     def has_add_permission(self, request):
         num_objects = self.model.objects.count()

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 12:44+0000\n"
+"POT-Creation-Date: 2018-02-06 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,63 +19,63 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: lions_heart_cart/models.py:9
+#: lions_heart_cart/models.py:10
 msgid "Order"
 msgstr ""
 
-#: lions_heart_cart/models.py:10
+#: lions_heart_cart/models.py:11
 msgid "Orders"
 msgstr ""
 
-#: lions_heart_cart/models.py:12
+#: lions_heart_cart/models.py:13
 msgid "Credit card"
 msgstr "Кредитна картка"
 
-#: lions_heart_cart/models.py:13
+#: lions_heart_cart/models.py:14
 msgid "Cash"
 msgstr "Готівка"
 
-#: lions_heart_cart/models.py:15
-msgid "name"
-msgstr ""
+#: lions_heart_cart/models.py:20
+msgid "name*"
+msgstr "ім'я*"
 
-#: lions_heart_cart/models.py:17
-msgid "phone"
-msgstr "телефон"
+#: lions_heart_cart/models.py:22
+msgid "phone*"
+msgstr "телефон*"
 
-#: lions_heart_cart/models.py:19
+#: lions_heart_cart/models.py:24
 msgid "payment type"
 msgstr "Спосіб оплати"
 
-#: lions_heart_cart/models.py:20
+#: lions_heart_cart/models.py:25
 msgid "comment"
 msgstr "Коментар"
 
-#: lions_heart_cart/models.py:21
+#: lions_heart_cart/models.py:26
 msgid "total cost"
 msgstr ""
 
-#: lions_heart_cart/models.py:30
+#: lions_heart_cart/models.py:35
 msgid "Item in order"
 msgstr ""
 
-#: lions_heart_cart/models.py:31
+#: lions_heart_cart/models.py:36
 msgid "Items in orders"
 msgstr ""
 
-#: lions_heart_cart/models.py:33
+#: lions_heart_cart/models.py:38
 msgid "Item"
 msgstr ""
 
-#: lions_heart_cart/models.py:34
+#: lions_heart_cart/models.py:39
 msgid "quantity"
 msgstr ""
 
-#: lions_heart_cart/models.py:35
+#: lions_heart_cart/models.py:40
 msgid "price"
 msgstr ""
 
-#: lions_heart_cart/models.py:36
+#: lions_heart_cart/models.py:41
 msgid "order"
 msgstr ""
 
@@ -100,20 +100,19 @@ msgid "Cart is empty"
 msgstr "Кошик порожній"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:75
-#: lions_heart_cart/templates/lions_heart_cart/order.html:42
+#: lions_heart_cart/templates/lions_heart_cart/order.html:54
 msgid "Total cost"
 msgstr "Загальна вартість"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:76
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:97
-#: lions_heart_cart/templates/lions_heart_cart/order.html:36
-#: lions_heart_cart/templates/lions_heart_cart/order.html:43
+#: lions_heart_cart/templates/lions_heart_cart/order.html:48
+#: lions_heart_cart/templates/lions_heart_cart/order.html:55
 msgid "UAH"
 msgstr "грн"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:77
-#: lions_heart_cart/templates/lions_heart_cart/order.html:13
-#: lions_heart_cart/templates/lions_heart_cart/order.html:19
+#: lions_heart_cart/templates/lions_heart_cart/order.html:31
 msgid "Checkout"
 msgstr "Оформити замовлення"
 
@@ -125,15 +124,19 @@ msgstr "Рекомендовані товари"
 msgid "Add to cart"
 msgstr "Додати у кошик"
 
-#: lions_heart_cart/templates/lions_heart_cart/order.html:14
+#: lions_heart_cart/templates/lions_heart_cart/order.html:13
+msgid "Ordering"
+msgstr "Оформлення замовлення"
+
+#: lions_heart_cart/templates/lions_heart_cart/order.html:23
 msgid "PERSONAL INFORMATION"
 msgstr "Особиста інформація"
 
-#: lions_heart_cart/templates/lions_heart_cart/order.html:21
+#: lions_heart_cart/templates/lions_heart_cart/order.html:33
 msgid "We make delivery in Kiev"
 msgstr "Здійснюємо доставку у Києві"
 
-#: lions_heart_cart/templates/lions_heart_cart/order.html:32
+#: lions_heart_cart/templates/lions_heart_cart/order.html:44
 msgid "Your order"
 msgstr "Ваше замовлення"
 
@@ -146,6 +149,14 @@ msgstr ""
 msgid "LiqPay payment"
 msgstr "Оплата через LiqPay"
 
-#: lions_heart_cart/views.py:38
+#: lions_heart_cart/views.py:39
 msgid "The item was successfully added to cart"
 msgstr "Товар успішно додано у кошик"
+
+#: lions_heart_cart/views.py:122
+msgid ""
+"Phone number must be entered in the format: '+380441234567'. Up to 12 digits "
+"allowed."
+msgstr ""
+"Номер телефону потрібно ввести у форматі: '+380441234567'. Допускається до "
+"12 цифр."

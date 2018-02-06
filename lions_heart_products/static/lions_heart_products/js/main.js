@@ -19,9 +19,6 @@ $('document').ready(function(){
     // }
   })
 
-//  $(function() {
-//  $("#myForm").submit(); // using ID
-//});
 
   //mobile menu
   $('.header__mobile').click(function(){
@@ -66,4 +63,34 @@ $('document').ready(function(){
 
     });
 
+  $('#cart__summ').on('keydown keyup', function(e){
+    if ($(this).val() > 100
+        && e.keyCode != 46 // delete
+        && e.keyCode != 8 // backspace
+       ) {
+       e.preventDefault();
+       $(this).val(100);
+    }
+  });
+
 });
+
+(function (){
+  var swiper = new Swiper('.swiper-container', {
+    effect: 'flip',
+    slidesPerView:'auto',
+    loop: true,
+    autoplay: {
+      delay: 5000
+    },
+    pagination: {
+      el: '.swiper-pagination',
+
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+})();
+

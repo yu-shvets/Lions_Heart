@@ -15,10 +15,10 @@ class OrderForm(ModelForm):
         model = Order
         fields = ('customer_name', 'customer_email', 'phone', 'payment_type', 'comment')
         widgets = {
-            'customer_name': forms.TextInput(attrs={'class': 'form__field form__field_main form__field_black'}),
-            'customer_email': forms.EmailInput(attrs={'class': 'form__field form__field_main form__field_black'}),
-            'phone': forms.TextInput(attrs={'class': 'form__field form__field_main form__field_black'}),
-            'comment': forms.Textarea(attrs={'class': 'form__field form__field_main form__field_black'}),
+            'customer_name': forms.TextInput(attrs={'class': 'form__field form__field_main form__field_black ordering__position ordering__position_center'}),
+            'customer_email': forms.EmailInput(attrs={'class': 'form__field form__field_main form__field_black ordering__position ordering__position_center'}),
+            'phone': forms.TextInput(attrs={'class': 'form__field form__field_main form__field_black ordering__position ordering__position_center'}),
+            'comment': forms.Textarea(attrs={'class': 'form__field form__field_black form__field_textarea ordering__position ordering__position_center'}),
             'payment_type': forms.RadioSelect()
         }
 

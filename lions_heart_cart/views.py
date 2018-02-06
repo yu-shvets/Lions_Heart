@@ -13,6 +13,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from libs.liqpay import LiqPay
 from lions_heart_products.models import Item
+from django import forms
 
 
 def check_recommended(cart):
@@ -116,6 +117,11 @@ class OrderCreate(CreateView):
             data = liqpay(amount=self.obj.total_cost, order_id=self.obj.id)
             return render(self.request, 'lions_heart_cart/pay.html', {'data': data})
 
+    def form_invalid(self, form):
+        messages.error(self.request,
+                       _("Phone number must be entered in the format: '+380441234567'. Up to 12 digits allowed."))
+        return HttpResponseRedirect(reverse('order'))
+
 
 class PayView(TemplateView):
     template_name = 'lions_heart_cart/pay.html'
@@ -124,25 +130,3 @@ class PayView(TemplateView):
 class SuccessView(TemplateView):
     template_name = 'lions_heart_cart/order_success.html'
 
-
-# def add_cart_size(request, sizes_id):
-#     cart = Cart(request)
-#     size = get_object_or_404(Sizes, id=sizes_id)
-#     cart.add_size(item=size.item, price=size.price)
-#     messages.success(request, _('The item was successfully added to cart'))
-#     return HttpResponseRedirect(reverse('home'))
-
-
-# def update_quantity(request, item_id):
-#     cart = Cart(request)
-#     item = get_object_or_404(Item, id=item_id)
-#     form = CartAddProductForm(data=request.POST)
-#     response_data = {}
-#     if form.is_valid():
-#         data = form.cleaned_data
-#         new_quantity = data['quantity']
-#         cart.update(item, new_quantity)
-#         response_data['quantity'] = new_quantity
-#         response_data['sum'] = new_quantity * item.price
-#         response_data['total_price'] = cart.get_total_price()
-#     return JsonResponse(response_data)

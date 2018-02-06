@@ -1,6 +1,7 @@
 from django.db import models
 from lions_heart_products.models import CommonInfo, Item
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import RegexValidator
 
 
 class Order(CommonInfo):
@@ -12,9 +13,13 @@ class Order(CommonInfo):
     PAYMENT_CHOICES = ((_('Credit card'), _('Credit card')),
                        (_('Cash'), _('Cash')))
 
-    customer_name = models.CharField(max_length=256, verbose_name=_("name"))
-    customer_email = models.EmailField(verbose_name="email")
-    phone = models.CharField(max_length=13, verbose_name=_('phone'))
+    phone_regex = RegexValidator(regex=r'^\+?\d{9,12}$',
+                                 message="Phone number must be entered in the format: "
+                                         "'+380441234567'. Up to 12 digits allowed.")
+
+    customer_name = models.CharField(max_length=256, verbose_name=_("name*"))
+    customer_email = models.EmailField(verbose_name="e-mail*")
+    phone = models.CharField(validators=[phone_regex], max_length=17, verbose_name=_('phone*'))
     payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=11,
                                     default='Credit Card', verbose_name=_('payment type'))
     comment = models.TextField(verbose_name=_('comment'), blank=True, null=True, max_length=1000)

@@ -5,10 +5,6 @@
 <html lang="en">
   <head>
 
-<script src="{% static 'lions_heart_products/js/jquery-3.1.1.min.js' %}"></script>
-<script src="{% static 'lions_heart_products/js/jquery.waypoints.min.js' %}"></script>
-<script src="{% static 'lions_heart_products/js/infinite.min.js' %}"></script>
-
       <script type="text/javascript">
 
 function stopRKey(evt) {
@@ -25,6 +21,7 @@ document.onkeypress = stopRKey;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="{% static "lions_heart_products/img/favicon.ico" %}" type="image/x-icon">
   <title>Lion's Heart</title>
   <link href="{% static "lions_heart_products/css/libs.min.css" %}" rel="stylesheet">
   <link href="{% static "lions_heart_products/css/main.css" %}" rel="stylesheet">
@@ -75,23 +72,6 @@ document.onkeypress = stopRKey;
         </div>
 
 
-{#         <ul class="nav navbar-nav navbar-left language menu">#}
-{#    {% get_current_language as LANGUAGE_CODE %}#}
-{#    {% get_available_languages as LANGUAGES %}#}
-{#    {% get_language_info_list for LANGUAGES as languages %}#}
-{#    {% for language in languages %}#}
-{#        <li>#}
-{#            <a href="/{{ language.code }}{{ request.get_full_path|slice:'3:' }}"#}
-{#               class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"#}
-{#               lang="{{ language.code }}">#}
-{#                {{ language.code }}#}
-{#            </a>#}
-{#        </li>#}
-{#    {% endfor %}#}
-{##}
-{##}
-{#</ul>#}
-
               <ul class="nav__list nav__list_header">
 
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.0.pk %}">{{ collections.0 }}</a></li>
@@ -120,13 +100,26 @@ document.onkeypress = stopRKey;
       <section class="home">
         <div class="container">
           <div class="row">
-            <!--BIG CENTER BANNER-->
-            <div class="col-md-12"><img class="home__img" src="{{ company_info.center_banner.url }}">
-                <h2 class="home__title">{% trans 'Title' %}</h2></div>
-            <!--SMALL LEFT BANNER-->
-            <div class="col-md-6"><img src="{{ company_info.left_banner.url }}"></div>
-            <!--SMALL RIGHT BANNER-->
-            <div class="col-md-6"><a class="home__box mt-20" href="{% url 'sales' %}"><img class="home__img" src="{{ company_info.right_banner.url }}"></a></div>
+
+              <div class="col-md-12">
+                <div class="home__slider">
+                  <div class="swiper-container">
+                    <div class="swiper-wrapper">
+
+                        {% for banner in company_info.banners_set.all %}
+                        <div class="swiper-slide" style="background-image:url({{ banner.image.url }});">
+                      <div class="home__dark">
+                          <div class="home__title">{{ collections.0.description }}</div><a class="home__button" href="{% url 'collection' collections.0.pk %}">{% trans 'start shopping' %}<span class="home__button-inner"></span></a>
+                        </div>
+                      </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+              </div>
+
           </div>
         </div>
       </section>
@@ -176,6 +169,7 @@ document.onkeypress = stopRKey;
           <div class="col-md-3 col-md-offset-3 align-right">
             <!--TELL-->
             <p class="footer__subtitle mt-20">{% trans 'Call' %}</p><a class="footer__tel" href="tel:{{ company_info.phone_set.all.0.phone }}">{{ company_info.phone_set.all.0.phone }}</a>
+               <div class="footer__social social-footer"><a class="social-footer__inner" href="https://www.facebook.com/LionsHeartJewellery/" target="_blank"><img src="{% static "lions_heart_products/img/facebook.png" %}" alt="facebook"></a></div>
           </div>
         </div>
       </div>

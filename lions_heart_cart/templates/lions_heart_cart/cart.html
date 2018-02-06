@@ -47,7 +47,7 @@
                         <form method="post" action="{% url 'cart_update'  item.item.pk %}" class="update" id="form-{{ item.item.id }}">
                             {% csrf_token %}
 
-                                <input name="new_quantity" class="cart__table-result update_q" type="number" value="{{ item.quantity }}" min="1" max="100">
+                                <input id="cart__summ" name="new_quantity" class="cart__table-result update_q" type="number" value="{{ item.quantity }}" min="1" max="100">
 
                         </form>
 
@@ -73,7 +73,7 @@
             <div class="col-md-3">
               <div class="section__item align-center cart__item">
                 <p class="section__text section__text_dark section__text_mb-0">{% trans 'Total cost' %}</p>
-                <p class="section__title section__title_dark cart__pay" id="total_price">{{ total_price }} <span class="section__price">{% trans 'UAH' %}</span></p>
+                <p class="section__title section__title_dark cart__pay"><span id="total_price">{{ total_price }}</span> <span class="section__price">{% trans 'UAH' %}</span></p>
                 <a href="{% url 'order' %}"><button class="button button_uppercase product__button">{% trans 'Checkout' %}</button></a>
               </div>
             </div>
@@ -96,7 +96,8 @@
                     <div class="product__wrap"><a class="section__text section__text_dark" href="#">{{ item.title }}</a>
                       <p class="section__text section__text_dark">{{ item.price|convert }}<span>{% trans 'UAH' %}</span></p>
                       <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
-                    </div></div>
+                    </div>
+                </div>
                 </div>
                   {% endfor %}
               {% endfor %}

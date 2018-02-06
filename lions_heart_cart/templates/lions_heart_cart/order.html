@@ -10,15 +10,27 @@
           <div class="row">
             <div class="col-md-offset-1 col-md-7">
               <div class="ordering__main">
-                <h2 class="ordering__title ordering__title_main">{% trans 'Checkout' %}</h2>
-                <p class="ordering__subtitle">{% trans 'PERSONAL INFORMATION' %}</p>
-                <form method="post" action="{% url 'new_order' %}">
+                <h2 class="ordering__title ordering__title_main">{% trans 'Ordering' %}</h2>
+
+                                    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" style="color: red" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+                  <p class="ordering__subtitle">{% trans 'PERSONAL INFORMATION' %}</p>
+
+                  <form method="post" action="{% url 'new_order' %}">
+
             {% csrf_token %}
 
             {{ form.as_p }}
+
                     <input type="submit" value='{% trans "Checkout" %}' class="button button_uppercase product__button" >
 
-                    <h4>{% trans 'We make delivery in Kiev' %}</h4>
+                    <h4 style="margin-top: 50px">{% trans 'We make delivery in Kiev' %}</h4>
 
                         <div class="align-center">
                   </div>

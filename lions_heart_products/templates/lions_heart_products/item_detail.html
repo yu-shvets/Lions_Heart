@@ -58,7 +58,7 @@
             <!--PRODUCT DESCRIPTION-->
             <div class="col-md-6 col-md-offset-1">
               <h2 class="section__title">{{ item.title }}</h2>
-              <p class="section__title">{{ item.price|convert }} {% trans 'UAH' %}</p>
+              <p class="section__title section__title_price">{{ item.price|convert }} {% trans 'UAH' %}</p>
                  <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
               <ul class="sp__list sp__list_padding">
                 {% if item.specs.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>{% endif %}

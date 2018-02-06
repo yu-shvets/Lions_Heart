@@ -23,6 +23,8 @@ class Category(MPTTModel):
     title = models.CharField(max_length=256, verbose_name=_('title'))
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children',
                             db_index=True, on_delete=models.CASCADE, verbose_name=_('parent сategory'))
+    lions_heart_present = models.BooleanField(default=True)
+    revived_present = models.BooleanField(default=True)
 
     class MPTTMeta:
         order_insertion_by = ['title']
