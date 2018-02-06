@@ -389,6 +389,10 @@
   padding-top: 20px;
 }
 
+.section__title_price {
+  font-size: 30px;
+}
+
 .section__text {
   font-size: 18px;
 }
