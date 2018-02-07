@@ -73,6 +73,27 @@ $('document').ready(function(){
     }
   });
 
+  $('.product__button_cart').on('click', function(){
+    var img = $(this).parent().parent().find('.product__link').find('.product__img'),
+        imgWidth = img.width(),
+        cart = $('.cart__length');
+
+    img.clone().css({
+      'width': imgWidth,
+      'position': 'absolute',
+      'z-index': '9999',
+      top: img.offset().top,
+      left: img.offset().left
+    }).appendTo('body').animate({
+      opacity: 0.05,
+      left: cart.offset()['left'],
+      top: cart.offset()['top'],
+      width: 20
+    }, 1000, function() {
+      $(this).remove();
+    })
+  })
+
 });
 
 (function (){
@@ -85,7 +106,7 @@ $('document').ready(function(){
     },
     pagination: {
       el: '.swiper-pagination',
-
+      clickable: true,
     },
     navigation: {
       nextEl: '.swiper-button-next',

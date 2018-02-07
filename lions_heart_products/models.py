@@ -69,6 +69,7 @@ class Item(CommonInfo):
     recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
     sales = models.IntegerField(verbose_name=_('sales'), blank=True, null=True)
     unique_gift = models.BooleanField(default=False, verbose_name=_('unique gift'))
+    is_leather_bracelet = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if self.sales:

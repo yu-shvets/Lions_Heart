@@ -15,7 +15,11 @@
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <div class="blog__single-img" style="background-image:url({{ MEDIA_URL }}{{ post.main_image.url }});"></div>
+{#              <div class="blog__single-img" style="background-image:url({{ MEDIA_URL }}{{ post.main_image.url }});"></div>#}
+            <div class="blog__single-image image-blog">
+                <div class="image-blog__center"></div>
+                <div class="image-blog__inner" style="background-image:url({{ post.main_image.url }});"></div>
+              </div>
             </div>
           </div>
           <div class="row">

@@ -59,6 +59,10 @@ class CategoryCollectionListView(CollectionListView):
 
     def get_queryset(self):
         queryset = super(CategoryCollectionListView, self).get_queryset()
+        category_id = self.kwargs['category_id']
+        if category_id == '7':
+            return queryset.filter(collection=self.kwargs['collection_id'],
+                                   category=self.kwargs['category_id']).order_by('-is_leather_bracelet', 'price')
         return queryset.filter(collection=self.kwargs['collection_id'], category=self.kwargs['category_id'])
 
     def get_context_data(self, **kwargs):

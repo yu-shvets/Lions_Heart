@@ -80,11 +80,12 @@ class OrderView(TemplateView):
         return super(OrderView, self).dispatch(request, *args, **kwargs)
 
 
-def liqpay(amount, order_id):
+def liqpay(request, amount, order_id):
     liqpay = LiqPay(settings.LIQPAY_PUBLIC_KEY, settings.LIQPAY_PRIVATE_KEY)
     html = liqpay.cnb_form({
     'action': 'pay',
     'amount': str(amount),
+    'language': request.LANGUAGE_CODE,
     'currency': 'UAH',
     'description': 'Payment for jewelry',
     'order_id': str(order_id),
@@ -114,7 +115,7 @@ class OrderCreate(CreateView):
         if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные':
             return HttpResponseRedirect(reverse('success'))
         else:
-            data = liqpay(amount=self.obj.total_cost, order_id=self.obj.id)
+            data = liqpay(self.request, amount=self.obj.total_cost, order_id=self.obj.id)
             return render(self.request, 'lions_heart_cart/pay.html', {'data': data})
 
     def form_invalid(self, form):
