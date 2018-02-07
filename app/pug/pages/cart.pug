@@ -1,73 +1,74 @@
 extends ../default.pug
 block pageContent
-  include ../templates/header.pug
-  
-  //BREADCUMBS
-  .breadcumbs
-    .container
-      .row
-        .col-md-12
-          nav.nav
-            ul.nav__list
-              each item in ['Главная', 'Коллекции', 'Корзина']
-                li.nav__item.nav__item_inline
-                  a(href='#').breadcumbs__link.nav__link.nav__link_dark= item
-
-  // MAIN CONTENT
-  main.main
-    section.section.cart
+  .wrapper
+    include ../templates/header.pug
+    
+    //BREADCUMBS
+    .breadcumbs
       .container
         .row
           .col-md-12
-            h2.section__title.section__title_catalog Корзина
-        .row
-          .col-md-9
-            table.cart__table
-              thead
-                tr.cart__table-row
-                  each title in ['', 'Колличество:', 'Цена:', 'Сумма:','']
-                    th.cart__table-title= title
-              tbody
-                -count=0;
-                while count<4
+            nav.nav
+              ul.nav__list
+                each item in ['Главная', 'Коллекции', 'Корзина']
+                  li.nav__item.nav__item_inline
+                    a(href='#').breadcumbs__link.nav__link.nav__link_dark= item
+
+    // MAIN CONTENT
+    main.main
+      section.section.cart
+        .container
+          .row
+            .col-md-12
+              h2.section__title.section__title_catalog Корзина
+          .row
+            .col-md-9
+              table.cart__table
+                thead
                   tr.cart__table-row
-                    td.cart__table-data
-                      a(href='#').cart__table-main
-                        div(href='#').cart__table-thumbnail
-                          img(src='img/sp-img.jpg').cart__table-img
-                        h4.section__text.section__text_dark Отважный / Brave
-                    td(data-quant='Колличество:').cart__table-data.cart__table-quantity
-                      button(data-step='1').button.button_transparent.cart__table-btn
-                        img(src='img/triangle.jpg' alt='plus').cart__table-plus
-                      input(type='number' maxlength="2" min='1' max='100').cart__table-result#cart__summ
-                      button(data-step='-1').button.button_transparent.cart__table-btn
-                        img(src='img/triangle.jpg' alt='minus').cart__table-minus
-                    td(data-price='Цена:').cart__table-data.cart__table-price
-                      p.section__text.section__text_dark 1.800 грн
-                    td(data-sum='Сума:').cart__table-data.cart__table-sum
-                      p.section__text.section__text_dark 1.800 грн
-                    td.cart__table-data
-                      span.cart__table-close &times;
-                  -count++;
-          .col-md-3
-            .section__item.align-center.cart__item
-              p.section__text.section__text_dark.section__text_mb-0 Итого к оплате
-              p.section__title.section__title_dark.cart__pay 1.800 грн
-              button.button.button_light.button_uppercase.button_bg-dark.product__button оформить заказ
-        //RECOMENDATION GOODS
-        .row
-          .col-md-12
-            h2.sp__recomendation.align-center Рекомендуем к выбранным вами товарам
-            -var count = 0;
-            while count<4
-              .col-md-3.col-sm-6.align-center
-                .product
-                  span
-                    a.product__link
-                      img(src='img/item.jpg').produxct__img
-                    div.product__wrap
-                      a(href="#").section__text.section__text_dark Навсегда / Forever new
-                      p.section__text.section__text_dark 1.800 <span>грн</span>
-                      button.button.button_light.button_uppercase.button_bg-dark.product__button в корзину
-                    -count++
-  include ../templates/footer.pug
+                    each title in ['', 'Колличество:', 'Цена:', 'Сумма:','']
+                      th.cart__table-title= title
+                tbody
+                  -count=0;
+                  while count<4
+                    tr.cart__table-row
+                      td.cart__table-data
+                        a(href='#').cart__table-main
+                          div(href='#').cart__table-thumbnail
+                            img(src='img/sp-img.jpg').cart__table-img
+                          h4.section__text.section__text_dark Отважный / Brave
+                      td(data-quant='Колличество:').cart__table-data.cart__table-quantity
+                        button(data-step='1').button.button_transparent.cart__table-btn
+                          img(src='img/triangle.jpg' alt='plus').cart__table-plus
+                        input(type='number' maxlength="2" min='1' max='100').cart__table-result#cart__summ
+                        button(data-step='-1').button.button_transparent.cart__table-btn
+                          img(src='img/triangle.jpg' alt='minus').cart__table-minus
+                      td(data-price='Цена:').cart__table-data.cart__table-price
+                        p.section__text.section__text_dark 1.800 грн
+                      td(data-sum='Сума:').cart__table-data.cart__table-sum
+                        p.section__text.section__text_dark 1.800 грн
+                      td.cart__table-data
+                        span.cart__table-close &times;
+                    -count++;
+            .col-md-3
+              .section__item.align-center.cart__item
+                p.section__text.section__text_dark.section__text_mb-0 Итого к оплате
+                p.section__title.section__title_dark.cart__pay 1.800 грн
+                button.button.button_light.button_uppercase.button_bg-dark.product__button оформить заказ
+          //RECOMENDATION GOODS
+          .row
+            .col-md-12
+              h2.sp__recomendation.align-center Рекомендуем к выбранным вами товарам
+              -var count = 0;
+              while count<4
+                .col-md-3.col-sm-6.align-center
+                  .product
+                    span
+                      a.product__link
+                        img(src='img/item.jpg').produxct__img
+                      div.product__wrap
+                        a(href="#").section__text.section__text_dark Навсегда / Forever new
+                        p.section__text.section__text_dark 1.800 <span>грн</span>
+                        button.button.button_light.button_uppercase.button_bg-dark.product__button в корзину
+                      -count++
+    include ../templates/footer.pug

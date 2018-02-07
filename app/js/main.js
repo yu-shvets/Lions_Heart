@@ -54,8 +54,8 @@ $('document').ready(function(){
       delay: 5000
     },
     pagination: {
-      el: '.swiper-pagination',
-     
+        el: '.swiper-pagination',
+        clickable: true,
     },
     navigation: {
       nextEl: '.swiper-button-next',

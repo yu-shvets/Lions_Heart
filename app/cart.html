@@ -9,224 +9,226 @@
   <link href="css/libs.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
   <body>
-    <!-- HEADER-->
-    <header class="header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-xs-12 col-sm-3">
-            <!-- LOGO--><a class="header__logo" href="#"><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.png"></a>
-          </div>
-          <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
-            <!-- NAVIGATION-->
-            <nav class="nav header__nav"><span>
-                <div class="header__additional">
-                  <form>
-                    <select class="header__select">
-                      <option>RU</option>
-                      <option>EN</option>
-                    </select>
-                    <div class="header__rate">$28.4</div>
-                  </form>
-                </div>
-                <ul class="nav__list nav__list_header">
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
-                </ul></span></nav>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!--BREADCUMBS-->
-    <div class="breadcumbs">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <nav class="nav">
-              <ul class="nav__list">
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Главная</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Коллекции</a></li>
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Корзина</a></li>
-              </ul>
-            </nav>
+    <div class="wrapper">
+      <!-- HEADER-->
+      <header class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-xs-12 col-sm-3">
+              <!-- LOGO--><a class="header__logo" href="#"><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.png"></a>
+            </div>
+            <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
+              <!-- NAVIGATION-->
+              <nav class="nav header__nav"><span>
+                  <div class="header__additional">
+                    <form>
+                      <select class="header__select">
+                        <option>RU</option>
+                        <option>EN</option>
+                      </select>
+                      <div class="header__rate">$28.4</div>
+                    </form>
+                  </div>
+                  <ul class="nav__list nav__list_header">
+                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
+                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+                  </ul></span></nav>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- MAIN CONTENT-->
-    <main class="main">
-      <section class="section cart">
+      </header>
+      <!--BREADCUMBS-->
+      <div class="breadcumbs">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="section__title section__title_catalog">Корзина</h2>
+              <nav class="nav">
+                <ul class="nav__list">
+                  <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Главная</a></li>
+                  <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Коллекции</a></li>
+                  <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="#">Корзина</a></li>
+                </ul>
+              </nav>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <table class="cart__table">
-                <thead>
-                  <tr class="cart__table-row">
-                    <th class="cart__table-title"></th>
-                    <th class="cart__table-title">Колличество:</th>
-                    <th class="cart__table-title">Цена:</th>
-                    <th class="cart__table-title">Сумма:</th>
-                    <th class="cart__table-title"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="cart__table-row">
-                    <td class="cart__table-data"><a class="cart__table-main" href="#">
-                        <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
-                        <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
-                      <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
-                      <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
-                    </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
-                  </tr>
-                  <tr class="cart__table-row">
-                    <td class="cart__table-data"><a class="cart__table-main" href="#">
-                        <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
-                        <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
-                      <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
-                      <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
-                    </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
-                  </tr>
-                  <tr class="cart__table-row">
-                    <td class="cart__table-data"><a class="cart__table-main" href="#">
-                        <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
-                        <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
-                      <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
-                      <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
-                    </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
-                  </tr>
-                  <tr class="cart__table-row">
-                    <td class="cart__table-data"><a class="cart__table-main" href="#">
-                        <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
-                        <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
-                    <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
-                      <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
-                      <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
-                      <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
-                    </td>
-                    <td class="cart__table-data cart__table-price" data-price="Цена:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data cart__table-sum" data-sum="Сума:">
-                      <p class="section__text section__text_dark">1.800 грн</p>
-                    </td>
-                    <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="col-md-3">
-              <div class="section__item align-center cart__item">
-                <p class="section__text section__text_dark section__text_mb-0">Итого к оплате</p>
-                <p class="section__title section__title_dark cart__pay">1.800 грн</p>
-                <button class="button button_light button_uppercase button_bg-dark product__button">оформить заказ</button>
-              </div>
-            </div>
-          </div>
-          <!--RECOMENDATION GOODS-->
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="sp__recomendation align-center">Рекомендуем к выбранным вами товарам</h2>
-              <div class="col-md-3 col-sm-6 align-center">
-                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
-                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
-                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
-                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
-                    </div></span></div>
-              </div>
-              <div class="col-md-3 col-sm-6 align-center">
-                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
-                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
-                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
-                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
-                    </div></span></div>
-              </div>
-              <div class="col-md-3 col-sm-6 align-center">
-                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
-                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
-                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
-                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
-                    </div></span></div>
-              </div>
-              <div class="col-md-3 col-sm-6 align-center">
-                <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
-                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
-                      <p class="section__text section__text_dark">1.800 <span>грн</span></p>
-                      <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
-                    </div></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2 col-sm-3">
-            <!-- FIRST MENU-->
-            <nav class="nav nav_footer">
-              <ul class="nav__list">
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">браслеты</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">кольца</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">подвески</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">пряжки</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">цепи</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-md-2 col-sm-3">
-            <!-- SECOND MENU-->
-            <nav class="nav nav_footer">
-              <ul class="nav__list">
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">о нас</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">блог</a></li>
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">контакты</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-md-3 col-md-offset-5 align-right col-sm-6">
-            <!--TELL-->
-            <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44 </a>
-            <div class="footer__social social-footer"><a class="social-footer__inner" href="#" target="_blank"><img src="../../img/facebook.png" alt="facebook"></a></div>
           </div>
         </div>
       </div>
-    </footer>
+      <!-- MAIN CONTENT-->
+      <main class="main">
+        <section class="section cart">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section__title section__title_catalog">Корзина</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <table class="cart__table">
+                  <thead>
+                    <tr class="cart__table-row">
+                      <th class="cart__table-title"></th>
+                      <th class="cart__table-title">Колличество:</th>
+                      <th class="cart__table-title">Цена:</th>
+                      <th class="cart__table-title">Сумма:</th>
+                      <th class="cart__table-title"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="cart__table-row">
+                      <td class="cart__table-data"><a class="cart__table-main" href="#">
+                          <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
+                          <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
+                      <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
+                        <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
+                        <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
+                        <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
+                      </td>
+                      <td class="cart__table-data cart__table-price" data-price="Цена:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data cart__table-sum" data-sum="Сума:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
+                    </tr>
+                    <tr class="cart__table-row">
+                      <td class="cart__table-data"><a class="cart__table-main" href="#">
+                          <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
+                          <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
+                      <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
+                        <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
+                        <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
+                        <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
+                      </td>
+                      <td class="cart__table-data cart__table-price" data-price="Цена:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data cart__table-sum" data-sum="Сума:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
+                    </tr>
+                    <tr class="cart__table-row">
+                      <td class="cart__table-data"><a class="cart__table-main" href="#">
+                          <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
+                          <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
+                      <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
+                        <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
+                        <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
+                        <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
+                      </td>
+                      <td class="cart__table-data cart__table-price" data-price="Цена:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data cart__table-sum" data-sum="Сума:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
+                    </tr>
+                    <tr class="cart__table-row">
+                      <td class="cart__table-data"><a class="cart__table-main" href="#">
+                          <div class="cart__table-thumbnail" href="#"><img class="cart__table-img" src="img/sp-img.jpg"></div>
+                          <h4 class="section__text section__text_dark">Отважный / Brave</h4></a></td>
+                      <td class="cart__table-data cart__table-quantity" data-quant="Колличество:">
+                        <button class="button button_transparent cart__table-btn" data-step="1"><img class="cart__table-plus" src="img/triangle.jpg" alt="plus"></button>
+                        <input class="cart__table-result" type="number" maxlength="2" min="1" max="100" id="cart__summ">
+                        <button class="button button_transparent cart__table-btn" data-step="-1"><img class="cart__table-minus" src="img/triangle.jpg" alt="minus"></button>
+                      </td>
+                      <td class="cart__table-data cart__table-price" data-price="Цена:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data cart__table-sum" data-sum="Сума:">
+                        <p class="section__text section__text_dark">1.800 грн</p>
+                      </td>
+                      <td class="cart__table-data"><span class="cart__table-close">&times;</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3">
+                <div class="section__item align-center cart__item">
+                  <p class="section__text section__text_dark section__text_mb-0">Итого к оплате</p>
+                  <p class="section__title section__title_dark cart__pay">1.800 грн</p>
+                  <button class="button button_light button_uppercase button_bg-dark product__button">оформить заказ</button>
+                </div>
+              </div>
+            </div>
+            <!--RECOMENDATION GOODS-->
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="sp__recomendation align-center">Рекомендуем к выбранным вами товарам</h2>
+                <div class="col-md-3 col-sm-6 align-center">
+                  <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                      <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                        <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                        <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                      </div></span></div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-center">
+                  <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                      <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                        <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                        <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                      </div></span></div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-center">
+                  <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                      <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                        <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                        <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                      </div></span></div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-center">
+                  <div class="product"><span><a class="product__link"><img class="produxct__img" src="img/item.jpg"></a>
+                      <div class="product__wrap"><a class="section__text section__text_dark" href="#">Навсегда / Forever new</a>
+                        <p class="section__text section__text_dark">1.800 <span>грн</span></p>
+                        <button class="button button_light button_uppercase button_bg-dark product__button">в корзину</button>
+                      </div></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 col-sm-3">
+              <!-- FIRST MENU-->
+              <nav class="nav nav_footer">
+                <ul class="nav__list">
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">браслеты</a></li>
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">кольца</a></li>
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">подвески</a></li>
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">пряжки</a></li>
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="#">цепи</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-md-2 col-sm-3">
+              <!-- SECOND MENU-->
+              <nav class="nav nav_footer">
+                <ul class="nav__list">
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">о нас</a></li>
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">блог</a></li>
+                  <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_capitalize footer__link" href="#">контакты</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-md-3 col-md-offset-5 align-right col-sm-6">
+              <!--TELL-->
+              <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44 </a>
+              <div class="footer__social social-footer"><a class="social-footer__inner" href="#" target="_blank"><img src="../../img/facebook.png" alt="facebook"></a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
     <script src="js/libs.min.js"></script>
     <script src="js/main.js"></script>
   </body>
