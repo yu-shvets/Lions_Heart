@@ -10,8 +10,8 @@
 // NAVIGATION STYLE
 .nav {
   &_footer {
-    padding-top:45px;
-    padding-bottom:50px;
+    padding-top:20px;
+    padding-bottom:20px;
   }
   &__list {
     padding-left:0px;
@@ -243,6 +243,10 @@
       color:$white-color;
     }
   }
+}
+
+.social-footer {
+  margin-top: 20px;
 }
 
 //GLOBAL SECTION STYLE
