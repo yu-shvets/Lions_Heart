@@ -750,14 +750,14 @@
   margin-bottom: 0;
   text-align: center;
   font-size: 48px;
-  color: #fff;
+  color: #000;
   text-transform: uppercase;
 }
 
 .home__dark {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(black));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), black);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), black);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(0, 0, 0, 0.5)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
   position: absolute;
   right: 0;
   left: 0;
@@ -770,9 +770,10 @@
   position: relative;
   top: 70px;
   text-transform: uppercase;
-  color: #fff;
+  color: #000;
   font-size: 24px;
   padding: 22px 25px;
+  background-color: rgba(255, 255, 255, 0.3);
   overflow: hidden;
   -webkit-transition: all .4s;
   transition: all .4s;
@@ -785,7 +786,7 @@
   height: 100%;
   -webkit-transition: all .4s;
   transition: all .4s;
-  background: #fff;
+  background: #000;
 }
 
 .home__button:hover {
@@ -841,7 +842,7 @@
   height: 2px;
   -webkit-transition: all .4s;
   transition: all .4s;
-  background: #fff;
+  background: #000;
 }
 
 .home__button-inner:after {

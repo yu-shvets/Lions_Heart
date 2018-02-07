@@ -11,11 +11,13 @@ class CategoryListView(ListView):
     model = Item
     template_name = 'lions_heart_products/category.html'
     paginate_by = 8
-    ordering = ['price']
 
     def get_queryset(self):
         queryset = super(CategoryListView, self).get_queryset()
-        return queryset.filter(category=self.kwargs['category_id'])
+        category_id = self.kwargs['category_id']
+        if category_id == '7':
+            return queryset.filter(category=self.kwargs['category_id']).order_by('-is_leather_bracelet', 'price')
+        return queryset.filter(category=self.kwargs['category_id']).order_by('price')
 
     def get_context_data(self, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)

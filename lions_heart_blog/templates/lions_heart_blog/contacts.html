@@ -25,7 +25,7 @@
                   <div class="contacts__box">
                   {% for mail in companyinformation_list.first.email_set.all %}
 
-                  <a class="contacts__text contacts__text_link" href="mailto: {{ mail.mail }}"><img class="contacts__img" src={% static "lions_heart_products/img/mail.png" %} alt="telephone">{{ mail.mail }}</a>
+                  <a class="contacts__text contacts__text_link" href="mailto: {{ mail.mail }}"><img class="contacts__img" src={% static "lions_heart_products/img/mail.png" %}>{{ mail.mail }}</a>
 
                   {% endfor %}
                   </div>
@@ -33,7 +33,7 @@
                   <div class="contacts__box">
                   {% for address in companyinformation_list.first.address_set.all %}
 
-                <p class="contacts__text"><img class="contacts__img" src={% static "lions_heart_products/img/place.png" %} alt="telephone">{{ address.address }}</p>
+                <p class="contacts__text"><img class="contacts__img" src={% static "lions_heart_products/img/place.png" %}>{{ address.address }}</p>
 
                   {% endfor %}
                   </div>
