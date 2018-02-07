@@ -20,7 +20,7 @@ class Order(CommonInfo):
     customer_name = models.CharField(max_length=256, verbose_name=_("name*"))
     customer_email = models.EmailField(verbose_name="e-mail*")
     phone = models.CharField(validators=[phone_regex], max_length=17, verbose_name=_('phone*'))
-    payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=11,
+    payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=15,
                                     default='Credit Card', verbose_name=_('payment type'))
     comment = models.TextField(verbose_name=_('comment'), blank=True, null=True, max_length=1000)
     total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('total cost'))

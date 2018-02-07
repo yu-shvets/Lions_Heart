@@ -112,7 +112,7 @@ class OrderCreate(CreateView):
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
         send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
-        if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные':
+        if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные' or self.obj.payment_type == 'Готівка':
             return HttpResponseRedirect(reverse('success'))
         else:
             data = liqpay(self.request, amount=self.obj.total_cost, order_id=self.obj.id)

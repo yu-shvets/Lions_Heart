@@ -9,7 +9,7 @@ class HomeView(TemplateView):
 
 class CategoryListView(ListView):
     model = Item
-    template_name = 'lions_heart_products/category.html'
+    template_name ='lions_heart_products/category.html'
     paginate_by = 8
 
     def get_queryset(self):
