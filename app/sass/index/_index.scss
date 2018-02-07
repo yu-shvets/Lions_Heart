@@ -15,11 +15,11 @@
     margin-bottom: 0;
     text-align: center;
     font-size: 48px;
-    color:$white-color;
+    color:#000;
     text-transform: uppercase;
   }
   &__dark {
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(0,0,0,1));
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,0,0.5));
     position: absolute;
     right: 0;
     left: 0;
@@ -31,9 +31,10 @@
     position: relative;
     top: 70px;
     text-transform: uppercase;
-    color: $white-color;
+    color: #000;
     font-size: 24px;
     padding: 22px 25px;
+    background-color: rgba(#fff , .3);
     overflow: hidden;
     transition: all .4s;
     &:before, &:after {
@@ -42,7 +43,7 @@
       width: 2px;
       height: 100%;
       transition :all .4s;
-      background: #fff;
+      background: #000;
     }
     &:hover {
       text-decoration: none;
@@ -72,7 +73,7 @@
         width: 100%;
         height: 2px;
         transition: all .4s;
-        background: $white-color
+        background: #000;
       }
       &:after {
         top: 0;
