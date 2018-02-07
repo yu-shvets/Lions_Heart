@@ -294,32 +294,21 @@ msgid "Sales:"
 msgstr "Розпродаж"
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:92
-#: lions_heart_products/templates/lions_heart_products/item_detail_size.html:81
-#, fuzzy, python-format
-#| msgid "-10%% for 1 item;"
 msgid "-10%% for 1 item;"
-msgstr "-10% за 1 вироб"
+msgstr "-10% за 1 виріб;"
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:93
-#: lions_heart_products/templates/lions_heart_products/item_detail_size.html:82
-#, fuzzy, python-format
-#| msgid "-15%% for 2 items;"
+
 msgid "-15%% for 2 items;"
-msgstr "-15% за 2 вироби"
+msgstr "-15% за 2 вироби;"
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:94
-#: lions_heart_products/templates/lions_heart_products/item_detail_size.html:83
-#, fuzzy, python-format
-#| msgid "-20%% for 5 items;"
 msgid "-20%% for 5 items;"
-msgstr "-20% за 5 виробів"
+msgstr "-20% за 5 виробів;"
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:95
-#: lions_heart_products/templates/lions_heart_products/item_detail_size.html:84
-#, fuzzy, python-format
-#| msgid "-30%% for custom order."
 msgid "-30%% for custom order."
-msgstr "-30% при індивідуальному замовленні"
+msgstr "-30% при індивідуальному замовленні."
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:102
 #: lions_heart_products/templates/lions_heart_products/item_detail_size.html:98

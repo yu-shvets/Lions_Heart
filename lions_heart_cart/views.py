@@ -108,7 +108,7 @@ class OrderCreate(CreateView):
             order_item = OrderItem(item=element['item'], quantity=element['quantity'],
                                    price=element['price'], order=self.obj)
             order_item.save()
-            message += str(element['item']) + ' ' + '-' + ' ' + str(element['quantity'])+ 'pcs' + ' ' + '-' + ' ' + str(element['price']) + 'UAH' + '\n\n'
+            message += str(element['item']) + ' ' + '-' + ' ' + str(element['quantity']) + 'pcs' + ' ' + '-' + ' ' + str(element['price']) + 'UAH' + '\n\n'
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
         send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
@@ -116,7 +116,15 @@ class OrderCreate(CreateView):
             return HttpResponseRedirect(reverse('success'))
         else:
             data = liqpay(self.request, amount=self.obj.total_cost, order_id=self.obj.id)
-            return render(self.request, 'lions_heart_cart/pay.html', {'data': data})
+
+            try:
+                del self.request.session['data']
+            except KeyError:
+                pass
+
+            self.request.session['data'] = data
+
+            return HttpResponseRedirect(reverse('pay'))
 
     def form_invalid(self, form):
         messages.error(self.request,
@@ -126,6 +134,12 @@ class OrderCreate(CreateView):
 
 class PayView(TemplateView):
     template_name = 'lions_heart_cart/pay.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PayView, self).get_context_data(**kwargs)
+        data = self.request.session['data']
+        context['data'] = data
+        return context
 
 
 class SuccessView(TemplateView):
