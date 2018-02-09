@@ -34,10 +34,13 @@ def cart_view(request):
 
 def add_to_cart(request, item_id):
     cart = Cart(request)
+    response_data = {}
     item = get_object_or_404(Item, id=item_id)
     cart.add(item=item)
-    messages.success(request, _('The item was successfully added to cart'))
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    # messages.success(request, _('The item was successfully added to cart'))
+    # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    response_data['items'] = cart.cart_len()
+    return JsonResponse(response_data)
 
 
 def cart_remove(request, item_id):
@@ -112,19 +115,20 @@ class OrderCreate(CreateView):
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
         send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
-        if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные' or self.obj.payment_type == 'Готівка':
-            return HttpResponseRedirect(reverse('success'))
-        else:
-            data = liqpay(self.request, amount=self.obj.total_cost, order_id=self.obj.id)
-
-            try:
-                del self.request.session['data']
-            except KeyError:
-                pass
-
-            self.request.session['data'] = data
-
-            return HttpResponseRedirect(reverse('pay'))
+        return HttpResponseRedirect(reverse('success'))
+        # if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные' or self.obj.payment_type == 'Готівка':
+        #     return HttpResponseRedirect(reverse('success'))
+        # else:
+        #     data = liqpay(self.request, amount=self.obj.total_cost, order_id=self.obj.id)
+        #
+        #     try:
+        #         del self.request.session['data']
+        #     except KeyError:
+        #         pass
+        #
+        #     self.request.session['data'] = data
+        #
+        #     return HttpResponseRedirect(reverse('pay'))
 
     def form_invalid(self, form):
         messages.error(self.request,

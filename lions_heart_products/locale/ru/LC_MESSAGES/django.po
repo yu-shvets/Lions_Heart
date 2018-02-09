@@ -245,7 +245,7 @@ msgstr "Коллекция"
 #: lions_heart_products/templates/lions_heart_products/index.html:151
 #: lions_heart_products/templates/lions_heart_products/sales.html:17
 msgid "Sales"
-msgstr "Cкидки"
+msgstr "Акции"
 
 #: lions_heart_products/templates/lions_heart_products/gifts.html:17
 #: lions_heart_products/templates/lions_heart_products/index.html:84

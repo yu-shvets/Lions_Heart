@@ -74,7 +74,7 @@
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
                     <p class="section__text section__text_dark">
                         {{ item.price|convert }}<span> {% trans 'UAH' %}</span></p>
-                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
+                   <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button">{% trans 'Add to cart' %}</button>
                   </div>
               </span>
               </div>

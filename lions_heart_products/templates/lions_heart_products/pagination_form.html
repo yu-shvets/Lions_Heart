@@ -1,0 +1,8 @@
+<form action="" method="get">
+    <select name="paginate_by" onchange="this.form.submit()">
+        <option selected>{{ paginate_by }}</option>
+        {% if not 16 == paginate_by %}<option>16</option>{% endif %}
+        {% if not 32 == paginate_by %}<option>32</option>{% endif %}
+        {% if not 8 == paginate_by %}<option>8</option>{% endif %}
+    </select>
+</form>

@@ -9,32 +9,25 @@ class HomeView(TemplateView):
 
 class CategoryListView(ListView):
     model = Item
-    template_name ='lions_heart_products/category.html'
+    template_name = 'lions_heart_products/category.html'
     paginate_by = 8
 
     def get_queryset(self):
         queryset = super(CategoryListView, self).get_queryset()
+        collection = Collection.objects.first()
         category_id = self.kwargs['category_id']
         if category_id == '7':
-            return queryset.filter(category=self.kwargs['category_id']).order_by('-is_leather_bracelet', 'price')
-        return queryset.filter(category=self.kwargs['category_id']).order_by('price')
+            return queryset.filter(category=self.kwargs['category_id'],
+                                   collection=collection).order_by('-is_not_leather_chain', 'price')
+        return queryset.filter(category=self.kwargs['category_id'], collection=collection).order_by('price')
+
+    def get_paginate_by(self, queryset):
+        return int(self.request.GET.get('paginate_by', self.paginate_by))
 
     def get_context_data(self, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)
         context['categs'] = get_object_or_404(Category, id=self.kwargs['category_id'])
-        return context
-
-
-class CollectionCategoryListView(CategoryListView):
-    paginate_by = 7
-
-    def get_queryset(self):
-        queryset = super(CollectionCategoryListView, self).get_queryset()
-        return queryset.filter(category=self.kwargs['category_id'], collection=self.kwargs['collection_id'])
-
-    def get_context_data(self, **kwargs):
-        context = super(CollectionCategoryListView, self).get_context_data(**kwargs)
-        context['selected'] = get_object_or_404(Collection, id=self.kwargs['collection_id'])
+        context['paginate_by'] = int(self.request.GET.get('paginate_by', self.paginate_by))
         return context
 
 
@@ -48,7 +41,7 @@ class CollectionListView(ListView):
         queryset = super(CollectionListView, self).get_queryset()
         collection_id = self.kwargs['collection_id']
         if collection_id == '2':
-            return queryset.filter(collection=self.kwargs['collection_id']).order_by('-created')
+            return queryset.filter(collection=self.kwargs['collection_id']).order_by('created')
         return queryset.filter(collection=self.kwargs['collection_id']).order_by('price')
 
     def get_context_data(self, **kwargs):
@@ -64,24 +57,12 @@ class CategoryCollectionListView(CollectionListView):
         category_id = self.kwargs['category_id']
         if category_id == '7':
             return queryset.filter(collection=self.kwargs['collection_id'],
-                                   category=self.kwargs['category_id']).order_by('-is_leather_bracelet', 'price')
+                                   category=self.kwargs['category_id']).order_by('-is_not_leather_chain', 'price')
         return queryset.filter(collection=self.kwargs['collection_id'], category=self.kwargs['category_id'])
 
     def get_context_data(self, **kwargs):
         context = super(CategoryCollectionListView, self).get_context_data(**kwargs)
         context['categs'] = get_object_or_404(Category, id=self.kwargs['category_id'])
-        return context
-
-
-class SalesCollectionListView(CollectionListView):
-
-    def get_queryset(self):
-        queryset = super(SalesCollectionListView, self).get_queryset()
-        return queryset.filter(collection=self.kwargs['collection_id'], sales__isnull=False)
-
-    def get_context_data(self, **kwargs):
-        context = super(SalesCollectionListView, self).get_context_data(**kwargs)
-        context['sales'] = True
         return context
 
 
@@ -105,30 +86,6 @@ class CollectionSalesListView(SalesListView):
 
     def get_context_data(self, **kwargs):
         context = super(CollectionSalesListView, self).get_context_data(**kwargs)
-        context['selected'] = get_object_or_404(Collection, id=self.kwargs['collection_id'])
-        return context
-
-
-class UniqueGiftsListView(ListView):
-    model = Item
-    template_name = 'lions_heart_products/gifts.html'
-    paginate_by = 8
-    ordering = ['price']
-
-    def get_queryset(self):
-        queryset = super(UniqueGiftsListView, self).get_queryset()
-        return queryset.filter(unique_gift=True)
-
-
-class CollectionUniqueGiftsListView(UniqueGiftsListView):
-    paginate_by = 7
-
-    def get_queryset(self):
-        queryset = super(CollectionUniqueGiftsListView, self).get_queryset()
-        return queryset.filter(unique_gift=True, collection=self.kwargs['collection_id'])
-
-    def get_context_data(self, **kwargs):
-        context = super(CollectionUniqueGiftsListView, self).get_context_data(**kwargs)
         context['selected'] = get_object_or_404(Collection, id=self.kwargs['collection_id'])
         return context
 

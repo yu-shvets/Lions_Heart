@@ -15,7 +15,6 @@
               <ul class="nav__list">
                 <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
                   <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'category' categs.pk  %}">{{ categs.title }}</a></li>
-                  {% if selected %}<li class="nav__item nav__item_inline">{{ selected.title }}</li>{% endif %}
               </ul>
             </nav>
           </div>
@@ -29,20 +28,9 @@
       <section class="section catalog">
         <div class="container">
 
-        <div class="row">
-            <div class="col-md-12">
-               <h2 class="section__title section__title_catalog">{% trans 'Collection' %}</h2>
-             </div>
-           </div>
            <div class="row">
              <div class="col-md-12">
-                 <div class="row">
-                   <div class="col-md-4">
-                     <!--SEX FILTERS-->
-                       {% for collection in collections %}
-                       <a class="catalog__category" href="{% url 'category_collection' categs.pk collection.pk %}">{{ collection.title }}</a>
-                       {% endfor %}
-                   </div>
+
 
       <nav class="nav align-right">
                        <ul class="nav__list">
@@ -58,22 +46,13 @@
 </ul>
 {% endif %}
 
-                 {% if selected %}
-                 <div class="row">
-            <div class="col-md-3 align-center">
-              <div class="catalog__main"><span>
-                  <div class="section__subtitle"></div><img src="{{ selected.logo_image.url }}">
-                  <p class="section__text section__text_neutral mt-30">{{ selected.description }}</p></span></div>
-            </div>
-                 {% endif %}
-
               {% for item in object_list %}
 
             <div class="col-md-3 align-center">
               <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
                     <p class="section__text section__text_dark">{{ item.price|convert }}<span> {% trans 'UAH' %}</span></p>
-                   <a href="{% url 'add_to_cart' item.pk %}"><button class="button button_uppercase product__button">{% trans 'Add to cart' %}</button></a>
+                   <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button">{% trans 'Add to cart' %}</button>
                   </div>
               </span>
               </div>

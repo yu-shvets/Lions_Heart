@@ -26,7 +26,7 @@ class Order(CommonInfo):
     total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('total cost'))
 
     def __str__(self):
-        return '{}-{}'.format(self.customer_name, self.created)
+        return '{}-{}'.format(self.id, self.created)
 
 
 class OrderItem(models.Model):

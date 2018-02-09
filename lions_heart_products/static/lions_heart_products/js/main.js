@@ -73,10 +73,19 @@ $('document').ready(function(){
     }
   });
 
-  $('.product__button_cart').on('click', function(){
+  $('.product__button').on('click', function(){
+    var element = $(this);
+    $.ajax({
+        url: $(this).data('href'),
+
+        success: function(json){
+            $('#cart_items').text(json.items);
+        }
+    });
+
     var img = $(this).parent().parent().find('.product__link').find('.product__img'),
         imgWidth = img.width(),
-        cart = $('.cart__length');
+        cart = $('#cart');
 
     img.clone().css({
       'width': imgWidth,
@@ -115,3 +124,16 @@ $('document').ready(function(){
   });
 })();
 
+$('.like').on('click', function(event) {
+    event.preventDefault();
+    var element = $(this);
+    $.ajax({
+        url: 'like',
+        type: 'GET',
+        data: {post_id: element.attr('data-id')},
+
+        success: function(response){
+            element.html('Like: ' + response);
+        }
+    });
+});

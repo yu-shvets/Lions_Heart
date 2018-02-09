@@ -89,16 +89,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <ul class="nav__list nav__list_header">
 
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.0.pk %}">{{ collections.0 }}</a></li>
-
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.1.pk %}">{{ collections.1 }}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
-
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.1.pk %}">{{ collections.1 }}</a></li>
-
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'gifts' %}">{% trans 'Unique gifts' %}</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}
-                    {% if items %}<span class="cart__length" >{{ items }}</span>{% endif %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'sales' %}">{% trans 'Sales' %}</a></li>
+                <li class="nav__item nav__item_inline header__item"><a id="cart" class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'cart' %}">{% trans 'Cart' %}
+                    <span id="cart_items" class="cart__length" >{{ items }}</span></a></li>
               </ul>
 
 
@@ -149,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="nav nav_footer">
               <ul class="nav__list">
                    {% for category in categories_first %}
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'category' category.pk  %}">{{ category.title }}</a></li>
+                {% if category.lions_heart_present %}<li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'category' category.pk  %}">{{ category.title }}</a></li>{% endif %}
                    {% endfor %}
               </ul>
             </nav>
@@ -161,7 +158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="nav nav_footer">
               <ul class="nav__list">
                    {% for category in categories_second %}
-                <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'category' category.pk  %}">{{ category.title }}</a></li>
+                {% if category.lions_heart_present %}<li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'category' category.pk  %}">{{ category.title }}</a></li>{% endif %}
                    {% endfor %}
               <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'sales' %}">{% trans 'Sales' %}</a></li>
               </ul>
