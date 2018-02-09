@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-06 14:18+0000\n"
+"POT-Creation-Date: 2018-02-09 10:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,14 +149,13 @@ msgstr ""
 msgid "LiqPay payment"
 msgstr "Оплата через LiqPay"
 
-#: lions_heart_cart/views.py:39
-msgid "The item was successfully added to cart"
-msgstr "Товар успішно додано у кошик"
-
-#: lions_heart_cart/views.py:122
+#: lions_heart_cart/views.py:135
 msgid ""
 "Phone number must be entered in the format: '+380441234567'. Up to 12 digits "
 "allowed."
 msgstr ""
 "Номер телефону потрібно ввести у форматі: '+380441234567'. Допускається до "
 "12 цифр."
+
+#~ msgid "The item was successfully added to cart"
+#~ msgstr "Товар успішно додано у кошик"
