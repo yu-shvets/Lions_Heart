@@ -1,8 +1,9 @@
-<form action="" method="get">
+<form style="text-align: right" action="" method="get">
+    <label style="font-weight: lighter">Number of items:</label>
     <select name="paginate_by" onchange="this.form.submit()">
         <option selected>{{ paginate_by }}</option>
-        {% if not 16 == paginate_by %}<option>16</option>{% endif %}
-        {% if not 32 == paginate_by %}<option>32</option>{% endif %}
-        {% if not 8 == paginate_by %}<option>8</option>{% endif %}
+        {% if not 15 == paginate_by %}<option>15</option>{% endif %}
+        {% if not 31 == paginate_by %}<option>31</option>{% endif %}
+        {% if not 7 == paginate_by %}<option>7</option>{% endif %}
     </select>
 </form>

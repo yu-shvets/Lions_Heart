@@ -6,8 +6,8 @@ from lions_heart_blog.models import CompanyInformation
 def project_variables(request):
     collections = Collection.objects.all()
     categories = Category.objects.order_by('-id')
-    categories_first = categories[:4]
-    categories_second = categories[4:]
+    categories_first = categories[:5]
+    categories_second = categories[5:]
     cart = Cart(request)
     items = cart.cart_len()
     rate = get_rate()
