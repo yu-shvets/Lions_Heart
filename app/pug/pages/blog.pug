@@ -11,13 +11,16 @@ block pageContent
         .row.mt-10
           - var count=0;
               while count < 8
-                .col-md-3.col-sm-6
-                  // SINGLE BLOG
-                  a(href='#').blog__box
-                    div(style='background-image:url(img/blog-bg.jpg)').blog__img
-                      .blog__date 11.12.17
-                    p.blog__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.
-                    - count++
+                .col-md-12.col-sm-12
+                  //- .blog__date 11.12.17
+                  div.blog__text 
+                    a(href='#').blog__box
+                      div(style='background-image:url(img/blog-bg.jpg)').blog__img
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore autem minima nam, eius expedita similique voluptatibus ea quos repudiandae quasi.
+                  .blog__bottom.bottom-blog
+                    .bottom-blog__date 12/01/2017
+                    a(href='#').bottom-blog-more read more
+                  - count++
         .row
           .col-md-12
             p.number.align-center

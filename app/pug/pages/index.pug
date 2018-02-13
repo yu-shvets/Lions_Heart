@@ -5,26 +5,23 @@ block pageContent
     // MAIN CONTENT
     main.main
       section.home
-        .container
-          .row
-            .col-md-12
-                .home__slider
-                  .swiper-container
-                    .swiper-wrapper
-                      .swiper-slide(style="background-image:url(../../img/banner1.jpg)")
-                        .home__dark
-                          .home__title будь тверд и мужествен
-                          a(href='#').home__button start shopping
-                            span.home__button-inner
-                      .swiper-slide(style="background-image:url(../../img/banner2.jpg)")
-                        .home__dark
-                          .home__title будь тверд и мужествен
-                          a(href='#').home__button start shopping
-                            span.home__button-inner
-                      .swiper-slide(style="background-image:url(../../img/banner3.jpg)")
-                          .home__dark
-                            .home__title будь тверд и мужествен
-                            a(href='#').home__button start shopping
-                              span.home__button-inner
-                    .swiper-pagination
+        .home__slider
+          .swiper-container
+            .swiper-wrapper
+              .swiper-slide(style="background-image:url(../../img/banner1.jpg)")
+                .home__dark
+                  .home__title будь тверд и мужествен
+                  a(href='#').home__button start shopping
+                    span.home__button-inner
+              .swiper-slide(style="background-image:url(../../img/banner2.jpg)")
+                .home__dark
+                  .home__title будь тверд и мужествен
+                  a(href='#').home__button start shopping
+                    span.home__button-inner
+              .swiper-slide(style="background-image:url(../../img/banner3.jpg)")
+                  .home__dark
+                    .home__title будь тверд и мужествен
+                    a(href='#').home__button start shopping
+                      span.home__button-inner
+            .swiper-pagination
     include ../templates/footer.pug

@@ -71,7 +71,7 @@ $('document').ready(function(){
     slidesPerView:'auto',
     loop: true,
     autoplay: {
-      delay: 5000
+      delay: 7000
     },
     pagination: {
         el: '.swiper-pagination',

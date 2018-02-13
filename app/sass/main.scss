@@ -22,11 +22,14 @@
     &-child {
       display:none;
       position:absolute;
-      background-color: rgba($black-color, .6);
       left:0;
-      top:52px;
+      background: #fff;
+      border: 1px solid #ccc;
+      top:-10px;
       z-index: 1;
-      padding-top:20px;
+      padding-top:30px;
+      padding-left: 20px;
+      padding-right: 20px;
       padding-bottom:20px;
       right:0;
       line-height:1.5;
@@ -39,8 +42,13 @@
     &_has-child {
       position:relative;
       cursor:pointer;
+      background: #fff;
+      z-index: 50;
       &:hover > .nav__list-child {
         display:block;
+      }
+      &:hover > .header__link_has-child {
+        border-bottom: 2px solid #ccc;
       }
     }
     &:last-child .breadcumbs__link::after{
@@ -77,16 +85,18 @@
 
 // HEADER STYLE
 .header {
-  line-height: 85px;
   border-bottom:4px solid #cdcdcd;
   &__logo {
+    height: 85px;
+    display: flex;
+    align-items: center;
     position:relative;
     img:first-child {
       width:100%;
     }
   }
   &__line {
-    top: 45px;
+    top: 64px;
     position:absolute;
     left: 0;
     right: 0;
@@ -101,6 +111,26 @@
     transition: all .3s;
     &_child {
       padding:0;
+      line-height: 1; 
+      border-bottom: 1px solid transparent;
+      padding-bottom: 5px;
+      transition: all .3s;
+      &:hover {
+        border-bottom: 1px solid #ccc;
+      }
+      &:first-child {
+        padding-top: 20px;
+      }
+      &:last-child {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+    &_has-child {
+      z-index: 51;
+      padding-left: 10px;
+      border-bottom: 2px solid transparent;
+      padding-right: 10px;
     }
     &:hover:before, &:hover:after {
       width:50%;
@@ -127,7 +157,6 @@
     }
     &__nav {
       transition: all .5s;
-
     }
     .nav__item:first-child &__link {
       padding-left:0;
@@ -174,9 +203,9 @@
     z-index: 5;
     &_active {
       .header__hamburger {
-        background:$white-color;
+        background:$black-color;
         &:first-child,&:nth-child(2),&:nth-child(3) {
-          border-top:3.5px solid $white-color;
+          border-top:3.5px solid $black-color;
           margin:0;
         }
         &:first-child {
@@ -198,6 +227,13 @@
     border-top:3.5px solid $black-color;
     background-color:$black-color;
     margin-top:5px;
+  }
+  &__nav {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 }
 
@@ -243,10 +279,28 @@
       color:$white-color;
     }
   }
+  &__copyright {
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    color: $unactive-color;
+    &:hover {
+      color: $green-color;
+    }
+    &:focus {
+      color: $unactive-color;
+    }
+  }
 }
 
 .social-footer {
   margin-top: 20px;
+  &__inner {
+    padding-right: 15px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 }
 
 //GLOBAL SECTION STYLE

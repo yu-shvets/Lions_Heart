@@ -15,28 +15,34 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3 col-xs-12 col-sm-3">
-              <!-- LOGO--><a class="header__logo" href="#"><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.png"></a>
+              <!-- LOGO--><a class="header__logo" href="#"><span><img src="../../img/logo.jpg" alt="logo"><img class="header__line" src="../../img/header-line.jpg"></span></a>
             </div>
             <div class="col-md-9 col-xs-12 col-sm-12"><a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
               <!-- NAVIGATION-->
-              <nav class="nav header__nav"><span>
-                  <div class="header__additional">
-                    <form>
-                      <select class="header__select">
-                        <option>RU</option>
-                        <option>EN</option>
-                      </select>
-                      <div class="header__rate">$28.4</div>
-                    </form>
-                  </div>
-                  <ul class="nav__list nav__list_header">
-                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">Коллекции</a></li>
-                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
-                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
-                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
-                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
-                    <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
-                  </ul></span></nav>
+              <nav class="nav header__nav">
+                <div class="header__additional">
+                  <form>
+                    <select class="header__select">
+                      <option>RU</option>
+                      <option>EN</option>
+                    </select>
+                    <div class="header__rate">$28.4</div>
+                  </form>
+                </div>
+                <ul class="nav__list nav__list_header">
+                  <li class="nav__item nav__item_inline nav__item_has-child header__item"><span class="nav__link nav__link_dark nav__link_uppercase header__link header__link_has-child">наши коллекции </span>
+                    <!-- DROP-DOWN-->
+                    <ul class="nav__list nav__list-child align-center"> 
+                      <li class="nav__item header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link header__link_child" href="#">Мужская<br>Lion's heart</a><a class="nav__link nav__link_uppercase nav__link_dark header__link header__link_child" href="#">Женская<br>Revived</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">о нас</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">блог</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">контакты</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">уникальные подарки</a></li>
+                  <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="#">корзина</a></li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
@@ -223,8 +229,11 @@
             <div class="col-md-3 col-md-offset-5 align-right col-sm-6">
               <!--TELL-->
               <p class="footer__subtitle mt-20">Звоните</p><a class="footer__tel" href="tel:+380662223344">+38 (066) 222 33 44 </a>
-              <div class="footer__social social-footer"><a class="social-footer__inner" href="#" target="_blank"><img src="../../img/facebook.png" alt="facebook"></a></div>
+              <div class="footer__social social-footer"><a class="social-footer__inner" href="#" target="_blank"><img src="../../img/instagram.png" alt="facebook"></a><a class="social-footer__inner" href="#" target="_blank"><img src="../../img/facebook.png" alt="facebook"></a></div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"><a class="footer__copyright" href="https://gofriends.pro/ru/">All rights reserved GoFriends &copy; 2018</a></div>
           </div>
         </div>
       </footer>

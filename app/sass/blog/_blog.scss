@@ -2,7 +2,9 @@
   &__img {
     background-size:cover;
     background-position: center center;
-    width:260px;
+    width:100%;
+    float: left;
+  
     height:250px;
     position:relative;
   }
@@ -17,6 +19,10 @@
   }
   &__box  {
     display:block;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 25%;
     &:hover, &:focus, &:link {
       text-decoration: none;
       color:#9d9d9d;
@@ -25,9 +31,7 @@
   &__text {
     color:#9d9d9d;
     font-size:18px;
-    height:80px;
     overflow:hidden;
-    margin-bottom:45px;
   }
   &__single {
     &-date {
@@ -40,6 +44,26 @@
       background-repeat:no-repeat;
       background-size:cover;
       margin-bottom:45px;
+    }
+  }
+}
+
+.bottom-blog {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  &__date {
+    color: #ccc;
+  }
+  &-more {
+    color: $black-color;
+    text-transform: uppercase;
+    &:hover {
+      color: $black-color;
     }
   }
 }
