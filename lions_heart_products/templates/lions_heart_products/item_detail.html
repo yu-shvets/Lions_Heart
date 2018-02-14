@@ -29,15 +29,6 @@
         <div class="container">
 
 
-              {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-
-
           <div class="row">
             <!--PRODUCTS IMAGES-->
             <div class="col-md-4 col-md-offset-1">
@@ -58,26 +49,56 @@
             <!--PRODUCT DESCRIPTION-->
             <div class="col-md-6 col-md-offset-1">
               <h2 class="section__title">{{ item.title }}</h2>
-              <p class="section__title section__title_price">{{ item.price|convert }} {% trans 'UAH' %}</p>
-                 <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button">{% trans 'Add to cart' %}</button>
+
+                {% if item.get_first_attribute.sales_price %}
+                <p class="section__title section__title_price"><span id="sales_price">{{ item.get_first_attribute.sales_price|convert }}</span> {% trans 'UAH' %}</p>
+                <p class="section__title section__title_price" style="text-decoration: line-through"><span id="price">{{ item.get_first_attribute.price|convert }}</span> {% trans 'UAH' %}</p>
+                {% else %}
+                <p class="section__title section__title_price"><span id="price">{{ item.get_first_attribute.price|convert }}</span> {% trans 'UAH' %}</p>
+                {% endif %}
+
+          <form action="{% url 'add_item' %}" method="POST">
+                    {% csrf_token %}
+                <input type="hidden" name="size_id" id="size_id" value="{{ item.get_first_attribute.id }}">
+                <button data-href="{% url 'add_item' %}" class="button button_uppercase product__button cart__add">{% trans 'Add to cart' %}</button>
+            </form>
+
+              {% if item.attributes_set.all|length > 1 %}
+
+              <form style="margin-top: 20px" method="post" action="{% url 'update_size' item.pk %}">
+                            {% csrf_token %}
+                  <span id="id_size" class="section__text section__text_dark sp__item">{% trans 'Size: ' %}{% render_field form.size %}</span>
+
+              </form>
+
+              {% else %}
+
+                  {% if item.get_first_attribute.size %}<p class="section__text section__text_dark sp__item">{% trans 'Size:' %} {{ item.get_first_attribute.size }}</p>{% endif %}
+
+              {% endif %}
+
               <ul class="sp__list sp__list_padding">
-                {% if item.specs.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} {{ item.specs.weight }}</li>{% endif %}
-                {% if item.specs.size %}<li class="section__text section__text_dark sp__item">{% trans 'Size:' %} {{ item.specs.size }}</li>{% endif %}
-                {% if item.specs.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} {{ item.specs.diameter }}</li>{% endif %}
-                {% if item.specs.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %} {{ item.specs.length }}</li>{% endif %}
-                {% if item.specs.width %}<li class="section__text section__text_dark sp__item">{% trans 'Width, mm:' %} {{ item.specs.width }}</li>{% endif %}
-                {% if item.specs.height %}<li class="section__text section__text_dark sp__item">{% trans 'Height, mm:' %} {{ item.specs.height }}</li>{% endif %}
+                {% if item.get_first_attribute.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} <span id="weight">{{ item.get_first_attribute.weight }}</span></li>{% endif %}
+                {% if item.get_first_attribute.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} {{ item.get_first_attribute.diameter }}</li>{% endif %}
+                {% if item.get_first_attribute.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %} {{ item.get_first_attribute.length }}</li>{% endif %}
+                {% if item.get_first_attribute.width %}<li class="section__text section__text_dark sp__item">{% trans 'Width, mm:' %} {{ item.get_first_attribute.width }}</li>{% endif %}
+                {% if item.get_first_attribute.height %}<li class="section__text section__text_dark sp__item">{% trans 'Height, mm:' %} {{ item.get_first_attribute.height }}</li>{% endif %}
                 {% if item.specs.specs %}<li class="section__text section__text_dark sp__item">{{ item.specs.specs }}</li>{% endif %}
+                </ul>
 
-
-              </ul>
-             {% if item.description %}
+                {% if item.description %}
               <p class="section__text section__text_neutral sp__text align-center">{{ item.description }}</p>
                 {% endif %}
+
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 col-md-offset-6">
+
+
+
+
+
 
             <h3 class="section__text section__text_dark sp__list-title">{% trans 'Sales:' %}</h3>
               <ul class="sp__list">
@@ -98,8 +119,12 @@
                 <div class="col-md-3 align-center">
                 <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
                     <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
-                      <p class="section__text section__text_dark">{{ item.price|convert }}<span> {% trans 'UAH' %}</span></p>
-                      <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button">{% trans 'Add to cart' %}</button>
+                      {% if item.get_first_attribute.sales_price %}
+                       <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span></p>
+                      {% else %}
+                    <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span></p>
+                      {% endif %}
+                      <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
                     </div></span>
                 </div>
               </div>

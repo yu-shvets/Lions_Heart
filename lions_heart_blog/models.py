@@ -56,18 +56,7 @@ class CompanyInformation(models.Model):
                                           null=True,
                                           upload_to='company/pictures',
                                           verbose_name=_('about_image'))
-    center_banner = models.ImageField(blank=True,
-                                      null=True,
-                                      upload_to='company/pictures',
-                                      verbose_name=_('center_banner'))
-    left_banner = models.ImageField(blank=True,
-                                    null=True,
-                                    upload_to='company/pictures',
-                                    verbose_name=_('left_banner'))
-    right_banner = models.ImageField(blank=True,
-                                     null=True,
-                                     upload_to='company/pictures',
-                                     verbose_name=_('right_banner'))
+    banner_title = models.CharField(max_length=256, blank=True, null=True)
 
 
 class Phone(models.Model):
@@ -106,6 +95,7 @@ class Banners(models.Model):
 
     image = models.ImageField(upload_to='company/pictures', verbose_name='banner')
     company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
+    is_revived = models.BooleanField(default=False)
 
     def __str__(self):
         return "{}".format(self.image)

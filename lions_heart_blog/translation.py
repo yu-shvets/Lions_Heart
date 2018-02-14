@@ -9,7 +9,8 @@ class PostTranslationOptions(TranslationOptions):
 
 @register(CompanyInformation)
 class CompanyInformationTranslationOptions(TranslationOptions):
-    fields = ('about',)
+    fields = ('about', 'banner_title')
+
 
 @register(Address)
 class AddressTranslationOptions(TranslationOptions):

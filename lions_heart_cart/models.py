@@ -37,6 +37,7 @@ class OrderItem(models.Model):
 
     item = models.ForeignKey(Item, verbose_name=_('Item'), on_delete=models.CASCADE)
     quantity = models.IntegerField(verbose_name=_('quantity'))
+    size = models.FloatField(blank=True, null=True)
     price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('price'))
     order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name=_('order'))
 

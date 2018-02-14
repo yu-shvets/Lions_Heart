@@ -1,5 +1,5 @@
 from django.contrib import admin
-from lions_heart_products.models import Category, Item, Image, Collection, Specs, CurrencyRate
+from lions_heart_products.models import Category, Item, Image, Collection, Specs, CurrencyRate, Attributes
 
 admin.site.register(Category)
 admin.site.register(Image)
@@ -16,14 +16,14 @@ class SpecsInline(admin.TabularInline):
     extra = 0
 
 
-# class SizesInline(admin.TabularInline):
-#     model = Sizes
-#     extra = 0
+class AttributesInline(admin.TabularInline):
+    model = Attributes
+    extra = 0
 
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    inlines = (ImageInline, SpecsInline)
+    inlines = (AttributesInline, ImageInline, SpecsInline)
     ordering = ['collection', 'category', 'title']
 
 

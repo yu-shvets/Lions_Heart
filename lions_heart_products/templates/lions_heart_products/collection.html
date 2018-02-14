@@ -35,8 +35,8 @@
       <nav class="nav align-right">
                        <ul class="nav__list">
                         {% for category in categories %}
-                            {% if collects.pk == 1 and category.lions_heart_present == False %}
-                                {% elif collects.pk == 2 and category.revived_present == False %}
+                            {% if collects.pk == lions_heart.pk and category.lions_heart_present == False %}
+                                {% elif collects.pk == revived.pk and category.revived_present == False %}
                              {% else %}
                          <li class="nav__item nav__item_inline">
                            <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE-->{% autoescape off %}{% get_category 'collection_category' request collects.pk category.pk %}{% endautoescape %}{{ category.title }}</a>
@@ -53,7 +53,9 @@
           <div class="row">
             <div class="col-md-3 align-center">
               <div class="catalog__main"><span>
-                  <div class="section__subtitle">{% trans 'Collection' %}<br></div><img src="{{ collects.logo_image.url }}">
+                  <div class="section__subtitle">{% if collects.pk == revived.pk %}{% trans "Women's" %}
+                  {% else %}{% trans "Men's" %}{% endif %}<br>{% trans 'Collection' %}<br>
+                  </div><img src="{{ collects.logo_image.url }}">
                   <p class="section__text section__text_neutral mt-30">{{ collects.description }}</p></span></div>
             </div>
 
@@ -62,9 +64,12 @@
             <div class="col-md-3 align-center">
               <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
-                    <p class="section__text section__text_dark">
-                        {{ item.price|convert }}<span> {% trans 'UAH' %}</span></p>
-                   <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button">{% trans 'Add to cart' %}</button>
+                    {% if item.get_first_attribute.sales_price %}
+                       <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span></p>
+                      {% else %}
+                    <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span></p>
+                      {% endif %}
+                   <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
                   </div>
               </span>
               </div>

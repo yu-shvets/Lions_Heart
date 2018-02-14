@@ -43,16 +43,16 @@
                 <div class="ordering__item-header">
                   <h3 class="ordering__subtitle ordering__subtitle_p0">{% trans 'Your order' %}</h3>
 
-                  {% for item in cart %}
+                  {% for item in cart_items %}
 
-                  <div class="ordering__good"><a class="section__text section__text_neutral ordering__sp" href="{% url 'item' item.item.pk %}">{{ item.item.title }}</a><span class="section__text section__text-dark">{{ item.total_price }} {% trans 'UAH' %}</span></div>
+                  <div class="ordering__good"><a class="section__text section__text_neutral ordering__sp" href="{% url 'item' item.attributes.item.pk %}">{{ item.attributes.item.title }}</a><span class="section__text section__text-dark">{{ item.total_price }} {% trans 'UAH' %}</span></div>
 
 
                    {% endfor %}
                 </div>
                 <div class="ordering__item-body align-center">
                   <p class="section__text section__text_dark section__text_mb-0">{% trans 'Total cost' %}</p>
-                  <p class="ordering__title">{{ cart.get_total_price }} {% trans 'UAH' %}</p>
+                  <p class="ordering__title">{{ cart_total }} {% trans 'UAH' %}</p>
                 </div>
 
 

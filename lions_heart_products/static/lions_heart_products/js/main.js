@@ -41,20 +41,23 @@ $('document').ready(function(){
 
   var update_q = $('.update_q');
 
-    update_q.on('input', function(e){
+    update_q.on('change', function(e){
 
         var form = $(this).parent('form');
         var id = form.attr('id').split('-')[1];
 
+        console.log(67576);
+
         $.ajax({
             url : form.attr('action'),
-            type : "POST",
             data : form.serialize(),
+            method: 'post',
 
             success: function(json){
                 $('#quantity-' + id).text(json.quantity);
                 $('#sum-' + id).text(json.sum);
                 $('#total_price').text(json.total_price);
+                console.log(json);
             },
             error: function(e){
                 console.log(e);
@@ -73,7 +76,26 @@ $('document').ready(function(){
     }
   });
 
-  $('.product__button').on('click', function(){
+    $('.cart__add').on('click', function(e){
+      e.preventDefault();
+
+    var form = $(this).parents('form');
+
+    var element = $(this);
+    $.ajax({
+        url: form.attr('action'),
+        data: form.serialize(),
+        method: 'post',
+
+        success: function (json) {
+            $('#cart_items').text(json.items);
+        }
+      })
+    });
+
+    $('.cart__catalogue').on('click', function(e){
+      e.preventDefault();
+
     var element = $(this);
     $.ajax({
         url: $(this).data('href'),
@@ -101,7 +123,27 @@ $('document').ready(function(){
     }, 1000, function() {
       $(this).remove();
     })
-  })
+  });
+
+  $('#id_size').change(function(e){
+        var form = $(this).parent('form');
+        $.ajax({
+            url : form.attr('action'),
+            type : "POST",
+            data : form.serialize(),
+
+            success: function(json){
+                console.log(json);
+                $('#price').text(json.price);
+                $('#sales_price').text(json.sales_price);
+                $('#weight').text(json.weight);
+                $('#size_id').val(json.size_id);
+            },
+            error: function(e){
+                console.log(e);
+            }
+        });
+    });
 
 });
 
@@ -115,25 +157,12 @@ $('document').ready(function(){
     },
     pagination: {
       el: '.swiper-pagination',
-      clickable: true,
+      clickable: true
     },
     navigation: {
       nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+      prevEl: '.swiper-button-prev'
+    }
   });
 })();
 
-$('.like').on('click', function(event) {
-    event.preventDefault();
-    var element = $(this);
-    $.ajax({
-        url: 'like',
-        type: 'GET',
-        data: {post_id: element.attr('data-id')},
-
-        success: function(response){
-            element.html('Like: ' + response);
-        }
-    });
-});

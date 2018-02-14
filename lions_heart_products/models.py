@@ -68,14 +68,17 @@ class Item(CommonInfo):
     collection = models.ForeignKey(Collection, null=True, on_delete=models.CASCADE, verbose_name=_('сollection'))
     recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
     sales = models.IntegerField(verbose_name=_('sales'), blank=True, null=True)
-    sales_price = models.DecimalField(max_digits=11, decimal_places=2,
-                                      blank=True, null=True, verbose_name='sales price')
     is_not_leather_chain = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if self.sales:
-            self.sales_price = self.price - self.price * self.sales / 100
+            for item in self.attributes_set.all():
+                item.sales_price = item.price - item.price * self.sales / 100
+                item.save()
         super().save(*args, **kwargs)
+
+    def get_first_attribute(self):
+        return Attributes.objects.filter(item=self).first()
 
     def __str__(self):
         return "{}-{}-{}".format(self.collection, self.category, self.title)
@@ -108,6 +111,24 @@ class Specs(models.Model):
     height = models.FloatField(blank=True, null=True, verbose_name=_('height, mm'))
     specs = models.TextField(blank=True, null=True, verbose_name=_('other specs'))
     item = models.OneToOneField(Item, on_delete=models.CASCADE)
+
+
+class Attributes(models.Model):
+
+    class Meta(object):
+        verbose_name = "Attribute"
+        verbose_name_plural = "Attributes"
+
+    size = models.FloatField(blank=True, null=True)
+    weight = models.FloatField(blank=True, null=True, verbose_name='weight, gr')
+    price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name='price')
+    sales_price = models.DecimalField(max_digits=11, decimal_places=2,
+                                      blank=True, null=True, verbose_name='sales price')
+    diameter = models.FloatField(blank=True, null=True, verbose_name='diameter, mm')
+    length = models.FloatField(blank=True, null=True, verbose_name='length, mm')
+    width = models.FloatField(blank=True, null=True, verbose_name='width, mm')
+    height = models.FloatField(blank=True, null=True, verbose_name='height, mm')
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
 
 
 class CurrencyRate(CommonInfo):

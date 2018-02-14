@@ -57,14 +57,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <!-- LOGO--><a class="header__logo" href="{% url 'home' %}"><img src="{% static "lions_heart_products/img/logo.jpg" %}" alt="logo"><img class="header__line" src="{% static "lions_heart_products/img/header-line.png" %}"></a>
+              <!-- LOGO--><a class="header__logo" href="{% url 'home' %}">
+              <span><img src="{% static "lions_heart_products/img/logo.jpg" %}" alt="logo">
+                  <img class="header__line" src="{% static "lions_heart_products/img/header-line.jpg" %}"></span></a>
           </div>
           <div class="col-md-9 col-xs-12 col-sm-12">
 
           {% load i18n %}
 
 
-            <a class="header__mobile" href="#"><span class="header__hamburger"></span><span class="header__hamburger"></span><span class="header__hamburger"></span></a>
+            <a class="header__mobile" href="#"><span class="header__hamburger"></span>
+                <span class="header__hamburger"></span><span class="header__hamburger"></span></a>
             <!-- NAVIGATION-->
             <nav class="nav header__nav">
                 <div class="header__additional">
@@ -85,11 +88,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </form>
         </div>
 
-
               <ul class="nav__list nav__list_header">
 
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.0.pk %}">{{ collections.0 }}</a></li>
-                <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'collection' collections.1.pk %}">{{ collections.1 }}</a></li>
+                  <li class="nav__item nav__item_inline nav__item_has-child header__item"><span class="nav__link nav__link_dark nav__link_uppercase header__link header__link_has-child">{% trans 'Our collections' %}</span>
+                   <!-- DROP-DOWN-->
+                   <ul class="nav__list nav__list-child align-center">
+                       <li class="nav__item header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link header__link_child" href="{% url 'collection' lions_heart.pk %}">{% trans "Men's" %}<br>{{ lions_heart }}</a>
+                         <a class="nav__link nav__link_uppercase nav__link_dark header__link header__link_child" href="{% url 'collection' revived.pk %}">{% trans "Women's" %}<br>{{ revived }}</a></li>
+                   </ul>
+                    </li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'about' %}">{% trans 'About' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'blog' %}">{% trans 'Blog' %}</a></li>
                 <li class="nav__item nav__item_inline header__item"><a class="nav__link nav__link_uppercase nav__link_dark header__link" href="{% url 'contacts' %}">{% trans 'Contacts' %}</a></li>
@@ -109,18 +116,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- MAIN CONTENT-->
     <main class="main">
       <section class="home">
-        <div class="container">
-          <div class="row">
-
-              <div class="col-md-12">
-                <div class="home__slider">
+        <div class="home__slider">
                   <div class="swiper-container">
                     <div class="swiper-wrapper">
 
                         {% for banner in company_info.banners_set.all %}
                         <div class="swiper-slide" style="background-image:url({{ banner.image.url }});">
                       <div class="home__dark">
-                          <div class="home__title">{{ collections.0.description }}</div><a class="home__button" href="{% url 'collection' collections.0.pk %}">{% trans 'start shopping' %}<span class="home__button-inner"></span></a>
+                          <div class="home__title">{{ company_info.banner_title }}</div>
+                          <a class="home__button" {% if banner.is_revived %}
+                             href="{% url 'collection' revived.pk %}"
+                             {% else %}
+                             href="{% url 'collection' lions_heart.pk %}"
+                             {% endif %}>
+                              {% trans 'start shopping' %}<span class="home__button-inner"></span></a>
                         </div>
                       </div>
                         {% endfor %}
@@ -146,7 +155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="nav nav_footer">
               <ul class="nav__list">
                    {% for category in categories_first %}
-                {% if category.lions_heart_present %}<li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'collection_category' 1 category.pk  %}">{{ category.title }}</a></li>{% endif %}
+                {% if category.lions_heart_present %}<li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'collection_category' lions_heart.pk category.pk  %}">{{ category.title }}</a></li>{% endif %}
                    {% endfor %}
               </ul>
             </nav>
@@ -158,7 +167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="nav nav_footer">
               <ul class="nav__list">
                    {% for category in categories_second %}
-                {% if category.lions_heart_present %}<li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'collection_category' 1 category.pk  %}">{{ category.title }}</a></li>{% endif %}
+                {% if category.lions_heart_present %}<li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'collection_category' lions_heart.pk category.pk  %}">{{ category.title }}</a></li>{% endif %}
                    {% endfor %}
               <li class="nav__item footer__item"><a class="nav__link nav__link_light nav__link_uppercase footer__link" href="{% url 'sales' %}">{% trans 'Sales' %}</a></li>
               </ul>
@@ -180,9 +189,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="col-md-3 col-md-offset-3 align-right">
             <!--TELL-->
             <p class="footer__subtitle mt-20">{% trans 'Call' %}</p><a class="footer__tel" href="tel:{{ company_info.phone_set.all.0.phone }}">{{ company_info.phone_set.all.0.phone }}</a>
-               <div class="footer__social social-footer"><a class="social-footer__inner" href="https://www.facebook.com/LionsHeartJewellery/" target="_blank"><img src="{% static "lions_heart_products/img/facebook.png" %}" alt="facebook"></a></div>
+               <div class="footer__social social-footer">
+                   <a class="social-footer__inner" href="#" target="_blank"><img src="{% static "lions_heart_products/img/instagram.png" %}" alt="facebook"></a>
+                   <a class="social-footer__inner" href="https://www.facebook.com/LionsHeartJewellery/" target="_blank"><img src="{% static "lions_heart_products/img/facebook.png" %}" alt="facebook"></a>
+               </div>
           </div>
         </div>
+
+      <div class="row">
+           <div class="col-md-12"><a class="footer__copyright" href="https://gofriends.pro/ru/">All rights reserved GoFriends &copy; 2018</a></div>
+         </div>
+
       </div>
     </footer>
     <script src="{% static "lions_heart_products/js/libs.min.js" %}"></script>

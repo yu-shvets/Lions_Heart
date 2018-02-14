@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-09 10:18+0000\n"
+"POT-Creation-Date: 2018-02-13 15:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,11 +71,11 @@ msgstr ""
 msgid "quantity"
 msgstr ""
 
-#: lions_heart_cart/models.py:40
+#: lions_heart_cart/models.py:41
 msgid "price"
 msgstr ""
 
-#: lions_heart_cart/models.py:41
+#: lions_heart_cart/models.py:42
 msgid "order"
 msgstr ""
 
@@ -95,32 +95,32 @@ msgstr "Ціна"
 msgid "Cost"
 msgstr "Вартість"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:64
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:68
 msgid "Cart is empty"
 msgstr "Кошик порожній"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:75
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:79
 #: lions_heart_cart/templates/lions_heart_cart/order.html:54
 msgid "Total cost"
 msgstr "Загальна вартість"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:76
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:97
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:80
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:100
 #: lions_heart_cart/templates/lions_heart_cart/order.html:48
 #: lions_heart_cart/templates/lions_heart_cart/order.html:55
 msgid "UAH"
 msgstr "грн"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:77
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:81
 #: lions_heart_cart/templates/lions_heart_cart/order.html:31
 msgid "Checkout"
 msgstr "Оформити замовлення"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:89
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:93
 msgid "Recommended items"
 msgstr "Рекомендовані товари"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:98
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:101
 msgid "Add to cart"
 msgstr "Додати у кошик"
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "LiqPay payment"
 msgstr "Оплата через LiqPay"
 
-#: lions_heart_cart/views.py:135
+#: lions_heart_cart/views.py:162
 msgid ""
 "Phone number must be entered in the format: '+380441234567'. Up to 12 digits "
 "allowed."

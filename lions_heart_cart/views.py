@@ -1,6 +1,5 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect, redirect, get_object_or_404
 from .cart import Cart
-from lions_heart_products.models import Item
 from django.shortcuts import get_object_or_404
 from .models import Order, OrderItem
 from .forms import CartAddProductForm, OrderForm
@@ -12,57 +11,80 @@ from django.utils.translation import ugettext as _
 from django.core.mail import send_mail
 from django.conf import settings
 from libs.liqpay import LiqPay
-from lions_heart_products.models import Item
-from django import forms
+from lions_heart_products.models import Item, Attributes
 
 
-def check_recommended(cart):
-    for i in cart:
-        if i['item'].recommended_items.all():
-            return True
-    return False
+def get_recommended(request):
+    cart_items = get_cart(request)
+    products = [item['attributes'].item for item in cart_items]
+    recommended = []
+    for product in products:
+        if product.recommended_items.all():
+            for item in product.recommended_items.all():
+                if item not in products and item not in recommended:
+                    recommended.append(item)
+    return recommended
+
+
+def get_cart(request):
+    cart_items = []
+    cart = Cart(request)
+    for item in cart:
+        attributes = Attributes.objects.get(id=int(item))
+        quantity = cart[item]['quantity']
+        cart_items.append({'attributes': attributes, 'quantity': quantity,
+                           'total_price': cart.item_sum(str(attributes.id))})
+    return cart_items
 
 
 def cart_view(request):
     cart = Cart(request)
-    recommended = check_recommended(cart)
-    total_price = cart.get_total_price()
+    cart_items = get_cart(request)
+    cart_total = cart.get_total()
     form = CartAddProductForm()
-    return render(request, 'lions_heart_cart/cart.html', {'cart': cart, 'total_price': total_price,
-                                                          'form': form, 'recommended': recommended})
+    recommended = get_recommended(request)
+    products = [item['attributes'].item for item in cart_items]
+    return render(request, 'lions_heart_cart/cart.html', {'cart_items': cart_items, 'cart_total': cart_total,
+                                                'form': form, 'recommended': recommended, 'products': products})
 
 
-def add_to_cart(request, item_id):
+def add_to_cart(request, attributes_id):
     cart = Cart(request)
     response_data = {}
-    item = get_object_or_404(Item, id=item_id)
-    cart.add(item=item)
-    # messages.success(request, _('The item was successfully added to cart'))
-    # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    cart.add(attributes_id)
     response_data['items'] = cart.cart_len()
     return JsonResponse(response_data)
 
 
-def cart_remove(request, item_id):
+def add_to_cart_size(request):
+    attributes_id = request.POST.get('size_id', False)
+    return add_to_cart(request, attributes_id)
+
+
+def add_to_cart_catalogue(request, item_id):
+    item = get_object_or_404(Item, id=int(item_id))
+    attributes_id = str(item.get_first_attribute().id)
+    return add_to_cart(request, attributes_id)
+
+
+def cart_remove(request, attributes_id):
     cart = Cart(request)
-    item = get_object_or_404(Item, id=item_id)
-    cart.remove(item)
+    cart.remove(attributes_id)
     return HttpResponseRedirect(reverse('cart'))
 
 
-def update_quantity(request, item_id):
+def update_quantity(request, attributes_id):
     cart = Cart(request)
-    item = get_object_or_404(Item, id=item_id)
     response_data = {}
     if request.method == 'POST':
         new_quantity = (request.POST['new_quantity'])
         if new_quantity.isnumeric():
             new_quantity = int(new_quantity)
             if 0 < new_quantity <= 100:
-                cart.update(item, new_quantity)
+                cart.update(attributes_id, quantity=new_quantity)
                 response_data['quantity'] = new_quantity
-                response_data['sum'] = cart.sum_item(item, new_quantity)
-                response_data['total_price'] = cart.get_total_price()
+                response_data['sum'] = cart.item_sum(attributes_id)
+                response_data['total_price'] = cart.get_total()
     return JsonResponse(response_data)
 
 
@@ -71,13 +93,14 @@ class OrderView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(OrderView, self).get_context_data(**kwargs)
-        context['cart'] = Cart(self.request)
+        context['cart_items'] = get_cart(self.request)
+        context['cart_total'] = Cart(self.request).get_total()
         context['form'] = OrderForm()
         return context
 
     def dispatch(self, request, *args, **kwargs):
         cart = Cart(self.request)
-        if not cart.get_total_price():
+        if not cart.get_total():
             return redirect('home')
 
         return super(OrderView, self).dispatch(request, *args, **kwargs)
@@ -104,14 +127,18 @@ class OrderCreate(CreateView):
     def form_valid(self, form):
         cart = Cart(self.request)
         self.obj = form.save(commit=False)
-        self.obj.total_cost = cart.get_total_price()
+        self.obj.total_cost = cart.get_total()
         self.obj.save()
         message = 'New order #{}\n\n'.format(self.obj.id)
-        for element in cart:
-            order_item = OrderItem(item=element['item'], quantity=element['quantity'],
-                                   price=element['price'], order=self.obj)
+        cart_items = get_cart(self.request)
+        for element in cart_items:
+            value = element['attributes'].sales_price \
+                if element['attributes'].sales_price else element['attributes'].price
+            order_item = OrderItem(item=element['attributes'].item, quantity=element['quantity'],
+                                   size=element['attributes'].size, price=value, order=self.obj)
             order_item.save()
-            message += str(element['item']) + ' ' + '-' + ' ' + str(element['quantity']) + 'pcs' + ' ' + '-' + ' ' + str(element['price']) + 'UAH' + '\n\n'
+            message += str(element['attributes'].item) + ' ' + '-' + ' ' + str(element['quantity']) \
+                       + 'pcs' + ' ' + '-' + ' ' + str(value) + 'UAH' + '\n\n'
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
         send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])

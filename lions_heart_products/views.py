@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import Item, Category, Collection
+from .models import Item, Category, Collection, Attributes, Specs
+from .forms import AttributesForm
+from django.http import JsonResponse
+from lions_heart_products.templatetags.mytemplatetags import get_rate
+from decimal import Decimal
 
 
 class HomeView(TemplateView):
@@ -73,3 +77,45 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = 'lions_heart_products/item_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ItemDetailView, self).get_context_data(**kwargs)
+        context['form'] = AttributesForm(pk=self.kwargs.get('pk'))
+        return context
+
+
+def update_size(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    response_data = {}
+    rate = get_rate()
+    if request.method == 'POST':
+        chosen_size = request.POST['size']
+        attributes = Attributes.objects.filter(size=chosen_size, item=item).first()
+        response_data['price'] = Decimal(round(float(attributes.price) * rate)).quantize(Decimal('.00'))
+        if attributes.sales_price:
+            response_data['sales_price'] = Decimal(round(float(attributes.sales_price) * rate)).quantize(Decimal('.00'))
+        response_data['weight'] = str(attributes.weight)
+        response_data['size_id'] = attributes.id
+    return JsonResponse(response_data)
+
+
+def copy(request):
+    items = Item.objects.all()
+    for item in items:
+        attribute = Attributes(price=item.price, item=item)
+        try:
+            if item.specs.weight:
+                attribute.weight = item.specs.weight
+            if item.specs.size:
+                attribute.size = item.specs.size
+            if item.specs.diameter:
+                attribute.diameter = item.specs.diameter
+            if item.specs.length:
+                attribute.length = item.specs.length
+            if item.specs.width:
+                attribute.width = item.specs.width
+            if item.specs.height:
+                attribute.width = item.specs.height
+        except:
+            pass
+        attribute.save()
+    return HttpResponseRedirect(reverse('success'))
