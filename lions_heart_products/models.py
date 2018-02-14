@@ -103,12 +103,6 @@ class Specs(models.Model):
         verbose_name = _("Specs")
         verbose_name_plural = _("Specs")
 
-    weight = models.FloatField(blank=True, null=True, verbose_name=_('weight, gr'))
-    size = models.FloatField(blank=True, null=True, verbose_name=_('size'))
-    diameter = models.FloatField(blank=True, null=True, verbose_name=_('diameter, mm'))
-    length = models.FloatField(blank=True, null=True, verbose_name=_('length, mm'))
-    width = models.FloatField(blank=True, null=True, verbose_name=_('width, mm'))
-    height = models.FloatField(blank=True, null=True, verbose_name=_('height, mm'))
     specs = models.TextField(blank=True, null=True, verbose_name=_('other specs'))
     item = models.OneToOneField(Item, on_delete=models.CASCADE)
 

@@ -129,7 +129,9 @@ class OrderCreate(CreateView):
         self.obj = form.save(commit=False)
         self.obj.total_cost = cart.get_total()
         self.obj.save()
-        message = 'New order #{}\n\n'.format(self.obj.id)
+        message = 'New order #{}\n\n'.format(self.obj.id) + 'Name: {}\n\n'.format(self.obj.customer_name) + \
+                  'E-mail: {}\n\n'.format(self.obj.customer_email) + 'Phone: {}\n\n'.format(self.obj.phone) + \
+                  'Payment type: {}\n\n'.format(self.obj.payment_type)
         cart_items = get_cart(self.request)
         for element in cart_items:
             value = element['attributes'].sales_price \
@@ -137,8 +139,9 @@ class OrderCreate(CreateView):
             order_item = OrderItem(item=element['attributes'].item, quantity=element['quantity'],
                                    size=element['attributes'].size, price=value, order=self.obj)
             order_item.save()
-            message += str(element['attributes'].item) + ' ' + '-' + ' ' + str(element['quantity']) \
-                       + 'pcs' + ' ' + '-' + ' ' + str(value) + 'UAH' + '\n\n'
+            size = 'size:' + str(element['attributes'].size) + ' - ' if element['attributes'].size else ''
+            message += str(element['attributes'].item) + ' - ' + str(element['quantity']) \
+                       + 'pcs' + ' - ' + size + str(value) + 'UAH' + '\n\n'
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
         send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])

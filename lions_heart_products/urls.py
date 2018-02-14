@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import HomeView, ItemDetailView, CollectionListView, CategoryCollectionListView, \
-    SalesListView, CollectionSalesListView, update_size, copy
+    SalesListView, CollectionSalesListView, update_size
 
 
 urlpatterns = [
@@ -16,6 +16,4 @@ urlpatterns = [
 
     url(r'^catalogue/items/(?P<pk>\d+)/$', ItemDetailView.as_view(), name='item'),
     url(r'^update_size/(?P<item_id>\d+)/$', update_size, name='update_size'),
-
-    url(r'^copy/$', copy, name='copy'),
                 ]

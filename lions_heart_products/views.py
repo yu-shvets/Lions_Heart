@@ -94,28 +94,9 @@ def update_size(request, item_id):
         if attributes.sales_price:
             response_data['sales_price'] = Decimal(round(float(attributes.sales_price) * rate)).quantize(Decimal('.00'))
         response_data['weight'] = str(attributes.weight)
+        response_data['diameter'] = str(attributes.diameter)
+        response_data['width'] = str(attributes.width)
+        response_data['height'] = str(attributes.height)
+        response_data['length'] = str(attributes.length)
         response_data['size_id'] = attributes.id
     return JsonResponse(response_data)
-
-
-def copy(request):
-    items = Item.objects.all()
-    for item in items:
-        attribute = Attributes(price=item.price, item=item)
-        try:
-            if item.specs.weight:
-                attribute.weight = item.specs.weight
-            if item.specs.size:
-                attribute.size = item.specs.size
-            if item.specs.diameter:
-                attribute.diameter = item.specs.diameter
-            if item.specs.length:
-                attribute.length = item.specs.length
-            if item.specs.width:
-                attribute.width = item.specs.width
-            if item.specs.height:
-                attribute.width = item.specs.height
-        except:
-            pass
-        attribute.save()
-    return HttpResponseRedirect(reverse('success'))

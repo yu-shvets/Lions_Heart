@@ -11,7 +11,7 @@ class ImageInline(admin.TabularInline):
     extra = 0
 
 
-class SpecsInline(admin.TabularInline):
+class SpecsInline(admin.StackedInline):
     model = Specs
     extra = 0
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 15:52+0000\n"
+"POT-Creation-Date: 2018-02-14 10:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,7 +114,8 @@ msgid "Total cost"
 msgstr "Итого к оплате"
 
 #: lions_heart_cart/templates/lions_heart_cart/cart.html:80
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:100
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:101
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:103
 #: lions_heart_cart/templates/lions_heart_cart/order.html:48
 #: lions_heart_cart/templates/lions_heart_cart/order.html:55
 msgid "UAH"
@@ -129,7 +130,7 @@ msgstr "Оформить заказ"
 msgid "Recommended items"
 msgstr "Рекомендуем к выбранным вами товарам"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:101
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:105
 msgid "Add to cart"
 msgstr ""
 

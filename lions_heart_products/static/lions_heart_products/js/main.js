@@ -137,6 +137,10 @@ $('document').ready(function(){
                 $('#price').text(json.price);
                 $('#sales_price').text(json.sales_price);
                 $('#weight').text(json.weight);
+                $('#diameter').text(json.diameter);
+                $('#width').text(json.width);
+                $('#height').text(json.height);
+                $('#length').text(json.length);
                 $('#size_id').val(json.size_id);
             },
             error: function(e){

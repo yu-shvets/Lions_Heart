@@ -3,7 +3,6 @@
 
 {% block content %}
 
-    <a href="{% url 'copy' %}">Copy</a>
 
 <!-- MAIN CONTENT-->
     <main class="main">
@@ -29,7 +28,7 @@
                 </div>
                 <div class="blog__bottom bottom-blog">
                     <div class="bottom-blog__date">{{ post.created|date:'d-m-Y'}}</div>
-                    <a class="bottom-blog-more" href="{% url 'blog_detail' post.pk  %}">read more</a>
+                    <a class="bottom-blog-more" href="{% url 'blog_detail' post.pk  %}">{% trans 'read more' %}</a>
                </div>
               </div>
 

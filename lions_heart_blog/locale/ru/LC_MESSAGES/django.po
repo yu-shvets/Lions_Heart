@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 15:52+0000\n"
+"POT-Creation-Date: 2018-02-14 10:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgstr "Изображение"
 msgid "Images"
 msgstr "Изображения"
 
-#: lions_heart_blog/models.py:41 lions_heart_blog/models.py:94
+#: lions_heart_blog/models.py:41 lions_heart_blog/models.py:83
 msgid "image"
 msgstr "изображение"
 
@@ -90,23 +90,11 @@ msgstr "о компании"
 msgid "about_image"
 msgstr "изображение"
 
-#: lions_heart_blog/models.py:62
-msgid "center_banner"
-msgstr ""
-
-#: lions_heart_blog/models.py:66
-msgid "left_banner"
-msgstr ""
-
-#: lions_heart_blog/models.py:70
-msgid "right_banner"
-msgstr ""
-
-#: lions_heart_blog/models.py:91
+#: lions_heart_blog/models.py:80
 msgid "Diploma"
 msgstr ""
 
-#: lions_heart_blog/models.py:92
+#: lions_heart_blog/models.py:81
 msgid "Diplomas"
 msgstr ""
 
@@ -114,9 +102,13 @@ msgstr ""
 msgid "About"
 msgstr "О компании"
 
-#: lions_heart_blog/templates/lions_heart_blog/blog.html:12
+#: lions_heart_blog/templates/lions_heart_blog/blog.html:13
 msgid "Blog"
 msgstr "Блог"
+
+#: lions_heart_blog/templates/lions_heart_blog/blog.html:31
+msgid "read more"
+msgstr "читать далее"
 
 #: lions_heart_blog/templates/lions_heart_blog/contacts.html:14
 msgid "Contacts"

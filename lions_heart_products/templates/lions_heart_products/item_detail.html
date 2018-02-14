@@ -63,26 +63,27 @@
                 <button data-href="{% url 'add_item' %}" class="button button_uppercase product__button cart__add">{% trans 'Add to cart' %}</button>
             </form>
 
+              <ul class="sp__list sp__list_padding">
+              {% if item.get_first_attribute.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} <span id="weight">{{ item.get_first_attribute.weight }}</span></li>{% endif %}
+
               {% if item.attributes_set.all|length > 1 %}
 
-              <form style="margin-top: 20px" method="post" action="{% url 'update_size' item.pk %}">
+              <li class="section__text section__text_dark sp__item"><form method="post" action="{% url 'update_size' item.pk %}">
                             {% csrf_token %}
-                  <span id="id_size" class="section__text section__text_dark sp__item">{% trans 'Size: ' %}{% render_field form.size %}</span>
+                  <span id="id_size">{% trans 'Size: ' %}{% render_field form.size %}</span>
 
-              </form>
+              </form></li>
 
               {% else %}
 
-                  {% if item.get_first_attribute.size %}<p class="section__text section__text_dark sp__item">{% trans 'Size:' %} {{ item.get_first_attribute.size }}</p>{% endif %}
+                  {% if item.get_first_attribute.size %}<li class="section__text section__text_dark sp__item">{% trans 'Size:' %} {{ item.get_first_attribute.size }}</li>{% endif %}
 
               {% endif %}
 
-              <ul class="sp__list sp__list_padding">
-                {% if item.get_first_attribute.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} <span id="weight">{{ item.get_first_attribute.weight }}</span></li>{% endif %}
-                {% if item.get_first_attribute.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} {{ item.get_first_attribute.diameter }}</li>{% endif %}
-                {% if item.get_first_attribute.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %} {{ item.get_first_attribute.length }}</li>{% endif %}
-                {% if item.get_first_attribute.width %}<li class="section__text section__text_dark sp__item">{% trans 'Width, mm:' %} {{ item.get_first_attribute.width }}</li>{% endif %}
-                {% if item.get_first_attribute.height %}<li class="section__text section__text_dark sp__item">{% trans 'Height, mm:' %} {{ item.get_first_attribute.height }}</li>{% endif %}
+                {% if item.get_first_attribute.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} <span id="diameter">{{ item.get_first_attribute.diameter }}</span></li>{% endif %}
+                {% if item.get_first_attribute.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %} <span id="length">{{ item.get_first_attribute.length }}</span></li>{% endif %}
+                {% if item.get_first_attribute.width %}<li class="section__text section__text_dark sp__item">{% trans 'Width, mm:' %} <span id="width">{{ item.get_first_attribute.width }}</span></li>{% endif %}
+                {% if item.get_first_attribute.height %}<li class="section__text section__text_dark sp__item">{% trans 'Height, mm:' %} <span id="height">{{ item.get_first_attribute.height }}</span></li>{% endif %}
                 {% if item.specs.specs %}<li class="section__text section__text_dark sp__item">{{ item.specs.specs }}</li>{% endif %}
                 </ul>
 
@@ -94,10 +95,6 @@
           </div>
           <div class="row">
             <div class="col-md-6 col-md-offset-6">
-
-
-
-
 
 
             <h3 class="section__text section__text_dark sp__list-title">{% trans 'Sales:' %}</h3>
