@@ -12,6 +12,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from libs.liqpay import LiqPay
 from lions_heart_products.models import Item, Attributes
+from lions_heart_products.templatetags.mytemplatetags import convert
+
 
 
 def get_recommended(request):
@@ -136,6 +138,7 @@ class OrderCreate(CreateView):
         for element in cart_items:
             value = element['attributes'].sales_price \
                 if element['attributes'].sales_price else element['attributes'].price
+            value = convert(value)
             order_item = OrderItem(item=element['attributes'].item, quantity=element['quantity'],
                                    size=element['attributes'].size, price=value, order=self.obj)
             order_item.save()
@@ -144,7 +147,8 @@ class OrderCreate(CreateView):
                        + 'pcs' + ' - ' + size + str(value) + 'UAH' + '\n\n'
         cart.clear()
         message += 'Total cost - {}'.format(self.obj.total_cost)
-        send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, [self.obj.customer_email])
+        send_mail('Lions Heart', message, settings.EMAIL_HOST_USER,
+                  [self.obj.customer_email, settings.STAFF_EMAIL])
         return HttpResponseRedirect(reverse('success'))
         # if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные' or self.obj.payment_type == 'Готівка':
         #     return HttpResponseRedirect(reverse('success'))
