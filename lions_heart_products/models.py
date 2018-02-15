@@ -61,7 +61,6 @@ class Item(CommonInfo):
     title = models.CharField(max_length=256, verbose_name=_('name'))
     title_image = models.ImageField(upload_to='catalog/products', verbose_name=_('title image'))
     description = models.TextField(blank=True, null=True, verbose_name=_('description'))
-    price = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('price'))
     slug = models.SlugField(blank=True, null=True)
     type = models.CharField(choices=TYPE_CHOICES, max_length=7, default=_('Women'), verbose_name=_('type'))
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('сategory'))
