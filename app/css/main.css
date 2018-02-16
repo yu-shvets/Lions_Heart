@@ -308,6 +308,7 @@
 .header__rate {
   position: absolute;
   top: 25px;
+  white-space: nowrap;
   z-index: -1;
   color: #0b7f58;
 }
@@ -511,6 +512,10 @@
   font-size: 24px;
   color: #000;
   text-transform: uppercase;
+}
+
+.section__subtitle_theme {
+  font-family: 'Gothic';
 }
 
 .section__item {
@@ -817,7 +822,6 @@
 
 .home {
   padding-top: 30px;
-  padding-bottom: 25px;
 }
 
 .home__box {
@@ -1637,7 +1641,7 @@
     text-align: center;
   }
   .header__line {
-    top: 33px;
+    top: 73px;
   }
   .header__additional {
     float: none;
@@ -1735,6 +1739,12 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .home__title {
+    font-size: 32px;
+  }
+  .home__button {
+    top: 80px;
+  }
   .blog__img {
     margin: 0 auto;
   }
@@ -1767,7 +1777,7 @@
     width: auto;
   }
   .header__line {
-    top: 33px;
+    top: 73px;
   }
   .header__nav {
     background: #fff;
@@ -1881,6 +1891,12 @@
   .rate {
     font-size: 14px;
     color: #337ab7;
+  }
+  .home__title {
+    font-size: 16px;
+  }
+  .home__button {
+    top: 90px;
   }
   .about__title {
     padding-top: 20px;

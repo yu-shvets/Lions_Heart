@@ -176,6 +176,7 @@
   &__rate {
     position: absolute;
     top: 25px;
+    white-space: nowrap;
     z-index: -1;
     color: #0b7f58;
   }
@@ -338,6 +339,9 @@
   &__subtitle {
     font-size:24px;
     color:$black-color;
+    &_theme {
+      font-family: 'Gothic';
+    }
     text-transform: uppercase;
   }
   &__item {
