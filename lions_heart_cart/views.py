@@ -15,7 +15,6 @@ from lions_heart_products.models import Item, Attributes
 from lions_heart_products.templatetags.mytemplatetags import convert
 
 
-
 def get_recommended(request):
     cart_items = get_cart(request)
     products = [item['attributes'].item for item in cart_items]
@@ -104,7 +103,6 @@ class OrderView(TemplateView):
         cart = Cart(self.request)
         if not cart.get_total():
             return redirect('home')
-
         return super(OrderView, self).dispatch(request, *args, **kwargs)
 
 
@@ -121,6 +119,25 @@ def liqpay(request, amount, order_id):
     return html
 
 
+def create_order_item(request, obj):
+    message = 'New order #{}\n\n'.format(obj.id) + 'Name: {}\n\n'.format(obj.customer_name) + \
+              'E-mail: {}\n\n'.format(obj.customer_email) + 'Phone: {}\n\n'.format(obj.phone) + \
+              'Payment type: {}\n\n'.format(obj.payment_type)
+    cart_items = get_cart(request)
+    for element in cart_items:
+        value = element['attributes'].sales_price \
+            if element['attributes'].sales_price else element['attributes'].price
+        value = convert(value)
+        order_item = OrderItem(item=element['attributes'].item, quantity=element['quantity'],
+                               size=element['attributes'].size, price=value, order=obj)
+        order_item.save()
+        size = 'size:' + str(element['attributes'].size) + ' - ' if element['attributes'].size else ''
+        message += str(element['attributes'].item) + ' - ' + str(element['quantity']) \
+                   + 'pcs' + ' - ' + size + str(value) + 'UAH' + '\n\n'
+    message += 'Total cost - {}'.format(obj.total_cost)
+    return message
+
+
 class OrderCreate(CreateView):
     model = Order
     form_class = OrderForm
@@ -131,22 +148,8 @@ class OrderCreate(CreateView):
         self.obj = form.save(commit=False)
         self.obj.total_cost = cart.get_total()
         self.obj.save()
-        message = 'New order #{}\n\n'.format(self.obj.id) + 'Name: {}\n\n'.format(self.obj.customer_name) + \
-                  'E-mail: {}\n\n'.format(self.obj.customer_email) + 'Phone: {}\n\n'.format(self.obj.phone) + \
-                  'Payment type: {}\n\n'.format(self.obj.payment_type)
-        cart_items = get_cart(self.request)
-        for element in cart_items:
-            value = element['attributes'].sales_price \
-                if element['attributes'].sales_price else element['attributes'].price
-            value = convert(value)
-            order_item = OrderItem(item=element['attributes'].item, quantity=element['quantity'],
-                                   size=element['attributes'].size, price=value, order=self.obj)
-            order_item.save()
-            size = 'size:' + str(element['attributes'].size) + ' - ' if element['attributes'].size else ''
-            message += str(element['attributes'].item) + ' - ' + str(element['quantity']) \
-                       + 'pcs' + ' - ' + size + str(value) + 'UAH' + '\n\n'
+        message = create_order_item(self.request, obj=self.obj)
         cart.clear()
-        message += 'Total cost - {}'.format(self.obj.total_cost)
         send_mail('Lions Heart', message, settings.EMAIL_HOST_USER,
                   [self.obj.customer_email, settings.STAFF_EMAIL])
         return HttpResponseRedirect(reverse('success'))
@@ -168,6 +171,12 @@ class OrderCreate(CreateView):
         messages.error(self.request,
                        _("Phone number must be entered in the format: '+380441234567'. Up to 12 digits allowed."))
         return HttpResponseRedirect(reverse('order'))
+
+    def dispatch(self, request, *args, **kwargs):
+        cart = Cart(self.request)
+        if not cart.get_total():
+            return redirect('home')
+        return super(OrderCreate, self).dispatch(request, *args, **kwargs)
 
 
 class PayView(TemplateView):

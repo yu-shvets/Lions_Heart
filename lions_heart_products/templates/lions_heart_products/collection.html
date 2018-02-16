@@ -53,7 +53,7 @@
           <div class="row">
             <div class="col-md-3 align-center">
               <div class="catalog__main"><span>
-                  <div class="section__subtitle">{% if collects.pk == revived.pk %}{% trans "Women's" %}
+                  <div class="section__subtitle section__subtitle_theme">{% if collects.pk == revived.pk %}{% trans "Women's" %}
                   {% else %}{% trans "Men's" %}{% endif %}<br>{% trans 'Collection' %}<br>
                   </div><img src="{{ collects.logo_image.url }}">
                   <p class="section__text section__text_neutral mt-30">{{ collects.description }}</p></span></div>
