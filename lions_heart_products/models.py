@@ -66,13 +66,17 @@ class Item(CommonInfo):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=_('сategory'))
     collection = models.ForeignKey(Collection, null=True, on_delete=models.CASCADE, verbose_name=_('сollection'))
     recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
-    sales = models.IntegerField(verbose_name=_('sales'), blank=True, null=True)
+    sales = models.IntegerField(verbose_name=_('sales, %'), blank=True, null=True)
     is_not_leather_chain = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if self.sales:
             for item in self.attributes_set.all():
                 item.sales_price = item.price - item.price * self.sales / 100
+                item.save()
+        else:
+            for item in self.attributes_set.all():
+                item.sales_price = None
                 item.save()
         super().save(*args, **kwargs)
 

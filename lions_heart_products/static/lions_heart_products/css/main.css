@@ -254,9 +254,9 @@
   padding-right: 10px;
 }
 
-.header__link:hover:before, .header__link:hover:after {
-  width: 50%;
-}
+/*.header__link:hover:before, .header__link:hover:after {*/
+  /*width: 50%;*/
+/*}*/
 
 .header__link:before {
   position: absolute;

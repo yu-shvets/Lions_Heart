@@ -1,6 +1,6 @@
 from django.conf import settings
 from lions_heart_products.models import Attributes
-from lions_heart_products.templatetags.mytemplatetags import get_rate
+from lions_heart_products.templatetags.mytemplatetags import convert
 from decimal import *
 
 
@@ -47,7 +47,7 @@ class Cart(object):
             value = attributes.sales_price
         else:
             value = attributes.price
-        return Decimal(round(float(value * quantity) * get_rate())).quantize(Decimal('.00'))
+        return convert(value) * quantity
 
     def get_total(self):
         total = 0
@@ -58,7 +58,7 @@ class Cart(object):
                 total += attributes.sales_price * quantity
             else:
                 total += attributes.price * quantity
-        return Decimal(round(float(total) * get_rate())).quantize(Decimal('.00'))
+        return convert(total)
 
     def cart_len(self):
         return len([item for item in self.cart])

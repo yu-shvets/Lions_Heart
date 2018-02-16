@@ -19,6 +19,7 @@ class SpecsInline(admin.StackedInline):
 class AttributesInline(admin.TabularInline):
     model = Attributes
     extra = 0
+    readonly_fields = ('sales_price',)
 
 
 @admin.register(Item)
