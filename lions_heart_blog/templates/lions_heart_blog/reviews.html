@@ -1,0 +1,43 @@
+{% extends 'lions_heart_products/index.html' %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+<!-- MAIN CONTENT-->
+    <main class="main">
+      <section class="section blog">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="section__title section__title_dark about__title">{% trans 'Reviews' %}</h2>
+            </div>
+          </div>
+            <h4>{% trans 'Please, leave your review' %}</h4>
+
+            <form method="post" action="{% url 'review_create' %}">
+              {% csrf_token %}
+
+                {% trans 'Name:' %}
+                <p>{% render_field form.author %}</p>
+                {% trans 'Review:' %}
+                <p>{% render_field form.review style='width:450px'  %}</p>
+
+            <input type="submit" value="{% trans 'Leave review' %}" class="button button_uppercase product__button">
+            </form>
+
+            <div style="margin-top: 50px">
+                {% for review in object_list %}
+                <p>{{ review.author }} {{ review.created|date:'d-m-Y' }}</p>
+                    <p class="blog__text" style="text-align: justify">{{ review.review }}</p><hr>
+                {% endfor %}
+
+            </div>
+
+        </div>
+      </section>
+    </main>
+
+{% endblock content %}
+

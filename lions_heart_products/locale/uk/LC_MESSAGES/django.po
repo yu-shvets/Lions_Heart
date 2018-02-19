@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-14 10:42+0000\n"
+"POT-Creation-Date: 2018-02-19 11:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Men"
 msgstr "Чоловіча"
 
 #: Temp/collection_detail.html:36 Temp/collection_detail.html:60
-#: lions_heart_products/models.py:59 lions_heart_products/models.py:66
+#: lions_heart_products/models.py:59 lions_heart_products/models.py:65
 msgid "Women"
 msgstr "Жіноча"
 
@@ -67,10 +67,10 @@ msgid "UAH"
 msgstr "грн"
 
 #: Temp/collection_detail.html:70
-#: lions_heart_products/templates/lions_heart_products/collection.html:72
+#: lions_heart_products/templates/lions_heart_products/collection.html:73
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:63
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:124
-#: lions_heart_products/templates/lions_heart_products/sales.html:78
+#: lions_heart_products/templates/lions_heart_products/sales.html:79
 msgid "Add to cart"
 msgstr "Додати у кошик"
 
@@ -122,57 +122,55 @@ msgstr ""
 msgid "title image"
 msgstr ""
 
-#: lions_heart_products/models.py:64
-msgid "price"
-msgstr ""
-
-#: lions_heart_products/models.py:66
+#: lions_heart_products/models.py:65
 msgid "type"
 msgstr ""
 
-#: lions_heart_products/models.py:67
+#: lions_heart_products/models.py:66
 msgid "сategory"
 msgstr ""
 
-#: lions_heart_products/models.py:68
+#: lions_heart_products/models.py:67
 msgid "сollection"
 msgstr ""
 
-#: lions_heart_products/models.py:69
+#: lions_heart_products/models.py:68
 msgid "recommended"
 msgstr ""
 
-#: lions_heart_products/models.py:70
-msgid "sales"
-msgstr ""
+#: lions_heart_products/models.py:69
+#, fuzzy
+#| msgid "Sales"
+msgid "sales, %"
+msgstr "Акції"
 
-#: lions_heart_products/models.py:90
+#: lions_heart_products/models.py:93
 msgid "Image"
 msgstr ""
 
-#: lions_heart_products/models.py:91
+#: lions_heart_products/models.py:94
 msgid "Images"
 msgstr ""
 
-#: lions_heart_products/models.py:93
+#: lions_heart_products/models.py:96
 msgid "image"
 msgstr ""
 
-#: lions_heart_products/models.py:94
+#: lions_heart_products/models.py:97
 msgid "item"
 msgstr ""
 
-#: lions_heart_products/models.py:103 lions_heart_products/models.py:104
+#: lions_heart_products/models.py:106 lions_heart_products/models.py:107
 msgid "Specs"
 msgstr ""
 
-#: lions_heart_products/models.py:106
+#: lions_heart_products/models.py:109
 msgid "other specs"
 msgstr ""
 
 #: lions_heart_products/templates/lions_heart_products/collection.html:19
 #: lions_heart_products/templates/lions_heart_products/index.html:103
-#: lions_heart_products/templates/lions_heart_products/index.html:172
+#: lions_heart_products/templates/lions_heart_products/index.html:173
 #: lions_heart_products/templates/lions_heart_products/sales.html:17
 msgid "Sales"
 msgstr "Акції"
@@ -197,29 +195,33 @@ msgid "Our collections"
 msgstr "Наші колекції"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:100
-#: lions_heart_products/templates/lions_heart_products/index.html:182
+#: lions_heart_products/templates/lions_heart_products/index.html:183
 msgid "About"
 msgstr "Про нас"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:101
-#: lions_heart_products/templates/lions_heart_products/index.html:183
+#: lions_heart_products/templates/lions_heart_products/index.html:184
 msgid "Blog"
 msgstr "Блог"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:102
-#: lions_heart_products/templates/lions_heart_products/index.html:184
+#: lions_heart_products/templates/lions_heart_products/index.html:185
 msgid "Contacts"
 msgstr "Контакти"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:104
+msgid "Reviews"
+msgstr "Відгуки"
+
+#: lions_heart_products/templates/lions_heart_products/index.html:105
 msgid "Cart"
 msgstr "Кошик"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:132
+#: lions_heart_products/templates/lions_heart_products/index.html:133
 msgid "start shopping"
 msgstr "почати шопінг"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:191
+#: lions_heart_products/templates/lions_heart_products/index.html:192
 msgid "Call"
 msgstr "Дзвоніть"
 
@@ -286,6 +288,9 @@ msgstr "Рекомендовані товари"
 #: lions_heart_products/templates/lions_heart_products/pagination_form.html:4
 msgid "Number of items:"
 msgstr "Показати:"
+
+#~ msgid "More info"
+#~ msgstr "Детальніше"
 
 #, fuzzy
 #~| msgid "Length, mm:"

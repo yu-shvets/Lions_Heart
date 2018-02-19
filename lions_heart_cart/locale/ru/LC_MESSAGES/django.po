@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-14 10:42+0000\n"
+"POT-Creation-Date: 2018-02-19 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,7 +158,7 @@ msgstr "Ваш заказ успешно принят. Мы свяжемся с 
 msgid "LiqPay payment"
 msgstr "Оплата через LiqPay"
 
-#: lions_heart_cart/views.py:162
+#: lions_heart_cart/views.py:172
 msgid ""
 "Phone number must be entered in the format: '+380441234567'. Up to 12 digits "
 "allowed."

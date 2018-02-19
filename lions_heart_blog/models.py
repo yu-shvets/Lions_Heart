@@ -101,6 +101,18 @@ class Banners(models.Model):
         return "{}".format(self.image)
 
 
+class Reviews(CommonInfo):
+
+    class Meta(CommonInfo.Meta):
+        verbose_name = "Review"
+        verbose_name_plural = "Reviews"
+
+    author = models.CharField(max_length=256, verbose_name=_('name'))
+    review = models.TextField(verbose_name=_('review'))
+
+    def __str__(self):
+        return "{}-{}".format(self.created, self.author)
+
 
 
 

@@ -69,7 +69,9 @@
                       {% else %}
                     <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span></p>
                       {% endif %}
+
                    <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
+
                   </div>
               </span>
               </div>

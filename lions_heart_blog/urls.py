@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import PostListView, PostDetailView, CommentCreate, AboutView, ContactView
+from .views import PostListView, PostDetailView, CommentCreate, AboutView, ContactView, ReviewsListView, ReviewCreate
 
 
 urlpatterns = [
@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^blog_posts/(?P<post_id>\d+)/new_comment/$', CommentCreate.as_view(), name='new_comment'),
     url(r'^about/$', AboutView.as_view(), name='about'),
     url(r'^contacts/$', ContactView.as_view(), name='contacts'),
+    url(r'^reviews/$', ReviewsListView.as_view(), name='reviews'),
+    url(r'^review_create/$', ReviewCreate.as_view(), name='review_create'),
 ]

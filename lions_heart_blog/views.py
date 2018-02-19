@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, TemplateView
-from .models import Post, Comment, CompanyInformation
+from .models import Post, Comment, CompanyInformation, Reviews
 from django.views.generic.edit import CreateView
 from django.urls import reverse
-from .forms import CommentForm
+from .forms import CommentForm, ReviewForm
 
 
 class PostListView(ListView):
@@ -47,3 +47,21 @@ class ContactView(ListView):
     template_name = 'lions_heart_blog/contacts.html'
     model = CompanyInformation
 
+
+class ReviewsListView(ListView):
+    model = Reviews
+    template_name = 'lions_heart_blog/reviews.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ReviewsListView, self).get_context_data(**kwargs)
+        context['form'] = ReviewForm
+        return context
+
+
+class ReviewCreate(CreateView):
+
+    model = Reviews
+    form_class = ReviewForm
+
+    def get_success_url(self):
+            return reverse('reviews')

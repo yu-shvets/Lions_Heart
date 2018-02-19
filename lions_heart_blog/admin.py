@@ -1,6 +1,6 @@
 from django.contrib import admin
 from lions_heart_blog.models import Post, Comment, Image, CompanyInformation, \
-    CompanyImage, Phone, Address, Email, Banners
+    CompanyImage, Phone, Address, Email, Banners, Reviews
 
 
 class ImageInline(admin.TabularInline):
@@ -53,4 +53,7 @@ class CompanyAdmin(admin.ModelAdmin):
             return True
 
 
+@admin.register(Reviews)
+class CompanyAdmin(admin.ModelAdmin):
+    pass
 
