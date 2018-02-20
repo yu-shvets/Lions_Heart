@@ -149,6 +149,29 @@ $('document').ready(function(){
         });
     });
 
+
+  // $('#size_select').on('change', function(e){
+  //
+  //       var form = $(this).parent('form');
+  //       var id = form.attr('id').split('-')[1];
+  //
+  //       $.ajax({
+  //           url : form.attr('action'),
+  //           data : form.serialize(),
+  //           method: 'post',
+  //
+  //           success: function(json){
+  //               $('#sum-' + id).text(json.sum);
+  //               $('#total_price').text(json.total_price);
+  //           },
+  //           error: function(e){
+  //               console.log(e);
+  //           }
+  //       });
+  //
+  //   });
+
+
 });
 
 (function (){

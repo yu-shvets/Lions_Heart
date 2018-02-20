@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import add_to_cart_catalogue, add_to_cart_size, cart_view, cart_remove, update_quantity, \
-    OrderView, OrderCreate, SuccessView, PayView
+    OrderView, OrderCreate, SuccessView, PayView, update_size_cart
 
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^cart/$', cart_view, name='cart'),
     url(r'^remove/(?P<attributes_id>\d+)/$', cart_remove, name='cart_remove'),
     url(r'^update/(?P<attributes_id>\d+)/$', update_quantity, name='cart_update'),
+    url(r'^new_size/(?P<attributes_id>\d+)/$', update_size_cart, name='new_size'),
 
     url(r'^order/$', OrderView.as_view(), name='order'),
     url(r'^create_order/$', OrderCreate.as_view(), name='new_order'),

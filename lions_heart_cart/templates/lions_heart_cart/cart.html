@@ -14,8 +14,7 @@
             <div class="col-md-12">
               <h2 class="section__title section__title_catalog">{% trans 'Cart' %}</h2>
             </div>
-          </div>
-          <div class="row">
+            <div class="row">
             <div class="col-md-9">
                 <table class="cart__table">
 
@@ -24,6 +23,7 @@
                 <thead>
                   <tr class="cart__table-row">
                     <th class="cart__table-title"></th>
+                    {% if sizes %}<th class="cart__table-title">{% trans 'Size' %}</th>{% endif %}
                     <th class="cart__table-title">{% trans 'Quantity' %}</th>
                     <th class="cart__table-title">{% trans 'Price' %}</th>
                     <th class="cart__table-title">{% trans 'Cost' %}</th>
@@ -41,6 +41,28 @@
                     <td class="cart__table-data"><a class="cart__table-main" href="{% url 'item' item.attributes.item.pk %}">
                         <div class="cart__table-thumbnail"><img class="cart__table-img" src="{{ item.attributes.item.title_image.url }}"></div>
                         <h4 class="section__text section__text_dark">{{ item.attributes.item.title }}</h4></a></td>
+
+                     {% if sizes %}
+                      <td class="cart__table-data cart__table-quantity">
+                        {% if item.attributes.item.attributes_set.all|length > 1 %}
+                            <form method="post" action="{% url 'new_size' item.attributes.id %}" id="size_form-{{ item.attributes.id }}">
+                            {% csrf_token %}
+                                <select  id="size_select" name="size" class="cart__table-result" onchange="this.form.submit()">
+                                        <option selected>{{ item.attributes.size }}</option>
+                                    {% for size in item.attributes.item.attributes_set.all %}
+                                        {% if size.size == item.attributes.size %}
+                                            {% else %}
+                                        <option>{{ size.size }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        {% endif %}
+                      </td>
+                     {% endif %}
+
+
+
                     <td class="cart__table-data cart__table-quantity">
 
 

@@ -27,6 +27,15 @@ def get_recommended(request):
     return recommended
 
 
+def check_size(request):
+    cart_items = get_cart(request)
+    products = [item['attributes'].item for item in cart_items]
+    for product in products:
+        if len(product.attributes_set.all()) > 1:
+            return True
+    return False
+
+
 def get_cart(request):
     cart_items = []
     cart = Cart(request)
@@ -44,9 +53,10 @@ def cart_view(request):
     cart_total = cart.get_total()
     form = CartAddProductForm()
     recommended = get_recommended(request)
+    sizes = check_size(request)
     products = [item['attributes'].item for item in cart_items]
     return render(request, 'lions_heart_cart/cart.html', {'cart_items': cart_items, 'cart_total': cart_total,
-                                                'form': form, 'recommended': recommended, 'products': products})
+                'form': form, 'recommended': recommended, 'products': products, 'sizes': sizes})
 
 
 def add_to_cart(request, attributes_id):
@@ -87,6 +97,14 @@ def update_quantity(request, attributes_id):
                 response_data['sum'] = cart.item_sum(attributes_id)
                 response_data['total_price'] = cart.get_total()
     return JsonResponse(response_data)
+
+
+def update_size_cart(request, attributes_id):
+    cart = Cart(request)
+    if request.method == 'POST':
+        new_size = request.POST['size'].replace(',', '.')
+        cart.update_size(attributes_id, new_size=float(new_size))
+    return HttpResponseRedirect(reverse('cart'))
 
 
 class OrderView(TemplateView):

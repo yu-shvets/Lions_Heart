@@ -33,6 +33,18 @@ class Cart(object):
         self.cart[attributes_id]['quantity'] = quantity
         self.save()
 
+    def update_size(self, attributes_id, new_size):
+        item = Attributes.objects.get(id=int(attributes_id)).item
+        new_attributes_id = str(Attributes.objects.get(item=item, size=new_size).id)
+        quantity = self.cart[attributes_id]['quantity']
+        del self.cart[attributes_id]
+        if new_attributes_id not in self.cart:
+            self.cart[new_attributes_id] = {'quantity': quantity}
+        else:
+            self.cart[new_attributes_id]['quantity'] += quantity
+        self.save()
+
+
     def __getitem__(self, key):
         return self.cart[key]
 
