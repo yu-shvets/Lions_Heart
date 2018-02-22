@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load mytemplatetags %}
 {% load thumbnail %}
+{% load static from staticfiles %}
 
 {% block content %}
 
@@ -62,10 +63,13 @@
 
             <div class="col-md-3 align-center">
               <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}">
-
-                  <img class="product__img" src="{{ item.title_image.url }}">
-
-              </a>
+                    {% if item.sales %}
+                  <span class="onsale" style="background: url({% static 'lions_heart_products/img/sale.png' %}) no-repeat;"></span>
+                    {% endif %}
+                    {% if item.best_seller %}
+                  <span class="onsale" style="background: url({% static 'lions_heart_products/img/best_seller.png' %}) no-repeat;"></span>
+                    {% endif %}
+                  <img class="product__img" src="{{ item.title_image.url }}"></a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
                     {% if item.get_first_attribute.sales_price %}
                        <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span></p>

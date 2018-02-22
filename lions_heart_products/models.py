@@ -67,6 +67,7 @@ class Item(CommonInfo):
     collection = models.ForeignKey(Collection, null=True, on_delete=models.CASCADE, verbose_name=_('сollection'))
     recommended_items = models.ManyToManyField('self', blank=True, verbose_name=_('recommended'))
     sales = models.IntegerField(verbose_name=_('sales, %'), blank=True, null=True)
+    best_seller = models.BooleanField(default=False)
     is_not_leather_chain = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):

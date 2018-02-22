@@ -29,9 +29,9 @@
                   {% csrf_token %}
 
                     {% trans 'Name:' %}
-                    <p>{% render_field form.author maxlength='35' %}</p>
+                    <p>{% render_field form.author %}</p>
                     {% trans 'Message:' %}
-                    <p>{% render_field form.review style='width:450px'  %}</p>
+                    <p>{% render_field form.review style='width:450px' %}</p>
 
                 <input type="submit" value="{% trans 'Leave message' %}" class="button button_uppercase product__button">
                 </form>
