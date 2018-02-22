@@ -2,6 +2,7 @@
 {% load widget_tweaks %}
 {% load i18n %}
 {% load mytemplatetags %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -70,7 +71,11 @@
               {% for item in object_list %}
 
             <div class="col-md-3 align-center">
-              <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}"><img class="product__img" src="{{ item.title_image.url }}"></a>
+              <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}">
+                {% thumbnail item.title_image "259x175" crop="center" as im %}
+                  <img class="product__img" src="{{ im.url }}">
+                {% endthumbnail %}
+              </a>
                   <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
                       {% if item.get_first_attribute.sales_price %}
                        <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span></p>

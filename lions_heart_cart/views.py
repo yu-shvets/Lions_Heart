@@ -186,7 +186,8 @@ class OrderCreate(CreateView):
         #     return HttpResponseRedirect(reverse('pay'))
 
     def form_invalid(self, form):
-        messages.error(self.request,
+        if 'phone' not in form.cleaned_data:
+            messages.error(self.request,
                        _("Phone number must be entered in the format: '+380441234567'. Up to 12 digits allowed."))
         return HttpResponseRedirect(reverse('order'))
 

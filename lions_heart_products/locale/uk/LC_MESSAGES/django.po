@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-20 08:14+0000\n"
+"POT-Creation-Date: 2018-02-21 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,8 +55,8 @@ msgid "Women"
 msgstr "Жіноча"
 
 #: Temp/collection_detail.html:69
+#: lions_heart_products/templates/lions_heart_products/collection.html:66
 #: lions_heart_products/templates/lions_heart_products/collection.html:68
-#: lions_heart_products/templates/lions_heart_products/collection.html:70
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:54
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:55
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:57
@@ -67,7 +67,7 @@ msgid "UAH"
 msgstr "грн"
 
 #: Temp/collection_detail.html:70
-#: lions_heart_products/templates/lions_heart_products/collection.html:73
+#: lions_heart_products/templates/lions_heart_products/collection.html:71
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:63
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:124
 #: lions_heart_products/templates/lions_heart_products/sales.html:79
@@ -170,22 +170,22 @@ msgstr ""
 
 #: lions_heart_products/templates/lions_heart_products/collection.html:19
 #: lions_heart_products/templates/lions_heart_products/index.html:103
-#: lions_heart_products/templates/lions_heart_products/index.html:173
+#: lions_heart_products/templates/lions_heart_products/index.html:172
 #: lions_heart_products/templates/lions_heart_products/sales.html:17
 msgid "Sales"
 msgstr "Акції"
 
-#: lions_heart_products/templates/lions_heart_products/collection.html:56
+#: lions_heart_products/templates/lions_heart_products/collection.html:54
 #: lions_heart_products/templates/lions_heart_products/index.html:97
 msgid "Women's"
 msgstr "Жіноча"
 
-#: lions_heart_products/templates/lions_heart_products/collection.html:57
+#: lions_heart_products/templates/lions_heart_products/collection.html:55
 #: lions_heart_products/templates/lions_heart_products/index.html:96
 msgid "Men's"
 msgstr "Чловіча"
 
-#: lions_heart_products/templates/lions_heart_products/collection.html:57
+#: lions_heart_products/templates/lions_heart_products/collection.html:55
 #: lions_heart_products/templates/lions_heart_products/sales.html:35
 msgid "Collection"
 msgstr "Колекція"
@@ -195,33 +195,33 @@ msgid "Our collections"
 msgstr "Наші колекції"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:100
-#: lions_heart_products/templates/lions_heart_products/index.html:183
+#: lions_heart_products/templates/lions_heart_products/index.html:182
 msgid "About"
 msgstr "Про нас"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:101
-#: lions_heart_products/templates/lions_heart_products/index.html:184
+#: lions_heart_products/templates/lions_heart_products/index.html:183
 msgid "Blog"
 msgstr "Блог"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:102
-#: lions_heart_products/templates/lions_heart_products/index.html:185
+#: lions_heart_products/templates/lions_heart_products/index.html:184
 msgid "Contacts"
 msgstr "Контакти"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:104
-msgid "Reviews"
-msgstr "Відгуки"
+msgid "Acknowledgments"
+msgstr "Подяки"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:105
 msgid "Cart"
 msgstr "Кошик"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:133
+#: lions_heart_products/templates/lions_heart_products/index.html:132
 msgid "start shopping"
 msgstr "почати шопінг"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:192
+#: lions_heart_products/templates/lions_heart_products/index.html:191
 msgid "Call"
 msgstr "Дзвоніть"
 
@@ -288,25 +288,3 @@ msgstr "Рекомендовані товари"
 #: lions_heart_products/templates/lions_heart_products/pagination_form.html:4
 msgid "Number of items:"
 msgstr "Показати:"
-
-#~ msgid "More info"
-#~ msgstr "Детальніше"
-
-#, fuzzy
-#~| msgid "Length, mm:"
-#~ msgid "width, mm"
-#~ msgstr "Довжина"
-
-#, fuzzy
-#~| msgid "Weight, gr:"
-#~ msgid "height, mm"
-#~ msgstr "Вага, гр:"
-
-#~ msgid "Unique gifts"
-#~ msgstr "Унікальні подарунки"
-
-#~ msgid "Be strong and courageous"
-#~ msgstr "Будь твердий і мужній"
-
-#~ msgid "Title"
-#~ msgstr "Назва"

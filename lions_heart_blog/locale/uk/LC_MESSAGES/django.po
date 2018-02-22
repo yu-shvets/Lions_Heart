@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-20 08:14+0000\n"
+"POT-Creation-Date: 2018-02-21 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,21 +112,22 @@ msgid "Contacts"
 msgstr "Контакти"
 
 #: lions_heart_blog/templates/lions_heart_blog/reviews.html:14
-msgid "Reviews"
-msgstr ""
+msgid "Acknowledgments"
+msgstr "Подяки"
 
 #: lions_heart_blog/templates/lions_heart_blog/reviews.html:17
-msgid "Please, leave your review"
-msgstr "Будь-ласка, залиште свій відгук"
+msgid "Please, leave your message:"
+msgstr "Будь-ласка, залиште своє повідомлення:"
 
 #: lions_heart_blog/templates/lions_heart_blog/reviews.html:22
 msgid "Name:"
 msgstr "Ім'я:"
 
 #: lions_heart_blog/templates/lions_heart_blog/reviews.html:24
-msgid "Review:"
-msgstr "Відгук:"
+msgid "Message:"
+msgstr "Повідомлення:"
 
 #: lions_heart_blog/templates/lions_heart_blog/reviews.html:27
-msgid "Leave review"
-msgstr "Залишити відгук"
+msgid "Leave message"
+msgstr "Залишити"
+

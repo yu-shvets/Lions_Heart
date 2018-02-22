@@ -11,20 +11,20 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="section__title section__title_dark about__title">{% trans 'Reviews' %}</h2>
+              <h2 class="section__title section__title_dark about__title">{% trans 'Acknowledgments' %}</h2>
             </div>
           </div>
-            <h4>{% trans 'Please, leave your review' %}</h4>
+            <h4>{% trans 'Please, leave your message:' %}</h4>
 
             <form method="post" action="{% url 'review_create' %}">
               {% csrf_token %}
 
                 {% trans 'Name:' %}
                 <p>{% render_field form.author %}</p>
-                {% trans 'Review:' %}
+                {% trans 'Message:' %}
                 <p>{% render_field form.review style='width:450px'  %}</p>
 
-            <input type="submit" value="{% trans 'Leave review' %}" class="button button_uppercase product__button">
+            <input type="submit" value="{% trans 'Leave message' %}" class="button button_uppercase product__button">
             </form>
 
             <div style="margin-top: 50px">
