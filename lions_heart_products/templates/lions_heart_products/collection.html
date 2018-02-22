@@ -55,7 +55,7 @@
                   <div class="section__subtitle section__subtitle_theme">{% if collects.pk == revived.pk %}{% trans "Women's" %}
                   {% else %}{% trans "Men's" %}{% endif %}<br>{% trans 'Collection' %}<br>
                   </div><img src="{{ collects.logo_image.url }}">
-                  <p class="section__text section__text_neutral mt-30">{{ collects.description }}</p></span></div>
+                  <p class="section__text section__text_neutral mt-30">{{ collects.description|linebreaksbr }}</p></span></div>
             </div>
 
               {% for item in object_list %}

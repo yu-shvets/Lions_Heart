@@ -107,7 +107,7 @@ class Reviews(CommonInfo):
         verbose_name = "Review"
         verbose_name_plural = "Reviews"
 
-    author = models.CharField(max_length=256, verbose_name=_('name'))
+    author = models.CharField(max_length=35, verbose_name=_('name'))
     review = models.TextField(verbose_name=_('review'))
 
     def __str__(self):

@@ -14,27 +14,28 @@
               <h2 class="section__title section__title_dark about__title">{% trans 'Acknowledgments' %}</h2>
             </div>
           </div>
-            <h4>{% trans 'Please, leave your message:' %}</h4>
 
-            <form method="post" action="{% url 'review_create' %}">
-              {% csrf_token %}
-
-                {% trans 'Name:' %}
-                <p>{% render_field form.author %}</p>
-                {% trans 'Message:' %}
-                <p>{% render_field form.review style='width:450px'  %}</p>
-
-            <input type="submit" value="{% trans 'Leave message' %}" class="button button_uppercase product__button">
-            </form>
-
-            <div style="margin-top: 50px">
+            <div>
                 {% for review in object_list %}
                 <p>{{ review.author }} {{ review.created|date:'d-m-Y' }}</p>
                     <p class="blog__text" style="text-align: justify">{{ review.review }}</p><hr>
                 {% endfor %}
-
             </div>
 
+            <h4>{% trans 'Please, leave your message:' %}</h4>
+
+            <div style="margin-bottom: 20px">
+                <form method="post" action="{% url 'review_create' %}">
+                  {% csrf_token %}
+
+                    {% trans 'Name:' %}
+                    <p>{% render_field form.author maxlength='35' %}</p>
+                    {% trans 'Message:' %}
+                    <p>{% render_field form.review style='width:450px'  %}</p>
+
+                <input type="submit" value="{% trans 'Leave message' %}" class="button button_uppercase product__button">
+                </form>
+            </div>
         </div>
       </section>
     </main>
