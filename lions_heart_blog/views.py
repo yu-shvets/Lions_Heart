@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse
 from .forms import CommentForm, ReviewForm
 from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 
 class PostListView(ListView):
@@ -65,7 +66,7 @@ class ReviewCreate(CreateView):
     form_class = ReviewForm
 
     def form_invalid(self, form):
-        messages.error(self.request, 'Error. Please, try again.')
+        messages.error(self.request, _('Error. Please, try again.'))
         return HttpResponseRedirect(reverse('reviews'))
 
     def get_success_url(self):

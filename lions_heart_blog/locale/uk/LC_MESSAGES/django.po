@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 10:11+0000\n"
+"POT-Creation-Date: 2018-02-23 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,18 +131,22 @@ msgstr "Контакти"
 msgid "Acknowledgments"
 msgstr "Подяки"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:25
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:24
 msgid "Please, leave your message:"
 msgstr "Будь-ласка, залиште своє повідомлення:"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:31
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:30
 msgid "Name:"
 msgstr "Ім'я:"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:33
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:32
 msgid "Message:"
 msgstr "Повідомлення:"
 
 #: lions_heart_blog/templates/lions_heart_blog/reviews.html:36
 msgid "Leave message"
 msgstr "Залишити"
+
+#: lions_heart_blog/views.py:69
+msgid "Error. Please, try again."
+msgstr "Помилка. Будь ласка, спробуйте ще раз."

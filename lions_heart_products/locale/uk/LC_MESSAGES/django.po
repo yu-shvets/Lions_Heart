@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 10:11+0000\n"
+"POT-Creation-Date: 2018-02-23 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: Lions_Heart/settings.py:135 Lions_Heart/settings_dev.py:135
-#: Lions_Heart/settings_prod.py:137
+#: Lions_Heart/settings.py:136 Lions_Heart/settings_dev.py:136
+#: Lions_Heart/settings_prod.py:138
 msgid "Ukrainian"
 msgstr ""
 
-#: Lions_Heart/settings.py:136 Lions_Heart/settings_dev.py:136
-#: Lions_Heart/settings_prod.py:138 Temp/settings.py:132
+#: Lions_Heart/settings.py:137 Lions_Heart/settings_dev.py:137
+#: Lions_Heart/settings_prod.py:139 Temp/settings.py:132
 msgid "Russian"
 msgstr ""
 
-#: Lions_Heart/settings.py:137 Lions_Heart/settings_dev.py:137
-#: Lions_Heart/settings_prod.py:139 Temp/settings.py:133
+#: Lions_Heart/settings.py:138 Lions_Heart/settings_dev.py:138
+#: Lions_Heart/settings_prod.py:140 Temp/settings.py:133
 msgid "English"
 msgstr ""
 
