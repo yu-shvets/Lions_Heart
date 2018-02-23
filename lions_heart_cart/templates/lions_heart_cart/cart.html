@@ -8,140 +8,163 @@
 
     <!-- MAIN CONTENT-->
     <main class="main">
-      <section class="section cart">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section__title section__title_catalog">{% trans 'Cart' %}</h2>
-            </div>
-            <div class="row">
-            <div class="col-md-9">
-                <table class="cart__table">
-
-                {% if cart_total %}
-
-                <thead>
-                  <tr class="cart__table-row">
-                    <th class="cart__table-title"></th>
-                    {% if sizes %}<th class="cart__table-title">{% trans 'Size' %}</th>{% endif %}
-                    <th class="cart__table-title">{% trans 'Quantity' %}</th>
-                    <th class="cart__table-title">{% trans 'Price' %}</th>
-                    <th class="cart__table-title">{% trans 'Cost' %}</th>
-                    <th class="cart__table-title"></th>
-                  </tr>
-                </thead>
-
-                {% endif %}
-
-                <tbody>
-
-                {% for item in cart_items %}
-
-                  <tr class="cart__table-row">
-                    <td class="cart__table-data"><a class="cart__table-main" href="{% url 'item' item.attributes.item.pk %}">
-                        <div class="cart__table-thumbnail"><img class="cart__table-img" src="{{ item.attributes.item.title_image.url }}"></div>
-                        <h4 class="section__text section__text_dark">{{ item.attributes.item.title }}</h4></a></td>
-
-                     {% if sizes %}
-                      <td class="cart__table-data cart__table-quantity">
-                        {% if item.attributes.item.attributes_set.all|length > 1 %}
-                            <form method="post" action="{% url 'new_size' item.attributes.id %}" id="size_form-{{ item.attributes.id }}">
-                            {% csrf_token %}
-                                <select  id="size_select" name="size" class="cart__table-result" onchange="this.form.submit()">
-                                        <option selected>{{ item.attributes.size }}</option>
-                                    {% for size in item.attributes.item.attributes_set.all %}
-                                        {% if size.size == item.attributes.size %}
-                                            {% else %}
-                                        <option>{{ size.size }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                            </form>
-                        {% endif %}
-                      </td>
-                     {% endif %}
-
-
-
-                    <td class="cart__table-data cart__table-quantity">
-
-
-                        <form method="post" action="{% url 'cart_update'  item.attributes.pk %}" class="update" id="form-{{ item.attributes.id }}">
-                            {% csrf_token %}
-
-                                <input id="cart__summ" name="new_quantity" class="cart__table-result update_q" type="number" value="{{ item.quantity }}" min="1" max="100">
-
-                        </form>
-
-                    </td>
-                    <td class="cart__table-data">
-                        {% if item.attributes.sales_price %}
-                      <p class="section__text section__text_dark">{{ item.attributes.sales_price|convert }}</p>
-                        {% else %}
-                        <p class="section__text section__text_dark">{{ item.attributes.price|convert }}</p>
-                        {% endif %}
-                    </td>
-                    <td class="cart__table-data">
-                      <p class="section__text section__text_dark" id="sum-{{ item.attributes.id }}">{{ item.total_price }}</p>
-                    </td>
-                    <td class="cart__table-data"><a class="cart__table-close" href="{% url 'cart_remove' item.attributes.pk %}">&times;</a></td>
-                  </tr>
-
-                {% empty %} <h4>{% trans 'Cart is empty' %}</h4>
-
-                {% endfor %}
-
-                </tbody>
-              </table>
-            </div>
-
-            {% if cart_total %}
-            <div class="col-md-3">
-              <div class="section__item align-center cart__item">
-                <p class="section__text section__text_dark section__text_mb-0">{% trans 'Total cost' %}</p>
-                <p class="section__title section__title_dark cart__pay"><span id="total_price">{{ cart_total }}</span> <span class="section__price">{% trans 'UAH' %}</span></p>
-                <a href="{% url 'order' %}"><button class="button button_uppercase product__button">{% trans 'Checkout' %}</button></a>
-              </div>
-            </div>
-
-            {% endif %}
-
-          </div>
-
-          {% if recommended %}
-        <!--RECOMENDATION GOODS-->
-                      <div class="row">
-            <div class="col-md-12">
-              <h2 class="sp__recomendation align-center">{% trans 'Recommended items' %}</h2>
-            {% endif %}
-
-              {% for item in recommended %}
-                <div class="col-md-3 align-center">
-                <div class="product"><span class="product__animation"></span><a class="product__link">
-                    {% if item.sales %}
-                  <span class="onsale" style="background: url({% static 'lions_heart_products/img/sale.png' %}) no-repeat;"></span>
-                    {% endif %}
-                    {% if item.best_seller %}
-                  <span class="onsale" style="background: url({% static 'lions_heart_products/img/best_seller.png' %}) no-repeat;"></span>
-                    {% endif %}
-                    <img class="product__img" src="{{ item.title_image.url }}"></a>
-                    <div class="product__wrap"><a class="section__text section__text_dark" href="#">{{ item.title }}</a>
-                      {% if item.get_first_attribute.sales_price %}
-                       <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span></p>
-                      {% else %}
-                    <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span></p>
-                      {% endif %}
-                      <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
+        <section class="section cart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="section__title section__title_catalog">{% trans 'Cart' %}</h2>
                     </div>
-                </div>
-                </div>
-              {% endfor %}
+                    <div class="row">
+                        <div class="col-md-9">
+                            <table class="cart__table">
+
+                                {% if cart_total %}
+
+                                    <thead>
+                                    <tr class="cart__table-row">
+                                        <th class="cart__table-title"></th>
+                                        {% if sizes %}
+                                            <th class="cart__table-title">{% trans 'Size' %}</th>{% endif %}
+                                        <th class="cart__table-title">{% trans 'Quantity' %}</th>
+                                        <th class="cart__table-title">{% trans 'Price' %}</th>
+                                        <th class="cart__table-title">{% trans 'Cost' %}</th>
+                                        <th class="cart__table-title"></th>
+                                    </tr>
+                                    </thead>
+
+                                {% endif %}
+
+                                <tbody>
+
+                                {% for item in cart_items %}
+
+                                    <tr class="cart__table-row">
+                                        <td class="cart__table-data"><a class="cart__table-main"
+                                                                        href="{% url 'item' item.attributes.item.pk %}">
+                                            <div class="cart__table-thumbnail"><img class="cart__table-img"
+                                                                                    src="{{ item.attributes.item.title_image.url }}">
+                                            </div>
+                                            <h4 class="section__text section__text_dark">{{ item.attributes.item.title }}</h4>
+                                        </a></td>
+
+                                        {% if sizes %}
+                                            <td class="cart__table-data cart__table-quantity">
+                                                {% if item.attributes.item.attributes_set.all|length > 1 %}
+                                                    <form method="post" action="{% url 'new_size' item.attributes.id %}"
+                                                          id="size_form-{{ item.attributes.id }}">
+                                                        {% csrf_token %}
+                                                        <select id="size_select" name="size" class="cart__table-result"
+                                                                onchange="this.form.submit()">
+                                                            <option selected>{{ item.attributes.size }}</option>
+                                                            {% for size in item.attributes.item.attributes_set.all %}
+                                                                {% if size.size == item.attributes.size %}
+                                                                {% else %}
+                                                                    <option>{{ size.size }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                    </form>
+                                                {% endif %}
+                                            </td>
+                                        {% endif %}
 
 
+
+                                        <td class="cart__table-data cart__table-quantity">
+
+
+                                            <form method="post" action="{% url 'cart_update'  item.attributes.pk %}"
+                                                  class="update" id="form-{{ item.attributes.id }}">
+                                                {% csrf_token %}
+
+                                                <input id="cart__summ" name="new_quantity"
+                                                       class="cart__table-result update_q" type="number"
+                                                       value="{{ item.quantity }}" min="1" max="100">
+
+                                            </form>
+
+                                        </td>
+                                        <td class="cart__table-data">
+                                            {% if item.attributes.sales_price %}
+                                                <p class="section__text section__text_dark">{{ item.attributes.sales_price|convert }}</p>
+                                            {% else %}
+                                                <p class="section__text section__text_dark">{{ item.attributes.price|convert }}</p>
+                                            {% endif %}
+                                        </td>
+                                        <td class="cart__table-data">
+                                            <p class="section__text section__text_dark"
+                                               id="sum-{{ item.attributes.id }}">{{ item.total_price }}</p>
+                                        </td>
+                                        <td class="cart__table-data"><a class="cart__table-close"
+                                                                        href="{% url 'cart_remove' item.attributes.pk %}">&times;</a>
+                                        </td>
+                                    </tr>
+
+                                {% empty %} <h4>{% trans 'Cart is empty' %}</h4>
+
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {% if cart_total %}
+                            <div class="col-md-3">
+                                <div class="section__item align-center cart__item">
+                                    <p class="section__text section__text_dark section__text_mb-0">{% trans 'Total cost' %}</p>
+                                    <p class="section__title section__title_dark cart__pay"><span
+                                            id="total_price">{{ cart_total }}</span> <span
+                                            class="section__price">{% trans 'UAH' %}</span></p>
+                                    <a href="{% url 'order' %}">
+                                        <button class="button button_uppercase product__button">{% trans 'Checkout' %}</button>
+                                    </a>
+                                </div>
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    {% if recommended %}
+                        <!--RECOMENDATION GOODS-->
+                        <div class="row">
+                        <div class="col-md-12">
+                        <h2 class="sp__recomendation align-center">{% trans 'Recommended items' %}</h2>
+                        </div>
+                        </div>
+                    {% endif %}
+
+                    {% for item in recommended %}
+                        <div class="col-md-3 align-center">
+                            <div class="product"><span class="product__animation"></span><a class="product__link">
+                                {% if item.sales %}
+                                    <span class="onsale"
+                                          style="background: url({% static 'lions_heart_products/img/sale.png' %}) no-repeat;"></span>
+                                {% endif %}
+                                {% if item.best_seller %}
+                                    <span class="onsale"
+                                          style="background: url({% static 'lions_heart_products/img/best_seller.png' %}) no-repeat;"></span>
+                                {% endif %}
+                                <img class="product__img" src="{{ item.title_image.url }}"></a>
+                                <div class="product__wrap"><a class="section__text section__text_dark"
+                                                              href="#">{{ item.title }}</a>
+                                    {% if item.get_first_attribute.sales_price %}
+                                        <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span>
+                                        </p>
+                                    {% else %}
+                                        <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span>
+                                        </p>
+                                    {% endif %}
+                                    <button data-href="{% url 'add_to_cart' item.pk %}"
+                                            class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
 
 {% endblock content %}

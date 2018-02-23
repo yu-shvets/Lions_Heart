@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-21 11:47+0000\n"
+"POT-Creation-Date: 2018-02-23 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,49 +83,49 @@ msgstr ""
 msgid "Cart"
 msgstr "Кошик"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:26
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:27
 msgid "Size"
 msgstr "Розмір"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:27
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:28
 msgid "Quantity"
 msgstr "Кількість"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:28
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:29
 msgid "Price"
 msgstr "Ціна"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:29
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:30
 msgid "Cost"
 msgstr "Вартість"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:90
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:103
 msgid "Cart is empty"
 msgstr "Кошик порожній"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:101
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:114
 #: lions_heart_cart/templates/lions_heart_cart/order.html:54
 msgid "Total cost"
 msgstr "Загальна вартість"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:102
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:123
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:125
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:117
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:152
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:155
 #: lions_heart_cart/templates/lions_heart_cart/order.html:48
 #: lions_heart_cart/templates/lions_heart_cart/order.html:55
 msgid "UAH"
 msgstr "грн"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:103
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:119
 #: lions_heart_cart/templates/lions_heart_cart/order.html:31
 msgid "Checkout"
 msgstr "Оформити замовлення"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:115
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:132
 msgid "Recommended items"
 msgstr "Рекомендовані товари"
 
-#: lions_heart_cart/templates/lions_heart_cart/cart.html:127
+#: lions_heart_cart/templates/lions_heart_cart/cart.html:159
 msgid "Add to cart"
 msgstr "Додати у кошик"
 

@@ -90,8 +90,8 @@ class CompanyImage(models.Model):
 class Banners(models.Model):
 
     class Meta(object):
-        verbose_name = "Banner"
-        verbose_name_plural = "Banners"
+        verbose_name = _("Banner")
+        verbose_name_plural = _("Banners")
 
     image = models.ImageField(upload_to='company/pictures', verbose_name='banner')
     company = models.ForeignKey(CompanyInformation, on_delete=models.CASCADE)
@@ -104,8 +104,8 @@ class Banners(models.Model):
 class Reviews(CommonInfo):
 
     class Meta(CommonInfo.Meta):
-        verbose_name = "Review"
-        verbose_name_plural = "Reviews"
+        verbose_name = _("Review")
+        verbose_name_plural = _("Reviews")
 
     author = models.CharField(max_length=35, verbose_name=_('name'))
     review = models.TextField(max_length=1332, verbose_name=_('review'))

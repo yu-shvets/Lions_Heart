@@ -114,8 +114,8 @@ class Specs(models.Model):
 class Attributes(models.Model):
 
     class Meta(object):
-        verbose_name = "Attribute"
-        verbose_name_plural = "Attributes"
+        verbose_name = _("Attribute")
+        verbose_name_plural = _("Attributes")
 
     size = models.FloatField(blank=True, null=True)
     weight = models.FloatField(blank=True, null=True, verbose_name='weight, gr')
@@ -132,8 +132,8 @@ class Attributes(models.Model):
 class CurrencyRate(CommonInfo):
 
     class Meta(CommonInfo.Meta):
-        verbose_name = "Rate"
-        verbose_name_plural = "Rates"
+        verbose_name = _("Rate")
+        verbose_name_plural = _("Rates")
 
     rate = models.FloatField()
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-21 11:47+0000\n"
+"POT-Creation-Date: 2018-02-23 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,6 +98,22 @@ msgstr ""
 msgid "Diplomas"
 msgstr ""
 
+#: lions_heart_blog/models.py:93
+msgid "Banner"
+msgstr "Баннер"
+
+#: lions_heart_blog/models.py:94
+msgid "Banners"
+msgstr "Баннеры"
+
+#: lions_heart_blog/models.py:107
+msgid "Review"
+msgstr "Благодарность"
+
+#: lions_heart_blog/models.py:108
+msgid "Reviews"
+msgstr "Благодарности"
+
 #: lions_heart_blog/models.py:111
 msgid "review"
 msgstr "отзыв"
@@ -122,18 +138,18 @@ msgstr "Контакты"
 msgid "Acknowledgments"
 msgstr "Благодарности"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:17
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:25
 msgid "Please, leave your message:"
 msgstr "Пожалуйста, оставьте свое сообщение:"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:22
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:31
 msgid "Name:"
 msgstr "Имя:"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:24
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:33
 msgid "Message:"
 msgstr "Сообщение:"
 
-#: lions_heart_blog/templates/lions_heart_blog/reviews.html:27
+#: lions_heart_blog/templates/lions_heart_blog/reviews.html:36
 msgid "Leave message"
 msgstr "Оставить сообщение"
