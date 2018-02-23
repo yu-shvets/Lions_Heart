@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from .views import PostListView, PostDetailView, CommentCreate, AboutView, ContactView, ReviewsListView, ReviewCreate
 
 
@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^contacts/$', ContactView.as_view(), name='contacts'),
     url(r'^reviews/$', ReviewsListView.as_view(), name='reviews'),
     url(r'^review_create/$', ReviewCreate.as_view(), name='review_create'),
+
+    url(r'^reviews/captcha/', include('captcha.urls')),
 ]

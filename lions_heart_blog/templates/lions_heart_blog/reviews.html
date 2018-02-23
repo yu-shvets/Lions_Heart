@@ -15,14 +15,13 @@
             </div>
           </div>
 
-            <div>
-                {% for review in object_list %}
-                <p>{{ review.author }} {{ review.created|date:'d-m-Y' }}</p>
-                    <p class="blog__text" style="text-align: justify">{{ review.review }}</p><hr>
-                {% endfor %}
-            </div>
+        {% if messages %}
+        {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}" style="color: red" {% endif %}>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
 
-            <h4>{% trans 'Please, leave your message:' %}</h4>
+        <h4>{% trans 'Please, leave your message:' %}</h4>
 
             <div style="margin-bottom: 20px">
                 <form method="post" action="{% url 'review_create' %}">
@@ -32,10 +31,19 @@
                     <p>{% render_field form.author %}</p>
                     {% trans 'Message:' %}
                     <p>{% render_field form.review style='width:450px' %}</p>
+                    <p>{% render_field form.captcha %}</p>
 
                 <input type="submit" value="{% trans 'Leave message' %}" class="button button_uppercase product__button">
                 </form>
             </div>
+            <hr>
+            <div>
+                {% for review in object_list %}
+                <p>{{ review.author }} {{ review.created|date:'d-m-Y' }}</p>
+                    <p class="blog__text" style="text-align: justify">{{ review.review }}</p><hr>
+                {% endfor %}
+            </div>
+
         </div>
       </section>
     </main>

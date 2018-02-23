@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import Comment, Reviews
+from captcha.fields import CaptchaField
 
 
 class CommentForm(ModelForm):
@@ -10,7 +11,8 @@ class CommentForm(ModelForm):
 
 
 class ReviewForm(ModelForm):
+    captcha = CaptchaField()
 
     class Meta:
         model = Reviews
-        fields = ['author', 'review']
+        fields = '__all__'
