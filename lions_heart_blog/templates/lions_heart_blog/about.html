@@ -6,43 +6,44 @@
 
     <!-- MAIN CONTENT-->
     <main class="main">
-      <section class="section about">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section__title section__title_dark about__title">{% trans 'About' %}</h2>
+        <section class="section about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="section__title section__title_dark about__title">{% trans 'About' %}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about__img" style="background-image:url(
+                                {{ MEDIA_URL }}{{ object_list.first.about_title_image.url }});"></div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <p class="section__text section__text_neutral section__text_mb-0" style="text-align: justify">
+                            {{ object_list.first.about|linebreaksbr }}
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Diploma-->
+                <div class="row mt-20 mb-20">
+
+                    {% for image in object_list.first.companyimage_set.all %}
+
+                        <div class="col-md-3">
+                            <div class="about__single single-about"><img class="single-about__img"
+                                                                         src="{{ image.image.url }}"></div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="about__img" style="background-image:url({{ MEDIA_URL }}{{ object_list.first.about_title_image.url }});"></div>
-{#                    <img src="{{ object_list.first.about_title_image.url }}">#}
 
-            </div>
-            <div class="col-md-6">
-              <p class="section__text section__text_neutral section__text_mb-0" style="text-align: justify">
-                  {{ object_list.first.about }}
-              </p>
-
-          </div>
-          </div>
-
-          <!-- Diploma-->
-           <div class="row mt-20 mb-20">
-
-            {% for image in object_list.first.companyimage_set.all %}
-
-             <div class="col-md-3">
-               <div class="about__single single-about"> <img class="single-about__img" src="{{ image.image.url }}"></div>
-             </div>
-
-            {% endfor %}
-
-           </div>
-
-
-
-      </section>
+        </section>
     </main>
+
 
 {% endblock content %}

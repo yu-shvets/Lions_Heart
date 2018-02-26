@@ -5,24 +5,26 @@
 
     <!-- MAIN CONTENT-->
     <main class="main">
-      <section class="section blog">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 align-center">
-              <h2 class="section__title section__title_dark about__title">{{ post.title }}</h2>
-              <p class="blog__single-date">{{ post.created|date:'d-m-Y' }}</p>
+        <section class="section blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 align-center">
+                        <h2 class="section__title section__title_dark about__title">{{ post.title }}</h2>
+                        <p class="blog__single-date">{{ post.created|date:'d-m-Y' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 align-center" style="margin-bottom: 20px"><img
+                            src={{ post.main_image.url }}></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <p class="section__text section__text_neutral"
+                           style="text-align: justify">{{ post.body_text }}</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1 align-center" style="margin-bottom: 20px"><img src={{ post.main_image.url }}></div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-              <p class="section__text section__text_neutral" style="text-align: justify">{{ post.body_text }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
 
 {% endblock content %}

@@ -10,88 +10,104 @@
 
     <!--BREADCUMBS-->
     <div class="breadcumbs">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <nav class="nav">
-              <ul class="nav__list">
-                <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'home' %}">{% trans 'Main' %}</a></li>
-                  <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark" href="{% url 'collection' collects.pk  %}">{{ collects.title }}</a></li>
-                  {% if categs %}<li class="nav__item nav__item_inline">{{ categs.title }}</li>{% endif %}
-                  {% if sales %}<li class="nav__item nav__item_inline">{% trans 'Sales' %}</li>{% endif %}
-              </ul>
-            </nav>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="nav">
+                        <ul class="nav__list">
+                            <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark"
+                                                                      href="{% url 'home' %}">{% trans 'Main' %}</a>
+                            </li>
+                            <li class="nav__item nav__item_inline"><a class="breadcumbs__link nav__link nav__link_dark"
+                                                                      href="{% url 'collection' collects.pk %}">{{ collects.title }}</a>
+                            </li>
+                            {% if categs %}
+                                <li class="nav__item nav__item_inline">{{ categs.title }}</li>{% endif %}
+                            {% if sales %}
+                                <li class="nav__item nav__item_inline">{% trans 'Sales' %}</li>{% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    
+
 
     <!-- MAIN CONTENT-->
     <main class="main">
 
-      <section class="section catalog">
-        <div class="container">
+        <section class="section catalog">
+            <div class="container">
 
 
-      <nav class="nav align-right">
-                       <ul class="nav__list">
+                <nav class="nav align-right">
+                    <ul class="nav__list">
                         {% for category in categories %}
                             {% if collects.pk == lions_heart.pk and category.lions_heart_present == False %}
-                                {% elif collects.pk == revived.pk and category.revived_present == False %}
-                             {% else %}
-                         <li class="nav__item nav__item_inline">
-                           <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE-->{% autoescape off %}{% get_category 'collection_category' request collects.pk category.pk %}{% endautoescape %}{{ category.title }}</a>
-                         </li>
+                            {% elif collects.pk == revived.pk and category.revived_present == False %}
+                            {% else %}
+                                <li class="nav__item nav__item_inline">
+                                    <!--IF CATEGORY IS ACTIVE SET CATALOG__MENU_ACTIVE-->{% autoescape off %}
+                                    {% get_category 'collection_category' request collects.pk category.pk %}{% endautoescape %}{{ category.title }}</a>
+                                </li>
                             {% endif %}
 
                         {% endfor %}
 
-                       </ul>
-                  </nav>
+                    </ul>
+                </nav>
 
-          <div class="row">
-            <div class="col-md-3 align-center">
-              <div class="catalog__main"><span>
-                  <div class="section__subtitle section__subtitle_theme">{% if collects.pk == revived.pk %}{% trans "Women's" %}
+                <div class="row">
+                    <div class="col-md-3 align-center">
+                        <div class="catalog__main"><span>
+                  <div class="section__subtitle section__subtitle_theme">{% if collects.pk == revived.pk %}
+                      {% trans "Women's" %}
                   {% else %}{% trans "Men's" %}{% endif %}<br>{% trans 'Collection' %}<br>
                   </div><img src="{{ collects.logo_image.url }}">
-                  <p class="section__text section__text_neutral mt-30">{{ collects.description|linebreaksbr }}</p></span></div>
-            </div>
+                  <p class="section__text section__text_neutral mt-30">{{ collects.description|linebreaksbr }}</p></span>
+                        </div>
+                    </div>
 
-              {% for item in object_list %}
+                    {% for item in object_list %}
 
-            <div class="col-md-3 align-center">
-              <div class="product"><span class="product__animation"></span><a class="product__link" href="{% url 'item' item.pk  %}">
-                    {% if item.sales %}
-                  <span class="onsale" style="background: url({% static 'lions_heart_products/img/sale.png' %}) no-repeat;"></span>
-                    {% endif %}
-                    {% if item.best_seller %}
-                  <span class="onsale" style="background: url({% static 'lions_heart_products/img/best_seller.png' %}) no-repeat;"></span>
-                    {% endif %}
-                  <img class="product__img" src="{{ item.title_image.url }}"></a>
-                  <div class="product__wrap"><a class="section__text section__text_dark" href="{% url 'item' item.pk  %}">{{ item.title }}</a>
-                    {% if item.get_first_attribute.sales_price %}
-                       <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span></p>
-                      {% else %}
-                    <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span></p>
-                      {% endif %}
+                        <div class="col-md-3 align-center">
+                            <div class="product"><span class="product__animation"></span><a class="product__link"
+                                                                                            href="{% url 'item' item.pk %}">
+                                {% if item.sales %}
+                                    <span class="onsale"
+                                          style="background: url({% static 'lions_heart_products/img/sale.png' %}) no-repeat;"></span>
+                                {% endif %}
+                                {% if item.best_seller %}
+                                    <span class="onsale"
+                                          style="background: url({% static 'lions_heart_products/img/best_seller.png' %}) no-repeat;"></span>
+                                {% endif %}
+                                <img class="product__img" src="{{ item.title_image.url }}"></a>
+                                <div class="product__wrap"><a class="section__text section__text_dark"
+                                                              href="{% url 'item' item.pk %}">{{ item.title }}</a>
+                                    {% if item.get_first_attribute.sales_price %}
+                                        <p class="section__text section__text_dark">{{ item.get_first_attribute.sales_price|convert }}<span> {% trans 'UAH' %}</span>
+                                        </p>
+                                    {% else %}
+                                        <p class="section__text section__text_dark">{{ item.get_first_attribute.price|convert }}<span> {% trans 'UAH' %}</span>
+                                        </p>
+                                    {% endif %}
 
-                   <button data-href="{% url 'add_to_cart' item.pk %}" class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
+                                    <button data-href="{% url 'add_to_cart' item.pk %}"
+                                            class="button button_uppercase product__button cart__catalogue">{% trans 'Add to cart' %}</button>
 
-                  </div>
-              </span>
-              </div>
-            </div>
+                                </div>
 
-              {% endfor %}
+                            </div>
+                        </div>
 
-            {% include 'lions_heart_products/pagination.html' %}
+                    {% endfor %}
 
-        </div>
-        {% include 'lions_heart_products/pagination_form.html' %}
-      </section>
+                    {% include 'lions_heart_products/pagination.html' %}
+
+                </div>
+                {% include 'lions_heart_products/pagination_form.html' %}
+        </section>
     </main>
 
 
-    {% endblock content %}
+{% endblock content %}
