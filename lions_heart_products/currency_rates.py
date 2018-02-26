@@ -7,4 +7,4 @@ def request_rate():
     request = urllib.request.Request(URL_API)
     response = urllib.request.urlopen(request)
     data = json.loads(response.read().decode('utf-8'))
-    return round(float(data[0]['ask']), 2)
+    return round(float(data[2]['ask']), 2)
