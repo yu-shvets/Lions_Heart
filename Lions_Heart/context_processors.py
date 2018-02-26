@@ -15,6 +15,7 @@ def project_variables(request):
     items = cart.cart_len()
     rate = get_rate()
     company_info = CompanyInformation.objects.first()
+    page_items = [7, 14, 28, 56]
     return {'collections': collections, 'categories': categories, 'categories_first': categories_first,
             'categories_second': categories_second, 'items': items, 'rate': rate, 'company_info': company_info,
-            'lions_heart': lions_heart, 'revived': revived}
+            'lions_heart': lions_heart, 'revived': revived, 'page_items': page_items}
