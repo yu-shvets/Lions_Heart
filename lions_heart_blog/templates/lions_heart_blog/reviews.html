@@ -15,16 +15,12 @@
             </div>
           </div>
 
-        {% if messages %}
-        {% for message in messages %}
-            <p{% if message.tags %} class="{{ message.tags }}" style="color: red" {% endif %}>{{ message }}</p>
-        {% endfor %}
-        {% endif %}
+            <p id="error" style="color: red"></p>
 
         <h4>{% trans 'Please, leave your message:' %}</h4>
 
             <div style="margin-bottom: 20px">
-                <form method="post" action="{% url 'review_create' %}">
+                <form id="review_form" method="post" action="{% url 'review_create' %}">
                   {% csrf_token %}
 
                     {% trans 'Name:' %}
@@ -37,7 +33,9 @@
                 </form>
             </div>
             <hr>
-            <div>
+            <div id="review">
+                <p id="author_date"></p>
+                <p id="review_text" class="blog__text" style="text-align: justify"></p>
                 {% for review in object_list %}
                 <p>{{ review.author }} {{ review.created|date:'d-m-Y' }}</p>
                     <p class="blog__text" style="text-align: justify">{{ review.review }}</p><hr>

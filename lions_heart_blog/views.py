@@ -6,6 +6,10 @@ from django.urls import reverse
 from .forms import CommentForm, ReviewForm
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.utils.dateformat import DateFormat
+from django.http import JsonResponse
+from captcha.models import CaptchaStore
+from captcha.helpers import captcha_image_url
 
 
 class PostListView(ListView):
@@ -65,9 +69,21 @@ class ReviewCreate(CreateView):
     model = Reviews
     form_class = ReviewForm
 
-    def form_invalid(self, form):
-        messages.error(self.request, _('Error. Please, try again.'))
-        return HttpResponseRedirect(reverse('reviews'))
+    def form_valid(self, form):
+        response_data = {'error': ''}
+        obj = form.save(commit=False)
+        obj.save()
+        response_data['name'] = obj.author
+        response_data['review'] = obj.review
+        response_data['created'] = DateFormat(obj.created).format('d-m-Y')
+        response_data['key'] = CaptchaStore.generate_key()
+        response_data['image_url'] = captcha_image_url(response_data['key'])
+        return JsonResponse(response_data)
 
-    def get_success_url(self):
-            return reverse('reviews')
+    def form_invalid(self, form):
+        response_data = {'name': '', 'review': '', 'created': ''}
+        response_data['key'] = CaptchaStore.generate_key()
+        response_data['image_url'] = captcha_image_url(response_data['key'])
+        response_data['error'] = _('Error. Please, try again.')
+        return JsonResponse(response_data)
+

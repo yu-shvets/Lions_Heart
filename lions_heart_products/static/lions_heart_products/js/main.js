@@ -150,6 +150,34 @@ $('document').ready(function(){
     });
 
 
+
+  $('#review_form').on('submit', function(e) {
+    e.preventDefault();
+    var review = $(this);
+    $.ajax({
+        url: review.attr('action'),
+        method: 'post',
+        data: review.serialize(),
+
+        success: function (json) {
+            console.log('Hello!');
+
+            $('#error').text(json.error);
+
+            review.find('input[name="captcha_0"]').val(json.key);
+            review.find('img.captcha').attr('src', json.image_url);
+
+            if (json.name) {
+                $('#review').prepend("<p>" + json.name + " " + json.created + "</p>" +
+                    "<p class='blog__text' style='text-align: justify'>" + json.review + "</p>" + "<hr>");
+                review.each(function () {
+                    this.reset();
+                });
+            }
+            }
+    });
+});
+
   // $('#size_select').on('change', function(e){
   //
   //       var form = $(this).parent('form');
