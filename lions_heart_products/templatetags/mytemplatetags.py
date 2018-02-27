@@ -25,16 +25,17 @@ def url_delete(request, field):
 def post_rate():
     from lions_heart_products.currency_rates import request_rate
     rate = request_rate()
-    return CurrencyRate(rate=rate).save()
+    if rate:
+        CurrencyRate(rate=rate).save()
+        return rate
+    return CurrencyRate.objects.filter().first().rate
 
 
 def get_rate():
     try:
         rate = CurrencyRate.objects.get(created__date=datetime.date.today()).rate
     except ObjectDoesNotExist:
-        post_rate()
-        rate = CurrencyRate.objects.get(created__date=datetime.date.today()).rate
-
+        rate = post_rate()
     return rate
 
 
@@ -50,8 +51,3 @@ def get_category(route_name, request, first_id=None, second_id=None):
     if second_id and request.path == route:
         return "<a class='catalog__menu catalog__menu_active nav__link_capitalize' href=//{}{}>".format(request.get_host(), route)
     return "<a class='catalog__menu nav__link_capitalize' href=//{}{}>".format(request.get_host(), route)
-
-
-
-
-

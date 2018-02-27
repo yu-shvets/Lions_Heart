@@ -67,10 +67,10 @@ class Cart(object):
             attributes = Attributes.objects.get(id=int(item))
             quantity = self.cart[item]['quantity']
             if attributes.sales_price:
-                total += attributes.sales_price * quantity
+                total += convert(attributes.sales_price) * quantity
             else:
-                total += attributes.price * quantity
-        return convert(total)
+                total += convert(attributes.price) * quantity
+        return total
 
     def cart_len(self):
         return len([item for item in self.cart])

@@ -41,7 +41,7 @@ $('document').ready(function(){
 
   var update_q = $('.update_q');
 
-    update_q.on('change', function(e){
+    update_q.on('input', function(e){
 
         var form = $(this).parent('form');
         var id = form.attr('id').split('-')[1];
