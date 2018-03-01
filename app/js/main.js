@@ -34,6 +34,32 @@ $('document').ready(function(){
       return +value + (1 * +$button.data('step'));
     });
   });
+  var update_q = $('.update_q');
+
+    update_q.on('input', function(e){
+
+        var form = $(this).parent('form');
+        var id = form.attr('id').split('-')[1];
+
+        console.log(67576);
+
+        $.ajax({
+            url : form.attr('action'),
+            data : form.serialize(),
+            method: 'post',
+
+            success: function(json){
+                $('#quantity-' + id).text(json.quantity);
+                $('#sum-' + id).text(json.sum);
+                $('#total_price').text(json.total_price);
+                console.log(json);
+            },
+            error: function(e){
+                console.log(e);
+            }
+        });
+
+    });
   $('#cart__summ').on('keydown keyup', function(e){
     if ($(this).val() > 100 
         && e.keyCode != 46 // delete
@@ -46,7 +72,7 @@ $('document').ready(function(){
   $('.product__button_cart').on('click', function(){
     var img = $(this).parent().parent().find('.product__link').find('.product__img'),
         imgWidth = img.width(),
-        cart = $('.cart__length');
+        cart = $('#cart');
     
     img.clone().css({
       'width': imgWidth,
@@ -65,11 +91,66 @@ $('document').ready(function(){
   })
 });
 
+$('#id_size').change(function(e){
+  var form = $(this).parent('form');
+  $.ajax({
+      url : form.attr('action'),
+      type : "POST",
+      data : form.serialize(),
+
+      success: function(json){
+          console.log(json);
+          $('#price').text(json.price);
+          $('#sales_price').text(json.sales_price);
+          $('#weight').text(json.weight);
+          $('#diameter').text(json.diameter);
+          $('#width').text(json.width);
+          $('#height').text(json.height);
+          $('#length').text(json.length);
+          $('#size_id').val(json.size_id);
+      },
+      error: function(e){
+          console.log(e);
+      }
+  });
+});
+
+
+
+$('#review_form').on('submit', function(e) {
+e.preventDefault();
+var review = $(this);
+$.ajax({
+  url: review.attr('action'),
+  method: 'post',
+  data: review.serialize(),
+
+  success: function (json) {
+      console.log('Hello!');
+
+      $('#error').text(json.error);
+
+      review.find('input[name="captcha_0"]').val(json.key);
+      review.find('img.captcha').attr('src', json.image_url);
+
+      if (json.name) {
+          $('#review').prepend("<p>" + json.name + " " + json.created + "</p>" +
+              "<p class='blog__text' style='text-align: justify'>" + json.review + "</p>" + "<hr>");
+          review.each(function () {
+              this.reset();
+          });
+      }
+      }
+});
+});
+
+
 (function (){
   var swiper = new Swiper('.swiper-container', {
     effect: 'flip',
     slidesPerView:'auto',
     loop: true,
+    speed: 700,
     autoplay: {
       delay: 7000
     },

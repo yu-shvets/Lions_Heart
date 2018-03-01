@@ -141,7 +141,7 @@
       content:'';
       width:0;
       height:2px;
-      bottom:28px;
+      bottom:-2px;
       transition:all .3s;
       left:0;
       background-color:$black-color;
@@ -150,7 +150,7 @@
       position:absolute;
       content:'';
       width:0;
-      bottom:28px;
+      bottom:-2px;
       height:2px;
       right:0;
       transition:all .5s;
@@ -239,8 +239,15 @@
   }
 }
 
-//merge
+//MERGED
 
+.onsale {
+  width: 102px;
+  height: 102px;
+  position: absolute;
+  top:0;
+  right:0;
+}
 
 .header__link_child::before, .header__link_child::after {
   display:none;

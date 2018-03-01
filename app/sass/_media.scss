@@ -149,6 +149,7 @@
         &__rate {
             position: inherit;
             color: #0b7f58;
+            font-size: 23px;
         }
         &__logo {
             img:first-child {
@@ -157,6 +158,9 @@
         }
         &__line {
             top:73px;
+        }
+        &__link {
+            font-size: 23px;
         }
         &__nav {
             background:$white-color;
@@ -170,6 +174,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             top:0;
             bottom:0;
             height: auto;
