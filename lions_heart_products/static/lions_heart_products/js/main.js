@@ -25,10 +25,10 @@ $('document').ready(function(){
     $('.header__nav').toggleClass('header__nav_active');
     $('.header__mobile').toggleClass('header__mobile_active');
   });
-  //gallery 
+  //gallery
   var galeries = $("div[id^='gallery']");
   $.each(galeries, function(){
-      $('#' + $(this).attr('id')).photobox('a'); 
+      $('#' + $(this).attr('id')).photobox('a');
   });
   // plus/minus button
   $(".cart__table-btn").on("click", function() {
