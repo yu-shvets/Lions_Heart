@@ -207,6 +207,7 @@ $('document').ready(function(){
     effect: 'flip',
     slidesPerView:'auto',
     loop: true,
+    speed: 700,
     autoplay: {
       delay: 5000
     },
