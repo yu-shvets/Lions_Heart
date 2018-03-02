@@ -396,6 +396,14 @@
           justify-content: space-between;
 }
 
+.onsale {
+  width: 102px;
+  height: 102px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .header__link_child::before, .header__link_child::after {
   display: none;
 }
@@ -993,6 +1001,10 @@
   padding: 8px 11px;
   font-size: 14px;
   color: #000;
+}
+
+.blog-img {
+  width: 100%;
 }
 
 .blog__box {
@@ -2010,11 +2022,6 @@
 @font-face {
   font-family: 'FuturaDemic';
   src: url(../fonts/FuturaDemiC.ttf);
-}
-
-@font-face {
-  font-family: 'Gothic';
-  src: url(../fonts/11357.tft);
 }
 
 /*# sourceMappingURL=../css/main.css.map */

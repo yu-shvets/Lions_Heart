@@ -150,7 +150,7 @@ $.ajax({
     effect: 'flip',
     slidesPerView:'auto',
     loop: true,
-    speed: 700,
+    speed: 1400,
     autoplay: {
       delay: 7000
     },
