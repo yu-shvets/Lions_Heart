@@ -1778,13 +1778,19 @@
     display: block;
     text-align: center;
   }
-  .header__additional {
+.header__additional {
     float: none;
     text-align: center;
-  }
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+}
   .header__rate {
     position: inherit;
     color: #0b7f58;
+    font-size: 23px;
   }
   .header__logo img:first-child {
     width: auto;
@@ -1794,8 +1800,18 @@
   }
 
   .header__link {
-    font-size: 23px;
+    font-size: 28px;
+    padding-left: 10px;
+    display: block;
+    padding-right: 10px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+
   }
+
+  .header__link_child:first-child {
+    padding-top: 48px;
+}
 
   .header__nav {
     background: #fff;
