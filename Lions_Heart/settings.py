@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'sorl.thumbnail',
     'captcha',
+    'positions',
 ]
 
 MIDDLEWARE = [

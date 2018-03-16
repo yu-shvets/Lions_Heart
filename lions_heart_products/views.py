@@ -21,7 +21,7 @@ class CollectionListView(ListView):
         collection_id = self.kwargs['collection_id']
         if collection_id == '2':
             return queryset.filter(collection=self.kwargs['collection_id']).order_by('created')
-        return queryset.filter(collection=self.kwargs['collection_id']).order_by('attributes__price')
+        return queryset.filter(collection=self.kwargs['collection_id']).order_by('position')
 
     def get_context_data(self, **kwargs):
         context = super(CollectionListView, self).get_context_data(**kwargs)
@@ -40,7 +40,7 @@ class CategoryCollectionListView(CollectionListView):
         category_id = self.kwargs['category_id']
         if category_id == '7':
             return queryset.filter(collection=self.kwargs['collection_id'],
-                            category=self.kwargs['category_id']).order_by('-is_not_leather_chain', 'attributes__price')
+                            category=self.kwargs['category_id']).order_by('-is_not_leather_chain', 'position')
         return queryset.filter(collection=self.kwargs['collection_id'], category=self.kwargs['category_id'])
 
     def get_context_data(self, **kwargs):
@@ -53,7 +53,7 @@ class SalesListView(ListView):
     model = Item
     template_name = 'lions_heart_products/sales.html'
     paginate_by = 8
-    ordering = ['attributes__price']
+    ordering = ['position']
 
     def get_queryset(self):
         queryset = super(SalesListView, self).get_queryset()

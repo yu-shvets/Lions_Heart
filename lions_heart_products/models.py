@@ -1,6 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.utils.translation import ugettext_lazy as _
+from positions import PositionField
 
 
 class CommonInfo(models.Model):
@@ -69,6 +70,7 @@ class Item(CommonInfo):
     sales = models.IntegerField(verbose_name=_('sales, %'), blank=True, null=True)
     best_seller = models.BooleanField(default=False)
     is_not_leather_chain = models.BooleanField(default=True)
+    position = PositionField()
 
     def save(self, *args, **kwargs):
         if self.sales:
@@ -85,7 +87,7 @@ class Item(CommonInfo):
         return Attributes.objects.filter(item=self).first()
 
     def __str__(self):
-        return "{}-{}-{}".format(self.collection, self.category, self.title)
+        return "{}-{}-{}-{}".format(self.collection, self.category, self.title, self.position)
 
 
 class Image(models.Model):
