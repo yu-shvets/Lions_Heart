@@ -125,7 +125,7 @@ class Attributes(models.Model):
     sales_price = models.DecimalField(max_digits=11, decimal_places=2,
                                       blank=True, null=True, verbose_name='sales price')
     diameter = models.FloatField(blank=True, null=True, verbose_name='diameter, mm')
-    length = models.FloatField(blank=True, null=True, verbose_name='length, mm')
+    length = models.FloatField(blank=True, null=True, verbose_name='length, cm')
     width = models.FloatField(blank=True, null=True, verbose_name='width, mm')
     height = models.FloatField(blank=True, null=True, verbose_name='height, mm')
     item = models.ForeignKey(Item, on_delete=models.CASCADE)

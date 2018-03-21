@@ -82,7 +82,7 @@
               {% endif %}
 
                 {% if item.get_first_attribute.diameter %}<li class="section__text section__text_dark sp__item">{% trans 'Diameter, mm:' %} <span id="diameter">{{ item.get_first_attribute.diameter }}</span></li>{% endif %}
-                {% if item.get_first_attribute.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, mm:' %} <span id="length">{{ item.get_first_attribute.length }}</span></li>{% endif %}
+                {% if item.get_first_attribute.length %}<li class="section__text section__text_dark sp__item">{% trans 'Length, cm:' %} <span id="length">{{ item.get_first_attribute.length }}</span></li>{% endif %}
                 {% if item.get_first_attribute.width %}<li class="section__text section__text_dark sp__item">{% trans 'Width, mm:' %} <span id="width">{{ item.get_first_attribute.width }}</span></li>{% endif %}
                 {% if item.get_first_attribute.height %}<li class="section__text section__text_dark sp__item">{% trans 'Height, mm:' %} <span id="height">{{ item.get_first_attribute.height }}</span></li>{% endif %}
                 {% if item.specs.specs %}<li class="section__text section__text_dark sp__item">{{ item.specs.specs }}</li>{% endif %}

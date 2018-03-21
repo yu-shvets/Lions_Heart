@@ -17,11 +17,11 @@ class Order(CommonInfo):
                                  message="Phone number must be entered in the format: "
                                          "'+380441234567'. Up to 12 digits allowed.")
 
-    customer_name = models.CharField(max_length=256, verbose_name=_("name*"))
-    customer_email = models.EmailField(verbose_name="e-mail*")
+    customer_name = models.CharField(max_length=256, verbose_name=_("name"), blank=True, default='')
+    customer_email = models.EmailField(verbose_name="e-mail*", blank=True, null=True)
     phone = models.CharField(validators=[phone_regex], max_length=17, verbose_name=_('phone*'))
     payment_type = models.CharField(choices=PAYMENT_CHOICES, max_length=15,
-                                    default='Credit Card', verbose_name=_('payment type'))
+                                    default='Credit Card', verbose_name=_('payment type'), blank=True, null=True)
     comment = models.TextField(verbose_name=_('comment'), blank=True, null=True, max_length=1000)
     total_cost = models.DecimalField(max_digits=11, decimal_places=2, verbose_name=_('total cost'))
 

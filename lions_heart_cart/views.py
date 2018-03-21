@@ -168,8 +168,7 @@ class OrderCreate(CreateView):
         self.obj.save()
         message = create_order_item(self.request, obj=self.obj)
         cart.clear()
-        send_mail('Lions Heart', message, settings.EMAIL_HOST_USER,
-                  [self.obj.customer_email, settings.STAFF_EMAIL])
+        send_mail('Lions Heart', message, settings.EMAIL_HOST_USER, (settings.STAFF_EMAIL,))
         return HttpResponseRedirect(reverse('success'))
         # if self.obj.payment_type == 'Cash' or self.obj.payment_type == 'Наличные' or self.obj.payment_type == 'Готівка':
         #     return HttpResponseRedirect(reverse('success'))
