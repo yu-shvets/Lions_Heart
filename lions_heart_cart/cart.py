@@ -62,6 +62,7 @@ class Cart(object):
         return convert(value) * quantity
 
     def get_total(self):
+        self.check_availability()
         total = 0
         for item in self.cart:
             attributes = Attributes.objects.get(id=int(item))
@@ -78,3 +79,11 @@ class Cart(object):
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
         self.session.modified = True
+
+    def check_availability(self):
+        for item in list(self.cart):
+            try:
+                attributes = Attributes.objects.get(id=int(item))
+            except Exception:
+                self.remove(item)
+

@@ -71,6 +71,7 @@ class Item(CommonInfo):
     best_seller = models.BooleanField(default=False)
     is_not_leather_chain = models.BooleanField(default=True)
     position = PositionField()
+    is_available = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if self.sales:

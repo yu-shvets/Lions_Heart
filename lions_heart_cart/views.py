@@ -39,6 +39,7 @@ def check_size(request):
 def get_cart(request):
     cart_items = []
     cart = Cart(request)
+    cart.check_availability()
     for item in cart:
         attributes = Attributes.objects.get(id=int(item))
         quantity = cart[item]['quantity']
