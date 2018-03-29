@@ -67,9 +67,9 @@
               <ul class="sp__list sp__list_padding">
 
               {% if item.is_available %}
-              <li class="section__text section__text_dark sp__item">{% trans 'The item is available' %}</li>
+              <li class="section__text section__text_dark sp__item" style="color: #0b7f58">{% trans 'The item is available' %}</li>
               {% else %}
-              <li class="section__text section__text_dark sp__item">{% trans 'The item is on order' %}</li>
+              <li class="section__text section__text_dark sp__item" style="color: #428bca">{% trans 'The item is on order' %}</li>
               {% endif %}
 
               {% if item.get_first_attribute.weight %}<li class="section__text section__text_dark sp__item">{% trans 'Weight, gr:' %} <span id="weight">{{ item.get_first_attribute.weight }}</span></li>{% endif %}
