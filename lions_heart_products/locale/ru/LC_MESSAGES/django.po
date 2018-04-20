@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 11:22+0000\n"
+"POT-Creation-Date: 2018-04-20 12:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -171,7 +171,7 @@ msgstr "Главная"
 
 #: lions_heart_products/templates/lions_heart_products/collection.html:27
 #: lions_heart_products/templates/lions_heart_products/index.html:103
-#: lions_heart_products/templates/lions_heart_products/index.html:168
+#: lions_heart_products/templates/lions_heart_products/index.html:169
 #: lions_heart_products/templates/lions_heart_products/sales.html:21
 msgid "Sales"
 msgstr "Акции"
@@ -214,17 +214,17 @@ msgid "Our collections"
 msgstr "Наши коллекции"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:100
-#: lions_heart_products/templates/lions_heart_products/index.html:178
+#: lions_heart_products/templates/lions_heart_products/index.html:179
 msgid "About"
 msgstr "О нас"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:101
-#: lions_heart_products/templates/lions_heart_products/index.html:179
+#: lions_heart_products/templates/lions_heart_products/index.html:180
 msgid "Blog"
 msgstr "Блог"
 
 #: lions_heart_products/templates/lions_heart_products/index.html:102
-#: lions_heart_products/templates/lions_heart_products/index.html:180
+#: lions_heart_products/templates/lions_heart_products/index.html:181
 msgid "Contacts"
 msgstr "Контакты"
 
@@ -232,15 +232,15 @@ msgstr "Контакты"
 msgid "Acknowledgments"
 msgstr "Благодарности"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:105
+#: lions_heart_products/templates/lions_heart_products/index.html:106
 msgid "Cart"
 msgstr "Корзина"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:132
+#: lions_heart_products/templates/lions_heart_products/index.html:133
 msgid "start shopping"
 msgstr "перейти к покупкам"
 
-#: lions_heart_products/templates/lions_heart_products/index.html:187
+#: lions_heart_products/templates/lions_heart_products/index.html:188
 msgid "Call"
 msgstr "Звоните"
 
@@ -257,8 +257,8 @@ msgid "Weight, gr:"
 msgstr "Вес, гр:"
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:81
-msgid "Size: "
-msgstr "Размер: "
+msgid "Choose size: "
+msgstr "Выбор размера: "
 
 #: lions_heart_products/templates/lions_heart_products/item_detail.html:87
 msgid "Size:"
@@ -311,6 +311,9 @@ msgstr "Рекомендуем к выбранным вами товарам"
 #: lions_heart_products/templates/lions_heart_products/pagination_form.html:4
 msgid "Number of items:"
 msgstr "Показать:"
+
+#~ msgid "Size: "
+#~ msgstr "Размер: "
 
 #~ msgid "Collections"
 #~ msgstr "Коллекции"

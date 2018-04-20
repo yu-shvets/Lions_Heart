@@ -78,7 +78,7 @@
 
               <li class="section__text section__text_dark sp__item"><form method="post" action="{% url 'update_size' item.pk %}">
                             {% csrf_token %}
-                  <span id="id_size">{% trans 'Size: ' %}{% render_field form.size %}</span>
+                  <span id="id_size">{% trans 'Choose size: ' %}{% render_field form.size %}</span>
 
               </form></li>
 
